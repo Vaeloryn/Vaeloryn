@@ -1,0 +1,166 @@
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { SEO } from '@/components/SEO';
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  subject: z.string().optional(),
+  message: z.string().min(10, "Please provide a message"),
+});
+
+export function Contact() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
+    setIsSubmitted(true);
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen pt-32 pb-24 flex items-center justify-center">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          className="max-w-md mx-auto text-center space-y-6 px-6"
+        >
+          <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h2 className="font-display text-3xl text-foreground">Message Sent</h2>
+          <p className="text-muted-foreground">
+            Thank you for reaching out. We have received your message and will respond as soon as possible.
+          </p>
+          <Button onClick={() => window.location.href = '/'} variant="outline" className="mt-8">
+            Return to Home
+          </Button>
+        </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen pt-32 pb-24">
+      <SEO 
+        title="Contact Us | Vaeloryn" 
+        description="Get in touch with Vaeloryn for general inquiries, media requests, or other matters."
+      />
+      <div className="container px-6 max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-10"
+        >
+          <div className="space-y-4 text-center">
+            <h1 className="font-display text-4xl md:text-5xl font-light tracking-wider uppercase text-foreground">
+              Contact Us
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              For general inquiries, media requests, or other matters.
+            </p>
+          </div>
+
+          <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-10 mt-8">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Name *</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Jane Doe" className="bg-black/20" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email *</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="jane@example.com" className="bg-black/20" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Subject</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Optional" className="bg-black/20" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message *</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="How can we help?"
+                          className="min-h-[200px] bg-black/20 resize-y" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <Button type="submit" size="lg" className="w-full h-12 px-8 text-base">
+                  Send Message
+                </Button>
+              </form>
+            </Form>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,323 @@
+Build the first version of a website for an early-stage initiative called Vaeloryn.
+
+About Vaeloryn
+
+Vaeloryn is an early-stage initiative with the long-term mission of helping accelerate scientific, medical and technological progress, beginning in South Africa and ultimately contributing to humanity.
+
+Core message:
+
+Begin in South Africa. Build for humanity.
+
+Vaeloryn aims to help create an ecosystem that can identify exceptional people and ideas, connect them with expertise, capital and opportunities, support research and innovation, help promising technologies progress toward real-world application, and eventually create a sustainable cycle where successful innovation helps enable future innovation.
+
+Areas of interest include:
+
+* Medical science and biotechnology
+* Energy and energy technology
+* Fundamental scientific research
+* Artificial intelligence and computing
+* Engineering and robotics
+* Aerospace and space technology
+* Advanced manufacturing and materials
+* Water and agricultural technology
+* Climate and environmental technology
+* Other emerging and frontier technologies
+
+Current Stage
+
+Vaeloryn is at a very early stage.
+
+The website must NOT imply that Vaeloryn currently has:
+
+* A large team
+* Existing investments
+* Funded research projects
+* University partnerships
+* An investment fund
+* A cryptocurrency or token
+* Large amounts of capital
+* Established advisers or partners
+
+Do not invent statistics, team members, partnerships, testimonials, projects, achievements or funding.
+
+Do not mention the identity of the founder and do not discuss founder anonymity. The website should simply speak in the voice of Vaeloryn using “we” and “our”.
+
+Do not position Vaeloryn as a cryptocurrency project.
+
+Primary Purpose of the Website
+
+The first website has three objectives:
+
+1. Clearly explain Vaeloryn’s mission and long-term vision.
+2. Attract experienced people who may be willing to advise or help build Vaeloryn.
+3. Allow researchers, scientists, engineers, inventors and entrepreneurs to express interest in connecting with Vaeloryn about an idea or project.
+
+Website Structure
+
+Create the following main sections/pages:
+
+Home
+
+A powerful but understated hero section.
+
+Display:
+
+VAELORYN
+
+Building the future from South Africa.
+
+Include the message:
+
+Begin in South Africa. Build for humanity.
+
+Briefly explain that Vaeloryn is being developed to help accelerate scientific, medical and technological progress by connecting exceptional people and ideas with the expertise, resources and opportunities required to move forward.
+
+Include two prominent calls to action:
+
+Help Build Vaeloryn
+
+I Have an Idea or Project
+
+Our Mission
+
+Explain the mission clearly.
+
+Vaeloryn believes South Africa has exceptional scientific, medical, engineering and entrepreneurial potential.
+
+The long-term ambition is to help strengthen the pathway:
+
+Idea → Research → Validation → Prototype → Commercialisation → Scale → Reinvestment
+
+Explain that not every project needs to become a company and that fundamental scientific and medical research can have enormous value without immediate commercial returns.
+
+Areas of Progress
+
+Create a visually attractive section covering:
+
+Medical Science & Biotechnology
+
+Energy
+
+Fundamental Science
+
+AI & Computing
+
+Engineering & Robotics
+
+Aerospace & Space
+
+Advanced Materials & Manufacturing
+
+Water & Agriculture
+
+Climate & Environment
+
+Frontier Technologies
+
+Keep the descriptions concise.
+
+The Vaeloryn Bridge
+
+Explain the conceptual process:
+
+Discover
+
+Find exceptional people and ideas.
+
+Understand
+
+Identify what is preventing progress.
+
+Evaluate
+
+Bring in appropriate expertise.
+
+Connect
+
+Find the right people, institutions, expertise or capital.
+
+Support
+
+Help promising ideas reach their next meaningful milestone.
+
+Track
+
+Stay connected to progress.
+
+Scale
+
+Help successful ideas reach greater impact.
+
+Make clear that Vaeloryn is still being built and this represents the long-term model.
+
+Help Build Vaeloryn
+
+This should be one of the most prominent sections of the website.
+
+Use this message:
+
+“Vaeloryn is at the beginning of an ambitious mission to help accelerate scientific, medical and technological progress, beginning in South Africa.
+
+Building an institution capable of pursuing that mission requires knowledge and experience across many fields.
+
+We are seeking people who may be willing to contribute their expertise, perspective, advice or connections as Vaeloryn develops.”
+
+Mention that we would like to hear from:
+
+Scientists
+
+Doctors and medical researchers
+
+Engineers
+
+Academics
+
+Technology entrepreneurs
+
+Investors and venture capital professionals
+
+Legal and regulatory experts
+
+Finance and governance professionals
+
+University and research professionals
+
+Philanthropists
+
+And others who believe they can contribute.
+
+Make clear that people do not need to be looking for employment. They may simply want to have a conversation, offer advice, challenge our thinking or make an introduction.
+
+Include a contact form with:
+
+Name
+
+Email
+
+Area of expertise
+
+Current role or organisation — optional
+
+Professional profile or LinkedIn — optional
+
+How would you like to help? — dropdown or selectable options
+
+Message
+
+I Have an Idea or Project
+
+Create a separate pathway for researchers, scientists, engineers, inventors and entrepreneurs who want to connect with Vaeloryn.
+
+Clearly display this warning before the form:
+
+Please do not submit confidential information, unpublished scientific details, trade secrets or sensitive intellectual property through this form. At this stage, describe your idea or project only at a high level.
+
+Form fields:
+
+Name
+
+Email
+
+Project or idea name — optional
+
+Field or sector
+
+Current stage
+
+High-level description
+
+What is currently preventing the project from progressing?
+
+What type of support may be helpful?
+
+Do not request confidential technical information.
+
+Our Principles
+
+Summarise Vaeloryn’s principles:
+
+Scientific integrity
+
+Expert-led decision-making
+
+Responsible risk-taking
+
+Transparency and accountability
+
+Independence
+
+Long-term thinking
+
+Capital serving its intended purpose
+
+Success creating future opportunity
+
+South Africa first, global impact
+
+Include:
+
+Begin in South Africa. Build for humanity.
+
+Contact
+
+Provide a simple general contact form.
+
+Do not display a personal founder email address.
+
+Design Direction
+
+The website should feel:
+
+* Serious
+* Scientific
+* Forward-looking
+* Premium
+* Trustworthy
+* Ambitious
+* Minimal
+* Modern
+
+It should NOT look like:
+
+* A meme coin website
+* A typical cryptocurrency landing page
+* A gaming website
+* A flashy startup template
+
+Avoid excessive animations, neon crypto aesthetics, coin graphics and hype language.
+
+Use sophisticated typography, generous spacing and subtle visual elements inspired by science, engineering, energy and exploration.
+
+Create an original, minimal Vaeloryn wordmark as text for now. Do not spend time building a complex logo.
+
+The website must work well on desktop, tablet and mobile.
+
+Technical Requirements
+
+Keep the project architecture simple and inexpensive to run.
+
+Use a modern lightweight web stack appropriate for Replit.
+
+Avoid unnecessary dependencies.
+
+Do not add blockchain functionality.
+
+Do not create a cryptocurrency.
+
+Do not add payment processing.
+
+Do not add user accounts or authentication.
+
+Do not integrate paid APIs.
+
+Do not create an unnecessarily complex backend.
+
+For this initial development version, create the forms and form validation, but if a backend or external service is required to actually send/store submissions, keep the form handling as a clearly marked placeholder and do not introduce a paid service.
+
+Make the code clean and easy to expand later.
+
+Add basic SEO metadata for Vaeloryn, but do not make unsupported claims.
+
+Prioritise a polished, credible front-end website that can be developed privately before public launch.
+
+Before finishing, review the entire website and ensure that no invented achievements, partners, team members, projects, funding amounts or statistics have been added.
