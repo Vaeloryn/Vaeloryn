@@ -1,0 +1,55 @@
+I have uploaded a project called VAELO Prototype V1.
+
+Your task is ONLY to install dependencies, compile the smart contracts, and run the complete automated test suite.
+
+Do not deploy anything to Base Sepolia or any blockchain.
+Do not use any real cryptocurrency.
+Do not modify the tokenomics, supply, allocations, founder vesting schedule, or intended functionality unless a change is strictly necessary to fix a compilation or test failure.
+
+Please:
+
+1. Extract/open the VAELO Prototype V1 project if necessary.
+2. Install the required npm dependencies.
+3. Run the Hardhat compile command.
+4. Run the complete automated test suite.
+5. Check all three contracts:
+   - VaelorynToken.sol
+   - VaelorynGenesisAllocator.sol
+   - VaelorynFounderVesting.sol
+6. Verify through tests that:
+   - Total VAELO supply is exactly 1,000,000,000 VAELO.
+   - No additional public or administrative mint function exists.
+   - Genesis allocation totals exactly 1,000,000,000 VAELO.
+   - Allocations are exactly:
+     350,000,000 Ecosystem & Mission
+     250,000,000 Public & Community
+     150,000,000 Founder Vesting
+     100,000,000 Team & Advisers
+     100,000,000 Strategic Partnerships
+     50,000,000 Long-Term Reserve
+   - Genesis allocation cannot be executed twice.
+   - Founder vesting cannot release tokens before the vesting start date.
+   - Founder allocation totals exactly 150,000,000 VAELO.
+   - Founder vesting follows the cumulative 5-year schedule:
+     Year 1: 10%
+     Year 2: 25%
+     Year 3: 45%
+     Year 4: 70%
+     Year 5: 100%
+   - The full 150,000,000 founder allocation is vested by the end of Year 5.
+   - Tokens cannot be released twice for the same vested amount.
+   - Only vested tokens can be released.
+   - The complete genesis distribution leaves no unintended VAELO balance in the allocator.
+
+If any test or compilation step fails, diagnose the exact cause and make only the minimum necessary code change to fix it. Add additional automated tests where necessary to verify the requirements above.
+
+After all work is complete, STOP. Do not deploy.
+
+Give me a final report containing:
+- Exact number of tests passed and failed.
+- Any code changes you made and why.
+- Any security concerns you identified.
+- Any requirements that are not fully tested.
+- Whether you believe the prototype is ready for the next testnet preparation stage.
+
+Keep costs low. Do not add unnecessary features, packages, UI, websites, databases, or infrastructure.
