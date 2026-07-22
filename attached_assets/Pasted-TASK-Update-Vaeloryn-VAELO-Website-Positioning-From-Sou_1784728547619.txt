@@ -1,0 +1,99 @@
+TASK — Update Vaeloryn/VAELO Website Positioning From South Africa-Only to South African-Founded, Globally Focused
+
+OBJECTIVE
+
+Update the existing Vaeloryn/VAELO website positioning so that Vaeloryn is no longer presented as an ecosystem whose activities, projects, funding, support, or ambitions are limited exclusively to South Africa.
+
+The new core positioning is:
+
+“South African-founded. Globally focused.”
+
+An alternative public-facing hero line that may be used where appropriate is:
+
+“Born in South Africa. Built for a global future.”
+
+IMPORTANT: South Africa must remain a central part of Vaeloryn’s identity. Do not remove the South African origin or rewrite the brand as if it has no connection to South Africa.
+
+Instead, communicate that:
+
+- Vaeloryn is South African-founded.
+- South Africa is Vaeloryn’s home and foundation.
+- Supporting South African innovation, development, technology and progress remains an important part of the mission.
+- Vaeloryn’s long-term ambitions extend internationally.
+- Vaeloryn may eventually build, support, fund, collaborate with, or participate in projects, technologies, companies and ventures both in South Africa and internationally.
+- Vaeloryn seeks to contribute to long-term human progress and technological advancement.
+- Potential areas of interest include energy, medical science and biotechnology, fundamental science, AI, aerospace, robotics, water, agriculture, climate technology, education, scientific infrastructure and other high-impact fields.
+- Do not make the website sound like Vaeloryn is an investment fund unless the existing legal structure explicitly supports that terminology.
+
+VAELO POSITIONING
+
+VAELO should be presented as the native digital asset of the evolving Vaeloryn ecosystem.
+
+The token itself is not the end product. The long-term objective is to build a useful ecosystem around real activity, technology, projects, services, partnerships and innovation.
+
+Do NOT promise:
+- financial returns
+- token price appreciation
+- dividends
+- profit sharing
+- equity
+- ownership in companies or projects
+
+Do not state or imply that VAELO will definitely increase in value.
+
+Instead, explain that the aim is for VAELO’s utility and relevance to grow as the Vaeloryn ecosystem develops and expands.
+
+SUGGESTED CORE WEBSITE COPY
+
+Hero:
+
+“Born in South Africa. Built for a global future.”
+
+Supporting copy:
+
+“Vaeloryn is a South African-founded ecosystem exploring how blockchain, technology, innovation and long-term capital can support real-world progress. Starting from our home in South Africa, our ambition extends beyond borders — building, supporting and collaborating with projects, technologies and companies that can help shape the future.”
+
+Use this as a foundation and adapt it naturally to the existing website design and tone rather than mechanically repeating it on every page.
+
+IMPLEMENTATION INSTRUCTIONS
+
+1. First inspect the entire existing website and identify every piece of public-facing copy that currently limits Vaeloryn or VAELO exclusively to South Africa.
+
+2. Update those references carefully to reflect the new global scope while preserving South Africa as the organisation’s foundation and an important focus.
+
+3. Update the homepage hero and mission/vision sections where appropriate.
+
+4. Review About, Mission, Ecosystem, VAELO, Roadmap, Projects and any other relevant pages or sections for consistency.
+
+5. Preserve the existing visual design, branding, colours, typography, responsiveness and overall UI unless a minor layout adjustment is required because of changed text length.
+
+6. Do NOT redesign the website unnecessarily.
+
+7. Do NOT modify any Solidity smart contracts.
+
+8. Do NOT modify:
+   - VaelorynToken.sol
+   - VaelorynGenesisAllocator.sol
+   - VaelorynFounderVesting.sol
+
+9. Do NOT redeploy any contracts.
+
+10. Do NOT interact with the deployed Base Sepolia contracts.
+
+11. Do NOT change the VAELO token supply, allocations or vesting mechanics.
+
+12. Preserve the existing V1.1 prototype deployment exactly as it is.
+
+13. Do not introduce claims of guaranteed financial returns or guaranteed VAELO price appreciation.
+
+14. After making the changes, run all appropriate existing tests/build checks for the website.
+
+15. Provide a completion report listing:
+   - every file changed
+   - a summary of the copy changed
+   - confirmation that no smart contracts were modified
+   - confirmation that no blockchain transactions or deployments were performed
+   - test/build results
+   - any remaining South Africa-only wording that was intentionally retained and why
+
+STOP after completing and reporting the website changes. Do not deploy or publish the updated website without explicit approval.

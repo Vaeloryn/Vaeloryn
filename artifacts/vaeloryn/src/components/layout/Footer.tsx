@@ -9,7 +9,7 @@ export function Footer() {
           Vaeloryn
         </span>
         <p className="font-display text-muted-foreground text-sm tracking-widest uppercase max-w-md">
-          Begin in South Africa. Build for humanity.
+          Born in South Africa. Built for a global future.
         </p>
         <div className="flex gap-6 mt-4">
           <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">

@@ -45,7 +45,7 @@ const principles = [
   "Long-term thinking",
   "Capital serving its intended purpose",
   "Success creating future opportunity",
-  "South Africa first, global impact"
+  "South African-founded, globally focused"
 ];
 
 const bridgeSteps = [
@@ -62,8 +62,8 @@ export function Home() {
   return (
     <div className="w-full">
       <SEO 
-        title="VAELORYN — Building the future from South Africa | Scientific, medical and technological progress" 
-        description="Vaeloryn is being developed to help accelerate scientific, medical and technological progress, beginning in South Africa and ultimately contributing to humanity."
+        title="VAELORYN — Born in South Africa. Built for a global future. | Scientific and technological progress" 
+        description="Vaeloryn is a South African-founded ecosystem exploring how technology, innovation and long-term thinking can support real-world scientific, medical and technological progress — starting in South Africa, with ambitions that extend beyond borders."
       />
       {/* 1. Hero Section */}
       <section className="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden">
@@ -79,12 +79,12 @@ export function Home() {
             <motion.div variants={fadeInUp} className="w-px h-16 bg-gradient-to-b from-primary/50 to-transparent" />
             
             <motion.h2 variants={fadeInUp} className="text-xl md:text-3xl font-display font-light text-foreground/90 tracking-wide">
-              Building the future from South Africa.
+              Born in South Africa. Built for a global future.
             </motion.h2>
             
             <motion.div variants={fadeInUp} className="space-y-4 max-w-2xl mt-4">
               <p className="text-lg md:text-xl font-medium text-primary tracking-wide">
-                Begin in South Africa. Build for humanity.
+                South African-founded. Globally focused.
               </p>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 Vaeloryn is being developed to help accelerate scientific, medical and technological progress by connecting exceptional people and ideas with the expertise, resources and opportunities required to move forward.
@@ -114,7 +114,7 @@ export function Home() {
             <motion.div variants={fadeInUp} className="text-center space-y-6 max-w-3xl mx-auto">
               <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground">Our Mission</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                We believe South Africa possesses exceptional scientific, medical, engineering and entrepreneurial potential. Our long-term ambition is to strengthen the pathway from concept to impact.
+                Vaeloryn is a South African-founded ecosystem exploring how technology, innovation and long-term thinking can support real-world progress. South Africa is our home and foundation — and our ambition extends beyond borders, building, supporting and collaborating with projects, technologies and people that can help shape the future.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed italic">
                 Not every project needs to become a company. Fundamental scientific and medical research can have enormous value without immediate commercial returns.
@@ -236,7 +236,7 @@ export function Home() {
             
             <motion.div variants={fadeInUp} className="space-y-6 text-lg text-muted-foreground text-left md:text-center leading-relaxed">
               <p>
-                Vaeloryn is at the beginning of an ambitious mission to help accelerate scientific, medical and technological progress, beginning in South Africa.
+                Vaeloryn is at the beginning of an ambitious mission to help accelerate scientific, medical and technological progress — founded in South Africa, with ambitions that extend internationally.
               </p>
               <p>
                 Building an institution capable of pursuing that mission requires knowledge and experience across many fields. We are seeking people who may be willing to contribute their expertise, perspective, advice or connections as Vaeloryn develops.
