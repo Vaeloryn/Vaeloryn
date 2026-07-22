@@ -18,3 +18,8 @@ expertMode = true
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 20000
+
+[userenv]
+
+[userenv.shared]
+DEPLOYER_PRIVATE_KEY = "0xde0099fc1c06faac3d861bb10ae7b541425bcd21b807e0e76fd9ea39714a9e3c"

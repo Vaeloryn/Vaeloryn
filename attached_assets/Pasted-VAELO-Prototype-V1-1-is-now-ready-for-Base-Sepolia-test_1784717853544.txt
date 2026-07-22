@@ -1,0 +1,44 @@
+VAELO Prototype V1.1 is now ready for Base Sepolia testnet deployment.
+
+The dedicated test wallet private key has been securely stored in Replit Secrets as DEPLOYER_PRIVATE_KEY.
+
+IMPORTANT:
+- Deploy to BASE SEPOLIA TESTNET ONLY.
+- Base Sepolia chain ID must be exactly 84532.
+- Do NOT deploy to Base mainnet, Ethereum mainnet, or any other network.
+- Do NOT reveal, print, log, display, or modify DEPLOYER_PRIVATE_KEY.
+- Do NOT modify any of the three smart contracts.
+- Do NOT use real funds.
+- Stop immediately if the chain ID is not 84532.
+
+Before deployment:
+
+1. Run the complete automated test suite.
+2. Confirm all 14 tests pass.
+3. Confirm the three smart contracts are unchanged from VAELO Prototype V1.1.
+4. Confirm the connected network is Base Sepolia, chain ID 84532.
+5. Confirm the deployer wallet has sufficient Base Sepolia test ETH for gas.
+6. Confirm the deployment script's chain-ID safety guard is active.
+
+If and only if all checks pass, deploy VAELO Prototype V1.1 using the existing deployment script to Base Sepolia.
+
+After deployment:
+
+1. Record the VAELO token contract address.
+2. Record the Founder Vesting contract address.
+3. Record the Genesis Allocator contract address.
+4. Record the deployment transaction hashes where available.
+5. Verify that the VAELO total supply is exactly 1,000,000,000 VAELO.
+6. Verify the genesis allocation completed successfully.
+7. Verify the Founder Vesting contract holds exactly 150,000,000 VAELO.
+8. Verify the Genesis Allocator holds exactly 0 VAELO after allocation.
+9. Verify all remaining allocations match the V1.1 specification.
+10. Confirm no additional VAELO can be minted.
+11. Provide Base Sepolia explorer links for the deployed contracts and relevant transactions.
+12. Report the remaining Base Sepolia ETH balance of the deployer wallet.
+
+Do not perform any additional token transfers or contract interactions beyond those required by the existing deployment process and verification.
+
+Do not attempt contract verification/public source-code publication yet unless it is already part of the existing deployment process.
+
+At the end, STOP and provide a complete deployment report. Do not proceed to mainnet or any real-money activity.
