@@ -1,0 +1,73 @@
+The current VAELO project has successfully passed 14/14 automated tests.
+
+First, preserve the current tested state as VAELO Prototype V1.1.
+
+Requirements:
+
+1. Keep all three existing smart contracts unchanged:
+   - contracts/VaelorynToken.sol
+   - contracts/VaelorynGenesisAllocator.sol
+   - contracts/VaelorynFounderVesting.sol
+
+2. Preserve both test files:
+   - test/VaeloPrototype.test.js
+   - test/VaeloPrototype.additional.test.js
+
+3. Update the project version/documentation to identify this tested state as:
+   VAELO Prototype V1.1
+
+4. Run the complete test suite again and confirm 14/14 tests pass.
+
+5. Create a downloadable ZIP backup of the complete VAELO Prototype V1.1 project, including:
+   - All three contracts
+   - All automated tests
+   - Deployment scripts
+   - Hardhat configuration
+   - package.json and dependency configuration
+   - README
+   - .env.example
+
+Do NOT include:
+   - .env
+   - Private keys
+   - Wallet seed phrases
+   - node_modules
+   - Build caches
+
+After the V1.1 backup is complete, prepare the project for deployment to BASE SEPOLIA TESTNET ONLY.
+
+IMPORTANT SECURITY RULES:
+
+- Do NOT deploy to Base mainnet.
+- Do NOT deploy to Ethereum mainnet.
+- Do NOT use real VAELO.
+- Do NOT use real-money funds other than Base Sepolia test ETH, which has no intended monetary value.
+- Do NOT ask me to paste a private key into chat or source code.
+- Do NOT print, log, expose or commit a private key.
+- Any private key must only be stored using Replit's secure Secrets/environment-variable system.
+- Do NOT deploy until I explicitly approve deployment after preparation is complete.
+
+For Base Sepolia preparation:
+
+1. Verify the Hardhat Base Sepolia network configuration.
+2. Verify the deployment script can only be intentionally executed against Base Sepolia during this stage.
+3. Review the deployment script for errors.
+4. Confirm which environment variables/secrets are required.
+5. Ensure .env and secrets are excluded by .gitignore.
+6. Add a chain-ID safety check so the deployment script refuses to deploy unless the network chain ID is Base Sepolia chain ID 84532.
+7. Run all 14 tests again after any deployment-script/configuration changes.
+8. Do not modify the three tested smart contracts.
+9. Do not actually deploy anything.
+
+At the end, STOP and give me a report containing:
+
+- Confirmation that VAELO Prototype V1.1 was preserved.
+- Location/name of the downloadable V1.1 ZIP.
+- Final test result.
+- Any non-contract files that were changed.
+- Confirmation that the three smart contracts remain unchanged.
+- Base Sepolia deployment readiness.
+- Exact secrets/environment variables I need to configure.
+- Exact next steps I personally need to take before testnet deployment.
+
+Keep costs low and do not add unnecessary features or infrastructure.
