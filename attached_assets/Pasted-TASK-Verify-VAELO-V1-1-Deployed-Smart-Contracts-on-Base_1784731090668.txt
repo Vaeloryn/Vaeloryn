@@ -1,0 +1,78 @@
+TASK — Verify VAELO V1.1 Deployed Smart Contracts on Base Sepolia
+
+OBJECTIVE
+
+Verify the source code of the three existing VAELO Prototype V1.1 smart contracts on the Base Sepolia block explorer so that their deployed source code can be publicly inspected.
+
+EXISTING DEPLOYMENT
+
+Network: Base Sepolia
+Chain ID: 84532
+
+VaelorynToken:
+0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c
+
+VaelorynFounderVesting:
+0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2
+
+VaelorynGenesisAllocator:
+0xa3eF040471497538a617061FdDEea0CD4C03beBa
+
+IMPORTANT SAFETY REQUIREMENTS
+
+1. Do NOT redeploy any contracts.
+2. Do NOT modify any Solidity source code.
+3. Do NOT perform any blockchain transactions.
+4. Do NOT transfer any VAELO or ETH.
+5. Do NOT call any state-changing contract functions.
+6. Do NOT expose, print, log, or modify the deployer private key or any other secrets.
+7. Preserve the existing Base Sepolia deployment exactly as it is.
+
+FIRST PHASE — INSPECT AND PREPARE ONLY
+
+Before attempting verification:
+
+1. Inspect the repository and determine:
+   - Solidity compiler version used for the deployment
+   - optimizer enabled/disabled status
+   - optimizer runs, if applicable
+   - EVM version, if explicitly configured
+   - exact constructor arguments for each contract
+   - verification tooling already available in the project
+   - whether the deployment uses Hardhat, Foundry, or another framework
+
+2. Confirm that the local Solidity contracts correspond exactly to the contracts used for the V1.1 Base Sepolia deployment.
+
+3. Determine the appropriate Base Sepolia verification method.
+
+4. If an explorer API key or other credential is required and is not already configured, STOP and tell me exactly what is required and where I should obtain/configure it.
+
+5. Do not ask me to paste any API key or private key directly into chat or source code. Any required secret should be stored using Replit Secrets/environment variables.
+
+6. If verification can be performed safely without any missing configuration, verify all three deployed contracts.
+
+7. After verification, confirm the verification status of each contract individually.
+
+8. Run no deployment scripts and perform no state-changing blockchain operations.
+
+FINAL REPORT
+
+Provide:
+
+- Verification status for VaelorynToken
+- Verification status for VaelorynFounderVesting
+- Verification status for VaelorynGenesisAllocator
+- Compiler/version settings confirmed
+- Constructor arguments confirmed
+- Verification method used
+- Explorer links to each verified contract
+- Confirmation that no Solidity files were modified
+- Confirmation that no contracts were redeployed
+- Confirmation that no blockchain transactions were performed
+- Confirmation that no private keys or secrets were exposed
+
+If anything is uncertain, STOP before performing verification and report the uncertainty.
+
+Do not proceed to mainnet or any production deployment.
+
+STOP after verification and reporting.
