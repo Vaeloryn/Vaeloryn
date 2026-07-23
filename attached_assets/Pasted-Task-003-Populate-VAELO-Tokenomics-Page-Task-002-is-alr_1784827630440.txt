@@ -1,0 +1,152 @@
+Task 003 — Populate VAELO & Tokenomics Page
+
+Task 002 is already complete. Do not re-audit or recreate its work.
+
+Work only on the existing /vaelo page (Vaelo.tsx) and only modify another file if strictly required for this page to function.
+
+Preserve the existing Vaeloryn black-and-metallic-gold design and existing page header.
+
+Populate the /vaelo page with polished public-facing content using the following information.
+
+CURRENT STATUS
+
+VAELO is being developed as the native digital asset of the evolving Vaeloryn ecosystem.
+
+Core principle:
+“Utility follows products.”
+
+Vaeloryn does not intend to force VAELO into products merely to manufacture token demand. Mature utility should develop around real products, services and ecosystem activity where VAELO provides genuine value.
+
+VAELO currently exists as a prototype on Base Sepolia testnet.
+
+Network: Base Sepolia
+Chain ID: 84532
+Production/Mainnet: Not launched
+Public Real-Money Distribution: Not active
+
+VERIFIED PROTOTYPE CONTRACTS
+
+VaelorynToken
+0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c
+
+VaelorynFounderVesting
+0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2
+
+VaelorynGenesisAllocator
+0xa3eF040471497538a617061FdDEea0CD4C03beBa
+
+All three prototype contracts have been source-verified.
+
+A controlled 100 VAELO wallet-to-wallet test transfer has been completed successfully.
+
+Clearly state that the V1.1 prototype is not the final production/mainnet architecture.
+
+WORKING TOKENOMICS V1.0 — PRE-PROFESSIONAL REVIEW
+
+Proposed maximum supply:
+1,000,000,000 VAELO
+
+Allocation:
+
+30% / 300M — Ecosystem & Community
+20% / 200M — Public Distribution
+20% / 200M — Vaeloryn Treasury
+15% / 150M — Team & Contributors
+10% / 100M — Founder
+5% / 50M — Strategic Partnerships
+
+Display this allocation clearly using the existing visual design system. A clean responsive grid or similar lightweight presentation is preferred.
+
+Do not install a chart library.
+
+CORE TOKENOMICS PRINCIPLE
+
+“Allocation does not equal circulation.”
+
+Explain briefly that allocated VAELO may remain locked, reserved, vested or otherwise non-circulating.
+
+The intended production architecture should not permit minting beyond the proposed 1 billion maximum supply.
+
+PUBLIC DISTRIBUTION DIRECTION
+
+The 200M Public Distribution working allocation is currently structured as:
+
+Up to 10M potentially eligible for Stage A / early community distribution.
+
+Up to an additional 40M for subsequent initial stages, subject to milestone gates.
+
+150M Future Public Distribution Reserve.
+
+Clearly state:
+
+Distribution is intended to be milestone-gated, not calendar-gated.
+
+These allocations do not represent an active offer or sale.
+
+No real-money public VAELO distribution is currently active.
+
+Any future distribution remains subject to appropriate legal, regulatory, technical and security preparation.
+
+FOUNDER & TEAM DIRECTION
+
+Working founder allocation:
+100M VAELO / 10%
+
+Proposed structure:
+
+Up to 10M progressively eligible during Year 1, with a maximum of 2.5M per quarter.
+
+Remaining 90M subject to a proposed 12-month cliff followed by progressive vesting over the subsequent 36 months.
+
+Significant team and contributor grants are intended to use vesting or milestone conditions rather than becoming immediately transferable.
+
+Clearly label these as proposed working structures subject to professional review.
+
+TREASURY
+
+The 200M Vaeloryn Treasury is intended to support long-term ecosystem development.
+
+Clearly state that the treasury is not intended to function as a personal founder wallet.
+
+Production architecture should use appropriate safeguards, potentially including multisignature custody, separation of powers and timelocks for sensitive actions.
+
+IMPORTANT STATUS NOTICE
+
+Include a clearly visible notice explaining:
+
+Vaeloryn and VAELO are early-stage.
+
+VAELO currently exists as a prototype/testnet project.
+
+The tokenomics and production architecture described on this page are working proposals and remain subject to technical development and appropriate professional legal, regulatory, tax, economic and security review.
+
+Do not add:
+
+- Buy VAELO functionality
+- Connect Wallet functionality
+- Token pricing
+- A finalized $300K funding target
+- Investment return claims
+- Claims that mainnet is live
+- Claims that professional legal or security reviews are complete
+
+Keep the page polished, readable and responsive.
+
+Reuse existing components and styles wherever possible.
+
+Do not redesign unrelated pages.
+
+Do not modify Solidity files.
+
+Do not install new dependencies.
+
+After implementing the page:
+
+1. Run the TypeScript type check once.
+2. If it passes, stop.
+3. Do not perform additional audits or unrelated work.
+4. Report only:
+   - Files changed
+   - Brief summary of implementation
+   - Type-check result
+   - Any genuine issue requiring my attention
