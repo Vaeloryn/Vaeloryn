@@ -1,0 +1,160 @@
+Task 004 — Populate Trust & Transparency Page
+
+Task 002 is already complete. Do not re-audit or recreate previous work.
+
+Work only on the existing /transparency page (Transparency.tsx) and only modify another file if strictly required for this page to function.
+
+Preserve the existing Vaeloryn black-and-metallic-gold design and existing page header.
+
+Do not install new dependencies.
+Do not modify Solidity files.
+Do not redesign unrelated pages.
+
+OBJECTIVE
+
+Populate the /transparency page as Vaeloryn's public Trust, Transparency & Supply Protection Framework.
+
+The page must clearly distinguish between:
+1. Safeguards or technical facts that exist today.
+2. Safeguards proposed for the future production architecture.
+
+Do not imply that planned production protections are already implemented.
+
+CORE PRINCIPLE
+
+Feature prominently:
+
+“Trust through verifiable architecture, not promises.”
+
+Explain that Vaeloryn's long-term goal is to reduce reliance on trust in individual people by making important supply, vesting and treasury protections technically enforceable and independently verifiable where appropriate.
+
+CURRENT STATUS
+
+Clearly state:
+
+- VAELO currently exists as a Base Sepolia testnet prototype.
+- The current V1.1 contracts are prototypes and are not the final production architecture.
+- All three current prototype contracts are source-verified.
+- A controlled 100 VAELO wallet-to-wallet test transfer has been completed.
+- Independent production security review has not yet been completed.
+- Formal professional legal/regulatory review remains pending.
+- No active public real-money VAELO distribution exists.
+
+PROPOSED PRODUCTION SAFEGUARDS
+
+Present the following clearly as intended/proposed safeguards:
+
+- Proposed fixed maximum production supply of 1,000,000,000 VAELO.
+- Allocation does not equal circulation.
+- Intended on-chain founder vesting.
+- Vesting or milestone conditions for significant team and contributor allocations.
+- Appropriate multisignature custody for major reserves.
+- Timelocks for sensitive actions where appropriate.
+- Separation of developer, treasury and grant authority.
+- Public supply verification.
+- Clearly labelled major wallets/contracts where appropriate.
+- Transparency around material token movements.
+- Key rotation and signer replacement procedures.
+- Operational redundancy.
+- Appropriate independent security review before production/mainnet.
+- Contribution Rewards, if implemented, should distribute existing allocated VAELO rather than create new supply.
+
+SINGLE-POINT-OF-FAILURE PRINCIPLE
+
+Feature this prominently:
+
+“No single founder, developer, employee or private key should have unilateral technical authority to move or release a systemically significant proportion of VAELO’s reserved supply.”
+
+Explain that this is a core design requirement for the intended production architecture.
+
+FOUNDER PROTECTION
+
+Working founder allocation:
+100M VAELO / 10%
+
+Proposed structure:
+
+- Up to 10M progressively eligible during Year 1.
+- Maximum 2.5M per quarter during Year 1.
+- Remaining 90M subject to a proposed 12-month cliff.
+- Progressive vesting over the subsequent 36 months.
+
+Clearly state that this is a proposed working structure subject to professional review and final production implementation.
+
+TEAM & CONTRIBUTOR PROTECTION
+
+Explain that significant team and contributor grants should use documented approval processes and appropriate vesting or milestone conditions rather than unrestricted immediate allocations.
+
+TREASURY PROTECTION
+
+Clearly state:
+
+“The Vaeloryn Treasury is not intended to function as a personal founder wallet.”
+
+Explain that major reserves should use secure custody and appropriate governance.
+
+Mention proposed:
+- Multisignature approval.
+- Separation of powers.
+- Timelocks where appropriate.
+- Publicly identifiable treasury/reserve addresses where appropriate.
+- Material movement transparency.
+
+TRANSPARENCY & ACCOUNTABILITY
+
+Explain that, subject to law, cybersecurity, privacy and legitimate commercial confidentiality, Vaeloryn intends to communicate material information including:
+
+- Significant development milestones.
+- Material security incidents.
+- Significant project delays or failed milestones.
+- Major changes to token architecture.
+- Material treasury movements where appropriate.
+- Supply and circulation information.
+- Vesting and significant upcoming unlock information where appropriate.
+
+LIMITS OF THESE PROTECTIONS
+
+Include an important section explaining that:
+
+- These safeguards cannot guarantee VAELO's market value.
+- They cannot prevent independent holders from selling their own VAELO.
+- They cannot eliminate all cybersecurity, governance or market risks.
+- The objective is to reduce avoidable insider, concentration and single-point-of-failure risks through transparent and verifiable architecture.
+
+PROFESSIONAL REVIEW
+
+Clearly state that the final production systems remain subject to appropriate independent legal, regulatory, economic, smart-contract and security review.
+
+Do not claim any review has already been completed if it has not.
+
+CLOSING
+
+End with:
+
+“Build trust through what people can verify — not merely through what we ask them to believe.”
+
+IMPORTANT
+
+Do not add:
+- Buy VAELO functionality
+- Connect Wallet functionality
+- Token pricing
+- Investment return claims
+- Claims that production/mainnet is live
+- Claims that planned multisig or timelock protections are already implemented
+- Claims that independent legal or security review is complete
+
+Keep the page polished, readable and responsive.
+
+Reuse existing components and styles wherever possible.
+
+After implementing the page:
+
+1. Run the TypeScript type check once.
+2. If it passes, stop.
+3. Do not perform additional audits or unrelated work.
+4. Report only:
+   - Files changed
+   - Brief summary of implementation
+   - Type-check result
+   - Any genuine issue requiring my attention
