@@ -1,0 +1,407 @@
+Task 008 — Populate Public White Paper Page
+
+Previous tasks are complete. Do not re-audit or recreate previous work.
+
+Work only on the existing /whitepaper page (Whitepaper.tsx) and only modify another file if strictly required for this page to function.
+
+Preserve the existing Vaeloryn black-and-metallic-gold design and existing page header.
+
+Do not install new dependencies.
+Do not modify Solidity files.
+Do not redesign unrelated pages.
+
+OBJECTIVE
+
+Populate /whitepaper as the current public draft of the Vaeloryn & VAELO White Paper.
+
+This page should provide a structured overview of the project and link visitors to the existing specialist pages for deeper information.
+
+Do not unnecessarily duplicate every detail already available on /vaelo, /transparency, /roadmap, /risks and /status.
+
+Clearly label the document:
+
+VAELORYN & VAELO
+PUBLIC WHITE PAPER
+Draft V1.0
+Early-Stage / Pre-Professional Review
+
+Include a visible notice:
+
+This White Paper is a working public draft describing Vaeloryn's current vision, proposed architecture and working economic model.
+
+It is not a guarantee of future implementation or outcomes.
+
+The project remains subject to technical development and appropriate professional legal, regulatory, tax, economic and security review.
+
+1. EXECUTIVE SUMMARY
+
+Explain:
+
+Vaeloryn is an early-stage, South African-founded technology and innovation project with global ambitions.
+
+Its long-term vision is to build, support and collaborate around meaningful real-world projects in science and technology.
+
+VAELO is being developed as a potential native digital asset within the evolving Vaeloryn ecosystem.
+
+The project is currently in:
+
+Stage A — Foundation
+
+VAELO currently exists as a Base Sepolia testnet prototype.
+
+Production/mainnet VAELO has not been launched.
+
+No active public real-money VAELO distribution currently exists.
+
+2. THE VAELORYN VISION
+
+Explain that Vaeloryn aims to develop an ecosystem capable of:
+
+- Building internal technology and science projects.
+- Supporting promising ideas and contributors.
+- Developing strategic partnerships.
+- Potentially making selective strategic investments in the future.
+- Building sustainable products and organisations around real-world value.
+
+Long-term fields of interest may include:
+
+- Energy
+- Artificial intelligence
+- Medical science
+- Biotechnology
+- Aerospace
+- Robotics
+- Advanced engineering
+
+Clearly state that these are long-term areas of interest and not commitments to launch specific businesses.
+
+Feature:
+
+“Born in South Africa. Built for a global future.”
+
+3. THE CORE DEVELOPMENT PHILOSOPHY
+
+Feature:
+
+“Utility follows products.”
+
+Explain:
+
+Vaeloryn does not intend to force VAELO into products merely to manufacture token demand.
+
+The priority is to build useful products, services and ecosystem activity first.
+
+VAELO utility should develop where the digital asset provides genuine functional value.
+
+4. WHAT IS VAELO?
+
+Explain:
+
+VAELO is the developing digital asset of the Vaeloryn ecosystem.
+
+Its potential long-term roles may evolve alongside actual Vaeloryn products and ecosystem activity.
+
+Current status:
+
+Network:
+Base Sepolia Testnet
+
+Chain ID:
+84532
+
+Prototype:
+V1.1
+
+Production/Mainnet:
+Not launched
+
+Public Real-Money Distribution:
+Not active
+
+Include a clear link/button to:
+/vaelo
+
+Label:
+Explore VAELO & Tokenomics
+
+5. CURRENT TESTNET DEVELOPMENT
+
+Explain that three prototype contracts are currently deployed and source-verified on Base Sepolia:
+
+VaelorynToken
+0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c
+
+VaelorynFounderVesting
+0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2
+
+VaelorynGenesisAllocator
+0xa3eF040471497538a617061FdDEea0CD4C03beBa
+
+A controlled 100 VAELO wallet-to-wallet test transfer has been completed successfully.
+
+Clearly state:
+
+These are prototype contracts.
+
+Source verification does not constitute an independent security audit.
+
+The V1.1 prototype is not the final production/mainnet architecture.
+
+6. WORKING TOKENOMICS
+
+Clearly label:
+
+Working Tokenomics V1.0
+Pre-Professional Review
+
+Proposed maximum supply:
+
+1,000,000,000 VAELO
+
+Working allocation:
+
+30% — Ecosystem & Community
+20% — Public Distribution
+20% — Vaeloryn Treasury
+15% — Team & Contributors
+10% — Founder
+5% — Strategic Partnerships
+
+Feature:
+
+“Allocation does not equal circulation.”
+
+Explain briefly that allocated VAELO may remain locked, reserved, vested or otherwise non-circulating.
+
+Mention that the intended production architecture should not permit minting beyond the proposed maximum supply.
+
+Do not repeat the full detailed vesting and distribution mechanics here.
+
+Instead include a link/button to:
+/vaelo
+
+Label:
+View Full Tokenomics
+
+7. STAGE A FUNDING DIRECTION
+
+Explain carefully:
+
+Vaeloryn is exploring whether a limited future Stage A VAELO distribution could serve as one possible funding mechanism for early professional, technical and organisational development.
+
+The current working tokenomics designate up to 10,000,000 VAELO as potentially eligible for Stage A / early community distribution.
+
+This does not represent a commitment to distribute or sell the full amount.
+
+No token price has been finalised or published.
+
+No active public real-money VAELO distribution currently exists.
+
+Any future distribution remains subject to appropriate legal, regulatory, technical and security preparation.
+
+Do not publish or imply a finalized $300K funding target.
+
+8. TRUST, TRANSPARENCY & SUPPLY PROTECTION
+
+Feature:
+
+“Trust through verifiable architecture, not promises.”
+
+Explain that the intended production direction includes:
+
+- On-chain vesting.
+- Appropriate multisignature custody for major reserves.
+- Separation of powers.
+- Timelocks for sensitive actions where appropriate.
+- Public supply verification.
+- Transparency around material token movements.
+- Operational redundancy.
+- Appropriate independent security review.
+
+Feature prominently:
+
+“No single founder, developer, employee or private key should have unilateral technical authority to move or release a systemically significant proportion of VAELO’s reserved supply.”
+
+Clearly state that these are intended production safeguards and are not all implemented in the current testnet prototype.
+
+Include a link/button to:
+/transparency
+
+Label:
+Read Trust & Transparency Framework
+
+9. CONTRIBUTION & COMMUNITY
+
+Explain that Vaeloryn intends to invite participation from people with relevant expertise, potentially including:
+
+- Developers
+- Engineers
+- Scientists
+- Researchers
+- Lawyers
+- Security professionals
+- Entrepreneurs
+- Designers
+- Other specialists
+
+Explain that future Contribution Rewards, if implemented, should distribute VAELO from an existing allocated pool rather than create new supply.
+
+Any reward system remains subject to appropriate governance and legal review.
+
+Include a link/button to:
+/help-build
+
+Label:
+Help Build Vaeloryn
+
+10. ROADMAP
+
+Summarise:
+
+Stage A — Foundation
+Current phase.
+
+Stage B — Execution
+Potential future focus on launching and demonstrating the first real Vaeloryn project.
+
+Stage C — Expansion
+Potential future expansion of successful projects, partnerships and ecosystem activity.
+
+Stage D — Global Ecosystem
+Long-term vision of a globally connected innovation ecosystem.
+
+Feature:
+
+Progression is milestone-gated, not simply calendar-gated.
+
+Future stages and outcomes are not guaranteed.
+
+Include a link/button to:
+/roadmap
+
+Label:
+View Full Roadmap
+
+11. LEGAL & REGULATORY APPROACH
+
+Explain:
+
+Vaeloryn intends to progress cautiously through relevant legal and regulatory gates.
+
+Before activating any real-money public VAELO distribution, the project intends to obtain appropriate professional guidance regarding matters such as:
+
+- Entity and issuer structure.
+- Applicable regulatory requirements.
+- Licensing or registration requirements.
+- KYC/AML and sanctions obligations.
+- Participant and jurisdiction restrictions.
+- Marketing and disclosure requirements.
+- Tax, accounting, banking and custody considerations.
+
+Feature:
+
+“If a required legal or regulatory gate cannot yet be cleared, the regulated activity should not proceed.”
+
+Clearly state that professional legal/regulatory review remains pending.
+
+12. RISK
+
+Explain briefly that Vaeloryn and VAELO involve significant early-stage risks including:
+
+- Execution risk.
+- Digital-asset and market risk.
+- Regulatory risk.
+- Smart-contract and cybersecurity risk.
+- Custody risk.
+- Liquidity risk.
+- Tokenomics risk.
+- Governance risk.
+- Third-party infrastructure risk.
+
+Feature:
+
+“Transparency about risk does not eliminate risk.”
+
+Include a link/button to:
+/risks
+
+Label:
+Read Full Risk Disclosure
+
+13. CURRENT PROJECT STATUS
+
+Explain that Vaeloryn intends to maintain a clear distinction between:
+
+- Completed.
+- In progress.
+- Pending.
+- Proposed.
+
+Include a link/button to:
+/status
+
+Label:
+View Current Project Status
+
+14. CLOSING
+
+End with a concise statement:
+
+Vaeloryn is at the beginning of its development.
+
+The objective of Stage A is not to pretend that the final ecosystem already exists.
+
+It is to build the foundations openly, demonstrate progress, invite scrutiny and earn trust through execution.
+
+Feature:
+
+“Show the work before asking for trust.”
+
+Then:
+
+“Born in South Africa. Built for a global future.”
+
+Include final navigation links to:
+
+VAELO
+Project Status
+Trust & Transparency
+Roadmap
+Risk Disclosure
+Help Build Vaeloryn
+
+IMPORTANT RESTRICTIONS
+
+Do not add:
+
+- Buy VAELO functionality
+- Connect Wallet functionality
+- Token pricing
+- A finalized $300K funding target
+- Investment return claims
+- Guaranteed utility
+- Guaranteed exchange listing
+- Claims that production/mainnet is live
+- Claims that professional legal or security review is complete
+- Claims that proposed production safeguards are already implemented
+
+Keep the page polished, readable and responsive.
+
+Use clear section numbering and visual hierarchy so the White Paper is easy to navigate.
+
+A lightweight table of contents near the top is encouraged if it can be implemented using existing components and normal anchor links.
+
+Do not install a table-of-contents library.
+
+Reuse existing components and styles wherever possible.
+
+After implementing:
+
+1. Run the TypeScript type check once.
+2. If it passes, stop.
+3. Do not perform additional audits or unrelated work.
+4. Report only:
+   - Files changed
+   - Brief summary of implementation
+   - Type-check result
+   - Any genuine issue requiring my attention
