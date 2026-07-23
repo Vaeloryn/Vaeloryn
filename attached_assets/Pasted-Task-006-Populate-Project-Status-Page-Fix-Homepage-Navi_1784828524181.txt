@@ -1,0 +1,208 @@
+Task 006 — Populate Project Status Page + Fix Homepage Navigation
+
+Previous tasks are complete. Do not re-audit or recreate previous work.
+
+PRIMARY TASK
+
+Work on the existing /status page (Status.tsx).
+
+Also make only the small navigation fixes specified at the end of this task.
+
+Preserve the existing Vaeloryn black-and-metallic-gold design and existing page header.
+
+Do not install new dependencies.
+Do not modify Solidity files.
+Do not redesign unrelated pages.
+
+OBJECTIVE
+
+Populate /status as the definitive public source for Vaeloryn's current project status.
+
+The page should make it immediately clear:
+
+- What exists today.
+- What has been completed.
+- What is currently being developed.
+- What remains pending.
+- What is only proposed.
+
+Use clear visual status indicators using existing components/icons only.
+
+CURRENT PHASE
+
+Feature prominently:
+
+CURRENT PHASE
+Stage A — Foundation
+
+Status:
+Active Development
+
+Explain briefly that Vaeloryn is currently focused on building its public, technical, legal, security and organisational foundations.
+
+CURRENT VAELO STATUS
+
+Display:
+
+Network:
+Base Sepolia Testnet
+
+Chain ID:
+84532
+
+Prototype Version:
+V1.1
+
+Production / Mainnet:
+Not launched
+
+Public Real-Money VAELO Distribution:
+Not active
+
+Independent Production Security Review:
+Pending
+
+Professional Legal / Regulatory Review:
+Pending
+
+First Flagship Project:
+Selection pending
+
+COMPLETED TO DATE
+
+Clearly mark these as completed:
+
+- VAELO V1.1 prototype deployed to Base Sepolia testnet.
+- Three prototype contracts deployed.
+- All three prototype contracts source-verified.
+- Controlled 100 VAELO wallet-to-wallet test transfer completed successfully.
+- Initial VAELO tokenomics framework developed.
+- Trust, Transparency & Supply Protection Framework developed.
+- Stage A roadmap developed.
+- Public White Paper draft developed.
+- Public Risk Disclosure developed.
+- Vaeloryn public website under active development.
+- Public social channels established.
+- Help Build Vaeloryn contribution pathway established.
+
+Do not imply that internal frameworks equal professional legal, regulatory or security approval.
+
+VERIFIED TESTNET CONTRACTS
+
+Display the three current prototype contracts:
+
+VaelorynToken
+0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c
+
+VaelorynFounderVesting
+0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2
+
+VaelorynGenesisAllocator
+0xa3eF040471497538a617061FdDEea0CD4C03beBa
+
+Clearly label them:
+
+Base Sepolia Testnet
+Source Verified
+Prototype Only
+
+Do not imply these are final production contracts.
+
+CURRENTLY IN PROGRESS
+
+Display:
+
+- Public website development and documentation.
+- Building public awareness and community presence.
+- Developing the Help Build Vaeloryn contributor network.
+- Refining Stage A strategy.
+- Exploring appropriate professional legal and regulatory guidance.
+- Preparing for future production architecture design.
+- Evaluating potential first flagship project directions.
+
+PENDING BEFORE PRODUCTION / MAINNET
+
+Display clearly as pending:
+
+- Appropriate professional legal and regulatory review.
+- Appropriate entity and organisational structure.
+- Final production token architecture.
+- Production-grade founder and team vesting implementation.
+- Secure treasury custody architecture.
+- Appropriate multisignature controls.
+- Separation-of-powers implementation.
+- Timelocks where appropriate.
+- Independent smart-contract/security review.
+- Final production deployment.
+- Any required compliance systems.
+- Any future public real-money distribution process.
+
+IMPORTANT
+
+Clearly state:
+
+No production/mainnet VAELO is currently represented as launched.
+
+No active public real-money VAELO distribution currently exists.
+
+The current contracts are testnet prototypes.
+
+Future plans remain subject to development and appropriate professional review.
+
+STATUS PRINCIPLE
+
+Feature:
+
+“Be clear about what exists today, what comes next, and what remains uncertain.”
+
+Explain briefly that this page should evolve as Vaeloryn progresses and is intended to provide visitors with a clear view of the project's actual development state.
+
+HOMEPAGE NAVIGATION FIXES
+
+Make these targeted fixes:
+
+1. Change the homepage hero button:
+"Explore Vaeloryn"
+to navigate to:
+/vaelo
+
+2. Change the homepage hero button:
+"View Our Progress"
+to navigate to:
+/status
+
+3. If the Navbar "Progress" link currently points to /#progress, change it to:
+/status
+
+Ensure these links navigate correctly using the application's existing routing approach.
+
+Do not make any other homepage or Navbar changes.
+
+IMPORTANT RESTRICTIONS
+
+Do not add:
+
+- Buy VAELO functionality
+- Connect Wallet functionality
+- Token pricing
+- Investment return claims
+- A finalized $300K funding target
+- Claims that production/mainnet is live
+- Claims that legal or security review is complete
+
+Keep the Status page polished, readable and responsive.
+
+Reuse existing components and styles wherever possible.
+
+After implementing:
+
+1. Run the TypeScript type check once.
+2. If it passes, stop.
+3. Do not perform additional audits or unrelated work.
+4. Report only:
+   - Files changed
+   - Brief summary of implementation
+   - Confirmation that both homepage hero buttons now navigate correctly
+   - Confirmation of the Navbar Progress destination
+   - Type-check result
+   - Any genuine issue requiring my attention

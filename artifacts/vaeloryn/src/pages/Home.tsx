@@ -118,13 +118,13 @@ export function Home() {
             {/* Three primary CTAs */}
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-12 w-full sm:w-auto">
               <Link
-                href="/#mission"
+                href="/vaelo"
                 className="inline-flex items-center justify-center whitespace-nowrap rounded-md h-14 px-8 text-base font-medium tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 Explore Vaeloryn
               </Link>
               <Link
-                href="/#progress"
+                href="/status"
                 className="inline-flex items-center justify-center whitespace-nowrap rounded-md h-14 px-8 text-base font-medium tracking-wide border border-primary/40 hover:border-primary/70 bg-primary/10 hover:bg-primary/15 text-primary transition-all backdrop-blur-sm"
               >
                 View Our Progress
