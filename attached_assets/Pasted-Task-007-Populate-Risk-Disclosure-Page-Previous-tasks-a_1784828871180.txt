@@ -1,0 +1,243 @@
+Task 007 — Populate Risk Disclosure Page
+
+Previous tasks are complete. Do not re-audit or recreate previous work.
+
+Work only on the existing /risks page (Risks.tsx) and only modify another file if strictly required for this page to function.
+
+Preserve the existing Vaeloryn black-and-metallic-gold design and existing page header.
+
+Do not install new dependencies.
+Do not modify Solidity files.
+Do not redesign unrelated pages.
+
+OBJECTIVE
+
+Populate /risks as Vaeloryn's public early-stage Risk Disclosure.
+
+The page should be clear, readable and transparent without using unnecessarily alarming language.
+
+Clearly state that this is a general public risk disclosure for an early-stage project and is not a substitute for any disclosures, documentation or warnings that may later be required following professional legal or regulatory review.
+
+EARLY-STAGE NOTICE
+
+Feature prominently:
+
+“Vaeloryn and VAELO are early-stage and experimental.”
+
+Explain:
+
+VAELO currently exists as a Base Sepolia testnet prototype.
+
+Production/mainnet VAELO has not been launched.
+
+No active public real-money VAELO distribution currently exists.
+
+The project's architecture, tokenomics, roadmap and organisational structure may change as development progresses and professional guidance is obtained.
+
+RISK CATEGORIES
+
+Create clear sections for the following:
+
+1. EARLY-STAGE & EXECUTION RISK
+
+Explain that Vaeloryn is at an early stage.
+
+There is no guarantee that:
+- Planned milestones will be achieved.
+- The first flagship project will succeed.
+- Future products will generate revenue.
+- The roadmap will proceed as currently proposed.
+- Vaeloryn will obtain sufficient funding or resources.
+- The project will achieve widespread adoption.
+
+2. VAELO & DIGITAL-ASSET RISK
+
+Explain that digital assets can be highly volatile and uncertain.
+
+There is no guarantee that VAELO will:
+- Have monetary value.
+- Increase in value.
+- Maintain any particular value.
+- Have sufficient liquidity.
+- Be listed on any exchange.
+- Be accepted by third parties.
+- Develop the utility currently envisioned.
+
+Clearly state:
+
+No person should interpret Vaeloryn's roadmap, tokenomics or public communications as a guarantee of financial return.
+
+3. REGULATORY & LEGAL RISK
+
+Explain that laws and regulations relating to crypto assets, digital assets, fundraising and financial services continue to evolve across jurisdictions.
+
+Future regulatory requirements could:
+- Restrict certain activities.
+- Require licensing or registration.
+- Require KYC/AML or other compliance systems.
+- Restrict participation from certain jurisdictions.
+- Change how VAELO may be distributed, marketed or used.
+- Require changes to the project's structure.
+
+Clearly state that appropriate professional legal and regulatory review remains pending.
+
+4. SMART-CONTRACT & CYBERSECURITY RISK
+
+Explain that blockchain systems and smart contracts may contain:
+- Software vulnerabilities.
+- Coding errors.
+- Exploitable logic.
+- Infrastructure failures.
+- Wallet or private-key compromise.
+- Third-party dependency failures.
+- Network-level risks.
+
+Clearly state:
+
+The current V1.1 contracts are testnet prototypes.
+
+Source verification does not constitute a security audit.
+
+Independent production security review has not yet been completed.
+
+5. CUSTODY & KEY-MANAGEMENT RISK
+
+Explain that loss, theft or compromise of private keys can result in irreversible loss of digital assets.
+
+Vaeloryn intends to develop appropriate production safeguards such as multisignature custody, separation of powers and operational redundancy.
+
+Clearly state these are proposed production safeguards and are not guarantees against all loss or compromise.
+
+6. TOKEN SUPPLY & HOLDER BEHAVIOUR RISK
+
+Explain:
+
+Even with vesting, treasury controls and supply safeguards, Vaeloryn cannot prevent independent holders from selling VAELO they lawfully control.
+
+Large market participants may affect price and liquidity.
+
+Anti-concentration measures may have practical and technical limitations.
+
+No system can guarantee that VAELO's market price will remain stable.
+
+7. LIQUIDITY RISK
+
+Explain that there is no guarantee that a liquid market for VAELO will exist.
+
+A holder may be unable to sell VAELO at a desired time or price.
+
+Do not imply exchange listing is planned or guaranteed.
+
+8. TOKENOMICS & ECONOMIC-DESIGN RISK
+
+Explain that the current tokenomics are working proposals.
+
+Economic assumptions may prove incorrect.
+
+Allocation, vesting, distribution and utility mechanisms may require changes following:
+- Economic analysis.
+- Technical development.
+- Legal or regulatory review.
+- Security review.
+- Real-world market conditions.
+
+9. TREASURY & GOVERNANCE RISK
+
+Explain that treasury and governance systems may face:
+- Human error.
+- Signer compromise.
+- Governance disputes.
+- Operational failures.
+- Conflicts of interest.
+
+Explain that proposed safeguards aim to reduce these risks but cannot eliminate them.
+
+10. THIRD-PARTY & BLOCKCHAIN INFRASTRUCTURE RISK
+
+Explain that Vaeloryn may depend on third-party technologies and blockchain infrastructure.
+
+Failures, outages, protocol changes or security incidents affecting external systems may affect Vaeloryn or VAELO.
+
+11. TAX RISK
+
+Explain that holding, receiving, transferring or disposing of digital assets may have tax consequences depending on the participant's jurisdiction and circumstances.
+
+Vaeloryn does not provide personal tax advice.
+
+Participants should obtain appropriate professional advice where necessary.
+
+12. FUTURE PROJECT & INVESTMENT RISK
+
+Explain that Vaeloryn's long-term vision may include building, supporting or selectively investing in projects.
+
+Any future project or investment may fail, lose money, take longer than expected or not produce anticipated results.
+
+Do not imply that ownership of VAELO automatically provides ownership, equity, profit rights or claims over Vaeloryn or projects supported by Vaeloryn.
+
+IMPORTANT DISTINCTION
+
+Feature clearly:
+
+“Transparency about risk does not eliminate risk.”
+
+Explain that Vaeloryn's approach to transparency, vesting, supply protection and governance is intended to reduce avoidable risks where possible.
+
+It cannot guarantee:
+- Project success.
+- Token value.
+- Liquidity.
+- Regulatory approval.
+- Security.
+- Financial returns.
+
+PROFESSIONAL REVIEW NOTICE
+
+Clearly state:
+
+This public risk disclosure is an early-stage project document.
+
+It has not been represented as a professionally approved legal offering document.
+
+It may be updated as Vaeloryn receives appropriate legal, regulatory, tax, economic and security guidance.
+
+Any future regulated activity or real-money public distribution must be subject to the appropriate requirements identified through professional review.
+
+CLOSING
+
+End with:
+
+“Understand the risks. Verify the progress. Make independent decisions.”
+
+Include links to:
+- Project Status
+- Trust & Transparency
+- VAELO
+- White Paper
+
+IMPORTANT RESTRICTIONS
+
+Do not add:
+- Buy VAELO functionality
+- Connect Wallet functionality
+- Token pricing
+- Investment return projections
+- Claims of guaranteed value
+- Claims of guaranteed liquidity
+- Claims that VAELO will be exchange-listed
+- Claims that production/mainnet is live
+- Claims that professional legal or security review is complete
+
+Keep the page polished, readable and responsive.
+
+Reuse existing components and styles wherever possible.
+
+After implementing:
+
+1. Run the TypeScript type check once.
+2. If it passes, stop.
+3. Do not perform additional audits or unrelated work.
+4. Report only:
+   - Files changed
+   - Brief summary of implementation
+   - Type-check result
+   - Any genuine issue requiring my attention
