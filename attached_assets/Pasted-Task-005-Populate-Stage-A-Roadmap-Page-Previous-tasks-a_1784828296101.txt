@@ -1,0 +1,204 @@
+Task 005 — Populate Stage A Roadmap Page
+
+Previous tasks are complete. Do not re-audit or recreate previous work.
+
+Work only on the existing /roadmap page (Roadmap.tsx) and only modify another file if strictly required for this page to function.
+
+Preserve the existing Vaeloryn black-and-metallic-gold design and existing page header.
+
+Do not install new dependencies.
+Do not modify Solidity files.
+Do not redesign unrelated pages.
+
+OBJECTIVE
+
+Populate the /roadmap page with Vaeloryn's public development roadmap.
+
+Clearly distinguish between:
+- Current work
+- Planned milestones
+- Long-term objectives
+
+Do not present future stages, dates or outcomes as guaranteed.
+
+CURRENT PHASE
+
+Feature prominently:
+
+Stage A — Foundation
+
+Explain that Vaeloryn is currently building the technical, organisational, legal and transparency foundations needed to progress responsibly.
+
+Core principle:
+
+“Show the work before asking for trust.”
+
+STAGE A — FOUNDATION
+
+Present the following Stage A priorities:
+
+1. Public Foundation
+- Build and publish the Vaeloryn website.
+- Publish public project documentation.
+- Publish testnet evidence and verified contract information.
+- Maintain clear Project Status information.
+- Continue building public awareness through official channels.
+
+2. Build in Public
+- Make development progress visible where appropriate.
+- Invite technical and professional scrutiny.
+- Clearly distinguish completed work from proposed work.
+- Communicate material changes and setbacks transparently where appropriate.
+
+3. Help Build Vaeloryn
+- Open channels for developers, lawyers, security professionals, researchers, entrepreneurs and other experts to express interest in contributing.
+- Develop the contributor network responsibly.
+- Explore future Contribution Rewards only after appropriate governance and legal review.
+
+4. Minimum Legal Gate
+Before activating any real-money public VAELO distribution, Vaeloryn intends to obtain appropriate professional guidance on:
+
+- Appropriate legal entity and issuer structure.
+- Applicable regulatory requirements.
+- Licensing, registration or regulated-provider requirements.
+- KYC/AML and sanctions obligations.
+- Participant and jurisdiction restrictions.
+- Marketing and disclosure requirements.
+- Required participant documentation.
+- Tax, accounting, banking and custody considerations.
+
+Clearly state:
+
+“If a required legal or regulatory gate cannot yet be cleared, the regulated activity should not proceed.”
+
+5. Production Security
+- Design the production smart-contract architecture.
+- Implement appropriate vesting architecture.
+- Develop secure treasury custody.
+- Implement appropriate multisignature controls.
+- Introduce separation of powers.
+- Consider timelocks for sensitive actions.
+- Complete appropriate independent smart-contract/security review before production/mainnet.
+
+Clearly label these as planned requirements, not currently completed safeguards.
+
+6. Stage A Funding Direction
+Explain:
+
+Vaeloryn is exploring a limited future Stage A VAELO distribution as one possible funding mechanism.
+
+The working tokenomics designate up to 10M VAELO as potentially eligible for Stage A / early community distribution.
+
+This is not a commitment to distribute or sell all 10M VAELO.
+
+No active public real-money VAELO distribution currently exists.
+
+Do not publish a token price.
+
+Do not present the previous approximately $300K internal funding concept as a finalized fundraising target.
+
+Any future distribution remains subject to appropriate legal, regulatory, technical and security preparation.
+
+7. First Real Vaeloryn Project
+Explain that Stage A includes selecting and defining Vaeloryn's first flagship project.
+
+Selection should consider:
+- Real-world value.
+- Technical feasibility.
+- Ability to execute with available resources.
+- Potential scalability.
+- Long-term strategic fit with Vaeloryn.
+- Ability to demonstrate measurable progress.
+
+Clearly state that the first flagship project has not yet been selected.
+
+STAGE B — EXECUTION
+
+Present as a future objective, not a guarantee.
+
+Potential direction:
+- Build and launch the first flagship project.
+- Demonstrate measurable real-world value.
+- Develop sustainable revenue where possible.
+- Grow technical and organisational capability.
+- Introduce genuine VAELO utility only where it provides real value.
+
+Reinforce:
+
+“Utility follows products.”
+
+STAGE C — EXPANSION
+
+Present as a long-term objective.
+
+Potential direction:
+- Expand successful Vaeloryn projects.
+- Develop additional internal projects.
+- Build strategic partnerships.
+- Explore selective strategic investments where appropriate.
+- Expand the contributor and innovation ecosystem.
+- Strengthen long-term financial sustainability.
+
+STAGE D — GLOBAL ECOSYSTEM
+
+Present as the long-term vision.
+
+Potential direction:
+
+Develop Vaeloryn into a globally connected innovation ecosystem capable of building, supporting and collaborating around meaningful science and technology projects.
+
+Potential fields may include:
+- Energy
+- Artificial intelligence
+- Medical science
+- Biotechnology
+- Aerospace
+- Robotics
+- Advanced engineering
+
+Clearly state that these are areas of long-term interest and not commitments to launch specific businesses.
+
+ROADMAP PRINCIPLE
+
+Include a section explaining:
+
+Progression is milestone-gated, not simply calendar-gated.
+
+Moving from one stage to another should depend on demonstrated progress, appropriate governance, available resources and completion of relevant legal, technical and security requirements.
+
+The roadmap may evolve as Vaeloryn learns and develops.
+
+CLOSING
+
+End with:
+
+“Born in South Africa. Built for a global future.”
+
+IMPORTANT
+
+Do not add:
+- Buy VAELO functionality
+- Connect Wallet functionality
+- Token pricing
+- A finalized $300K funding target
+- Guaranteed launch dates
+- Guaranteed project outcomes
+- Claims that mainnet is live
+- Claims that legal or independent security review is complete
+
+Keep the page polished, readable and responsive.
+
+A visual Stage A → Stage B → Stage C → Stage D progression is encouraged using existing components and styling only.
+
+Reuse existing components and styles wherever possible.
+
+After implementing the page:
+
+1. Run the TypeScript type check once.
+2. If it passes, stop.
+3. Do not perform additional audits or unrelated work.
+4. Report only:
+   - Files changed
+   - Brief summary of implementation
+   - Type-check result
+   - Any genuine issue requiring my attention
