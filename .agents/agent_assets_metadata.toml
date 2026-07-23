@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "QA_ildjPY3Pol7AQpHUbL"
+uri = "file://Vaeloryn_Website.zip"
+type = "unspecified"
+title = "Vaeloryn Website Source Code"
