@@ -23,6 +23,9 @@ export function Navbar() {
       <Link href="/#mission" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
         Mission
       </Link>
+      <Link href="/#progress" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+        Progress
+      </Link>
       <Link href="/#areas" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
         Areas
       </Link>
