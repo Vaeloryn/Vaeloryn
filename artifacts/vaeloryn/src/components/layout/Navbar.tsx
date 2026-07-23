@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 export function Navbar() {
   const [location] = useLocation();
@@ -9,33 +8,33 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const closeMenu = () => setMobileMenuOpen(false);
 
+  const linkClass = "text-sm font-medium text-muted-foreground hover:text-primary transition-colors";
+
   const NavLinks = () => (
     <>
-      <Link href="/#mission" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-        Mission
+      <Link href="/vaelo" onClick={closeMenu} className={linkClass}>
+        VAELO
       </Link>
-      <Link href="/#progress" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+      <Link href="/status" onClick={closeMenu} className={linkClass}>
         Progress
       </Link>
-      <Link href="/#areas" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-        Areas
+      <Link href="/transparency" onClick={closeMenu} className={linkClass}>
+        Transparency
       </Link>
-      <Link href="/help-build" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+      <Link href="/roadmap" onClick={closeMenu} className={linkClass}>
+        Roadmap
+      </Link>
+      <Link href="/help-build" onClick={closeMenu} className={linkClass}>
         Help Build
       </Link>
-      <Link href="/submit-idea" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-        Submit Idea
-      </Link>
-      <Link href="/contact" onClick={closeMenu} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+      <Link href="/contact" onClick={closeMenu} className={linkClass}>
         Contact
       </Link>
     </>
@@ -63,6 +62,7 @@ export function Navbar() {
         <button
           className="md:hidden z-50 text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

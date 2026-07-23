@@ -8,6 +8,12 @@ import { Home } from '@/pages/Home';
 import { HelpBuild } from '@/pages/HelpBuild';
 import { SubmitIdea } from '@/pages/SubmitIdea';
 import { Contact } from '@/pages/Contact';
+import { Vaelo } from '@/pages/Vaelo';
+import { Whitepaper } from '@/pages/Whitepaper';
+import { Transparency } from '@/pages/Transparency';
+import { Roadmap } from '@/pages/Roadmap';
+import { Risks } from '@/pages/Risks';
+import { Status } from '@/pages/Status';
 
 const queryClient = new QueryClient();
 
@@ -16,6 +22,12 @@ function Router() {
     <AppLayout>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/vaelo" component={Vaelo} />
+        <Route path="/whitepaper" component={Whitepaper} />
+        <Route path="/transparency" component={Transparency} />
+        <Route path="/roadmap" component={Roadmap} />
+        <Route path="/risks" component={Risks} />
+        <Route path="/status" component={Status} />
         <Route path="/help-build" component={HelpBuild} />
         <Route path="/submit-idea" component={SubmitIdea} />
         <Route path="/contact" component={Contact} />

@@ -1,0 +1,121 @@
+Task 002 — Public Documentation & Navigation Architecture
+
+Review the existing Vaeloryn website and the changes completed in Task 001 before making any changes.
+
+Preserve:
+- The existing black-and-metallic-gold visual identity.
+- The premium design language.
+- All existing working functionality.
+- The new Project Status section.
+- Existing responsive behaviour.
+
+Do not rebuild the application.
+Do not install unnecessary packages.
+Do not modify Solidity or VAELO smart-contract files.
+Reuse existing components, layouts and styles wherever practical.
+
+OBJECTIVE
+
+Create the page and routing architecture needed for Vaeloryn's public documentation.
+
+Create the following public routes/pages:
+
+1. /vaelo
+Page title: VAELO
+
+2. /whitepaper
+Page title: White Paper
+
+3. /transparency
+Page title: Trust & Transparency
+
+4. /roadmap
+Page title: Roadmap
+
+5. /risks
+Page title: Risks
+
+6. /status
+Page title: Project Status
+
+For this task, create the page architecture and polished page headers only.
+
+Do NOT populate these pages with the full long-form documents yet.
+
+Each page should:
+
+- Use the existing Vaeloryn AppLayout/Navbar/Footer structure.
+- Match the existing black-and-metallic-gold visual identity.
+- Have a clear premium page header.
+- Include a short accurate introductory description.
+- Clearly identify content as current, proposed, or pending where relevant.
+- Be responsive on desktop and mobile.
+
+Use the following introductory descriptions:
+
+VAELO:
+"Explore the developing digital asset of the Vaeloryn ecosystem, including its current testnet status, proposed tokenomics and long-term design principles."
+
+White Paper:
+"Read the current public draft of the Vaeloryn & VAELO White Paper. This document describes our developing vision, architecture and working economic model."
+
+Trust & Transparency:
+"Explore Vaeloryn's developing approach to supply protection, insider safeguards, treasury accountability and verifiable transparency."
+
+Roadmap:
+"Follow Vaeloryn's progression from Stage A foundation building toward real-world execution and long-term ecosystem development."
+
+Risks:
+"Understand the technical, regulatory, economic, market and execution risks associated with an early-stage project such as Vaeloryn and VAELO."
+
+Project Status:
+"See what Vaeloryn has completed, what is currently being developed and what remains proposed or pending."
+
+NAVIGATION
+
+Update the website navigation in a clean and uncluttered way so visitors can access these sections.
+
+Do not overload the primary navigation with every page if this damages the design.
+
+Use the existing navigation architecture and choose a sensible structure, such as grouping documentation-related links if appropriate.
+
+The following areas should remain easy to access:
+
+Home
+VAELO
+Progress / Project Status
+Transparency
+Roadmap
+Help Build Vaeloryn
+
+White Paper and Risks must also be accessible through an appropriate navigation or documentation route.
+
+IMPORTANT
+
+Do not add:
+- Buy VAELO
+- Connect Wallet
+- Token purchase functionality
+- Token pricing
+- A finalized $300K funding target
+- Claims that mainnet is live
+- Claims that professional legal or security reviews are complete
+
+VAELO remains a Base Sepolia testnet prototype.
+
+No active public real-money VAELO distribution exists.
+
+Keep this implementation focused only on page architecture, routing, navigation and introductory page headers.
+
+Do not add the full document content yet.
+
+After completion, report:
+
+1. Exactly which files were created.
+2. Exactly which files were modified.
+3. The final route structure.
+4. How navigation was organised.
+5. Whether type checks and build checks pass.
+6. Any existing issues or new issues encountered.
+
+Do not make additional changes outside this task.
