@@ -1,0 +1,196 @@
+Task 009 — Targeted Website Quality & Consistency Check
+
+The core Vaeloryn public pages are now complete.
+
+Do not redesign the website.
+Do not rewrite approved content unless correcting a genuine inconsistency.
+Do not install new dependencies.
+Do not modify Solidity files.
+Do not perform an open-ended codebase audit.
+
+OBJECTIVE
+
+Perform one targeted quality check of the public Vaeloryn website.
+
+Check ONLY the following:
+
+1. PUBLIC ROUTES
+
+Confirm these routes resolve correctly:
+
+/
+ /vaelo
+ /whitepaper
+ /transparency
+ /roadmap
+ /risks
+ /status
+ /help-build
+ /submit-idea
+ /contact
+
+Fix only genuine broken routing issues.
+
+2. HOMEPAGE HERO LINKS
+
+Confirm:
+
+Explore Vaeloryn → /vaelo
+View Our Progress → /status
+Help Build Vaeloryn → /help-build
+
+Fix only if incorrect.
+
+3. NAVIGATION LINKS
+
+Confirm all Navbar and Footer internal links point to valid existing routes.
+
+Specifically ensure easy access to:
+
+Home
+VAELO
+Project Status / Progress
+Trust & Transparency
+Roadmap
+White Paper
+Risk Disclosure
+Help Build Vaeloryn
+Contact
+
+Fix broken or outdated internal destinations only.
+
+Do not unnecessarily redesign the Navbar or Footer.
+
+4. CROSS-PAGE LINKS
+
+Check buttons and links added during Tasks 003–008.
+
+Confirm that links between:
+
+VAELO
+White Paper
+Transparency
+Roadmap
+Risks
+Status
+Help Build
+
+all point to valid routes.
+
+Fix only broken destinations.
+
+5. CRITICAL CONTENT CONSISTENCY
+
+Check ONLY for contradictions in these core facts:
+
+Current Phase:
+Stage A — Foundation
+
+VAELO Network:
+Base Sepolia Testnet
+
+Chain ID:
+84532
+
+Prototype:
+V1.1
+
+Production/Mainnet:
+Not launched
+
+Public Real-Money Distribution:
+Not active
+
+Independent Production Security Review:
+Pending
+
+Professional Legal/Regulatory Review:
+Pending
+
+First Flagship Project:
+Selection pending
+
+Proposed Maximum Supply:
+1,000,000,000 VAELO
+
+Working Allocation:
+30% Ecosystem & Community
+20% Public Distribution
+20% Vaeloryn Treasury
+15% Team & Contributors
+10% Founder
+5% Strategic Partnerships
+
+Stage A Potential Distribution:
+Up to 10,000,000 VAELO
+
+If any public page directly contradicts these facts, correct the contradiction.
+
+Do not rewrite content merely for stylistic preference.
+
+6. PROHIBITED OR OUTDATED CLAIMS
+
+Search the public website pages for any accidental claim that:
+
+- Production/mainnet VAELO is live.
+- A public real-money VAELO sale is active.
+- VAELO has a finalized public token price.
+- Vaeloryn has a finalized $300K public funding target.
+- Independent security review is complete.
+- Professional legal/regulatory review is complete.
+- Proposed multisig, timelock or production safeguards are already implemented.
+- Financial returns are guaranteed.
+- Exchange listing is guaranteed.
+
+If any such claim exists, correct it using the established current project status.
+
+Do not change correctly qualified references.
+
+7. BASIC RESPONSIVE CHECK
+
+Check the main public pages at typical mobile and desktop widths for obvious layout-breaking issues only.
+
+Focus on:
+
+- Text overflowing containers.
+- Contract addresses overflowing on mobile.
+- Navigation becoming unusable.
+- Buttons extending outside the viewport.
+- Major content sections being inaccessible.
+
+Fix only obvious layout-breaking problems.
+
+Do not perform cosmetic redesign work.
+
+8. BASIC PAGE TITLES / SEO
+
+Confirm the main public pages have sensible existing page titles/SEO metadata using the project's existing SEO approach.
+
+Do not introduce a new SEO system.
+
+Only fix missing or obviously incorrect titles if necessary.
+
+9. FINAL TYPE CHECK
+
+After completing genuine fixes:
+
+Run the TypeScript type check once.
+
+If it passes, stop.
+
+Do not perform additional audits, refactors, optimisations or unrelated improvements.
+
+REPORT ONLY
+
+1. Files changed.
+2. Genuine issues found and fixed.
+3. Whether all listed public routes are valid.
+4. Whether homepage hero links are correct.
+5. Whether critical project facts are consistent.
+6. Whether any obvious mobile layout issues were fixed.
+7. Type-check result.
+8. Any genuine issue requiring my attention.
+
+If no issue is found in a category, report it as confirmed and move on.
+
+Do not make changes simply to create work.
