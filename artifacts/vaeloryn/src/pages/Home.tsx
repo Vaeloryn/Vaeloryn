@@ -1,8 +1,9 @@
 import React from 'react';
-import { motion, type Variants } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { Link } from 'wouter';
 import { Card, CardContent } from '@/components/ui/card';
 import { SEO } from '@/components/SEO';
+import { VaelorynLogo } from '@/components/VaelorynLogo';
 import {
   Dna, Zap, Atom, Cpu, Bot, Rocket,
   Layers, Droplet, Globe, Sparkles,
@@ -82,6 +83,36 @@ function StatusIcon({ kind }: { kind: StatusKind }) {
 }
 
 export function Home() {
+  const prefersReducedMotion = useReducedMotion();
+
+  // Hero-specific variants — respect prefers-reduced-motion
+  const heroContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren:  prefersReducedMotion ? 0 : 0.09,
+        delayChildren:    prefersReducedMotion ? 0 : 0.05,
+      },
+    },
+  };
+
+  const logoVariant: Variants = {
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 18, scale: prefersReducedMotion ? 1 : 0.88 },
+    visible: {
+      opacity: 1, y: 0, scale: 1,
+      transition: { duration: prefersReducedMotion ? 0.01 : 1.05, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const heroFadeInUp: Variants = {
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 22 },
+    visible: {
+      opacity: 1, y: 0,
+      transition: { duration: prefersReducedMotion ? 0.01 : 0.78, ease: "easeOut" },
+    },
+  };
+
   return (
     <div className="w-full">
       <SEO
@@ -91,32 +122,79 @@ export function Home() {
 
       {/* 1. Hero Section */}
       <section className="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden">
-        {/* Abstract glowing orb in background */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] opacity-50 pointer-events-none" />
 
+        {/* ── Background depth layers ────────────────────────────────────── */}
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none">
+          {/* Ambient outer glow — breathes gently */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[960px] h-[960px] rounded-full"
+            style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 68%)' }}
+            animate={prefersReducedMotion ? {} : { opacity: [0.4, 0.72, 0.4] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Focal glow — tight halo anchored behind logo + heading */}
+          <div
+            className="absolute left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full blur-[90px]"
+            style={{
+              top: 'calc(50% - 210px)',
+              background: 'radial-gradient(circle, rgba(201,168,76,0.13) 0%, transparent 70%)',
+            }}
+          />
+        </div>
+
+        {/* ── Hero content ───────────────────────────────────────────────── */}
         <div className="container px-6 relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="flex flex-col items-center gap-8">
-            <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.15em] uppercase text-foreground">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={heroContainer}
+            className="flex flex-col items-center gap-5"
+          >
+
+            {/* Logo mark */}
+            <motion.div variants={logoVariant} className="mb-1">
+              <VaelorynLogo className="w-14 h-14 md:w-[68px] md:h-[68px] lg:w-20 lg:h-20" />
+            </motion.div>
+
+            {/* Wordmark */}
+            <motion.h1
+              variants={heroFadeInUp}
+              className="font-display text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.15em] uppercase text-foreground"
+            >
               Vaeloryn
             </motion.h1>
 
-            <motion.div variants={fadeInUp} className="w-px h-16 bg-gradient-to-b from-primary/50 to-transparent" />
+            {/* Divider */}
+            <motion.div
+              variants={heroFadeInUp}
+              className="w-px h-10 bg-gradient-to-b from-primary/50 to-transparent"
+            />
 
-            <motion.h2 variants={fadeInUp} className="text-xl md:text-3xl font-display font-light text-foreground/90 tracking-wide">
+            {/* Tagline */}
+            <motion.h2
+              variants={heroFadeInUp}
+              className="text-xl md:text-3xl font-display font-light text-foreground/90 tracking-wide"
+            >
               Born in South Africa. Built for a global future.
             </motion.h2>
 
-            <motion.div variants={fadeInUp} className="space-y-4 max-w-2xl mt-4">
+            {/* Supporting copy */}
+            <motion.div variants={heroFadeInUp} className="space-y-3 max-w-2xl">
               <p className="text-lg md:text-xl font-medium text-primary tracking-wide">
                 South African-founded. Globally focused.
               </p>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Vaeloryn is an early-stage project being developed to help accelerate scientific, medical and technological progress by connecting exceptional people and ideas with the expertise, resources and opportunities required to move forward.
+                Vaeloryn is an early-stage project being developed to help accelerate scientific,
+                medical and technological progress by connecting exceptional people and ideas with
+                the expertise, resources and opportunities required to move forward.
               </p>
             </motion.div>
 
-            {/* Three primary CTAs */}
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-12 w-full sm:w-auto">
+            {/* CTAs */}
+            <motion.div
+              variants={heroFadeInUp}
+              className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-6 w-full sm:w-auto"
+            >
               <Link
                 href="/vaelo"
                 className="inline-flex items-center justify-center whitespace-nowrap rounded-md h-14 px-8 text-base font-medium tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
@@ -136,6 +214,7 @@ export function Home() {
                 Help Build Vaeloryn
               </Link>
             </motion.div>
+
           </motion.div>
         </div>
       </section>
