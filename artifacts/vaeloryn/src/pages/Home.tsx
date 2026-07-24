@@ -27,7 +27,7 @@ const staggerContainer: Variants = {
 
 const areas = [
   { name: "Medical Science & Biotechnology", icon: Dna, desc: "Advancing human health and expanding the limits of biology." },
-  { name: "Energy", icon: Zap, desc: "Next-generation generation, storage, and distribution." },
+  { name: "Energy", icon: Zap, desc: "Next-generation energy generation, storage, and distribution." },
   { name: "Fundamental Science", icon: Atom, desc: "Expanding the boundaries of human knowledge." },
   { name: "AI & Computing", icon: Cpu, desc: "Pushing the frontiers of intelligence and processing." },
   { name: "Engineering & Robotics", icon: Bot, desc: "Building the physical infrastructure of the future." },
