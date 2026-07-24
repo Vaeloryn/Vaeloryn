@@ -5,27 +5,19 @@ import { defineConfig } from 'vite';
 
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
+// PORT is only required when running the dev/preview server.
+// During a production build (e.g. Cloudflare Pages) no server is started,
+// so we fall back to a placeholder value that is never actually used.
 const rawPort = process.env.PORT;
+const port = rawPort ? Number(rawPort) : 3000;
 
-if (!rawPort) {
-  throw new Error(
-    'PORT environment variable is required but was not provided.',
-  );
-}
-
-const port = Number(rawPort);
-
-if (Number.isNaN(port) || port <= 0) {
+if (rawPort && (Number.isNaN(port) || port <= 0)) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-const basePath = process.env.BASE_PATH;
-
-if (!basePath) {
-  throw new Error(
-    'BASE_PATH environment variable is required but was not provided.',
-  );
-}
+// BASE_PATH is only meaningful for the Replit dev proxy.
+// Cloudflare Pages serves from the root, so '/' is the correct fallback.
+const basePath = process.env.BASE_PATH ?? '/';
 
 export default defineConfig({
   base: basePath,
