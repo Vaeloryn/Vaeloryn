@@ -27,19 +27,21 @@ const helpOptions = [
 ];
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email address"),
+  name:      z.string().min(2, "Name is required"),
+  email:     z.string().email("Invalid email address"),
   expertise: z.string().min(2, "Area of expertise is required"),
-  role: z.string().optional(),
-  profile: z.string().url("Must be a valid URL").optional().or(z.literal('')),
+  role:      z.string().optional(),
+  profile:   z.string().url("Must be a valid URL").optional().or(z.literal('')),
   helpTypes: z.array(z.string()).refine((value) => value.some((item) => item), {
     message: "You have to select at least one item.",
   }),
-  message: z.string().min(10, "Please provide a brief message"),
+  message:   z.string().min(10, "Please provide a brief message"),
 });
 
 export function HelpBuild() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,9 +56,26 @@ export function HelpBuild() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    setIsSubmitted(true);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch('/api/help-build', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setSubmitError(data.error ?? 'Something went wrong. Please try again.');
+        return;
+      }
+      setIsSubmitted(true);
+    } catch {
+      setSubmitError('Unable to send your information. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (isSubmitted) {
@@ -248,8 +267,14 @@ export function HelpBuild() {
                   )}
                 />
 
-                <Button type="submit" size="lg" className="w-full sm:w-auto h-12 px-8 text-base">
-                  Submit Information
+                {submitError && (
+                  <p className="text-sm text-red-400/90 border border-red-500/20 bg-red-500/5 rounded-md px-4 py-3 leading-relaxed">
+                    {submitError}
+                  </p>
+                )}
+
+                <Button type="submit" size="lg" className="w-full sm:w-auto h-12 px-8 text-base" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending…' : 'Submit Information'}
                 </Button>
               </form>
             </Form>
