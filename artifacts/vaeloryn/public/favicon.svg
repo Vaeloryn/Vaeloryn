@@ -1,9 +1,4 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
   <rect width="180" height="180" rx="36" fill="#0A0A0A"/>
-  <!-- Gold V mark -->
-  <polygon
-    points="32,42 62,42 90,118 118,42 148,42 104,148 76,148"
-    fill="#C9A84C"
-  />
+  <polygon points="32,42 62,42 90,118 118,42 148,42 104,148 76,148" fill="#C9A84C"/>
 </svg>
