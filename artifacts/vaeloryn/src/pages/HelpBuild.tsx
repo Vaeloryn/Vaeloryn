@@ -18,12 +18,12 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { SEO } from '@/components/SEO';
 
 const helpOptions = [
-  { id: "advisory", label: "Advisory" },
-  { id: "expertise", label: "Expertise / Consultation" },
+  { id: "advisory",      label: "Advisory" },
+  { id: "expertise",     label: "Expertise / Consultation" },
   { id: "introductions", label: "Introductions & Connections" },
-  { id: "mentorship", label: "Mentorship" },
-  { id: "governance", label: "Governance" },
-  { id: "other", label: "Other" },
+  { id: "mentorship",    label: "Mentorship" },
+  { id: "governance",    label: "Governance" },
+  { id: "other",         label: "Other" },
 ];
 
 const formSchema = z.object({
@@ -32,47 +32,57 @@ const formSchema = z.object({
   expertise: z.string().min(2, "Area of expertise is required"),
   role:      z.string().optional(),
   profile:   z.string().url("Must be a valid URL").optional().or(z.literal('')),
-  helpTypes: z.array(z.string()).refine((value) => value.some((item) => item), {
-    message: "You have to select at least one item.",
+  helpTypes: z.array(z.string()).refine((v) => v.some(Boolean), {
+    message: "Please select at least one option.",
   }),
   message:   z.string().min(10, "Please provide a brief message"),
 });
+
+type FormValues = z.infer<typeof formSchema>;
+
+async function postJson(url: string, data: unknown): Promise<{ ok: boolean; error?: string }> {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+
+  let body: { ok?: boolean; error?: string } = {};
+  try {
+    body = await res.json();
+  } catch {
+    if (!res.ok) {
+      throw new Error(`Server returned ${res.status} with a non-JSON response.`);
+    }
+  }
+
+  if (!res.ok) {
+    throw new Error(body.error ?? `Unexpected server error (${res.status}). Please try again.`);
+  }
+
+  return { ok: true };
+}
 
 export function HelpBuild() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      expertise: "",
-      role: "",
-      profile: "",
-      helpTypes: [],
-      message: "",
+      name: "", email: "", expertise: "", role: "", profile: "", helpTypes: [], message: "",
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: FormValues) {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
-      const res = await fetch('/api/help-build', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setSubmitError(data.error ?? 'Something went wrong. Please try again.');
-        return;
-      }
+      await postJson('/api/help-build', values);
       setIsSubmitted(true);
-    } catch {
-      setSubmitError('Unable to send your information. Please check your connection and try again.');
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -81,9 +91,9 @@ export function HelpBuild() {
   if (isSubmitted) {
     return (
       <div className="min-h-screen pt-32 pb-24 flex items-center justify-center">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }} 
-          animate={{ opacity: 1, scale: 1 }} 
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
           className="max-w-md mx-auto text-center space-y-6 px-6"
         >
           <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6">
@@ -105,12 +115,13 @@ export function HelpBuild() {
 
   return (
     <div className="min-h-screen pt-32 pb-24">
-      <SEO 
-        title="Help Build Vaeloryn" 
+      <SEO
+        title="Help Build Vaeloryn"
         description="Contribute your expertise, perspective, advice or connections as Vaeloryn develops."
+        canonical="https://vaeloryn.com/help-build"
       />
       <div className="container px-6 max-w-3xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -128,7 +139,7 @@ export function HelpBuild() {
           <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-10">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
@@ -215,32 +226,23 @@ export function HelpBuild() {
                             key={item.id}
                             control={form.control}
                             name="helpTypes"
-                            render={({ field }) => {
-                              return (
-                                <FormItem
-                                  key={item.id}
-                                  className="flex flex-row items-start space-x-3 space-y-0"
-                                >
-                                  <FormControl>
-                                    <Checkbox
-                                      checked={field.value?.includes(item.id)}
-                                      onCheckedChange={(checked) => {
-                                        return checked
-                                          ? field.onChange([...field.value, item.id])
-                                          : field.onChange(
-                                              field.value?.filter(
-                                                (value) => value !== item.id
-                                              )
-                                            )
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormLabel className="font-normal text-muted-foreground cursor-pointer">
-                                    {item.label}
-                                  </FormLabel>
-                                </FormItem>
-                              )
-                            }}
+                            render={({ field }) => (
+                              <FormItem key={item.id} className="flex flex-row items-start space-x-3 space-y-0">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value?.includes(item.id)}
+                                    onCheckedChange={(checked) =>
+                                      checked
+                                        ? field.onChange([...field.value, item.id])
+                                        : field.onChange(field.value?.filter((v) => v !== item.id))
+                                    }
+                                  />
+                                </FormControl>
+                                <FormLabel className="font-normal text-muted-foreground cursor-pointer">
+                                  {item.label}
+                                </FormLabel>
+                              </FormItem>
+                            )}
                           />
                         ))}
                       </div>
@@ -256,10 +258,10 @@ export function HelpBuild() {
                     <FormItem>
                       <FormLabel>Message *</FormLabel>
                       <FormControl>
-                        <Textarea 
+                        <Textarea
                           placeholder="Please share a brief note about your background and how you might envision contributing..."
-                          className="min-h-[150px] bg-black/20 resize-y" 
-                          {...field} 
+                          className="min-h-[150px] bg-black/20 resize-y"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
