@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { Link } from 'wouter';
 import { SEO } from '@/components/SEO';
+import { CheckCircle2, Minus } from 'lucide-react';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -45,12 +46,23 @@ function BulletList({ items }: { items: string[] }) {
   );
 }
 
+function VerifyItem({ label, done }: { label: string; done: boolean }) {
+  return (
+    <div className="flex items-start gap-3 p-4 rounded-lg border border-white/8 bg-white/[0.02]">
+      {done
+        ? <CheckCircle2 size={15} strokeWidth={1.75} className="text-primary shrink-0 mt-0.5" />
+        : <Minus size={15} strokeWidth={2} className="text-muted-foreground/40 shrink-0 mt-0.5" />}
+      <span className={`text-sm leading-relaxed ${done ? 'text-foreground/85' : 'text-muted-foreground/50'}`}>{label}</span>
+    </div>
+  );
+}
+
 export function Transparency() {
   return (
     <div className="w-full">
       <SEO
         title="Trust & Transparency — Vaeloryn"
-        description="Explore Vaeloryn's developing approach to supply protection, insider safeguards, treasury accountability and verifiable transparency."
+        description="Vaeloryn's constitutional protocol is deployed, source-verified and independently verifiable on-chain. Explore implemented safeguards and what remains pending."
       />
 
       {/* ── Page Header ── */}
@@ -63,7 +75,7 @@ export function Transparency() {
             className="flex flex-col gap-6"
           >
             <motion.span variants={fadeInUp} className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full w-fit">
-              Framework · Developing
+              Protocol Implemented · Verifiable On-Chain
             </motion.span>
 
             <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl font-light tracking-[0.15em] uppercase text-foreground">
@@ -73,14 +85,9 @@ export function Transparency() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              Explore Vaeloryn's developing approach to supply protection, insider safeguards, treasury accountability and verifiable transparency.
+              The Vaeloryn constitutional protocol is deployed and verifiable on-chain. This page explains what has been
+              implemented, what users can independently verify today, and what remains proposed for future production architecture.
             </motion.p>
-
-            <motion.div variants={fadeInUp} className="flex items-center gap-3 pt-2">
-              <span className="text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground/70 border border-white/10 bg-white/5 px-3 py-1.5 rounded-full">
-                Proposed framework · Not yet independently reviewed
-              </span>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -99,16 +106,59 @@ export function Transparency() {
               "Trust through verifiable architecture, not promises."
             </p>
             <p className="text-muted-foreground leading-relaxed max-w-3xl">
-              Vaeloryn's long-term goal is to reduce reliance on trust in individual people by making important supply,
-              vesting and treasury protections <span className="text-foreground/80">technically enforceable and independently verifiable</span> where
-              appropriate — so that the architecture itself provides the assurance, not just stated intentions.
+              Vaeloryn's approach is to make important supply, vesting and allocation protections
+              <span className="text-foreground/80"> technically enforceable and independently verifiable</span> — so that
+              the architecture itself provides the assurance, not just stated intentions.
+              The constitutional protocol on Base Sepolia testnet is the first step in building that foundation.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── Current Status ── */}
+      {/* ── What You Can Verify Today ── */}
       <section className="py-20 md:py-28 border-b border-white/5">
+        <div className="container px-6 max-w-5xl mx-auto">
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
+            className="flex flex-col gap-10"
+          >
+            <SectionHeader eyebrow="Independently Verifiable" title="What You Can Verify Today" />
+
+            <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-primary/15 bg-primary/5">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                All of the following can be independently confirmed by anyone using a Base Sepolia block explorer
+                (BaseScan or Blockscout) — no trust in Vaeloryn required.
+              </p>
+            </motion.div>
+
+            <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { label: 'Fixed supply — totalSupply() returns exactly 1,000,000,000 VAELO', done: true },
+                { label: 'Token allocation — on-chain balances confirm the constitutional distribution', done: true },
+                { label: 'Founder vesting — VaelorynFounderVesting contract holds 100M VAELO with enforced schedule', done: true },
+                { label: 'Contract verification — all source code is published and verified against deployed bytecode', done: true },
+                { label: 'On-chain balances — every allocation address balance is publicly readable', done: true },
+                { label: 'Genesis distribution — the full allocation transaction is permanently recorded on-chain', done: true },
+                { label: 'No minting — the contract has no mint function beyond initial construction', done: true },
+                { label: 'No admin keys — no owner, no pause, no blacklist functions exist in the deployed contract', done: true },
+              ].map(({ label, done }) => (
+                <motion.div key={label} variants={fadeInUp}>
+                  <VerifyItem label={label} done={done} />
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Link href="/verify" className="text-sm text-primary/80 hover:text-primary transition-colors tracking-wide border border-primary/20 hover:border-primary/40 px-5 py-2.5 rounded-md bg-primary/5 hover:bg-primary/10 w-fit inline-block">
+                Full Verification Guide →
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Current Status ── */}
+      <section className="py-20 md:py-28 border-b border-white/5 bg-white/[0.01]">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
@@ -117,23 +167,17 @@ export function Transparency() {
             <SectionHeader eyebrow="As of Now" title="Current Status" />
 
             <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-4">
-              <StatusRow label="VAELO network"                            value="Base Sepolia testnet prototype"          ok={true} />
-              <StatusRow label="V1.1 contracts"                           value="Prototype — not final production architecture" ok={false} />
-              <StatusRow label="Prototype contract source verification"   value="Complete — all three contracts verified" ok={true} />
-              <StatusRow label="Controlled wallet-to-wallet test (100 VAELO)" value="Completed successfully"            ok={true} />
-              <StatusRow label="Independent production security review"   value="Not yet completed"                      ok={false} />
-              <StatusRow label="Formal professional legal/regulatory review" value="Pending"                            ok={false} />
-              <StatusRow label="Active public real-money VAELO distribution" value="None"                               ok={false} />
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-primary/20 bg-primary/5 flex gap-4 items-start">
-              <div className="mt-0.5 w-4 h-4 rounded-full border border-primary/60 flex-shrink-0 flex items-center justify-center">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary/80" />
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                The protections described in the remainder of this page are <span className="text-foreground/80">proposed for the future production architecture</span>.
-                They are not all implemented in the current V1.1 testnet prototype. Do not treat proposed future safeguards as existing ones.
-              </p>
+              <StatusRow label="VaelorynToken"                                      value="Deployed & source-verified — Base Sepolia" ok={true} />
+              <StatusRow label="VaelorynFounderVesting"                             value="Deployed, tested & source-verified"        ok={true} />
+              <StatusRow label="VaelorynGenesisAllocator"                           value="Deployed & source-verified"                ok={true} />
+              <StatusRow label="Fixed supply (1,000,000,000 VAELO)"                value="Implemented — minted once at construction" ok={true} />
+              <StatusRow label="Constitutional allocation"                           value="Verified on-chain"                         ok={true} />
+              <StatusRow label="Founder vesting schedule"                           value="Deployed and tested"                       ok={true} />
+              <StatusRow label="Test suite"                                         value="148 / 148 Foundry tests passing"           ok={true} />
+              <StatusRow label="Independent production security review"             value="Not yet completed"                         ok={false} />
+              <StatusRow label="Formal professional legal / regulatory review"      value="Pending"                                   ok={false} />
+              <StatusRow label="Production / mainnet deployment"                    value="Not launched"                              ok={false} />
+              <StatusRow label="Active public real-money VAELO distribution"        value="None"                                      ok={false} />
             </motion.div>
           </motion.div>
         </div>
@@ -155,76 +199,94 @@ export function Transparency() {
               to move or release a systemically significant proportion of VAELO's reserved supply."
             </p>
             <p className="text-muted-foreground leading-relaxed max-w-3xl">
-              This is a core design requirement for the intended production architecture — not a pledge of goodwill,
-              but a structural constraint intended to be enforced at the technical level.
+              This is a core design requirement for the production architecture — enforced at the technical level,
+              not a pledge of goodwill. The testnet deployment implements this for the founder allocation through
+              the VaelorynFounderVesting contract.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── Proposed Production Safeguards ── */}
+      {/* ── Implemented Safeguards ── */}
       <section className="py-20 md:py-28 border-b border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Intended / Proposed · Not Yet Implemented" title="Proposed Production Safeguards" />
+            <SectionHeader eyebrow="Base Sepolia Testnet" title="Implemented Safeguards" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {[
                 {
                   title: 'Fixed Maximum Supply',
+                  implemented: true,
                   items: [
-                    'Proposed fixed maximum production supply of 1,000,000,000 VAELO.',
-                    'Allocation does not equal circulation — allocated VAELO may remain locked, reserved or vested.',
-                    'Production architecture should not permit minting beyond the proposed 1 billion cap.',
+                    'Fixed supply of 1,000,000,000 VAELO — implemented and verified on-chain.',
+                    'Minted once at construction to the VaelorynGenesisAllocator.',
+                    'No mint function exists — supply cannot increase after deployment.',
+                    'Voluntary holder burns reduce total supply — verifiable via totalSupply().',
                   ],
                 },
                 {
-                  title: 'On-Chain Vesting',
+                  title: 'On-Chain Founder Vesting',
+                  implemented: true,
                   items: [
-                    'Intended on-chain founder vesting to enforce the proposed cliff and progressive schedule.',
-                    'Vesting or milestone conditions for significant team and contributor allocations.',
-                    'Grants should use documented approval processes rather than unrestricted immediate allocations.',
+                    '100M VAELO held in VaelorynFounderVesting — cannot be freely accessed.',
+                    '2,500,000 VAELO immediately claimable.',
+                    '2,500,000 VAELO released every 90 days during Year 1.',
+                    'Remaining 90,000,000 VAELO vested linearly over 36 months.',
+                    'Schedule enforced by contract logic — no admin bypass.',
                   ],
                 },
                 {
-                  title: 'Custody & Governance',
+                  title: 'No Admin Controls in Token Contract',
+                  implemented: true,
                   items: [
-                    'Appropriate multisignature custody for major reserves.',
-                    'Timelocks for sensitive actions where appropriate.',
-                    'Separation of developer, treasury and grant authority.',
-                    'Key rotation and signer replacement procedures.',
+                    'No ownership or admin roles in VaelorynToken.',
+                    'No pause function.',
+                    'No blacklist or account freezing.',
+                    'No transfer taxes or hidden fees.',
+                    'No upgradeability.',
                   ],
                 },
                 {
                   title: 'Supply Transparency',
+                  implemented: true,
                   items: [
-                    'Public supply and circulation verification.',
-                    'Clearly labelled major wallets and contracts where appropriate.',
-                    'Transparency around material token movements.',
-                    'Vesting and significant upcoming unlock information where appropriate.',
+                    'Full supply and every allocation balance are publicly readable on-chain.',
+                    'Source code for all contracts is published and verified.',
+                    'Founder vesting contract balance and schedule are publicly verifiable.',
+                    'Genesis distribution transaction is permanently recorded on-chain.',
                   ],
                 },
                 {
-                  title: 'Rewards Architecture',
+                  title: 'Custody & Governance (Production)',
+                  implemented: false,
                   items: [
-                    'Contribution Rewards, if implemented, should distribute existing allocated VAELO rather than create new supply.',
-                    'Operational redundancy for critical systems.',
+                    'Multisignature custody for major reserves — proposed for production.',
+                    'Timelocks for sensitive actions — proposed for production.',
+                    'Separation of developer, treasury and grant authority — proposed.',
+                    'Key rotation and signer replacement procedures — proposed.',
                   ],
                 },
                 {
                   title: 'Independent Review',
+                  implemented: false,
                   items: [
-                    'Appropriate independent smart-contract security review before production/mainnet.',
-                    'Professional legal, regulatory, economic and security review of the final production systems.',
-                    'No current review has been completed. All of the above remains proposed.',
+                    'Independent smart-contract security review — required before mainnet.',
+                    'Professional legal, regulatory, economic and security review — pending.',
+                    'Production audit has not yet been completed.',
                   ],
                 },
-              ].map(({ title, items }) => (
-                <motion.div key={title} variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-4">
-                  <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">{title}</p>
+              ].map(({ title, implemented, items }) => (
+                <motion.div key={title} variants={fadeInUp} className={`p-6 rounded-lg border bg-white/[0.02] flex flex-col gap-4 ${implemented ? 'border-primary/15' : 'border-white/8'}`}>
+                  <div className="flex items-center gap-2">
+                    <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">{title}</p>
+                    {implemented
+                      ? <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full ml-auto flex-shrink-0">Implemented</span>
+                      : <span className="text-xs text-muted-foreground/40 border border-white/8 px-2 py-0.5 rounded-full ml-auto flex-shrink-0">Proposed</span>}
+                  </div>
                   <BulletList items={items} />
                 </motion.div>
               ))}
@@ -234,39 +296,37 @@ export function Transparency() {
       </section>
 
       {/* ── Founder Protection ── */}
-      <section className="py-20 md:py-28 border-b border-white/5">
+      <section className="py-20 md:py-28 border-b border-white/5 bg-white/[0.01]">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Proposed Working Structure · Subject to Review" title="Founder Protection" />
+            <SectionHeader eyebrow="Implemented · Deployed & Tested" title="Founder Protection" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-4">
+              <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-primary/15 bg-primary/5 flex flex-col gap-4">
                 <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Allocation</p>
                 <p className="font-display text-2xl font-light tracking-wide text-foreground">
                   100M VAELO <span className="text-base text-muted-foreground/60">/ 10%</span>
                 </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Held inside the VaelorynFounderVesting contract. The founder cannot freely access this allocation —
+                  releases are governed entirely by the on-chain vesting schedule.
+                </p>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-4">
-                <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Proposed Vesting Structure</p>
+                <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Vesting Schedule (Implemented)</p>
                 <BulletList items={[
-                  'Up to 10M progressively eligible during Year 1.',
-                  'Maximum 2.5M per quarter during Year 1.',
-                  'Remaining 90M subject to a proposed 12-month cliff.',
-                  'Progressive vesting over the subsequent 36 months.',
+                  '2,500,000 VAELO immediately claimable at deployment.',
+                  '2,500,000 VAELO released every 90 days during Year 1.',
+                  'Remaining 90,000,000 VAELO vested linearly over the following 36 months.',
+                  'Schedule enforced by smart contract — no admin override.',
+                  'Tested with Foundry and deployed on Base Sepolia.',
                 ]} />
               </motion.div>
             </div>
-
-            <motion.div variants={fadeInUp} className="p-4 rounded-lg border border-white/10 bg-white/[0.02]">
-              <p className="text-xs text-muted-foreground/60 italic leading-relaxed">
-                This is a proposed working structure and remains subject to professional legal, regulatory, tax and security review,
-                and final production implementation. It does not represent a final or binding arrangement.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -278,15 +338,16 @@ export function Transparency() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Proposed Design" title="Treasury Protection" />
+            <SectionHeader eyebrow="Proposed for Production" title="Treasury Protection" />
 
             <motion.div variants={fadeInUp}>
               <p className="font-display text-xl font-light tracking-wide text-foreground italic mb-6">
                 "The Vaeloryn Treasury is not intended to function as a personal founder wallet."
               </p>
               <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
-                Major reserves should use secure custody and appropriate governance to ensure the treasury
-                serves its intended purpose of supporting long-term ecosystem development.
+                Major reserves are intended to use secure custody and appropriate governance to ensure the treasury
+                serves its purpose of supporting long-term ecosystem development. These structures are proposed for
+                the production architecture and have not yet been implemented.
               </p>
             </motion.div>
 
@@ -299,19 +360,22 @@ export function Transparency() {
                 'Publicly identifiable treasury and reserve addresses where appropriate.',
                 'Material treasury movement transparency.',
               ]} />
+              <p className="text-xs text-muted-foreground/50 italic mt-4 pt-4 border-t border-white/5">
+                These safeguards are proposed for the production architecture and remain subject to professional review.
+              </p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* ── Transparency & Accountability ── */}
-      <section className="py-20 md:py-28 border-b border-white/5">
+      <section className="py-20 md:py-28 border-b border-white/5 bg-white/[0.01]">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Intended Communication Standard" title="Transparency & Accountability" />
+            <SectionHeader eyebrow="Communication Standard" title="Transparency & Accountability" />
 
             <motion.div variants={fadeInUp}>
               <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
@@ -340,8 +404,8 @@ export function Transparency() {
         </div>
       </section>
 
-      {/* ── Limits of These Protections ── */}
-      <section className="py-20 md:py-28 border-b border-white/5 bg-white/[0.015]">
+      {/* ── Limits ── */}
+      <section className="py-20 md:py-28 border-b border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
@@ -366,7 +430,7 @@ export function Transparency() {
       </section>
 
       {/* ── Professional Review ── */}
-      <section className="py-20 md:py-28 border-b border-white/5">
+      <section className="py-20 md:py-28 border-b border-white/5 bg-white/[0.01]">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
@@ -376,18 +440,19 @@ export function Transparency() {
 
             <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02]">
               <p className="text-muted-foreground leading-relaxed max-w-3xl">
-                The final production systems remain subject to appropriate independent review across:
+                The final production systems require appropriate independent review across:
               </p>
               <div className="mt-5">
                 <BulletList items={[
                   'Legal and regulatory compliance',
                   'Economic and tokenomics design',
-                  'Smart-contract security',
+                  'Smart-contract security (full production audit)',
                   'Operational security',
                 ]} />
               </div>
               <p className="text-sm text-muted-foreground/60 italic mt-5 pt-4 border-t border-white/5">
-                No such review has been completed to date. All proposed safeguards described on this page remain unaudited working proposals.
+                No such review has been completed for production. The testnet implementation has been tested with Foundry (148 / 148 tests passing)
+                but has not undergone independent security review. This is required before mainnet deployment.
               </p>
             </motion.div>
           </motion.div>
@@ -409,8 +474,8 @@ export function Transparency() {
               "Build trust through what people can verify — not merely through what we ask them to believe."
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link href="/whitepaper" className="text-sm text-primary/80 hover:text-primary transition-colors tracking-wide border border-primary/20 hover:border-primary/40 px-5 py-2.5 rounded-md bg-primary/5 hover:bg-primary/10">
-                White Paper Draft →
+              <Link href="/verify" className="text-sm text-primary/80 hover:text-primary transition-colors tracking-wide border border-primary/20 hover:border-primary/40 px-5 py-2.5 rounded-md bg-primary/5 hover:bg-primary/10">
+                Verify the Protocol →
               </Link>
               <Link href="/risks" className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide border border-white/10 hover:border-white/20 px-5 py-2.5 rounded-md hover:bg-white/5">
                 Risk Disclosures →

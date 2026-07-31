@@ -1,0 +1,230 @@
+The Vaeloryn protocol has now reached a major milestone. The website must be updated to reflect the current state of the project.
+
+IMPORTANT:
+
+Do NOT redesign the website.
+Do NOT change the visual identity, animations, layout, typography or overall aesthetic unless absolutely necessary.
+Preserve the premium look and feel.
+Only improve wording, structure, transparency and functionality where appropriate.
+
+Review the entire website page-by-page and update every section that is now outdated due to the successful completion of the protocol.
+
+────────────────────────
+PROTOCOL STATUS
+────────────────────────
+
+The following is now true:
+
+✓ Smart contracts complete.
+
+✓ FounderVesting deployed.
+
+✓ GenesisDistribution deployed.
+
+✓ VaelorynToken deployed.
+
+✓ Base Sepolia deployment completed successfully.
+
+✓ All contracts source verified.
+
+✓ Constitutional allocation verified on-chain.
+
+✓ Founder vesting tested successfully.
+
+✓ 148/148 Foundry tests passing.
+
+✓ Fixed supply of 1,000,000,000 VAELO implemented.
+
+Remove wording such as:
+
+"Planned"
+
+"Proposed"
+
+"Intended"
+
+"Future implementation"
+
+Where it refers to features that are now implemented.
+
+Replace them with language reflecting the protocol's current state.
+
+────────────────────────
+STATUS PAGE
+────────────────────────
+
+Update the Status page to become an engineering progress dashboard.
+
+Include milestones such as:
+
+✅ Protocol Complete
+
+✅ Smart Contracts Complete
+
+✅ Base Sepolia Deployment Complete
+
+✅ Founder Vesting Verified
+
+✅ Genesis Distribution Verified
+
+✅ Constitutional Allocation Verified
+
+✅ Source Verified
+
+✅ 148/148 Tests Passing
+
+Present these professionally.
+
+────────────────────────
+TOKENOMICS
+────────────────────────
+
+Update every tokenomics section to match the live protocol.
+
+Founder Allocation
+
+100,000,000 VAELO
+
+Founder vesting:
+
+• 2,500,000 immediately claimable.
+
+• 2,500,000 every 90 days during Year 1.
+
+• Remaining 90,000,000 vested linearly over the following 36 months.
+
+Clearly explain that the founder allocation is held inside the FounderVesting contract and cannot be freely accessed.
+
+Remove any wording implying this schedule is only proposed.
+
+────────────────────────
+TRANSPARENCY
+────────────────────────
+
+Replace future-tense wording with implemented features.
+
+Where appropriate explain that users can independently verify:
+
+• Fixed supply.
+
+• Token allocation.
+
+• Founder vesting.
+
+• Contract verification.
+
+• On-chain balances.
+
+• Distribution.
+
+────────────────────────
+NEW PAGE
+────────────────────────
+
+Create a new page named:
+
+VERIFY
+
+This page should become the project's transparency hub.
+
+Include sections for:
+
+Protocol Status
+
+Smart Contracts
+
+Founder Vesting
+
+Genesis Distribution
+
+Vaeloryn Token
+
+Fixed Supply
+
+Token Allocation
+
+Contract Verification
+
+Test Results
+
+Deployment
+
+Architecture
+
+Explain each section clearly for non-technical users.
+
+Leave placeholders for BaseScan/Blockscout links if not already available.
+
+────────────────────────
+HOMEPAGE
+────────────────────────
+
+Without changing the design, add a professional banner or section stating that the protocol has now been successfully deployed on Base Sepolia and the constitutional protocol has been verified.
+
+────────────────────────
+ROADMAP
+────────────────────────
+
+Move completed milestones into a Completed section.
+
+Clearly distinguish:
+
+Completed
+
+Current Development
+
+Future Development
+
+────────────────────────
+TOKEN SALE
+────────────────────────
+
+Prepare the website for the upcoming token sale.
+
+Create a professional sale dashboard that can later be connected to the smart contracts.
+
+Include placeholders for:
+
+Current Sale Tier
+
+Current Price
+
+Tokens Remaining
+
+Funds Raised
+
+Progress Bar
+
+Connect Wallet
+
+Buy VAELO
+
+Purchase History
+
+Sale Statistics
+
+Do NOT implement purchasing logic yet.
+
+Only build the UI ready for integration.
+
+────────────────────────
+GENERAL REVIEW
+────────────────────────
+
+Review every page and improve wording, grammar and professionalism.
+
+Remove duplicated information.
+
+Ensure terminology is consistent across the website.
+
+Keep the tone professional, scientific and transparent.
+
+The overall message should be:
+
+"Trust through transparency."
+
+The website should no longer feel like a proposal.
+
+It should feel like a real protocol that has already been engineered, deployed and verified.
+
+Finally, produce a report listing every page that was updated and summarise all changes made.

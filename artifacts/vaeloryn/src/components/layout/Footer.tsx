@@ -29,7 +29,10 @@ export function Footer() {
               VAELO
             </Link>
             <Link href="/status" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Project Status
+              Progress
+            </Link>
+            <Link href="/sale" className="text-sm text-primary/70 hover:text-primary transition-colors">
+              Token Sale
             </Link>
             <Link href="/help-build" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Help Build
@@ -60,11 +63,47 @@ export function Footer() {
               Risks
             </Link>
           </div>
+
+          {/* Protocol links */}
+          <div className="flex flex-col gap-3">
+            <span className="text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground/50 mb-1">
+              Protocol
+            </span>
+            <Link href="/verify" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Verify
+            </Link>
+            <a
+              href="https://sepolia.basescan.org/address/0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              VaelorynToken ↗
+            </a>
+            <a
+              href="https://sepolia.basescan.org/address/0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              FounderVesting ↗
+            </a>
+            <a
+              href="https://sepolia.basescan.org/address/0xa3eF040471497538a617061FdDEea0CD4C03beBa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              GenesisAllocator ↗
+            </a>
+          </div>
         </div>
 
         {/* Disclaimer */}
         <p className="text-xs text-muted-foreground/40 text-center max-w-lg leading-relaxed">
-          Vaeloryn and VAELO are early-stage. VAELO exists as a testnet prototype only. Nothing on this site constitutes financial, legal or investment advice. No public token sale is active.
+          Vaeloryn and VAELO are deployed on Base Sepolia testnet. Testnet VAELO has no monetary value.
+          No mainnet product is launched. No public token sale is active. Nothing on this site constitutes
+          financial, legal or investment advice.
         </p>
       </div>
     </footer>

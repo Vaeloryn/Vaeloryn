@@ -14,6 +14,8 @@ import { Transparency } from '@/pages/Transparency';
 import { Roadmap } from '@/pages/Roadmap';
 import { Risks } from '@/pages/Risks';
 import { Status } from '@/pages/Status';
+import { Verify } from '@/pages/Verify';
+import { Sale } from '@/pages/Sale';
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,8 @@ function Router() {
         <Route path="/roadmap" component={Roadmap} />
         <Route path="/risks" component={Risks} />
         <Route path="/status" component={Status} />
+        <Route path="/verify" component={Verify} />
+        <Route path="/sale" component={Sale} />
         <Route path="/help-build" component={HelpBuild} />
         <Route path="/submit-idea" component={SubmitIdea} />
         <Route path="/contact" component={Contact} />

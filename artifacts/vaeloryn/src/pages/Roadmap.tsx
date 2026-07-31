@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { Link } from 'wouter';
 import { SEO } from '@/components/SEO';
+import { CheckCircle2, Circle } from 'lucide-react';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -23,6 +24,24 @@ function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
   );
 }
 
+function DoneBullet({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-3">
+      <CheckCircle2 size={15} strokeWidth={1.75} className="text-primary shrink-0 mt-0.5" />
+      <span className="text-sm text-muted-foreground leading-relaxed">{text}</span>
+    </div>
+  );
+}
+
+function ActiveBullet({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-3">
+      <Circle size={15} strokeWidth={2} className="text-primary/50 shrink-0 mt-0.5" />
+      <span className="text-sm text-muted-foreground leading-relaxed">{text}</span>
+    </div>
+  );
+}
+
 function BulletList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-2.5">
@@ -37,18 +56,19 @@ function BulletList({ items }: { items: string[] }) {
 }
 
 const STAGES = [
-  { label: 'Stage A', sublabel: 'Foundation', active: true },
-  { label: 'Stage B', sublabel: 'Execution',  active: false },
-  { label: 'Stage C', sublabel: 'Expansion',  active: false },
-  { label: 'Stage D', sublabel: 'Global Ecosystem', active: false },
+  { label: 'Completed', sublabel: 'Protocol',    done: true,   active: false },
+  { label: 'Stage A',   sublabel: 'Foundation',  done: false,  active: true  },
+  { label: 'Stage B',   sublabel: 'Execution',   done: false,  active: false },
+  { label: 'Stage C',   sublabel: 'Expansion',   done: false,  active: false },
+  { label: 'Stage D',   sublabel: 'Global Ecosystem', done: false, active: false },
 ];
 
 export function Roadmap() {
   return (
     <div className="w-full">
       <SEO
-        title="Roadmap — Vaeloryn | Stage A and Beyond"
-        description="Follow Vaeloryn's progression from Stage A foundation building toward real-world execution and long-term ecosystem development."
+        title="Roadmap — Vaeloryn | From Protocol to Global Ecosystem"
+        description="Follow Vaeloryn's progression from a completed constitutional protocol through Stage A foundation building toward real-world execution and long-term ecosystem development."
       />
 
       {/* ── Page Header ── */}
@@ -61,7 +81,7 @@ export function Roadmap() {
             className="flex flex-col gap-6"
           >
             <motion.span variants={fadeInUp} className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full w-fit">
-              Stage A — Foundation · Proposed Stages Beyond
+              Stage A — Foundation · In Progress
             </motion.span>
 
             <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl font-light tracking-[0.15em] uppercase text-foreground">
@@ -71,7 +91,8 @@ export function Roadmap() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              Follow Vaeloryn's progression from Stage A foundation building toward real-world execution and long-term ecosystem development.
+              From a completed constitutional protocol on Base Sepolia through Stage A foundation building
+              toward real-world execution and a long-term global ecosystem.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex items-center gap-3 pt-2">
@@ -98,8 +119,7 @@ export function Roadmap() {
               "Show the work before asking for trust."
             </p>
             <p className="text-muted-foreground leading-relaxed max-w-3xl">
-              Vaeloryn is currently building the technical, organisational, legal and transparency foundations
-              needed to progress responsibly. Progression is <span className="text-foreground/80">milestone-gated, not simply calendar-gated</span> —
+              Progression is <span className="text-foreground/80">milestone-gated, not calendar-gated</span> —
               moving from one stage to another depends on demonstrated progress, appropriate governance, available resources
               and completion of relevant legal, technical and security requirements.
             </p>
@@ -117,29 +137,37 @@ export function Roadmap() {
             transition={{ duration: 0.6 }}
             className="flex flex-col sm:flex-row items-stretch gap-0"
           >
-            {STAGES.map(({ label, sublabel, active }, i) => (
+            {STAGES.map(({ label, sublabel, done, active }, i) => (
               <React.Fragment key={label}>
                 <div className={`flex-1 flex flex-col gap-2 p-5 rounded-none border ${
-                  active
+                  done
+                    ? 'border-primary/30 bg-primary/6'
+                    : active
                     ? 'border-primary/40 bg-primary/8'
                     : 'border-white/8 bg-white/[0.015]'
                 } ${i === 0 ? 'rounded-l-lg' : ''} ${i === STAGES.length - 1 ? 'rounded-r-lg' : ''}`}>
                   <div className="flex items-center gap-2">
+                    {done  && <CheckCircle2 size={12} strokeWidth={1.75} className="text-primary/80 flex-shrink-0" />}
                     {active && <div className="w-1.5 h-1.5 rounded-full bg-primary/80 animate-pulse flex-shrink-0" />}
-                    <span className={`text-xs font-medium tracking-[0.15em] uppercase ${active ? 'text-primary/90' : 'text-muted-foreground/50'}`}>
+                    <span className={`text-xs font-medium tracking-[0.15em] uppercase ${done || active ? 'text-primary/90' : 'text-muted-foreground/50'}`}>
                       {label}
                     </span>
                   </div>
-                  <span className={`text-sm font-light tracking-wide ${active ? 'text-foreground/90' : 'text-muted-foreground/40'}`}>
+                  <span className={`text-sm font-light tracking-wide ${done || active ? 'text-foreground/90' : 'text-muted-foreground/40'}`}>
                     {sublabel}
                   </span>
+                  {done && (
+                    <span className="text-xs text-primary/70 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full w-fit mt-1">
+                      Complete
+                    </span>
+                  )}
                   {active && (
                     <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full w-fit mt-1">
                       Current
                     </span>
                   )}
-                  {!active && (
-                    <span className="text-xs text-muted-foreground/30 italic mt-1">Proposed</span>
+                  {!done && !active && (
+                    <span className="text-xs text-muted-foreground/30 italic mt-1">Future</span>
                   )}
                 </div>
                 {i < STAGES.length - 1 && (
@@ -157,7 +185,96 @@ export function Roadmap() {
       </section>
 
       {/* ══════════════════════════════════════════
-          STAGE A
+          COMPLETED
+      ══════════════════════════════════════════ */}
+      <section className="py-20 md:py-28 border-b border-white/5 bg-primary/[0.03]">
+        <div className="container px-6 max-w-5xl mx-auto">
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
+            className="flex flex-col gap-12"
+          >
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 size={18} strokeWidth={1.75} className="text-primary" />
+                <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80">Achieved</span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl font-light tracking-[0.12em] uppercase text-foreground">
+                Completed
+              </h2>
+              <div className="w-10 h-px bg-primary/60" />
+              <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                The following milestones are complete and independently verifiable. This is the foundation
+                on which Stage A continues to build.
+              </p>
+            </motion.div>
+
+            {/* Smart Contracts & Protocol */}
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <span className="font-display text-sm font-light tracking-widest text-primary/60">01</span>
+                <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">Smart Contract Protocol</h3>
+              </div>
+              <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
+                {[
+                  'VaelorynToken implemented — ERC-20, fixed supply, burn, permit (EIP-2612).',
+                  'VaelorynFounderVesting implemented — on-chain vesting with enforced schedule.',
+                  'VaelorynGenesisAllocator implemented — constitutional distribution at deployment.',
+                  '148 / 148 Foundry tests written and passing — zero failures.',
+                  'Full constitutional protocol deployed to Base Sepolia testnet.',
+                  'All three contracts source-verified on Base Sepolia.',
+                ].map((item) => (
+                  <DoneBullet key={item} text={item} />
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Allocation Verification */}
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <span className="font-display text-sm font-light tracking-widest text-primary/60">02</span>
+                <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">On-Chain Verification</h3>
+              </div>
+              <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
+                {[
+                  'Fixed supply of 1,000,000,000 VAELO verified — minted once at construction.',
+                  'Constitutional allocation executed and verified on-chain.',
+                  'Founder vesting schedule deployed, tested and confirmed.',
+                  'Genesis distribution transaction permanently recorded on Base Sepolia.',
+                ].map((item) => (
+                  <DoneBullet key={item} text={item} />
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Public Foundation */}
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <span className="font-display text-sm font-light tracking-widest text-primary/60">03</span>
+                <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">Public Foundation</h3>
+              </div>
+              <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
+                {[
+                  'Vaeloryn public website developed and launched.',
+                  'Public project documentation published.',
+                  'Testnet evidence and verified contract information published.',
+                  'VAELO tokenomics framework developed.',
+                  'Trust, Transparency & Supply Protection Framework developed.',
+                  'Stage A roadmap developed.',
+                  'Public White Paper draft developed.',
+                  'Public Risk Disclosure developed.',
+                  'Help Build Vaeloryn contribution pathway established.',
+                  'Public social channels established.',
+                ].map((item) => (
+                  <DoneBullet key={item} text={item} />
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          STAGE A — IN PROGRESS
       ══════════════════════════════════════════ */}
       <section className="py-20 md:py-28 border-b border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
@@ -175,68 +292,40 @@ export function Roadmap() {
               </h2>
               <div className="w-10 h-px bg-primary/60" />
               <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                Building the technical, organisational, legal and transparency foundations necessary to progress
-                responsibly toward real-world execution.
+                With the constitutional protocol complete, Stage A continues with the organisational, legal,
+                security and community foundations needed to progress responsibly toward production.
               </p>
             </motion.div>
 
-            {/* Priority 1: Public Foundation */}
+            {/* In Progress */}
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <span className="font-display text-sm font-light tracking-widest text-primary/60">01</span>
-                <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">Public Foundation</h3>
+                <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">In Progress</h3>
               </div>
-              <div className="pl-8 border-l border-white/8">
-                <BulletList items={[
-                  'Build and publish the Vaeloryn website.',
-                  'Publish public project documentation.',
-                  'Publish testnet evidence and verified contract information.',
-                  'Maintain clear Project Status information.',
-                  'Continue building public awareness through official channels.',
-                ]} />
+              <div className="pl-8 border-l border-white/8 flex flex-col gap-2">
+                {[
+                  'Building public awareness and community presence.',
+                  'Developing the Help Build Vaeloryn contributor network.',
+                  'Exploring appropriate professional legal and regulatory guidance.',
+                  'Refining Stage A strategy and priorities.',
+                  'Evaluating potential first flagship project directions.',
+                ].map((item) => (
+                  <ActiveBullet key={item} text={item} />
+                ))}
               </div>
             </motion.div>
 
-            {/* Priority 2: Build in Public */}
+            {/* Minimum Legal Gate */}
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <span className="font-display text-sm font-light tracking-widest text-primary/60">02</span>
-                <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">Build in Public</h3>
-              </div>
-              <div className="pl-8 border-l border-white/8">
-                <BulletList items={[
-                  'Make development progress visible where appropriate.',
-                  'Invite technical and professional scrutiny.',
-                  'Clearly distinguish completed work from proposed work.',
-                  'Communicate material changes and setbacks transparently where appropriate.',
-                ]} />
-              </div>
-            </motion.div>
-
-            {/* Priority 3: Help Build */}
-            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <span className="font-display text-sm font-light tracking-widest text-primary/60">03</span>
-                <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">Help Build Vaeloryn</h3>
-              </div>
-              <div className="pl-8 border-l border-white/8">
-                <BulletList items={[
-                  'Open channels for developers, lawyers, security professionals, researchers, entrepreneurs and other experts to express interest in contributing.',
-                  'Develop the contributor network responsibly.',
-                  'Explore future Contribution Rewards only after appropriate governance and legal review.',
-                ]} />
-              </div>
-            </motion.div>
-
-            {/* Priority 4: Minimum Legal Gate */}
-            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <span className="font-display text-sm font-light tracking-widest text-primary/60">04</span>
                 <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">Minimum Legal Gate</h3>
               </div>
               <div className="pl-8 border-l border-white/8 flex flex-col gap-5">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Before activating any real-money public VAELO distribution, Vaeloryn intends to obtain appropriate professional guidance on:
+                  Before activating any real-money public VAELO distribution, Vaeloryn must obtain appropriate professional
+                  guidance on:
                 </p>
                 <BulletList items={[
                   'Appropriate legal entity and issuer structure.',
@@ -256,55 +345,53 @@ export function Roadmap() {
               </div>
             </motion.div>
 
-            {/* Priority 5: Production Security */}
+            {/* Production Security */}
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
-                <span className="font-display text-sm font-light tracking-widest text-primary/60">05</span>
+                <span className="font-display text-sm font-light tracking-widest text-primary/60">03</span>
                 <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">Production Security</h3>
               </div>
               <div className="pl-8 border-l border-white/8 flex flex-col gap-5">
                 <BulletList items={[
                   'Design the production smart-contract architecture.',
-                  'Implement appropriate vesting architecture.',
-                  'Develop secure treasury custody.',
-                  'Implement appropriate multisignature controls.',
+                  'Develop secure treasury custody with appropriate multisignature controls.',
                   'Introduce separation of powers.',
                   'Consider timelocks for sensitive actions.',
-                  'Complete appropriate independent smart-contract and security review before production/mainnet.',
+                  'Complete appropriate independent smart-contract and security review before production / mainnet.',
                 ]} />
                 <p className="text-xs text-muted-foreground/50 italic">
-                  These are planned requirements — not currently completed safeguards.
+                  The testnet contracts have been built and tested. Production architecture and independent audit remain pending.
                 </p>
               </div>
             </motion.div>
 
-            {/* Priority 6: Stage A Funding Direction */}
+            {/* Stage A Funding Direction */}
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
-                <span className="font-display text-sm font-light tracking-widest text-primary/60">06</span>
+                <span className="font-display text-sm font-light tracking-widest text-primary/60">04</span>
                 <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">Stage A Funding Direction</h3>
               </div>
               <div className="pl-8 border-l border-white/8 flex flex-col gap-5">
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Vaeloryn is exploring a limited future Stage A VAELO distribution as one possible funding mechanism.
-                  The working tokenomics designate <span className="text-foreground/80">up to 10M VAELO</span> as potentially eligible
-                  for Stage A / early community distribution.
+                  The constitutional allocation designates <span className="text-foreground/80">up to 10M VAELO</span> as
+                  potentially eligible for Stage A / early community distribution.
                 </p>
                 <div className="p-5 rounded-lg border border-amber-500/20 bg-amber-500/5">
                   <BulletList items={[
-                    'This is not a commitment to distribute or sell all 10M VAELO.',
+                    'This is not a commitment to distribute or sell any VAELO.',
                     'No active public real-money VAELO distribution currently exists.',
-                    'No token price is published.',
-                    'Any future distribution remains subject to appropriate legal, regulatory, technical and security preparation.',
+                    'No token price has been published.',
+                    'Any future distribution requires all legal, regulatory, technical and security preparations.',
                   ]} />
                 </div>
               </div>
             </motion.div>
 
-            {/* Priority 7: First Flagship Project */}
+            {/* First Flagship Project */}
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
-                <span className="font-display text-sm font-light tracking-widest text-primary/60">07</span>
+                <span className="font-display text-sm font-light tracking-widest text-primary/60">05</span>
                 <h3 className="text-base font-medium tracking-[0.1em] uppercase text-foreground/85">First Real Vaeloryn Project</h3>
               </div>
               <div className="pl-8 border-l border-white/8 flex flex-col gap-5">
@@ -329,8 +416,31 @@ export function Roadmap() {
       </section>
 
       {/* ══════════════════════════════════════════
-          STAGE B
+          FUTURE DEVELOPMENT
       ══════════════════════════════════════════ */}
+      <section className="py-16 border-b border-white/5 bg-white/[0.005]">
+        <div className="container px-6 max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col gap-3"
+          >
+            <span className="text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground/40">Future Development · Not Commitments</span>
+            <h2 className="font-display text-3xl md:text-4xl font-light tracking-[0.1em] uppercase text-foreground/40">
+              Stages B, C &amp; D
+            </h2>
+            <div className="w-10 h-px bg-white/10" />
+            <p className="text-muted-foreground/50 leading-relaxed max-w-2xl text-sm">
+              Future stages represent long-term objectives — not commitments to specific timelines or outcomes.
+              Progression depends on demonstrated success, available resources, appropriate governance and
+              completion of all relevant requirements.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-20 md:py-28 border-b border-white/5 bg-white/[0.01]">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
@@ -363,9 +473,6 @@ export function Roadmap() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════
-          STAGE C
-      ══════════════════════════════════════════ */}
       <section className="py-20 md:py-28 border-b border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
@@ -394,9 +501,6 @@ export function Roadmap() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════
-          STAGE D
-      ══════════════════════════════════════════ */}
       <section className="py-20 md:py-28 border-b border-white/5 bg-white/[0.01]">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
@@ -427,7 +531,7 @@ export function Roadmap() {
                   ))}
                 </div>
                 <p className="text-xs text-muted-foreground/35 italic">
-                  These are areas of long-term interest and not commitments to launch specific businesses.
+                  These are areas of long-term interest — not commitments to launch specific businesses.
                 </p>
               </div>
             </motion.div>
@@ -448,7 +552,7 @@ export function Roadmap() {
               <BulletList items={[
                 'Progression is milestone-gated — not simply calendar-gated.',
                 'Moving from one stage to the next depends on demonstrated progress, appropriate governance, available resources and completion of relevant legal, technical and security requirements.',
-                'The roadmap may evolve as Vaeloryn learns and develops.',
+                'The roadmap will evolve as Vaeloryn learns and develops.',
                 'Future stages, timelines and outcomes are not guaranteed.',
               ]} />
             </motion.div>
@@ -472,13 +576,13 @@ export function Roadmap() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Link href="/status" className="text-sm text-primary/80 hover:text-primary transition-colors tracking-wide border border-primary/20 hover:border-primary/40 px-5 py-2.5 rounded-md bg-primary/5 hover:bg-primary/10">
-                Current Project Status →
+                Engineering Dashboard →
+              </Link>
+              <Link href="/verify" className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide border border-white/10 hover:border-white/20 px-5 py-2.5 rounded-md hover:bg-white/5">
+                Verify the Protocol →
               </Link>
               <Link href="/help-build" className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide border border-white/10 hover:border-white/20 px-5 py-2.5 rounded-md hover:bg-white/5">
                 Help Build Vaeloryn →
-              </Link>
-              <Link href="/whitepaper" className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide border border-white/10 hover:border-white/20 px-5 py-2.5 rounded-md hover:bg-white/5">
-                White Paper Draft →
               </Link>
             </div>
           </motion.div>

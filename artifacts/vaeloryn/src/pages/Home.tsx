@@ -63,13 +63,17 @@ const bridgeSteps = [
 type StatusKind = 'achieved' | 'inactive' | 'pending';
 
 const statusItems: { label: string; value: string; kind: StatusKind }[] = [
-  { label: "Testnet Contracts",              value: "Deployed & source-verified",  kind: "achieved"  },
-  { label: "VAELO Network",                  value: "Base Sepolia Testnet",         kind: "achieved"  },
-  { label: "Production / Mainnet",           value: "Not launched",                 kind: "inactive"  },
-  { label: "Public VAELO Distribution",      value: "Not active",                   kind: "inactive"  },
-  { label: "Independent Security Review",    value: "Pending",                      kind: "pending"   },
-  { label: "Legal / Regulatory Review",      value: "Pending",                      kind: "pending"   },
-  { label: "First Flagship Project",         value: "Selection pending",            kind: "pending"   },
+  { label: "Protocol",                       value: "Deployed & source-verified",    kind: "achieved"  },
+  { label: "Smart Contracts",                value: "3 contracts deployed",           kind: "achieved"  },
+  { label: "Test Suite",                     value: "148 / 148 tests passing",        kind: "achieved"  },
+  { label: "Constitutional Allocation",      value: "Verified on-chain",              kind: "achieved"  },
+  { label: "VAELO Network",                  value: "Base Sepolia Testnet",           kind: "achieved"  },
+  { label: "Founder Vesting",                value: "Deployed & tested",              kind: "achieved"  },
+  { label: "Production / Mainnet",           value: "Not launched",                   kind: "inactive"  },
+  { label: "Public VAELO Distribution",      value: "Not active",                     kind: "inactive"  },
+  { label: "Independent Security Review",    value: "Pending",                        kind: "pending"   },
+  { label: "Legal / Regulatory Review",      value: "Pending",                        kind: "pending"   },
+  { label: "First Flagship Project",         value: "Selection pending",              kind: "pending"   },
 ];
 
 function StatusIcon({ kind }: { kind: StatusKind }) {
@@ -85,7 +89,6 @@ function StatusIcon({ kind }: { kind: StatusKind }) {
 export function Home() {
   const prefersReducedMotion = useReducedMotion();
 
-  // Hero-specific variants — respect prefers-reduced-motion
   const heroContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -123,16 +126,14 @@ export function Home() {
       {/* 1. Hero Section */}
       <section className="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden">
 
-        {/* ── Background depth layers ────────────────────────────────────── */}
+        {/* Background depth layers */}
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none">
-          {/* Ambient outer glow — breathes gently */}
           <motion.div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[960px] h-[960px] rounded-full"
             style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 68%)' }}
             animate={prefersReducedMotion ? {} : { opacity: [0.4, 0.72, 0.4] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
           />
-          {/* Focal glow — tight halo anchored behind logo + heading */}
           <div
             className="absolute left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full blur-[90px]"
             style={{
@@ -142,7 +143,7 @@ export function Home() {
           />
         </div>
 
-        {/* ── Hero content ───────────────────────────────────────────────── */}
+        {/* Hero content */}
         <div className="container px-6 relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
           <motion.div
             initial="hidden"
@@ -184,9 +185,9 @@ export function Home() {
                 South African-founded. Globally focused.
               </p>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Vaeloryn is an early-stage project being developed to help accelerate scientific,
-                medical and technological progress by connecting exceptional people and ideas with
-                the expertise, resources and opportunities required to move forward.
+                Vaeloryn is building an ecosystem to help accelerate scientific, medical and technological
+                progress by connecting exceptional people and ideas with the expertise, resources and
+                opportunities required to move forward.
               </p>
             </motion.div>
 
@@ -219,8 +220,55 @@ export function Home() {
         </div>
       </section>
 
-      {/* 2. Project Status */}
-      <section id="progress" className="py-24 md:py-32 border-t border-white/5">
+      {/* 2. Protocol Deployment Banner */}
+      <section className="py-14 md:py-20 border-t border-white/5 border-b border-primary/10 bg-primary/[0.04]">
+        <div className="container px-6 max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12"
+          >
+            {/* Left: milestone headline */}
+            <div className="flex items-start gap-4 flex-1">
+              <CheckCircle2 size={22} strokeWidth={1.75} className="text-primary shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-2">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80">
+                  Protocol Milestone
+                </p>
+                <h3 className="font-display text-2xl md:text-3xl font-light tracking-wide text-foreground">
+                  Constitutional Protocol Deployed
+                </h3>
+                <p className="text-muted-foreground leading-relaxed max-w-xl">
+                  The Vaeloryn protocol has been successfully deployed on Base Sepolia testnet.
+                  All smart contracts are source-verified, the constitutional allocation is confirmed
+                  on-chain, and 148 / 148 tests are passing.
+                </p>
+              </div>
+            </div>
+
+            {/* Right: quick-verify links */}
+            <div className="flex flex-col gap-3 md:flex-shrink-0">
+              <Link
+                href="/verify"
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md h-11 px-6 text-sm font-medium tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Verify the Protocol →
+              </Link>
+              <Link
+                href="/status"
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md h-11 px-6 text-sm font-medium tracking-wide border border-primary/30 hover:border-primary/50 text-primary hover:bg-primary/5 transition-all"
+              >
+                Engineering Dashboard →
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 3. Project Status */}
+      <section id="progress" className="py-24 md:py-32 border-b border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
@@ -239,7 +287,9 @@ export function Home() {
                 Project Status
               </h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Vaeloryn is in active early-stage development. The VAELO token prototype is live on the Base Sepolia testnet. No public token sale, mainnet launch, or flagship project has occurred. The items below reflect what has been achieved and what remains ahead.
+                The constitutional protocol is live on Base Sepolia testnet. The VAELO token is deployed,
+                founder vesting is active, and all contracts are source-verified. Mainnet launch and public
+                distribution remain pending security review and legal preparation.
               </p>
             </motion.div>
 
@@ -269,15 +319,17 @@ export function Home() {
             {/* Disclaimer note */}
             <motion.div variants={fadeInUp}>
               <p className="text-xs text-muted-foreground/60 leading-relaxed border-l border-white/10 pl-4 max-w-2xl italic">
-                The VAELO testnet prototype exists solely for development and testing purposes. It does not represent a launched product, a public offering, or financial advice. Mainnet launch and any public distribution are subject to independent security review, legal and regulatory analysis, and further development milestones.
+                The VAELO deployment is on Base Sepolia testnet only. Testnet VAELO has no monetary value.
+                Mainnet launch and any public distribution are subject to independent security review,
+                legal and regulatory preparation, and further development milestones.
               </p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* 3. Our Mission */}
-      <section id="mission" className="py-24 md:py-32 border-t border-white/5 bg-black/20">
+      {/* 4. Our Mission */}
+      <section id="mission" className="py-24 md:py-32 border-b border-white/5 bg-black/20">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
@@ -287,7 +339,9 @@ export function Home() {
             <motion.div variants={fadeInUp} className="text-center space-y-6 max-w-3xl mx-auto">
               <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground">Our Mission</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Vaeloryn is a South African-founded ecosystem exploring how technology, innovation and long-term thinking can support real-world progress. South Africa is our home and foundation — and our ambition extends beyond borders, building, supporting and collaborating with projects, technologies and people that can help shape the future.
+                Vaeloryn is a South African-founded ecosystem exploring how technology, innovation and long-term thinking
+                can support real-world progress. South Africa is our home and foundation — and our ambition extends beyond
+                borders, building, supporting and collaborating with projects, technologies and people that can help shape the future.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed italic">
                 Not every project needs to become a company. Fundamental scientific and medical research can have enormous value without immediate commercial returns.
@@ -313,7 +367,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 4. Areas of Progress */}
+      {/* 5. Areas of Progress */}
       <section id="areas" className="py-24 md:py-40">
         <div className="container px-6 max-w-6xl mx-auto">
           <motion.div
@@ -350,7 +404,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 5. The Vaeloryn Bridge */}
+      {/* 6. The Vaeloryn Bridge */}
       <section className="py-24 md:py-40 border-y border-white/5 bg-black/20">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
@@ -392,7 +446,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 6. Help Build Vaeloryn */}
+      {/* 7. Help Build Vaeloryn */}
       <section className="py-24 md:py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] opacity-30 pointer-events-none" />
@@ -409,10 +463,12 @@ export function Home() {
 
             <motion.div variants={fadeInUp} className="space-y-6 text-lg text-muted-foreground text-left md:text-center leading-relaxed">
               <p>
-                Vaeloryn is at the beginning of an ambitious mission to help accelerate scientific, medical and technological progress — founded in South Africa, with ambitions that extend internationally.
+                Vaeloryn is at the beginning of an ambitious mission to help accelerate scientific, medical and technological
+                progress — founded in South Africa, with ambitions that extend internationally.
               </p>
               <p>
-                Building an institution capable of pursuing that mission requires knowledge and experience across many fields. We are seeking people who may be willing to contribute their expertise, perspective, advice or connections as Vaeloryn develops.
+                Building an institution capable of pursuing that mission requires knowledge and experience across many fields.
+                We are seeking people who may be willing to contribute their expertise, perspective, advice or connections as Vaeloryn develops.
               </p>
               <p className="text-base italic">
                 People do not need to be looking for employment. They may simply want to have a conversation, offer advice, challenge our thinking or make an introduction.
@@ -436,7 +492,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 7. Our Principles */}
+      {/* 8. Our Principles */}
       <section className="py-24 md:py-32 border-t border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div

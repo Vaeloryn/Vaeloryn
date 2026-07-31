@@ -25,11 +25,14 @@ export function Navbar() {
       <Link href="/status" onClick={closeMenu} className={linkClass}>
         Progress
       </Link>
-      <Link href="/transparency" onClick={closeMenu} className={linkClass}>
-        Transparency
+      <Link href="/verify" onClick={closeMenu} className={linkClass}>
+        Verify
       </Link>
       <Link href="/roadmap" onClick={closeMenu} className={linkClass}>
         Roadmap
+      </Link>
+      <Link href="/sale" onClick={closeMenu} className="text-sm font-medium text-primary/80 hover:text-primary transition-colors border border-primary/25 hover:border-primary/50 px-3 py-1 rounded-md hover:bg-primary/5">
+        Sale
       </Link>
       <Link href="/help-build" onClick={closeMenu} className={linkClass}>
         Help Build
@@ -54,7 +57,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           <NavLinks />
         </div>
 
