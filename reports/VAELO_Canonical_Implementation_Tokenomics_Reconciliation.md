@@ -4,6 +4,19 @@
 **Scope:** Repository history, current website source, attached project documentation, local prototype source and tests, live Base Sepolia RPC reads, and Blockscout explorer data.  
 **Status:** **Investor documentation must not be generated from the current public figures yet.** The production specification, public website and deployed testnet contracts do not reconcile.
 
+## Canonical-tokenomics status update
+
+A subsequent project directive, `attached_assets/Pasted-VAELO-RECONSTRUCT-THE-CANONICAL-TOKENOMICS-IMPLEMENTATI_1787507799282.txt`, explicitly confirms that the website's six-category 1,000,000,000 VAELO allocation is the existing **canonical intended tokenomics**. This resolves the prior question about which allocation is authoritative:
+
+- Ecosystem & Community: 300,000,000 VAELO / 30%
+- Public Distribution: 200,000,000 VAELO / 20%
+- Vaeloryn Treasury: 200,000,000 VAELO / 20%
+- Team & Contributors: 150,000,000 VAELO / 15%
+- Founder: 100,000,000 VAELO / 10%
+- Strategic Partnerships: 50,000,000 VAELO / 5%
+
+This update does **not** establish that those figures are implemented by the published Base Sepolia addresses. The reconstruction plan records the work required to align a new implementation with the confirmed canonical allocation.
+
 ## Executive conclusion
 
 There is **not currently one complete, traceable canonical implementation** covering the VAELO token, genesis allocation, founder vesting and test suite.

@@ -1,0 +1,406 @@
+VAELO — RECONSTRUCT THE CANONICAL TOKENOMICS IMPLEMENTATION
+
+IMPORTANT RESOURCE/COST RULE:
+
+DO NOT USE MAX POWER.
+DO NOT use high-compute or unnecessarily expensive agent modes.
+Use the normal/default Replit agent.
+
+Keep the investigation targeted. Do not repeatedly scan the entire repository, rerun unrelated tests, or perform expensive operations that are not necessary for this task.
+
+==================================================
+IMPORTANT — CANONICAL TOKENOMICS ARE CONFIRMED
+==================================================
+
+The following allocation is the EXISTING CANONICAL VAELO TOKENOMICS.
+
+DO NOT redesign it.
+DO NOT modify it.
+DO NOT substitute the old V1.1 figures.
+
+TOTAL SUPPLY:
+1,000,000,000 VAELO
+
+ALLOCATIONS:
+
+Ecosystem & Community
+30%
+300,000,000 VAELO
+
+Public Distribution
+20%
+200,000,000 VAELO
+
+Vaeloryn Treasury
+20%
+200,000,000 VAELO
+
+Team & Contributors
+15%
+150,000,000 VAELO
+
+Founder
+10%
+100,000,000 VAELO
+
+Strategic Partnerships
+5%
+50,000,000 VAELO
+
+TOTAL:
+100%
+1,000,000,000 VAELO
+
+These figures are already published on the Vaeloryn website and are the intended canonical tokenomics.
+
+The previous audit incorrectly treated some of these figures as unavailable because the website content was not fully retrieved.
+
+==================================================
+OBJECTIVE
+==================================================
+
+The purpose of this task is now to determine why the deployed Base Sepolia V1.1 prototype does not match the canonical VAELO tokenomics.
+
+DO NOT generate investor documents yet.
+
+DO NOT deploy anything.
+
+DO NOT modify the existing deployed contracts.
+
+DO NOT modify the website.
+
+DO NOT change the canonical allocation.
+
+We need to establish exactly what needs to be built/changed so the CURRENT implementation matches the already-defined VAELO specification.
+
+==================================================
+CURRENT DEPLOYED PROTOTYPE
+==================================================
+
+The previous audit identified these Base Sepolia contracts:
+
+VAELO token:
+0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c
+
+Founder vesting:
+0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2
+
+Genesis allocator:
+0xa3eF040471497538a617061FdDEea0CD4C03beBa
+
+The deployed V1.1 prototype appears to use:
+
+Founder:
+150M / 15%
+
+Five-year cumulative linear vesting
+
+14/14 Hardhat tests
+
+This is NOT the canonical final VAELO tokenomics.
+
+Treat these contracts as the existing V1.1 TESTNET PROTOTYPE unless evidence proves otherwise.
+
+==================================================
+STEP 1 — FIND THE CANONICAL DOCUMENT
+==================================================
+
+Locate the existing project document that defines the canonical VAELO tokenomics and implementation.
+
+Search targeted files for:
+
+- 300,000,000
+- 200,000,000
+- 150,000,000
+- 100,000,000
+- 50,000,000
+- Ecosystem & Community
+- Public Distribution
+- Vaeloryn Treasury
+- Team & Contributors
+- Founder
+- Strategic Partnerships
+- 1,000,000,000 VAELO
+- vesting
+- Genesis
+- Burn
+- Permit
+- EIP-2612
+- VAELO canonical
+
+Identify the exact document/path.
+
+Do not create a new tokenomics design if the canonical specification already exists.
+
+==================================================
+STEP 2 — FIND THE NEWER IMPLEMENTATION
+==================================================
+
+Determine whether the newer canonical implementation already exists somewhere in the repository.
+
+Search specifically for:
+
+- Foundry
+- foundry.toml
+- .t.sol
+- VaelorynToken
+- VAELO token
+- Genesis Distribution
+- FounderVesting
+- Burn
+- burnFrom
+- Permit
+- permit
+- EIP712
+- nonces
+- 148
+- 300M
+- 200M
+- 150M
+- 100M
+- 50M
+
+If the newer implementation exists, identify the exact files.
+
+If it does not exist, state clearly that it must be implemented.
+
+==================================================
+STEP 3 — COMPARE THE IMPLEMENTATIONS
+==================================================
+
+Create a concise comparison:
+
+CURRENT CANONICAL DESIGN
+vs
+V1.1 DEPLOYED PROTOTYPE
+
+Compare:
+
+- Total supply
+- All six allocation categories
+- Founder allocation
+- Vesting
+- Token functions
+- Admin controls
+- Upgradeability
+- Genesis distribution
+- Testing
+- Contract architecture
+
+Do not change anything yet.
+
+==================================================
+STEP 4 — DETERMINE WHERE THE 850M WENT
+==================================================
+
+The deployed V1.1 prototype reportedly has:
+
+150M founder allocation
+
+and approximately 850M remaining at the deployer address.
+
+Determine exactly:
+
+- Which address holds the 850M
+- Which allocations point to that address
+- Whether those tokens are actually segregated
+- Whether they can be moved
+- Whether the deployed contracts contain any mechanisms to enforce the intended six-category allocation
+
+Explain precisely why the current deployment does NOT represent the canonical allocation.
+
+==================================================
+STEP 5 — DETERMINE THE CORRECT IMPLEMENTATION
+==================================================
+
+Based on the existing canonical project documentation, determine what the new implementation needs to do.
+
+It must support the exact canonical allocation:
+
+300M Ecosystem & Community
+200M Public Distribution
+200M Vaeloryn Treasury
+150M Team & Contributors
+100M Founder
+50M Strategic Partnerships
+
+Do not change these figures.
+
+Determine the appropriate contract architecture for:
+
+- Genesis allocation
+- Founder vesting
+- Other allocation custody/vesting if specified
+- Treasury
+- Public distribution
+- Strategic partnerships
+- Ecosystem/community
+- Team/contributors
+
+Use the existing canonical specification wherever it already defines the intended mechanism.
+
+Do not invent mechanisms where the specification is silent.
+
+==================================================
+STEP 6 — FOUNDER VESTING
+==================================================
+
+Find the EXACT intended founder vesting schedule in the canonical project documentation.
+
+The final founder allocation must equal exactly:
+
+100,000,000 VAELO
+
+Do not use the old 150M five-year V1.1 schedule.
+
+Do not assume the schedule.
+
+If the canonical document states:
+
+- immediate release
+- quarterly releases
+- linear vesting
+- cliff
+- duration
+
+implement/document exactly what it states.
+
+Check the arithmetic independently.
+
+The schedule must total exactly 100M.
+
+If the documentation itself contains an arithmetic inconsistency, STOP and report it rather than inventing a correction.
+
+==================================================
+STEP 7 — TOKEN FEATURES
+==================================================
+
+Determine whether the canonical design requires:
+
+- Burn
+- burnFrom
+- Permit
+- EIP-2612
+- EIP-712
+- nonces
+- DOMAIN_SEPARATOR
+
+If those features are specified, confirm whether they actually exist in the current source.
+
+Do not claim they exist merely because the website says they should exist.
+
+Clearly distinguish:
+
+DESIGNED
+
+IMPLEMENTED
+
+DEPLOYED
+
+VERIFIED
+
+==================================================
+STEP 8 — TESTING
+==================================================
+
+Determine whether the claimed 148/148 Foundry tests actually exist.
+
+If they exist:
+
+- Identify the test directory
+- Identify the test count
+- Run only the relevant test suite
+- Report the result
+
+If they do not exist:
+
+State that clearly.
+
+Do NOT claim 148/148 tests until they actually exist and pass.
+
+Do not run unrelated expensive test suites.
+
+==================================================
+STEP 9 — CREATE A RECONSTRUCTION PLAN
+==================================================
+
+Create:
+
+reports/VAELO_Canonical_Implementation_Reconstruction_Plan.md
+
+Include:
+
+1. Canonical tokenomics
+2. Existing V1.1 deployment
+3. Exact differences
+4. What can be reused
+5. What must be replaced
+6. What must be implemented
+7. Required tests
+8. Required deployment scripts
+9. Required verification steps
+10. Required documentation updates
+11. What happens to the old V1.1 testnet deployment
+
+IMPORTANT:
+
+Do NOT deploy the new implementation.
+
+Do NOT destroy or alter the old deployment.
+
+Do NOT modify the website.
+
+==================================================
+STEP 10 — WEBSITE ISSUE
+==================================================
+
+The Vaeloryn website is currently not responding.
+
+DO NOT make DNS changes.
+
+DO NOT change Cloudflare configuration.
+
+DO NOT redeploy the website unless specifically instructed.
+
+Instead, inspect the project only enough to determine whether there is an obvious Replit deployment/build issue.
+
+Report:
+
+- Whether the application builds
+- Whether the application starts
+- Whether there are obvious runtime errors
+- Whether the project appears configured for deployment
+- Whether the website outage appears to be an application issue or a deployment/infrastructure issue
+
+Do not attempt destructive fixes.
+
+==================================================
+FINAL OUTPUT
+==================================================
+
+At the end, STOP.
+
+Provide:
+
+A. Exact canonical tokenomics
+B. Exact current V1.1 deployment tokenomics
+C. Explanation of the discrepancy
+D. Whether the canonical implementation already exists
+E. Whether the 148 Foundry tests actually exist
+F. Exact founder vesting specification
+G. Exact token features required
+H. What must be implemented
+I. What can be reused
+J. What must happen to the old V1.1 deployment
+K. Website/deployment diagnosis
+L. Files created/modified
+
+DO NOT create investor documents yet.
+
+DO NOT deploy anything.
+
+DO NOT change the tokenomics.
+
+DO NOT use Max Power.
+
+ACCURACY OVER SPEED.
