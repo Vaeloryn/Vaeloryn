@@ -1,0 +1,85 @@
+VAELO — LOW-COST FINAL STATUS CHECK
+
+IMPORTANT:
+DO NOT USE MAX POWER.
+Use the normal/default agent.
+
+This is a STATUS CHECK ONLY.
+
+DO NOT:
+- build anything
+- modify any files
+- deploy anything
+- run tests
+- run expensive commands
+- change the website
+- change DNS or Cloudflare
+- change smart contracts
+- add or remove credentials
+- create new features
+
+Simply inspect the work already completed and report where the project currently stands.
+
+Answer these questions using existing files/reports only:
+
+1. Does the NEW canonical VAELO Solidity/Foundry implementation now exist?
+   - Give the main file paths.
+
+2. Does the canonical implementation match:
+   - 1B total supply
+   - 300M Ecosystem & Community
+   - 200M Public Distribution
+   - 200M Treasury
+   - 150M Team & Contributors
+   - 100M Founder
+   - 50M Strategic Partnerships
+
+3. Is the founder vesting implementation present?
+   - Does it use:
+     2.5M immediate
+     2.5M at 90 days
+     2.5M at 180 days
+     2.5M at 270 days
+     90M linear over the following 36 months
+   - Total exactly 100M?
+
+4. Does the canonical token implement:
+   - ERC-20
+   - Burn
+   - burnFrom
+   - Permit / EIP-2612
+   - EIP-712
+   - nonces
+   - no additional minting
+   - no owner/admin
+   - no upgradeability
+
+5. Do canonical Foundry tests exist?
+   - Give the actual number of tests already present.
+   - DO NOT run them.
+   - DO NOT claim they pass unless an existing recorded result proves they passed.
+
+6. Is the canonical implementation deployed anywhere?
+   - If yes, give network and address.
+   - If no, explicitly say NOT DEPLOYED.
+
+7. What is the status of the old Base Sepolia V1.1 deployment?
+
+8. Is the public website currently deployed and reachable according to the latest completed work?
+
+9. Are there any remaining blockers before:
+   A. reviewing the canonical code
+   B. deploying to testnet
+   C. preparing investor documents
+
+10. Give me a simple final status:
+
+GREEN = ready for review
+AMBER = work exists but something needs resolving
+RED = major implementation blocker
+
+Do not make any changes.
+
+Do not use Max Power.
+
+Keep the response concise.
