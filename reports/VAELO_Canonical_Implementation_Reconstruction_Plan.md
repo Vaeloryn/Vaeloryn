@@ -66,7 +66,7 @@ Its confirmed state and source behavior are:
 | Public Distribution | 200M | 250M public/community | Replace allocation and keep no-sale requirements distinct from custody. |
 | Vaeloryn Treasury | 200M | No separate equivalent | Add a separately identified canonical allocation destination. |
 | Team & Contributors | 150M | 100M future team/advisers | Replace amount; the vesting/custody mechanics are not yet specified. |
-| Founder | 100M | 150M | Replace amount after the vesting arithmetic is clarified. |
+| Founder | 100M | 150M | Replace amount using the final vesting specification. |
 | Strategic Partnerships | 50M | 100M | Replace amount. |
 | Long-term reserve | No standalone category | 50M | Do not carry forward unless a later canonical specification adds it. |
 | Token capabilities | Burn, burnFrom, Permit, EIP-712 domain, nonces | Standard ERC-20 only | Implement approved OpenZeppelin Burnable and Permit extensions. |
@@ -157,21 +157,18 @@ It must:
 - Emit allocation events containing the category and recipient so the transaction can be independently audited.
 - Use the approved recipient addresses captured in a deployment manifest.
 
-### 6.3 Founder vesting — blocked pending a written clarification
+### 6.3 Founder vesting — final schedule documented
 
-The documented intended terms are:
+The final schedule is documented in `reports/VAELO_Founder_Vesting_Final_Specification.md`:
 
 - 100,000,000 VAELO total founder allocation
 - 2,500,000 immediately claimable at deployment
-- 2,500,000 released every 90 days during Year 1
+- 2,500,000 at +90 days
+- 2,500,000 at +180 days
+- 2,500,000 at +270 days
 - Remaining 90,000,000 VAELO vested linearly over the following 36 months
 
-The arithmetic is not yet unambiguous:
-
-- Immediate release plus **four** 90-day releases gives 12,500,000 VAELO before the 90M linear portion, totalling 102,500,000 VAELO.
-- Immediate release plus **three** 90-day releases gives 10,000,000 VAELO before the 90M linear portion, totalling exactly 100,000,000 VAELO.
-
-**Do not implement this contract until the canonical specification states the exact number and timestamps of the Year 1 releases.** The implementation must then enforce exactly 100,000,000 VAELO, have no admin override, and include an auditable immutable beneficiary and start timestamp.
+The arithmetic is now explicit: one 2.5M initial release plus exactly three 2.5M quarterly releases equals 10M; the remaining 90M brings the total to exactly 100M. There is no fourth quarterly release. The future implementation must enforce exactly 100,000,000 VAELO, have no admin override, and include auditable immutable beneficiary and schedule timestamps.
 
 ### 6.4 Other allocation mechanisms — no mechanisms may be invented
 
@@ -213,7 +210,7 @@ The V1.1 allocation amounts, recipient topology, deployer-held reserves, founder
 
 - V1.1 token contract with the specified Burnable + Permit token.
 - V1.1 allocator amounts and six-role recipient structure.
-- V1.1 founder vesting contract after the written arithmetic clarification.
+- V1.1 founder vesting contract after the final schedule specification.
 - V1.1 deployment script, which mints to the deployer and intentionally collapses five reserve roles into the deployer address.
 - V1.1 Hardhat-only test evidence for any claimed canonical Foundry test result.
 
@@ -363,4 +360,4 @@ Not changed:
 
 ## Reconstruction decision
 
-The canonical allocation is known. The canonical implementation does not yet exist in this repository. The founder vesting implementation is blocked only on a written resolution of its release arithmetic; no correction should be guessed. Once that schedule, six recipient/custody decisions and the direct-Genesis-mint deployment topology are approved, the new Foundry implementation can be built, tested, verified and deployed as a replacement testnet suite.
+The canonical allocation is known, and the founder vesting schedule is now deterministic: three 2.5M quarterly releases after the initial 2.5M, followed by 90M over exactly 1,095 days. The canonical implementation does not yet exist in this repository. Once six recipient/custody decisions and the direct-Genesis-mint deployment topology are approved, the new Foundry implementation can be built, tested, verified and deployed as a replacement testnet suite.

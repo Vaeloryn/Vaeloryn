@@ -209,7 +209,7 @@ The current website figures mathematically reconcile:
 | Founder vesting allocation | 100,000,000 / 10% | No source present | 150,000,000 / 15% | 150,000,000 VAELO held by vesting contract |
 | Strategic allocation | 50,000,000 / 5% | No source present | 100,000,000 / 10% | V1.1 destination assigned, but aggregated with other deployer-held allocations |
 | Long-term reserve | Included nowhere as a separate public category | No source present | 50,000,000 / 5% | V1.1 destination assigned, but aggregated with other deployer-held allocations |
-| Founder vesting | 2.5M immediate; 2.5M every 90 days in Year 1; stated 90M linear for following 36 months | No source present | Five-year cumulative linear schedule: 15M / 37.5M / 67.5M / 105M / 150M | V1.1 150M vesting contract confirmed by public getters |
+| Founder vesting | 2.5M immediate; 2.5M at +90, +180 and +270 days; 90M linear over the following 36 months | No source present | Five-year cumulative linear schedule: 15M / 37.5M / 67.5M / 105M / 150M | V1.1 150M vesting contract confirmed by public getters |
 | Tests | 148/148 Foundry claimed | No source, config or output present | 14/14 Hardhat tests | The repository can only reproduce 14/14 Hardhat tests |
 
 ## 6. Vesting reconciliation
@@ -232,14 +232,16 @@ The live vesting contract confirms the V1.1 schedule:
 
 ### Publicly claimed vesting
 
-The website claims:
+The website claims, and the final reconstruction brief now confirms:
 
 - 100,000,000 VAELO total founder allocation
 - 2,500,000 immediately claimable
-- 2,500,000 every 90 days during Year 1
+- 2,500,000 at +90 days
+- 2,500,000 at +180 days
+- 2,500,000 at +270 days
 - Remaining 90,000,000 VAELO vested linearly over the following 36 months
 
-This is not supported by the live Base Sepolia vesting contract. It also requires a written clarification: if there are four 90-day releases in Year 1, the stated terms total 102,500,000 VAELO; if there are three releases, they total exactly 100,000,000 VAELO. The release count and schedule must be explicitly defined before publication.
+The final specification confirms that there are exactly three quarterly releases following the initial release. The discrete releases therefore total 10,000,000 VAELO and the linear portion totals 90,000,000 VAELO, for exactly 100,000,000 VAELO. This remains unsupported by the live V1.1 Base Sepolia vesting contract, which holds 150M and enforces the obsolete five-year schedule.
 
 ## 7. Current test suite
 
@@ -269,7 +271,7 @@ It is likely superseded as an **intended production design** by the newer token 
 1. **Founder allocation:** public 100M / 10%; deployed 150M / 15%.
 2. **Allocation structure:** public six categories differ materially from V1.1/deployed categories and amounts.
 3. **Founder vesting:** public quarterly-plus-linear schedule differs from deployed five-year linear schedule.
-4. **Public vesting arithmetic:** the 100M schedule needs an explicit number of Year 1 90-day releases.
+4. **Linear-phase timestamp encoding:** the final specification now defines the 36-month phase deterministically as exactly 1,095 days; the selected deployment timestamp must still be recorded in the future deployment manifest.
 5. **Token functionality:** public/proposed production design includes Burn + Permit; deployed token ABI does not.
 6. **Genesis architecture:** production token specification requires minting directly to Genesis Distribution; V1.1 minted to the deployer and transferred to the allocator.
 7. **Test suite:** public claim 148 Foundry tests; reproducible project evidence is 14 Hardhat tests.
