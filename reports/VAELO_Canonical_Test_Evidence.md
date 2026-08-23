@@ -28,7 +28,7 @@ forge test -vv
 | Optimizer runs | `200` |
 | OpenZeppelin Contracts | `v5.4.0` |
 | forge-std | `v1.9.7` |
-| Workspace baseline revision | `6306c57` |
+| Committed configuration verified | Yes |
 
 The final `forge build` completed successfully with Solidity `0.8.24`.
 Dependencies are reproducible from a clean checkout using
@@ -53,6 +53,11 @@ The bootstrap restored OpenZeppelin Contracts `v5.4.0` and forge-std
 `v1.9.7` from their exact locked commits; the clean rebuild compiled 52
 Solidity files with `0.8.24`, and the complete suite passed again with 22
 passed, 0 failed and 0 skipped.
+
+A separate fresh clone of the committed, sanitized configuration was also
+scanned to confirm tracked configuration no longer contains the former
+deployment-key names, then bootstrapped, rebuilt and tested successfully using
+the same commands.
 
 ## Final test result
 
