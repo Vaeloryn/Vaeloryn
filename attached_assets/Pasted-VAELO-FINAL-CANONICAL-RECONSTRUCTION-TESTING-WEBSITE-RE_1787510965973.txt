@@ -1,0 +1,526 @@
+VAELO — FINAL CANONICAL RECONSTRUCTION, TESTING & WEBSITE RESTORATION
+
+IMPORTANT RESOURCE/COST RULE
+
+DO NOT USE MAX POWER.
+
+Use the normal/default Replit agent.
+
+Keep all work targeted and efficient. Do not perform unnecessary exhaustive repository scans, repeated builds, repeated blockchain queries, or expensive analysis.
+
+Do not regenerate work that has already been completed.
+
+==================================================
+OBJECTIVE
+==================================================
+
+We now need to complete the three remaining tasks in the following exact order:
+
+TASK 1 — Resolve the founder release schedule
+TASK 2 — Build the canonical VAELO protocol with verifiable test evidence
+TASK 3 — Restore the publicly reachable Vaeloryn website without changing its content
+
+Do NOT skip ahead.
+
+Do NOT deploy the new VAELO protocol until the implementation and tests have been reviewed and confirmed.
+
+Do NOT change the existing Base Sepolia V1.1 deployment.
+
+Do NOT change the canonical tokenomics.
+
+Do NOT generate investor documents yet.
+
+==================================================
+CANONICAL VAELO TOKENOMICS — CONFIRMED
+==================================================
+
+The following figures are FINAL and must NOT be changed:
+
+TOTAL SUPPLY:
+1,000,000,000 VAELO
+
+Ecosystem & Community:
+300,000,000 / 30%
+
+Public Distribution:
+200,000,000 / 20%
+
+Vaeloryn Treasury:
+200,000,000 / 20%
+
+Team & Contributors:
+150,000,000 / 15%
+
+Founder:
+100,000,000 / 10%
+
+Strategic Partnerships:
+50,000,000 / 5%
+
+TOTAL:
+1,000,000,000 / 100%
+
+These figures are already established on the Vaeloryn website and project documentation.
+
+The old V1.1 figures MUST NOT be used:
+
+350M Ecosystem & Mission Treasury
+250M Public & Community
+150M Founder
+100M Future Team & Advisers
+100M Strategic Partnerships
+50M Long-Term Reserve
+
+Those are historical V1.1 testnet figures and are NOT canonical.
+
+==================================================
+TASK 1 — FOUNDER VESTING
+==================================================
+
+The founder allocation is:
+
+100,000,000 VAELO / 10%.
+
+The intended schedule is now explicitly confirmed:
+
+INITIAL RELEASE:
+2,500,000 VAELO immediately claimable.
+
+QUARTERLY RELEASES:
+
++90 days:
+2,500,000 VAELO
+
++180 days:
+2,500,000 VAELO
+
++270 days:
+2,500,000 VAELO
+
+There are THREE quarterly releases following the initial release.
+
+Therefore:
+
+2.5M initial
++ 2.5M at 90 days
++ 2.5M at 180 days
++ 2.5M at 270 days
+= 10,000,000 VAELO
+
+The remaining:
+
+90,000,000 VAELO
+
+then vests linearly over the following 36 months.
+
+FINAL TOTAL:
+
+10,000,000
++
+90,000,000
+=
+100,000,000 VAELO.
+
+IMPORTANT:
+
+There is NO fourth 2.5M quarterly release before the 90M linear vesting begins.
+
+The previous reconciliation report's interpretation of four quarterly releases was incorrect.
+
+Create or update:
+
+reports/VAELO_Founder_Vesting_Final_Specification.md
+
+The document must contain a precise schedule and arithmetic proving the final total is exactly 100M.
+
+If dates require a deployment timestamp, define the schedule relative to the Genesis/deployment timestamp rather than inventing calendar dates.
+
+Do NOT create the smart contract yet during this step.
+
+==================================================
+TASK 2 — BUILD THE CANONICAL VAELO PROTOCOL
+==================================================
+
+After Task 1 has been documented, build the canonical implementation.
+
+This is a NEW canonical implementation.
+
+The existing Base Sepolia V1.1 deployment is historical and must remain untouched.
+
+CURRENT V1.1 DEPLOYMENTS:
+
+VAELO:
+0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c
+
+Founder vesting:
+0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2
+
+Genesis allocator:
+0xa3eF040471497538a617061FdDEea0CD4C03beBa
+
+Treat these as:
+
+BASE SEPOLIA PROTOTYPE V1.1 — NON-CANONICAL HISTORICAL TEST DEPLOYMENT
+
+DO NOT modify them.
+DO NOT destroy them.
+DO NOT transfer their balances.
+DO NOT attempt to retrofit them.
+
+==================================================
+CANONICAL TOKEN REQUIREMENTS
+==================================================
+
+The new canonical token must have:
+
+- Fixed total supply of 1,000,000,000 VAELO
+- One-time Genesis Distribution mint
+- ERC-20
+- Burn
+- burnFrom where appropriate
+- Permit / EIP-2612
+- EIP-712 domain support
+- nonces
+- No additional minting after Genesis Distribution
+- No owner/admin controls
+- No upgradeability
+- No blacklist
+- No pause/freeze mechanism
+- No transfer taxes
+
+Use established OpenZeppelin implementations/patterns where appropriate.
+
+Do not introduce functionality that is not specified.
+
+==================================================
+GENESIS DISTRIBUTION
+==================================================
+
+The canonical Genesis Distribution must account for exactly:
+
+300,000,000 Ecosystem & Community
+
+200,000,000 Public Distribution
+
+200,000,000 Vaeloryn Treasury
+
+150,000,000 Team & Contributors
+
+100,000,000 Founder
+
+50,000,000 Strategic Partnerships
+
+TOTAL:
+1,000,000,000
+
+The distribution must be explicitly represented and auditable.
+
+Do not simply mint the remaining supply to a generic deployer address.
+
+Each category must have a clearly documented recipient/custody mechanism.
+
+If a recipient address has not yet been formally established, use an explicit configuration placeholder and document that it must be supplied before deployment.
+
+Do not invent real wallet addresses.
+
+==================================================
+FOUNDER VESTING CONTRACT
+==================================================
+
+Implement the exact schedule established in TASK 1:
+
+2.5M immediately
+
+2.5M at +90 days
+
+2.5M at +180 days
+
+2.5M at +270 days
+
+90M linear over the following 36 months
+
+TOTAL:
+100M
+
+The contract must make it mathematically impossible for the allocation to exceed 100M.
+
+Include tests for:
+
+- Initial claim
+- 90-day release
+- 180-day release
+- 270-day release
+- Linear vesting
+- Before-release attempts
+- Exact boundary timestamps
+- Final vesting completion
+- Total claimed never exceeding 100M
+- Repeated claim attempts
+- Zero-address validation
+- Allocation correctness
+
+==================================================
+TESTING
+==================================================
+
+Use Foundry for the canonical implementation.
+
+Create a proper Foundry project if one does not already exist.
+
+Include:
+
+- Unit tests
+- Edge-case tests
+- Fuzz tests where appropriate
+- Invariant tests where appropriate
+
+Do NOT claim "148/148" simply because the old website says it.
+
+The number of tests must reflect the actual tests that exist and pass.
+
+The goal is verifiable evidence, not an arbitrary test count.
+
+Run the relevant Foundry test suite after implementation.
+
+Record the exact command and result.
+
+Create:
+
+reports/VAELO_Canonical_Test_Evidence.md
+
+Include:
+
+- Test command
+- Number of tests
+- Passing tests
+- Failing tests
+- Fuzz results
+- Invariant results
+- Compiler version
+- OpenZeppelin version
+- Relevant commit/version information
+
+Do not claim success if any required test fails.
+
+==================================================
+SECURITY / DESIGN REQUIREMENTS
+==================================================
+
+The implementation should explicitly test and document:
+
+- Fixed supply
+- No second mint
+- No owner
+- No admin
+- No upgradeability
+- No hidden mint mechanism
+- Allocation sum = 1B
+- Founder allocation = 100M
+- Vesting cannot exceed 100M
+- Zero-address protection
+- Correct ERC-20 behaviour
+- Correct Burn behaviour
+- Correct Permit/EIP-2612 behaviour
+- Correct EIP-712 domain
+- Correct nonce handling
+- Genesis distribution can only occur once
+
+Do not describe the contract as audited.
+
+Testing is NOT the same thing as an independent security audit.
+
+==================================================
+DEPLOYMENT PREPARATION
+==================================================
+
+Create deployment scripts and a deployment manifest structure.
+
+The manifest should eventually contain:
+
+- Network
+- Chain ID
+- Token address
+- Genesis Distribution address
+- Founder Vesting address
+- Treasury address
+- Ecosystem recipient
+- Public Distribution recipient
+- Team recipient
+- Strategic Partnership recipient
+- Deployment transaction hashes
+- Compiler version
+- Constructor arguments
+- Source verification links
+
+BUT:
+
+DO NOT DEPLOY THE NEW CONTRACTS YET.
+
+We need to review the implementation and test evidence first.
+
+==================================================
+SOURCE VERIFICATION
+==================================================
+
+The previous Base Sepolia token currently has explorer metadata associated with:
+
+"ExclusiveShitcoin"
+
+Do NOT attempt to overwrite or manipulate the historical deployment.
+
+For the NEW canonical implementation:
+
+- Use the correct VAELO source names
+- Ensure source files identify Vaeloryn/VAELO correctly
+- Prepare clean verification configuration
+- Record compiler settings
+- Record optimizer settings
+- Record constructor arguments
+
+Do not claim verification until it has actually been completed.
+
+==================================================
+OLD V1.1 PROTOTYPE
+==================================================
+
+Document the old deployment as:
+
+BASE SEPOLIA PROTOTYPE V1.1 — NON-CANONICAL HISTORICAL TEST DEPLOYMENT
+
+Do not present its tokenomics as current.
+
+Do not reuse its:
+
+- 150M founder allocation
+- 5-year vesting
+- deployer-held category balances
+- old contract addresses
+
+It may be retained as a technical reference only.
+
+==================================================
+TASK 3 — RESTORE THE PUBLIC WEBSITE
+==================================================
+
+Only after the canonical implementation work has been completed locally and the project remains stable, address the website deployment.
+
+The requirement is:
+
+RESTORE THE EXISTING VAELORYN WEBSITE WITHOUT CHANGING ITS CONTENT.
+
+Do NOT redesign it.
+
+Do NOT change the tokenomics.
+
+Do NOT alter text.
+
+Do NOT alter branding.
+
+Do NOT alter pages.
+
+Do NOT change the website's canonical figures.
+
+Do NOT change DNS or Cloudflare configuration unless explicitly necessary and clearly reported first.
+
+The previous investigation found:
+
+- Production Vite build passes
+- Managed web workflow runs
+- Preview renders
+- Browser console has no runtime errors
+- Static-site build configuration appears valid
+- No active Replit production deployment currently exists
+
+Therefore first inspect the current deployment configuration.
+
+Determine why there is no active production deployment.
+
+If the correct solution is simply to restore the existing Replit production deployment using the existing build configuration, do that without changing website content.
+
+Before making any DNS/Cloudflare changes, STOP and report exactly what would need changing.
+
+If deployment can be restored without changing DNS/Cloudflare, proceed using the existing configuration.
+
+After restoration, verify:
+
+- Public URL responds
+- HTTPS works
+- Homepage loads
+- Main pages load
+- Tokenomics page loads
+- Existing content remains unchanged
+- No broken routes
+- No obvious console errors
+
+==================================================
+IMPORTANT WEBSITE SAFETY RULE
+==================================================
+
+Do not replace website content with new content.
+
+The website already contains the canonical tokenomics.
+
+The objective is restoration, not redesign.
+
+==================================================
+FINAL REPORT
+==================================================
+
+At completion, create/update:
+
+reports/VAELO_Canonical_Implementation_Status.md
+
+Summarize:
+
+1. Canonical tokenomics
+2. Founder vesting
+3. Canonical contract architecture
+4. Test results
+5. Security/design checks
+6. Deployment readiness
+7. Old V1.1 status
+8. Website restoration status
+9. Any remaining blockers
+10. Exact files created/modified
+
+==================================================
+CRITICAL STOP CONDITIONS
+==================================================
+
+STOP and report instead of guessing if:
+
+- A recipient wallet address is required but not defined
+- Founder vesting timing conflicts with the specification
+- Tokenomics fail to sum to 1B
+- Required functionality cannot be implemented consistently
+- Tests fail
+- Deployment configuration is ambiguous
+- DNS/Cloudflare changes appear necessary
+- Existing website content would need to be changed
+- Any security assumption is uncertain
+
+DO NOT solve ambiguity by inventing information.
+
+==================================================
+MOST IMPORTANT
+==================================================
+
+We are moving from:
+
+OLD V1.1 PROTOTYPE
+
+to:
+
+CANONICAL VAELO IMPLEMENTATION.
+
+The canonical implementation must match the already-established specification.
+
+Do not redesign VAELO.
+
+Do not change the allocation.
+
+Do not invent wallet addresses.
+
+Do not deploy until the implementation and tests have been reviewed.
+
+DO NOT USE MAX POWER.
