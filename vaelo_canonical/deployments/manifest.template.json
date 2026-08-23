@@ -2,6 +2,20 @@
   "status": "TEMPLATE_ONLY_NOT_DEPLOYED",
   "network": "Base Sepolia",
   "chainId": 84532,
+  "canonicalIdentity": {
+    "selectionRule": "Only the officially approved deployment transaction recorded in this manifest is canonical; other factory instances are independent deployments.",
+    "requiredEvidence": [
+      "chainId",
+      "deploymentFactory address",
+      "canonicalToken address",
+      "genesisDistribution address",
+      "founderVesting address",
+      "deployment transaction hash",
+      "factory event and constructor inputs",
+      "verified source and compiler settings",
+      "canonical contract bytecode hashes"
+    ]
+  },
   "deploymentFactory": {
     "address": null,
     "deploymentTransactionHash": null,

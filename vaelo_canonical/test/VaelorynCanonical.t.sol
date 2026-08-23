@@ -269,6 +269,88 @@ contract VaelorynCanonicalTest is Test {
         assertEq(token.nonces(ecosystem), nonce + 1);
     }
 
+    function testPermitRejectsReplayedSignature() public {
+        _allocateGenesis();
+
+        uint256 amount = 42 ether;
+        uint256 deadline = block.timestamp + 1 days;
+        uint256 nonce = token.nonces(ecosystem);
+        bytes32 permitTypehash =
+            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(
+            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
+        );
+        bytes32 digest = keccak256(
+            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
+        );
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(ECOSYSTEM_KEY, digest);
+
+        token.permit(ecosystem, spender, amount, deadline, v, r, s);
+        vm.expectRevert();
+        token.permit(ecosystem, spender, amount, deadline, v, r, s);
+    }
+
+    function testPermitRejectsExpiredSignature() public {
+        _allocateGenesis();
+
+        uint256 amount = 42 ether;
+        uint256 deadline = block.timestamp;
+        uint256 nonce = token.nonces(ecosystem);
+        bytes32 permitTypehash =
+            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(
+            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
+        );
+        bytes32 digest = keccak256(
+            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
+        );
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(ECOSYSTEM_KEY, digest);
+
+        vm.warp(deadline + 1);
+        vm.expectRevert();
+        token.permit(ecosystem, spender, amount, deadline, v, r, s);
+    }
+
+    function testPermitRejectsIncorrectSigner() public {
+        _allocateGenesis();
+
+        uint256 amount = 42 ether;
+        uint256 deadline = block.timestamp + 1 days;
+        uint256 nonce = token.nonces(ecosystem);
+        bytes32 permitTypehash =
+            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(
+            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
+        );
+        bytes32 digest = keccak256(
+            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
+        );
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(SPENDER_KEY, digest);
+
+        vm.expectRevert();
+        token.permit(ecosystem, spender, amount, deadline, v, r, s);
+    }
+
+    function testPermitRejectsIncorrectNonce() public {
+        _allocateGenesis();
+
+        uint256 amount = 42 ether;
+        uint256 deadline = block.timestamp + 1 days;
+        uint256 nonce = token.nonces(ecosystem) + 1;
+        bytes32 permitTypehash =
+            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(
+            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
+        );
+        bytes32 digest = keccak256(
+            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
+        );
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(ECOSYSTEM_KEY, digest);
+
+        vm.expectRevert();
+        token.permit(ecosystem, spender, amount, deadline, v, r, s);
+    }
+
     function testEip712DomainSeparatorMatchesCanonicalTokenDomain() public view {
         bytes32 expectedDomainSeparator = keccak256(
             abi.encode(
@@ -329,6 +411,21 @@ contract VaelorynCanonicalTest is Test {
         vesting.release();
         assertEq(vesting.released(), 5_000_000 ether);
         assertEq(token.balanceOf(founder), 5_000_000 ether);
+    }
+
+    function testThirdPartyCanTriggerFounderClaimOnlyFounderReceivesTokens() public {
+        _allocateGenesis();
+
+        address thirdParty = makeAddr("thirdParty");
+        vm.warp(t0);
+
+        vm.prank(thirdParty);
+        vesting.release();
+
+        assertEq(token.balanceOf(founder), 2_500_000 ether);
+        assertEq(token.balanceOf(thirdParty), 0);
+        assertEq(vesting.released(), 2_500_000 ether);
+        assertLe(vesting.released(), vesting.TOTAL_ALLOCATION());
     }
 
     function testVestingCannotExceedFounderAllocation() public {

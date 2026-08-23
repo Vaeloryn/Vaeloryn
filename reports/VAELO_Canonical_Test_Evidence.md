@@ -1,7 +1,7 @@
 # VAELO Canonical Protocol — Test Evidence
 
 **Status:** All required local Foundry checks passed  
-**Date:** 23 August 2026  
+**Date:** 24 August 2026  
 **Deployment status:** Not deployed
 
 ## Scope
@@ -39,7 +39,7 @@ installation.
 
 ## Clean-checkout reproducibility validation
 
-The final evidence was independently reproduced from an empty local
+The original evidence was independently reproduced from an empty local
 `lib/`, `out/` and `cache/` state:
 
 ```sh
@@ -51,8 +51,9 @@ forge test -vv
 
 The bootstrap restored OpenZeppelin Contracts `v5.4.0` and forge-std
 `v1.9.7` from their exact locked commits; the clean rebuild compiled 52
-Solidity files with `0.8.24`, and the complete suite passed again with 22
-passed, 0 failed and 0 skipped.
+Solidity files with `0.8.24`, and the original complete suite passed again with
+22 passed, 0 failed and 0 skipped. The targeted hardening run below was
+executed afterward; the full suite was not rerun.
 
 A separate fresh clone of the committed, sanitized configuration was also
 scanned to confirm tracked configuration no longer contains the former
@@ -63,7 +64,7 @@ the same commands.
 
 ```text
 Ran 2 test suites in 593.05ms (1.18s CPU time):
-22 tests passed, 0 failed, 0 skipped (22 total tests)
+22 tests passed, 0 failed, 0 skipped (22 total tests; previous baseline)
 ```
 
 ### Unit and edge-case result
@@ -112,17 +113,40 @@ Covered behavior includes:
 **Invariant handler calls:** 16,384  
 **Invariant failures:** 0
 
+## Targeted hardening regression result
+
+Only the canonical unit test contract and invariant test contract were run
+after the targeted hardening changes:
+
+```text
+forge test --match-contract 'Vaeloryn(Canonical|Invariant)Test' -vv
+Ran 2 test suites:
+27 tests passed, 0 failed, 0 skipped (27 total tests)
+```
+
+The unit/edge/fuzz suite increased from 20 to 25 tests. The two invariant tests
+remain unchanged. New unit tests cover Permit replay, expired signatures,
+incorrect signers, incorrect nonces, and third-party founder vesting triggers.
+The existing valid Permit, nonce increment, and EIP-712 domain tests remain in
+the targeted suite. No deployment or blockchain transaction was performed.
+
 ## Security and design assertions tested
 
 - The token exposes no owner, administrator, upgrade, pause, blacklist,
   transfer-tax or post-Genesis mint control.
-- The one-shot deployment factory creates exactly one canonical instance in
-  its constructor; it has no callable function that can create another.
+- The one-shot deployment factory creates exactly one instance in its
+  constructor and has no callable function that can create another. Because
+  multiple factory instances remain possible at the EVM level, the official
+  canonical identity is controlled operationally by the chain ID, approved
+  manifest, factory and emitted addresses, constructor inputs, bytecode hashes,
+  and source verification.
 - The distribution accepts allocation only from its immutable creator factory.
 - Token, distribution and founder vesting are created and allocated in one
   transaction, preventing an external vesting or token substitution between
   deployment and allocation.
 - The founder vesting contract cannot release more than 100,000,000 VAELO.
+- Founder release is permissionless: a third party may trigger a claim, but the
+  immutable beneficiary receives all released tokens.
 - The distribution can only transfer the complete 1,000,000,000 VAELO supply
   according to the six canonical amounts.
 
