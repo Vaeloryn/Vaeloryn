@@ -1,0 +1,517 @@
+VAELO — Investor Documentation Package
+
+I want you to prepare a complete, professional investor documentation package for VAELO / Vaeloryn based ONLY on the information, code, documentation, tokenomics, technical specifications and project material already contained within this Replit project.
+
+This is NOT a request to redesign the website.
+
+The objective is to create the documents we will use when approaching angel investors, Web3 investors, venture capital firms, strategic investors and potential partners.
+
+CRITICAL ACCURACY RULE
+
+Before creating anything, inspect the entire project and identify the current authoritative information relating to:
+
+* VAELO tokenomics
+* Total supply
+* Every token allocation
+* Allocation percentages
+* Founder allocation
+* Vesting
+* Token contracts
+* Contract addresses
+* Blockchain/testnet
+* Technical architecture
+* Testing
+* Current development status
+* Roadmap
+* Ecosystem
+* Intended token utility
+* Existing/proposed features
+* Legal and regulatory status
+* Security/audit status
+* Existing project milestones
+
+DO NOT invent, estimate, assume or fill gaps in any of these areas.
+
+If two parts of the project contain conflicting information, identify the conflict and report it before deciding which figure to use.
+
+The website and canonical project documentation should be treated as the primary source of truth where applicable.
+
+Do not describe anything as completed if it is actually planned or pending.
+
+Do not describe the project as legally approved, regulated, audited or launch-ready unless the existing documentation explicitly establishes that fact.
+
+⸻
+
+DOCUMENT 1 — INVESTOR PITCH DECK
+
+Create a professional 10–15 slide investor presentation.
+
+The deck should be written for sophisticated investors rather than retail crypto buyers.
+
+Slide structure
+
+1. Cover
+    * VAELORYN / VAELO
+    * Concise professional positioning statement
+    * Early-stage investment opportunity
+2. The Vision
+    * What Vaeloryn is ultimately trying to build
+    * Why the project exists
+3. The Problem
+    * Clearly explain the problem/opportunity Vaeloryn is addressing
+    * Use only substantiated claims
+4. The Solution
+    * Explain the Vaeloryn ecosystem
+    * Explain how the proposed ecosystem addresses the problem
+5. The Ecosystem
+    * Science
+    * Technology
+    * Innovation
+    * Research
+    * Contributors
+    * Other areas already defined by the project
+6. VAELO Token
+    * What VAELO is
+    * Why the token exists
+    * Intended utility
+    * Relationship between the token and the wider ecosystem
+7. Technology & Current Development
+    * Existing contracts
+    * Blockchain/testnet
+    * Source verification
+    * Testing
+    * Existing technical architecture
+    * Other completed technical milestones
+8. Tokenomics
+    SHOW THE COMPLETE TOKENOMICS.
+
+Include:
+
+* Total supply
+* EVERY allocation category
+* Exact VAELO amount for each category
+* Exact percentage for each category
+* Founder allocation
+* Vesting
+* Any relevant lockups
+* Any other existing token controls
+
+The allocation MUST mathematically equal:
+
+1,000,000,000 VAELO
+100%
+
+Do not invent missing categories.
+
+Create a professional allocation chart AND a numerical table.
+
+9. Transparency & Security
+    * On-chain verification
+    * Supply controls
+    * Vesting
+    * Contract architecture
+    * Testing
+    * Clearly distinguish completed security work from security work still pending
+10. Current Status
+    Clearly divide information into:
+    IMPLEMENTED
+    PENDING
+    PROPOSED / FUTURE
+11. Roadmap
+    Use the actual VAELO roadmap.
+    Preserve milestone-gated progression if that is the project’s current approach.
+    Do not invent artificial deadlines.
+12. Investment Opportunity
+    Explain what stage the project is currently at and why capital is being sought.
+    Potential uses of capital may include:
+    * Legal/regulatory work
+    * Security review
+    * Development
+    * Production infrastructure
+    * Ecosystem development
+    * Operations
+    Only include categories actually supported by the project.
+13. Why Now
+    Explain why the current development stage creates an opportunity for strategic early participants.
+14. What We Are Looking For
+    Include:
+    * Angel investors
+    * Web3 investors
+    * Venture capital
+    * Strategic partners
+    * Technical expertise
+    * Scientific/research expertise
+    * Legal/regulatory expertise
+    * Industry connections
+15. Contact / Closing
+    * Vaeloryn
+    * Website
+    * Professional contact information already present in the project
+
+⸻
+
+DOCUMENT 2 — ONE-PAGE INVESTOR BRIEF
+
+Create a highly polished one-page PDF-style document.
+
+An investor should understand VAELO within approximately 60 seconds.
+
+Include:
+
+VAELO
+
+What it is
+
+The opportunity
+
+What has already been built
+
+Tokenomics
+
+Current stage
+
+What funding would enable
+
+What we are looking for
+
+Website / contact
+
+Keep this concise and visually professional.
+
+⸻
+
+DOCUMENT 3 — INVESTOR DUE DILIGENCE BRIEF
+
+Create a more detailed document for investors who want to investigate VAELO.
+
+Include:
+
+Project
+
+* Mission
+* Vision
+* Ecosystem
+* Target areas
+
+Token
+
+* Total supply
+* Complete allocation
+* Utility
+* Vesting
+* Supply mechanics
+
+Technology
+
+* Blockchain
+* Contract architecture
+* Contract addresses
+* Verification
+* Testing
+* Existing technical safeguards
+
+Transparency
+
+* On-chain verification
+* Allocation verification
+* Vesting verification
+* Treasury information where available
+
+Development Status
+
+Clearly distinguish:
+
+IMPLEMENTED
+
+PENDING
+
+PROPOSED
+
+Roadmap
+
+Use the current canonical roadmap.
+
+Risks
+
+Create a professional and honest risk section covering relevant risks such as:
+
+* Regulatory risk
+* Technology risk
+* Smart-contract risk
+* Market risk
+* Execution risk
+* Adoption risk
+* Liquidity risk
+* Competitive risk
+
+Do not minimize risks.
+
+Legal / Regulatory
+
+Clearly state the actual current legal/regulatory position.
+
+Do not claim regulatory approval.
+
+Do not claim legal clearance.
+
+If professional review remains pending, state that clearly.
+
+⸻
+
+DOCUMENT 4 — INVESTOR FAQ
+
+Prepare answers to the questions a serious investor is likely to ask.
+
+Include at least:
+
+1. What is Vaeloryn?
+2. What is VAELO?
+3. Why does VAELO need a token?
+4. What is the total supply?
+5. Where are all the tokens allocated?
+6. What percentage does the founder hold?
+7. How does founder vesting work?
+8. Can more tokens be minted?
+9. Who controls the contract?
+10. Can the contract be upgraded?
+11. Can tokens be frozen or blacklisted?
+12. What blockchain is being used?
+13. What has actually been built?
+14. What has been tested?
+15. Has the contract been independently audited?
+16. Has the project received legal/regulatory approval?
+17. Is VAELO currently available for public purchase?
+18. What is the current project stage?
+19. What is the roadmap?
+20. What is the funding requirement?
+21. What will investment capital be used for?
+22. What does an investor receive?
+23. What are the major risks?
+24. Who is behind the project?
+25. How can an investor conduct due diligence?
+
+If an answer is not currently established by the project, write:
+
+“This has not yet been determined/finalised and will be established through the appropriate professional/legal process.”
+
+Do not invent an answer.
+
+⸻
+
+DOCUMENT 5 — INVESTOR OUTREACH PACK
+
+Prepare three versions of the initial outreach:
+
+Email
+
+Professional and concise.
+
+LinkedIn
+
+Shorter and conversational.
+
+X / Twitter
+
+Very concise and appropriate for a first contact.
+
+The purpose of all three is NOT to sell the token immediately.
+
+The objective is to generate interest and get the investor to review the investor deck.
+
+Include:
+
+* Who we are
+* What VAELO is
+* Current development stage
+* Why we are contacting them
+* Website
+* Offer to send the investor deck
+
+Do not make exaggerated financial claims.
+
+Do not promise returns.
+
+Do not use hype such as “100x”, “moon”, “guaranteed”, etc.
+
+⸻
+
+DOCUMENT 6 — USE OF FUNDS
+
+Prepare a professional proposed use-of-funds framework.
+
+Do NOT invent a fundraising amount if one is not already established.
+
+Instead, structure the document so the final funding target can be inserted after legal/accounting review.
+
+Categories should include only those genuinely supported by the project, such as:
+
+* Legal & regulatory
+* Security/audit
+* Development
+* Infrastructure
+* Operations
+* Ecosystem development
+* Contingency
+
+If percentages cannot be established from existing project information, leave them clearly marked as TBD rather than inventing them.
+
+⸻
+
+DOCUMENT 7 — INVESTOR DATA ROOM INDEX
+
+Create a professional checklist/index showing what documentation is available to investors.
+
+Include:
+
+* Investor deck
+* One-page brief
+* Due diligence brief
+* Tokenomics
+* Technical documentation
+* Smart-contract information
+* Contract verification
+* Test results
+* Roadmap
+* Legal documentation
+* Regulatory documentation
+* Security/audit documentation
+* Corporate documentation
+* Founder/team information
+
+Mark each:
+
+AVAILABLE
+
+PENDING
+
+NOT YET CREATED
+
+Do not pretend pending documents exist.
+
+⸻
+
+DESIGN REQUIREMENTS
+
+All documents should have a consistent VAELO visual identity.
+
+The design should feel:
+
+* Premium
+* Professional
+* Modern
+* Technologically sophisticated
+* Institutional
+* Clean
+* Serious
+* Appropriate for angel investors and venture capital
+
+Avoid:
+
+* Meme-coin aesthetics
+* Excessive crypto clichés
+* “Get rich” language
+* Artificial urgency
+* Price predictions
+* Guaranteed returns
+* Excessive neon effects
+* Overly flashy graphics
+
+The documents should look like they belong to a serious early-stage technology company.
+
+Use the existing VAELO branding, logo and visual identity from the project.
+
+⸻
+
+IMPORTANT — INVESTOR POSITIONING
+
+The materials should position VAELO as:
+
+An early-stage project with an existing technical foundation that is seeking strategic capital and expertise to progress through professional legal, regulatory, security and development milestones.
+
+Do NOT position VAELO as:
+
+* A guaranteed investment
+* A completed commercial ecosystem
+* A legally approved token
+* An audited project unless an audit actually exists
+* A public token sale
+* A guaranteed-return opportunity
+
+The distinction between CURRENT, PENDING and FUTURE development must remain extremely clear.
+
+⸻
+
+FINAL QUALITY CONTROL
+
+Before producing the documents, perform a complete consistency audit.
+
+Check every numerical figure.
+
+Specifically verify:
+
+* Total supply
+* Every token allocation
+* Every allocation percentage
+* Founder allocation
+* Vesting amounts
+* Vesting duration
+* Contract addresses
+* Blockchain
+* Testing figures
+* Roadmap
+* Technical claims
+
+Confirm that all token allocations equal exactly:
+
+1,000,000,000 VAELO / 100%
+
+If anything does not reconcile, DO NOT GUESS.
+
+Flag it in a separate section titled:
+
+“VAELO INFORMATION REQUIRING CONFIRMATION”
+
+Also identify:
+
+* Contradictions
+* Missing information
+* Unsupported claims
+* Legal/regulatory items requiring professional review
+* Technical items requiring independent verification
+
+Do not silently correct project information.
+
+⸻
+
+OUTPUT
+
+Create the documents as polished, professional files suitable for sending to investors.
+
+Use professional filenames:
+
+VAELO_Investor_Deck.pdf
+
+VAELO_Investor_One_Page.pdf
+
+VAELO_Investor_Due_Diligence.pdf
+
+VAELO_Investor_FAQ.pdf
+
+VAELO_Investor_Outreach.pdf
+
+VAELO_Use_of_Funds.pdf
+
+VAELO_Investor_Data_Room_Index.pdf
+
+Also create editable/source versions where practical.
+
+At the end, provide a summary of:
+
+1. Documents created
+2. Exact tokenomics figures used
+3. Source of each major figure
+4. Any unresolved inconsistencies
+5. Any information still required from the VAELO team
+6. Any legal/regulatory issues requiring professional review
+
+The priority is accuracy and credibility over making the project appear more advanced than it is.
