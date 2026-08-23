@@ -1,0 +1,178 @@
+VAELO — FINAL TARGETED HARDENING PASS
+
+IMPORTANT:
+DO NOT USE MAX POWER.
+Use the normal/default agent.
+
+This is a targeted engineering task only.
+
+Do NOT deploy anything.
+Do NOT modify the existing Base Sepolia V1.1 deployment.
+Do NOT modify DNS or Cloudflare.
+Do NOT modify website content.
+Do NOT add deployment credentials.
+Do NOT generate investor documents.
+
+==================================================
+OBJECTIVE
+==================================================
+
+Address the remaining findings from:
+
+reports/VAELO_Canonical_Smart_Contract_Code_Review.md
+
+Only address these items:
+
+1. Multiple independent factory instances can create canonical-looking deployments.
+2. Explicit Permit replay/expiry test coverage.
+3. Explicit documentation/testing of permissionless founder vesting triggering.
+
+Do not redesign the protocol.
+
+Do not change the canonical tokenomics.
+
+Do not introduce unnecessary admin privileges.
+
+==================================================
+1. FACTORY DEPLOYMENT IDENTITY
+==================================================
+
+Review:
+
+vaelo_canonical/src/VaelorynDeploymentFactory.sol
+
+Find the smallest safe way to prevent or clearly mitigate multiple deployments being mistaken for the canonical VAELO deployment.
+
+Prefer an architecture that does NOT introduce:
+
+- owner
+- admin
+- upgradeability
+- centralized control
+- arbitrary minting
+
+If this is better solved operationally rather than in Solidity, document the operational control instead.
+
+The canonical deployment must have an unambiguous identity through its deployment manifest, chain ID, addresses, source verification, and other appropriate deterministic identifiers.
+
+Do not make unnecessary contract changes.
+
+==================================================
+2. PERMIT TEST COVERAGE
+==================================================
+
+Review the existing Permit implementation and tests.
+
+Add focused tests for:
+
+- valid Permit
+- nonce increment
+- replayed signature rejection
+- expired signature rejection
+- incorrect signer rejection
+- incorrect nonce rejection
+- correct EIP-712 domain behaviour
+
+Only modify the token implementation if testing identifies a genuine defect.
+
+==================================================
+3. FOUNDER VESTING TRIGGER
+==================================================
+
+Review:
+
+vaelo_canonical/src/VaelorynFounderVesting.sol
+
+Determine whether claiming vested founder tokens is permissionless.
+
+If a third party can trigger the claim but the tokens are always delivered to the founder, this is acceptable and should remain permissionless.
+
+Add a test proving:
+
+- third party can trigger a valid founder claim, if intended
+- tokens go to the founder
+- third party receives nothing
+- founder allocation cannot exceed 100M
+
+If the current implementation is already safe, do not redesign it.
+
+==================================================
+4. TESTING
+==================================================
+
+After the targeted changes, run ONLY the relevant Foundry tests.
+
+Record:
+
+- previous test count
+- new test count
+- passed
+- failed
+- skipped
+
+Do not claim success unless the actual tests pass.
+
+Update:
+
+reports/VAELO_Canonical_Test_Evidence.md
+
+==================================================
+5. CODE REVIEW UPDATE
+==================================================
+
+Update:
+
+reports/VAELO_Canonical_Smart_Contract_Code_Review.md
+
+Clearly state:
+
+- factory identity issue: resolved / mitigated / operationally controlled
+- Permit coverage: status
+- founder vesting triggering: status
+- remaining risks
+- whether independent audit is still recommended
+
+Do not claim the project has been independently audited.
+
+==================================================
+6. EXCLUSIVESHITCOIN ISSUE
+==================================================
+
+DO NOT modify the old deployment.
+
+The separate investigation established that the name was an explorer/source metadata association and not proven to be embedded in runtime bytecode.
+
+Do not spend further resources investigating it.
+
+Do not attempt explorer re-verification during this task.
+
+We will handle exact-source re-verification separately.
+
+==================================================
+FINAL STATUS
+==================================================
+
+Create/update:
+
+reports/VAELO_Canonical_Hardening_Status.md
+
+State:
+
+1. Changes made
+2. Tests added
+3. Test results
+4. Factory identity status
+5. Permit status
+6. Founder vesting status
+7. Remaining deployment blockers
+8. Overall status:
+
+GREEN — ready for deployment preparation
+AMBER — further work required
+RED — security blocker
+
+STOP after completion.
+
+Do not deploy.
+
+Do not use Max Power.
