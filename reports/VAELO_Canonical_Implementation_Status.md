@@ -130,10 +130,11 @@ reviewed:
    inputs, transaction hashes and generated `T0` / linear-end timestamps.
 4. A deployment and source-verification review. An independent security audit
    is recommended before a production deployment.
-5. Remediation of any credential that was previously committed to project
-   configuration, including removal from version control and rotation through
-   the workspace secret-management flow. No deployment should proceed until
-   that remediation is complete.
+5. Any credential previously committed to project configuration has been
+   removed from tracked configuration. Its associated external credential must
+   still be revoked/rotated before deployment; any future replacement must be
+   stored only through the workspace secret-management flow. No deployment
+   should proceed until that remediation is complete.
 
 No wallet addresses were invented; configuration files use explicit text
 placeholders.
