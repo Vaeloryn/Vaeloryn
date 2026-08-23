@@ -1,0 +1,75 @@
+# Canonical VAELO protocol
+
+This directory contains the new canonical Foundry implementation. It is
+separate from `vaelo_prototype/`, which remains the untouched Base Sepolia
+Prototype V1.1 historical deployment.
+
+## Architecture
+
+1. `VaelorynDeploymentFactory` atomically deploys the complete canonical
+   instance in its one-shot constructor. It holds no owner, admin, mutable
+   configuration or method that can deploy a second instance.
+2. `VaelorynGenesisDistribution` is deployed with five approved custody
+   recipients. Its immutable factory completes allocation only inside the
+   atomic deployment. The founder allocation is sent to the just-created
+   `VaelorynFounderVesting` contract.
+3. `VaelorynToken` is deployed with the distribution contract address and
+   mints the fixed 1,000,000,000 VAELO supply directly to that contract.
+4. `VaelorynFounderVesting` is deployed with the canonical token, approved
+   founder beneficiary and the Genesis timestamp (`T0`).
+5. The factory completes the one-time allocation in that same transaction. It
+   verifies the token identifies this distribution, holds the complete supply,
+   and the founder recipient is a matching 100M VAELO vesting contract.
+
+There are no owner, administrator, upgrade, pause, blacklist, transfer-tax or
+post-Genesis mint controls.
+
+## Canonical allocations
+
+| Category | VAELO |
+|---|---:|
+| Ecosystem & Community | 300,000,000 |
+| Public Distribution | 200,000,000 |
+| Vaeloryn Treasury | 200,000,000 |
+| Team & Contributors | 150,000,000 |
+| Founder Vesting | 100,000,000 |
+| Strategic Partnerships | 50,000,000 |
+| **Total** | **1,000,000,000** |
+
+## Founder schedule
+
+The 100,000,000 VAELO founder allocation follows
+`reports/VAELO_Founder_Vesting_Final_Specification.md`:
+
+- 2,500,000 at `T0`
+- 2,500,000 at `T0 + 90 days`
+- 2,500,000 at `T0 + 180 days`
+- 2,500,000 at `T0 + 270 days`
+- 90,000,000 linearly over the next 1,095 days
+
+There is no fourth quarterly release.
+
+## Local verification
+
+```sh
+cd vaelo_canonical
+sh scripts/bootstrap-dependencies.sh # required on a clean checkout
+forge test
+forge test --match-path test/invariant/VaelorynInvariant.t.sol
+```
+
+The ignored `lib/` directory is reproducible from the exact pinned commits in
+`dependencies.lock`. `toolchain.lock` verifies the Foundry version before
+installation, and the bootstrap script intentionally refuses to overwrite an
+existing library directory.
+
+## Deployment safety
+
+`script/DeployCanonical.s.sol` is preparation only and is chain-locked to Base
+Sepolia (84532). It requires explicit environment variables for every custody
+recipient and founder beneficiary. The accompanying `config/recipients.example.env`
+contains text placeholders, not wallet addresses; it is intentionally not
+deployable as supplied.
+
+Do not run a broadcast deployment until recipient custody, the generated
+manifest, source-verification inputs and test evidence have been reviewed.

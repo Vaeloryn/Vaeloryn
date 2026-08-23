@@ -1,0 +1,5 @@
+# The exact Foundry release string expected by the canonical test evidence.
+# `.replit` pins the Replit Nix channel and installs the `foundry` package.
+
+FOUNDRY_VERSION=1.1.0-dev
+FOUNDRY_BUILD_PROFILE=release

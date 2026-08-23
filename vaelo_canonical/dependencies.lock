@@ -1,0 +1,11 @@
+# Canonical Foundry dependency lock. This file is sourced by
+# scripts/bootstrap-dependencies.sh; do not change one field without updating
+# the matching repository, tag and commit together.
+
+OPENZEPPELIN_REPOSITORY=OpenZeppelin/openzeppelin-contracts
+OPENZEPPELIN_TAG=v5.4.0
+OPENZEPPELIN_COMMIT=c64a1edb67b6e3f4a15cca8909c9482ad33a02b0
+
+FORGE_STD_REPOSITORY=foundry-rs/forge-std
+FORGE_STD_TAG=v1.9.7
+FORGE_STD_COMMIT=77041d2ce690e692d6e03cc812b57d1ddaa4d505

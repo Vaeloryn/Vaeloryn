@@ -1,0 +1,64 @@
+{
+  "status": "TEMPLATE_ONLY_NOT_DEPLOYED",
+  "network": "Base Sepolia",
+  "chainId": 84532,
+  "deploymentFactory": {
+    "address": null,
+    "deploymentTransactionHash": null,
+    "architecture": "One-shot constructor deployment and allocation; no owner, repeat deployment method or post-deployment configuration"
+  },
+  "canonicalToken": {
+    "address": null,
+    "deploymentTransactionHash": null,
+    "constructorArguments": {
+      "genesisDistribution": null
+    }
+  },
+  "genesisDistribution": {
+    "address": null,
+    "deploymentTransactionHash": null,
+    "allocationTransactionHash": null,
+    "recipients": {
+      "ecosystemAndCommunity": "REPLACE_WITH_APPROVED_ECOSYSTEM_CUSTODY",
+      "publicDistribution": "REPLACE_WITH_APPROVED_PUBLIC_DISTRIBUTION_CUSTODY",
+      "vaelorynTreasury": "REPLACE_WITH_APPROVED_VAELORYN_TREASURY_CUSTODY",
+      "teamAndContributors": "REPLACE_WITH_APPROVED_TEAM_AND_CONTRIBUTORS_CUSTODY",
+      "founderVesting": null,
+      "strategicPartnerships": "REPLACE_WITH_APPROVED_STRATEGIC_PARTNERSHIPS_CUSTODY"
+    },
+    "allocations": {
+      "ecosystemAndCommunity": "300000000000000000000000000",
+      "publicDistribution": "200000000000000000000000000",
+      "vaelorynTreasury": "200000000000000000000000000",
+      "teamAndContributors": "150000000000000000000000000",
+      "founder": "100000000000000000000000000",
+      "strategicPartnerships": "50000000000000000000000000"
+    }
+  },
+  "founderVesting": {
+    "address": null,
+    "deploymentTransactionHash": null,
+    "beneficiary": "REPLACE_WITH_APPROVED_FOUNDER_BENEFICIARY",
+    "T0": null,
+    "linearStartTimestamp": null,
+    "linearEndTimestamp": null,
+    "linearDurationSeconds": 94608000,
+    "totalAllocation": "100000000000000000000000000"
+  },
+  "build": {
+    "solcVersion": "0.8.24",
+    "optimizerEnabled": true,
+    "optimizerRuns": 200,
+    "openzeppelinVersion": "5.4.0"
+  },
+  "verification": {
+    "status": "NOT_REQUESTED",
+    "tokenSourceVerificationUrl": null,
+    "genesisDistributionSourceVerificationUrl": null,
+    "founderVestingSourceVerificationUrl": null
+  },
+  "historicalV11": {
+    "status": "BASE_SEPOLIA_PROTOTYPE_V1.1_NON_CANONICAL_HISTORICAL_TEST_DEPLOYMENT",
+    "modifiedByThisProject": false
+  }
+}

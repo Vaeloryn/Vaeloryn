@@ -24,3 +24,7 @@ timeoutMs = 20000
 [userenv.shared]
 DEPLOYER_PRIVATE_KEY = "0xde0099fc1c06faac3d861bb10ae7b541425bcd21b807e0e76fd9ea39714a9e3c"
 BASESCAN_API_KEY = "M13UBZNVMDUKG53M8N1C84TAAKMRXMJHY8"
+
+[nix]
+channel = "stable-25_05"
+packages = ["foundry"]
