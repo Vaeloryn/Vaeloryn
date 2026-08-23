@@ -1,0 +1,285 @@
+VAELO — CANONICAL SMART CONTRACT CODE REVIEW
+
+IMPORTANT RESOURCE/COST RULE:
+
+DO NOT USE MAX POWER.
+Use the normal/default Replit agent.
+
+This is a READ-ONLY STATIC CODE REVIEW.
+
+DO NOT:
+- modify any Solidity files
+- modify tests
+- deploy anything
+- run blockchain transactions
+- change website files
+- change DNS/Cloudflare
+- add/remove credentials
+- change tokenomics
+- generate investor documents
+- run the full test suite again
+
+Use the existing files and existing recorded test evidence.
+
+==================================================
+CONTRACTS TO REVIEW
+==================================================
+
+Review these canonical contracts:
+
+vaelo_canonical/src/VaelorynToken.sol
+
+vaelo_canonical/src/VaelorynFounderVesting.sol
+
+vaelo_canonical/src/VaelorynGenesisDistribution.sol
+
+vaelo_canonical/src/VaelorynDeploymentFactory.sol
+
+Also inspect the relevant Foundry tests that already exist.
+
+==================================================
+CANONICAL SPECIFICATION
+==================================================
+
+Total supply:
+1,000,000,000 VAELO
+
+Ecosystem & Community:
+300,000,000
+
+Public Distribution:
+200,000,000
+
+Vaeloryn Treasury:
+200,000,000
+
+Team & Contributors:
+150,000,000
+
+Founder:
+100,000,000
+
+Strategic Partnerships:
+50,000,000
+
+Founder vesting:
+
+2,500,000 immediately
+
+2,500,000 at +90 days
+
+2,500,000 at +180 days
+
+2,500,000 at +270 days
+
+Remaining 90,000,000 linearly over exactly 1,095 days
+
+Maximum founder allocation:
+100,000,000 VAELO
+
+==================================================
+TOKEN REVIEW
+==================================================
+
+Inspect VaelorynToken.sol and determine:
+
+1. Is the total supply permanently capped at exactly 1B?
+2. Is there any mechanism that could mint additional VAELO?
+3. Is the Genesis mint genuinely one-time?
+4. Can an owner/admin/multisig gain control?
+5. Is there any upgrade mechanism?
+6. Is there any pause/freeze/blacklist mechanism?
+7. Are there transfer taxes or hidden transfer restrictions?
+8. Is ERC-20 behaviour standard?
+9. Is burn implemented safely?
+10. Is burnFrom implemented safely?
+11. Does Permit correctly implement EIP-2612?
+12. Is EIP-712 domain construction correct?
+13. Are nonces handled correctly?
+14. Are signature replay protections correct?
+15. Are zero addresses rejected where appropriate?
+
+==================================================
+GENESIS DISTRIBUTION REVIEW
+==================================================
+
+Inspect VaelorynGenesisDistribution.sol.
+
+Verify:
+
+1. All six allocations are represented.
+2. They total exactly 1B.
+3. No allocation can be silently changed.
+4. Distribution can only occur once.
+5. Recipient addresses cannot be changed after deployment unless the canonical specification explicitly permits it.
+6. No category can receive more than its allocation.
+7. No tokens remain accidentally trapped.
+8. There is no privileged backdoor.
+9. The Genesis Distribution cannot mint more than 1B.
+10. The final token balance/accounting is mathematically correct.
+
+Pay particular attention to whether recipient addresses are immutable or configurable and whether configuration introduces any security risk.
+
+==================================================
+FOUNDER VESTING REVIEW
+==================================================
+
+Inspect VaelorynFounderVesting.sol.
+
+Verify:
+
+1. Maximum allocation is exactly 100M.
+2. Initial 2.5M cannot be claimed more than once.
+3. 90-day release is correct.
+4. 180-day release is correct.
+5. 270-day release is correct.
+6. Remaining 90M is exactly correct.
+7. Linear vesting duration is exactly 1,095 days.
+8. Rounding cannot cause overpayment.
+9. Timestamp edge cases cannot cause overpayment.
+10. Total claimed can NEVER exceed 100M.
+11. Tokens cannot be claimed by an unauthorized address.
+12. Repeated claims are handled correctly.
+13. Final vesting reaches exactly 100M.
+
+Explicitly check the arithmetic rather than trusting comments.
+
+==================================================
+DEPLOYMENT FACTORY REVIEW
+==================================================
+
+Inspect VaelorynDeploymentFactory.sol.
+
+Determine whether the factory introduces any unnecessary security risk.
+
+Check:
+
+- ownership
+- admin functions
+- upgradeability
+- arbitrary contract deployment
+- arbitrary recipient configuration
+- arbitrary token minting
+- ability to alter allocations
+- ability to deploy multiple conflicting Genesis distributions
+- ability to bypass the intended one-time Genesis process
+
+If the factory is unnecessary for the final architecture, say so.
+
+==================================================
+TEST COVERAGE REVIEW
+==================================================
+
+Do NOT rerun tests.
+
+Review the EXISTING tests and recorded result:
+
+22 total
+20 unit/edge/fuzz
+2 invariant
+22 passed
+0 failed
+0 skipped
+
+Determine whether the tests actually cover the critical security properties.
+
+Specifically identify whether tests cover:
+
+- fixed supply
+- no second mint
+- allocation sum
+- allocation caps
+- founder vesting cap
+- vesting timestamps
+- rounding
+- unauthorized claims
+- Permit
+- nonce replay
+- burn
+- burnFrom
+- Genesis one-time execution
+- recipient correctness
+- admin/owner absence
+- invariant supply preservation
+
+Distinguish between:
+
+TESTED
+
+and
+
+NOT TESTED.
+
+Do not claim a property is secure merely because there is a test file.
+
+==================================================
+SECURITY CLASSIFICATION
+==================================================
+
+Classify findings as:
+
+CRITICAL
+HIGH
+MEDIUM
+LOW
+INFORMATIONAL
+
+For each finding provide:
+
+- Contract
+- Function/area
+- Issue
+- Why it matters
+- Recommended fix
+
+Do not modify the code.
+
+==================================================
+DEPLOYMENT READINESS
+==================================================
+
+Give one of:
+
+GREEN — safe to proceed to deployment review
+
+AMBER — changes/review required before deployment
+
+RED — serious blocker
+
+This is NOT a formal security audit.
+
+Explicitly state that the review is a code-level review and does not replace an independent professional smart-contract audit.
+
+==================================================
+OUTPUT
+==================================================
+
+Create:
+
+reports/VAELO_Canonical_Smart_Contract_Code_Review.md
+
+Include:
+
+1. Executive summary
+2. Contract architecture
+3. Token review
+4. Genesis Distribution review
+5. Founder Vesting review
+6. Deployment Factory review
+7. Test coverage review
+8. Security findings
+9. Recommended fixes
+10. Deployment readiness
+11. Independent audit recommendation
+
+IMPORTANT:
+
+Do not change any project files.
+
+Do not deploy.
+
+Do not run tests again.
+
+Do not use Max Power.
+
+STOP after producing the report.
