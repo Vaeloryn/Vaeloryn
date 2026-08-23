@@ -1,0 +1,82 @@
+VAELO — INVESTIGATE AND CORRECT THE “EXCLUSIVESHITCOIN” IDENTITY ISSUE
+
+IMPORTANT:
+DO NOT USE MAX POWER.
+Use the normal/default agent.
+
+This is an investigation and correction-planning task.
+
+DO NOT deploy anything yet.
+DO NOT modify the existing deployed contract yet.
+DO NOT change DNS or Cloudflare.
+DO NOT change website content.
+DO NOT expose or use any credentials.
+
+The existing Base Sepolia V1.1 deployment has been reported as having explorer/source metadata associated with:
+
+“ExclusiveShitcoin”
+
+We consider this unacceptable for an investor-facing VAELO project.
+
+Do NOT simply accept that it must remain that way.
+
+Determine exactly WHY this name appears.
+
+Investigate:
+
+1. Is “ExclusiveShitcoin” embedded in the deployed contract's bytecode or contract metadata?
+
+2. Is it only present in the Blockscout verified-source metadata?
+
+3. Is it coming from the Solidity contract name?
+
+4. Is it coming from the source-code filename?
+
+5. Is it coming from the compiler metadata?
+
+6. Is it coming from the deployment/verification configuration?
+
+7. Is there any legitimate way to correct the explorer's verified source/name for the EXISTING deployed address without changing the deployed bytecode?
+
+8. If the existing bytecode itself contains the name, determine whether the only clean solution is a correctly named replacement deployment.
+
+9. Determine whether the existing V1.1 token address can safely remain as a historical prototype while the NEW canonical VAELO deployment uses completely clean Vaeloryn/VAELO identity.
+
+10. Identify exactly what investors would see on the explorer for:
+   - the old V1.1 deployment
+   - the future canonical deployment
+
+IMPORTANT:
+
+Do not make any irreversible change.
+
+Do not deploy a replacement.
+
+Do not overwrite explorer metadata.
+
+Do not attempt to manipulate blockchain history.
+
+Create:
+
+reports/VAELO_ExclusiveShitcoin_Identity_Investigation.md
+
+The report must clearly state:
+
+A. Where the name originates.
+B. Whether it can be corrected for the existing address.
+C. If it can be corrected, exactly how.
+D. If it cannot be corrected, why.
+E. Whether a new canonical deployment solves the problem.
+F. The recommended professional solution.
+
+If the existing explorer metadata CAN legitimately be corrected without changing the deployed contract, recommend that option.
+
+If it CANNOT, explain why and recommend the cleanest path for the canonical VAELO deployment.
+
+STOP after the investigation.
+
+Do not deploy anything.
+
+Do not modify anything unless a completely non-destructive metadata correction is confirmed to be safe.
+
+DO NOT USE MAX POWER.
