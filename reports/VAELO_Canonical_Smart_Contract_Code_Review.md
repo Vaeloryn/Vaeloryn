@@ -4,14 +4,16 @@
 **Scope:** Canonical Solidity contracts, existing Foundry tests, and recorded test evidence  
 **Deployment status:** Not deployed  
 **Review date:** 24 August 2026
+**Hardening update:** 24 August 2026
 
 ## 1. Executive summary
 
 The canonical implementation is present and matches the specified fixed supply,
 six allocations, founder vesting schedule, and non-administrative token design.
 The contracts use OpenZeppelin ERC-20, Burnable, and Permit/EIP-2612
-implementations. The recorded Foundry evidence reports 22 passed tests, with no
-failures or skips; the test suite was not rerun for this review.
+implementations. The original Foundry evidence reports 22 passed tests, with no
+failures or skips. A targeted hardening run subsequently reports 27 passed
+tests, with no failures or skips.
 
 No CRITICAL or HIGH code-level finding was identified in the reviewed source.
 The principal finding is a **MEDIUM deployment-identity risk**: the factory is
@@ -20,7 +22,7 @@ factory instance with different non-zero recipient addresses, producing a
 separate canonical-looking protocol. This does not alter or compromise an
 already deployed instance, but it creates operational and verification risk.
 
-The review is **AMBER — changes/process review required before deployment**.
+The review is **AMBER — deployment process review required before deployment**.
 The implementation is suitable for code review, but deployment should not
 proceed until the official instance, recipient addresses, credential
 remediation, and deployment/source-verification process are approved. This
@@ -73,7 +75,7 @@ function, owner, admin, upgrade mechanism, custody, or mutable configuration.
 | Permit / EIP-2612 | **TESTED** | Existing test constructs and submits a valid signed permit. |
 | EIP-712 domain | **TESTED** | Existing test checks name, version, chain ID, and verifying contract domain construction. |
 | Nonces | **TESTED** | Existing test checks nonce increment after permit. |
-| Signature replay protection | **CONFIRMED BY SOURCE / PARTIALLY TESTED** | OpenZeppelin `ERC20Permit` and `Nonces` are inherited; the existing test checks nonce increment but does not explicitly submit the same signature twice or test expiry. |
+| Signature replay protection | **TESTED / CONFIRMED BY SOURCE** | OpenZeppelin `ERC20Permit` and `Nonces` are inherited; dedicated targeted tests now reject replayed signatures and incorrect nonces. |
 | Zero-address rejection | **TESTED** | Constructor rejects a zero Genesis Distribution address. |
 
 The token has no hidden privileged control. Burning can reduce total supply,
@@ -143,9 +145,10 @@ Assessment:
 - Unauthorized redirection: **CONFIRMED BY SOURCE**; payout always uses immutable `beneficiary`
 
 `release()` is intentionally permissionless: any caller can trigger a release,
-but no caller can redirect the funds. The reviewed tests do not separately
-assert that an arbitrary caller can trigger payment only to the beneficiary,
-although the source makes that behavior direct and clear.
+but no caller can redirect the funds. The beneficiary is immutable and the only
+transfer recipient. The targeted hardening test explicitly proves that a third
+party can trigger the initial claim, the founder receives the tokens, and the
+third party receives nothing.
 
 ## 6. Deployment Factory review
 
@@ -163,12 +166,21 @@ inputs.
 
 ## 7. Test coverage review
 
-Existing recorded evidence states:
+The previous recorded evidence stated:
 
 - 22 total tests
 - 20 unit/edge/fuzz tests
 - 2 invariant tests
 - 22 passed
+- 0 failed
+- 0 skipped
+
+The targeted hardening run states:
+
+- 27 total tests
+- 25 unit/edge/fuzz tests
+- 2 invariant tests
+- 27 passed
 - 0 failed
 - 0 skipped
 
@@ -184,11 +196,13 @@ with 16,384 total invariant handler calls.
 | Founder vesting cap | **TESTED** |
 | Vesting timestamps | **TESTED** |
 | Linear rounding/end boundary | **TESTED by explicit boundaries; broad rounding fuzzing not present** |
-| Unauthorized claims/redirection | **SOURCE-CONFIRMED; not directly isolated as a caller-identity test** |
+| Unauthorized claims/redirection | **TESTED / SOURCE-CONFIRMED** |
 | Permit | **TESTED** |
 | Nonce increment | **TESTED** |
-| Same-signature replay rejection | **NOT TESTED explicitly** |
-| Permit expiry rejection | **NOT TESTED explicitly** |
+| Same-signature replay rejection | **TESTED** |
+| Permit expiry rejection | **TESTED** |
+| Incorrect Permit signer rejection | **TESTED** |
+| Incorrect Permit nonce rejection | **TESTED** |
 | Burn | **TESTED** |
 | `burnFrom` | **TESTED** |
 | Genesis one-time execution | **TESTED** |
@@ -212,11 +226,14 @@ coverage, but it is not an audit and does not replace independent review.
   multiple valid-looking VAELO instances or distributions. The risk is
   primarily operational and canonical-identity related; it does not grant
   control over an already deployed instance.
-- **Recommended fix:** Treat the official deployment transaction, factory
-  address, emitted contract addresses, chain ID, bytecode, and constructor
-  inputs as the canonical identity. If protocol-level uniqueness is required,
-  add a separately governed registry or a controlled deterministic deployment
-  process after reviewing the added trust and complexity.
+- **Resolution:** **Operationally controlled, not eliminated in Solidity.** The
+  deployment manifest now requires the chain ID, official factory and emitted
+  addresses, deployment transaction, constructor inputs, verified source/build
+  settings, and bytecode hashes. The official deployment process must publish
+  and use exactly one approved manifest.
+- **Residual risk:** A third party can still deploy an independent instance, but
+  it cannot alter the official instance. A registry or deterministic deployment
+  process would require a separate architecture review.
 
 ### INFORMATIONAL — Permissionless vesting trigger
 
@@ -226,45 +243,45 @@ coverage, but it is not an audit and does not replace independent review.
 - **Why it matters:** This is not a fund-stealing path because the beneficiary is
   immutable and is the only transfer recipient. It may nevertheless differ from
   an expectation that only the founder can initiate claims.
-- **Recommended fix:** No fix is required if permissionless triggering is
-  intended. If caller restriction is required, specify and test it explicitly;
-  do not rely on caller restriction for payout safety.
+- **Resolution:** **Resolved as intended and explicitly tested.** Any caller
+  may trigger a release; only the immutable founder beneficiary receives the
+  transfer, and the founder cap remains enforced. No caller restriction is
+  required.
 
 ### INFORMATIONAL — No explicit duplicate-signature and expiry tests
 
 - **Contract:** `VaelorynToken`
 - **Function/area:** Inherited `ERC20Permit` behavior
-- **Issue:** Existing tests verify a valid permit, domain separator, and nonce
-  increment, but do not explicitly submit a permit signature twice or test an
-  expired deadline.
+- **Issue:** The original test set did not explicitly submit a permit signature
+  twice or test an expired deadline.
 - **Why it matters:** These are important integration regressions even though
   OpenZeppelin's inherited implementation supplies the expected protections.
-- **Recommended fix:** Add dedicated regression tests for duplicate signature
-  rejection and expired-deadline rejection before production deployment.
+- **Resolution:** **Resolved in the targeted hardening pass.** Dedicated tests
+  now cover replay, expiry, incorrect signer, and incorrect nonce rejection;
+  the existing valid Permit, nonce, and EIP-712 domain tests remain active.
 
 ## 9. Recommended fixes and process actions
 
-1. Select and document one official deployment instance; publish its factory,
-   token, distribution, and vesting addresses together with chain ID and
-   constructor inputs.
+1. Select and document one official deployment instance using the canonical
+   identity fields in `vaelo_canonical/deployments/manifest.template.json`;
+   publish its factory, token, distribution, and vesting addresses together
+   with chain ID, constructor inputs, source verification, and bytecode hashes.
 2. Keep all recipient and founder addresses in the approved deployment manifest;
    do not deploy using placeholder values.
 3. Complete the recorded credential revocation/rotation remediation before any
    broadcast.
-4. Add explicit Permit duplicate-signature and expiry regression tests if the
-   test suite is amended before deployment.
-5. Obtain an independent professional smart-contract audit before a production
+4. Obtain an independent professional smart-contract audit before a production
    or materially funded deployment.
 
 ## 10. Deployment readiness
 
-**AMBER — changes/process review required before deployment.**
+**AMBER — deployment process review required before deployment.**
 
-The code has no identified critical or high-severity issue in this static
-review and is ready for human code review. Deployment remains pending approved
-addresses, a completed manifest, official deployment identity controls,
-credential remediation, deployment/source-verification review, and the
-recommended independent audit.
+The targeted hardening items are resolved or operationally controlled. The code
+has no identified critical or high-severity issue in this static review and is
+ready for human code review. Deployment remains pending approved addresses, a
+completed manifest, credential remediation, deployment/source-verification
+review, and the recommended independent audit.
 
 ## 11. Independent audit recommendation
 
