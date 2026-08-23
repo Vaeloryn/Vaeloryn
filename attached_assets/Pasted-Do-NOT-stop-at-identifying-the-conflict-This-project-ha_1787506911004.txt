@@ -1,0 +1,177 @@
+Do NOT stop at identifying the conflict.
+
+This project has been developed iteratively, and the repository may contain older prototype code alongside the current VAELO implementation.
+
+The purpose of this task is to determine whether the 150M/15% Solidity/README figures are an obsolete prototype rather than the current VAELO implementation.
+
+Before making any changes, perform a complete repository audit.
+
+STEP 1 — FIND THE CANONICAL VAELO SPECIFICATION
+
+Search the entire repository for:
+
+* VAELO canonical specification
+* VAELO project context
+* master specification
+* tokenomics specification
+* constitutional specification
+* Genesis allocation
+* founder allocation
+* vesting specification
+* deployment documentation
+* deployment addresses
+* Foundry
+* Hardhat
+* Base Sepolia
+* contract addresses
+
+Identify the document/file that the project currently treats as the authoritative VAELO specification.
+
+Report its exact path and the relevant tokenomics figures.
+
+STEP 2 — IDENTIFY THE CURRENT IMPLEMENTATION
+
+Determine which codebase is currently intended to represent VAELO.
+
+Compare:
+
+* Foundry contracts
+* Hardhat contracts
+* Solidity source
+* deployment scripts
+* tests
+* frontend references
+* contract addresses
+* documentation
+* README files
+
+Determine whether the 14-test Hardhat implementation is an older prototype that was superseded by the 148-test Foundry implementation.
+
+Do NOT assume this — prove it from the repository history, filenames, documentation references, imports, deployment scripts and other available evidence.
+
+STEP 3 — TRACE THE PUBLISHED CONTRACT ADDRESSES
+
+For every contract address currently published by the VAELO website/documentation:
+
+* Identify the network.
+* Identify the contract.
+* Identify the deployment code if available.
+* Compare the deployed implementation to the current source.
+* Determine whether source verification exists.
+* Determine whether the contract’s ABI/interface matches the current source.
+* Identify the deployment transaction if available.
+* Identify the Genesis allocation transaction if available.
+* Identify the founder vesting contract if applicable.
+
+If internet/blockchain access is available in this environment, use it.
+
+If it is not available, clearly identify what evidence must be supplied manually.
+
+STEP 4 — DETERMINE THE ACTUAL ON-CHAIN TOKENOMICS
+
+Where blockchain evidence is available, retrieve and verify:
+
+* Total supply
+* Founder allocation
+* Every allocation category
+* Allocation amounts
+* Allocation percentages
+* Founder vesting
+* Vesting schedule
+* Genesis distribution
+
+Calculate the percentages independently.
+
+The six-category allocation must be checked mathematically against the total supply.
+
+STEP 5 — RECONCILE THE TWO IMPLEMENTATIONS
+
+Create a table:
+
+Item	Current Canonical	Foundry	Hardhat Prototype	Deployed On-Chain
+Total supply				
+Founder allocation				
+Founder %				
+Allocation 1				
+Allocation 2				
+Allocation 3				
+Allocation 4				
+Allocation 5				
+Allocation 6				
+Vesting				
+Tests				
+
+For every discrepancy, explain which version is newer and why.
+
+STEP 6 — DO NOT CHANGE TOKENOMICS
+
+Do not modify:
+
+* Smart contracts
+* Token allocations
+* Vesting
+* Deployment addresses
+* Website figures
+
+until the reconciliation is complete.
+
+We need to establish what is actually canonical before changing anything.
+
+STEP 7 — IDENTIFY OBSOLETE MATERIAL
+
+If the 150M/15% Hardhat implementation is confirmed to be an obsolete prototype, identify every file/document that still presents it as current.
+
+Do NOT delete anything automatically.
+
+Instead, report:
+
+* File
+* Problem
+* Recommended action
+
+For example:
+
+“README.md — contains superseded 150M founder allocation — should be updated to reference current canonical specification.”
+
+STEP 8 — INVESTOR READINESS
+
+Do NOT generate the investor documents yet.
+
+First provide a final report titled:
+
+VAELO Canonical Implementation & Tokenomics Reconciliation
+
+The report must contain:
+
+1. Current canonical specification
+2. Current intended implementation
+3. Deployed contracts
+4. On-chain verification status
+5. Complete current tokenomics
+6. Vesting
+7. Current test suite
+8. Obsolete prototype identification
+9. Every remaining discrepancy
+10. Exact files requiring update
+11. Evidence supporting the conclusion
+12. Anything that still requires manual verification
+
+FINAL DECISION
+
+Only after this reconciliation is complete should the investor documents be generated.
+
+If the evidence conclusively establishes that the current VAELO canonical figures are:
+
+* 1,000,000,000 total supply
+* 100,000,000 / 10% founder allocation
+* 300M / 200M / 200M / 150M / 100M / 50M allocation structure
+* current quarterly + linear vesting
+* 148/148 Foundry tests
+
+then use those figures for the investor documentation and identify the 150M/15% Hardhat implementation as superseded prototype material.
+
+If the evidence establishes something different, STOP and report the difference before producing investor materials.
+
+The objective is not merely to make the documents look professional.
+
+The objective is for every number in the investor documents to be traceable to the actual current VAELO implementation and authoritative project documentation.

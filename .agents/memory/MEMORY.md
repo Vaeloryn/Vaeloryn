@@ -1,1 +1,2 @@
 - [Etherscan v2 hardhat-verify config](etherscan-v2-hardhat-verify.md) — single string apiKey (not object) is required to activate v2 API and auto-append chainid to all requests.
+- [VAELO canonical reconciliation](vaelo-canonical-reconciliation.md) — distinguish the live V1.1 testnet prototype from newer unverified public production claims.
