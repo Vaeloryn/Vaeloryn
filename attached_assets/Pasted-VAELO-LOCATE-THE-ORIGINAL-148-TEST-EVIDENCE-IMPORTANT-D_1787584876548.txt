@@ -1,0 +1,86 @@
+VAELO — LOCATE THE ORIGINAL 148-TEST EVIDENCE
+
+IMPORTANT:
+DO NOT USE MAX POWER.
+Do NOT modify anything.
+Read-only investigation only.
+
+The previous reconciliation says the 148 Foundry tests cannot currently be substantiated.
+
+However, the 148-test figure was previously completed and documented as part of the VAELO project, and the project was backed up.
+
+Before we remove or alter ANY reference to 148, conduct a thorough read-only search for the original evidence.
+
+Search ALL available project locations and historical material, including:
+
+- current repository
+- Git history
+- previous commits
+- branches
+- archived directories
+- reports
+- generated test reports
+- Foundry configuration
+- foundry.toml
+- .t.sol files
+- test output/logs
+- deployment documentation
+- project backups
+- checkpoints or previous project states if accessible
+- any canonical implementation directories
+- any files referring to 148 tests, Foundry tests, test counts or test results
+
+Search specifically for:
+“148”
+“148/148”
+“148 tests”
+“Foundry”
+“tests passed”
+“test result”
+and related VAELO canonical testing evidence.
+
+IMPORTANT:
+
+Do NOT treat website text saying “148 tests” as evidence by itself.
+
+We need the underlying technical evidence:
+- test source files
+- Foundry configuration
+- recorded test output
+- commit/history containing the test suite
+- or another verifiable project artifact.
+
+If the original 148-test suite is found:
+
+1. Identify its exact location.
+2. Identify the commit/version/date if available.
+3. Count the tests.
+4. Determine whether they correspond to the canonical implementation.
+5. Determine whether they actually passed.
+6. Explain why the current repository did not initially expose them.
+7. Report whether 148 can legitimately remain an investor-facing claim.
+
+If the evidence still cannot be found:
+
+Do NOT change the website.
+
+Instead report:
+“148 remains unsubstantiated from currently accessible project evidence.”
+
+Also identify exactly what historical/backed-up material appears to be missing.
+
+DO NOT modify:
+- website
+- contracts
+- tokenomics
+- reports
+- deployment
+- DNS
+- Cloudflare
+- credentials
+
+DO NOT run expensive tests.
+
+DO NOT USE MAX POWER.
+
+Return a detailed read-only investigation report only.
