@@ -20,3 +20,17 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser.pptx"
 type = "slides"
 title = "VAELO — John Lilic Investor Teaser (PPTX)"
 description = "Editable three-page angel investor teaser with reconciled canonical protocol status and evidence."
+
+[[outputs]]
+id = "G0VhC5ReXAq5IReXF5RNo"
+uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Corrected.pdf"
+type = "pdf"
+title = "VAELO — John Lilic Investor Teaser (Corrected PDF)"
+description = "Corrected three-page PDF export with the third-slide footer fully visible."
+
+[[outputs]]
+id = "zmPcGV_xzNhJDtZncBZ5j"
+uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Corrected.pptx"
+type = "slides"
+title = "VAELO — John Lilic Investor Teaser (Corrected PPTX)"
+description = "Corrected editable three-page deck with the third-slide footer fully visible."
