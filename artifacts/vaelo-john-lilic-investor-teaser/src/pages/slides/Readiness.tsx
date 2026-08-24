@@ -5,7 +5,7 @@ export default function Readiness() {
       <div className="absolute bottom-[-16vh] right-[-5vw] h-[54vw] w-[54vw] rounded-full border border-primary/15" />
       <div className="absolute bottom-[-6vh] right-[5vw] h-[36vw] w-[36vw] rounded-full border border-primary/10" />
 
-      <div className="relative flex h-full flex-col px-[7vw] py-[10vh]">
+      <div className="relative flex h-full flex-col px-[7vw] py-[7vh]">
         <div className="flex items-end justify-between">
           <div>
             <p className="font-body text-[1.55vw] font-bold tracking-[0.26em] text-primary">
@@ -21,7 +21,7 @@ export default function Readiness() {
           </p>
         </div>
 
-        <div className="mt-[7vh] grid flex-1 grid-cols-[0.92fr_1.08fr] gap-[6vw]">
+        <div className="mt-[5vh] grid flex-1 grid-cols-[0.92fr_1.08fr] gap-[6vw]">
           <div className="border-t border-primary/65 pt-[3vh]">
             <p className="font-body text-[1.55vw] font-bold tracking-[0.18em] text-primary">
               LATEST RECORDED CANONICAL FOUNDRY RUN
