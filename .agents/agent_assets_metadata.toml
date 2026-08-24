@@ -6,3 +6,17 @@ id = "QA_ildjPY3Pol7AQpHUbL"
 uri = "file://Vaeloryn_Website.zip"
 type = "unspecified"
 title = "Vaeloryn Website Source Code"
+
+[[outputs]]
+id = "yD9bPlxLqlhCFhBptFg-6"
+uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser.pdf"
+type = "pdf"
+title = "VAELO — John Lilic Investor Teaser (PDF)"
+description = "Three-page angel investor teaser with reconciled canonical protocol status and evidence."
+
+[[outputs]]
+id = "BxjCczExyQEWU1SvXCGxu"
+uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser.pptx"
+type = "slides"
+title = "VAELO — John Lilic Investor Teaser (PPTX)"
+description = "Editable three-page angel investor teaser with reconciled canonical protocol status and evidence."

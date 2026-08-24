@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": "1c1a18b4-c5df-4a1d-a0ce-5e6baf11c101",
+    "position": 1,
+    "filepath": "src/pages/slides/Cover.tsx",
+    "title": "VAELO — Angel Investor Teaser",
+    "description": "A concise Vaeloryn investor teaser prepared for John Lilic.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "2d2b29c5-d6ef-4b2e-b1df-6f7cbf22d202",
+    "position": 2,
+    "filepath": "src/pages/slides/CanonicalFoundation.tsx",
+    "title": "Canonical Foundation",
+    "description": "Fixed-supply architecture, atomic genesis, and founder vesting.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "3e3c3ad6-e7ff-4c3f-c2e0-7g8dcf33e303",
+    "position": 3,
+    "filepath": "src/pages/slides/Readiness.tsx",
+    "title": "Readiness",
+    "description": "Recorded test evidence, current protocol status, and next-stage agenda.",
+    "speakerNotes": ""
+  }
+]
