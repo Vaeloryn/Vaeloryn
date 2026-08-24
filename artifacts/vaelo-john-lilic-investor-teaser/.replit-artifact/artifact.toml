@@ -1,0 +1,28 @@
+kind = "slides"
+previewPath = "/vaelo-john-lilic-investor-teaser/"
+title = "VAELO — John Lilic Investor Teaser"
+description = "A concise three-page angel investor teaser for Vaeloryn, presenting the verified local canonical protocol foundation, token architecture, and next-stage opportunity without unsupported claims."
+version = "1.0.0"
+id = "artifacts/vaelo-john-lilic-investor-teaser"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/vaelo-john-lilic-investor-teaser/" ]
+localPort = 23883
+
+[services.development]
+run = "pnpm --filter @workspace/vaelo-john-lilic-investor-teaser run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vaelo-john-lilic-investor-teaser", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/vaelo-john-lilic-investor-teaser/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23883"
+BASE_PATH = "/vaelo-john-lilic-investor-teaser/"

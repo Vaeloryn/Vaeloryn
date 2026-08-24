@@ -1,0 +1,286 @@
+VAELO — CREATE JOHN LILIC 3-PAGE ANGEL INVESTOR TEASER
+
+IMPORTANT:
+DO NOT USE MAX POWER.
+Use normal/default mode.
+
+Create a highly polished, concise 3-page investor teaser specifically for an experienced Web3 angel investor.
+
+The document will be uploaded to John Lilic's investor submission form.
+
+PRIMARY OBJECTIVE:
+
+Make John interested enough in Vaeloryn to start a conversation.
+
+This is NOT the full VAELO investor deck.
+This is NOT the full due-diligence package.
+This is NOT a technical whitepaper.
+
+It should take approximately 2–3 minutes to read.
+
+Use the CURRENT reconciled Vaeloryn website, canonical implementation and project documentation as the source of truth.
+
+Do not invent any facts.
+
+==================================================
+PAGE 1 — VAELORYN AT A GLANCE
+==================================================
+
+This is the most important page.
+
+The reader should understand within 30 seconds:
+
+WHAT is Vaeloryn?
+WHY is it interesting?
+WHAT has already been built?
+WHERE is the project now?
+
+Headline:
+
+VAELORYN
+VAELO
+
+Create one strong, concise positioning statement explaining what Vaeloryn is building.
+
+Then include a very concise explanation of:
+
+• The project
+• The opportunity/problem it addresses
+• The role of VAELO
+• Why the project is differentiated
+• Current development stage
+• Why this is an interesting stage for an early investor
+
+Include an “At a Glance” section using ONLY verified information.
+
+Verified information:
+
+• Fixed total supply: 1,000,000,000 VAELO
+• Six-category canonical tokenomics established
+• Canonical smart-contract implementation completed locally
+• Latest recorded canonical Foundry run: 27 tests passed, 0 failed, 0 skipped
+• Internal smart-contract code review completed
+• Public website and project infrastructure established
+• Defined development roadmap
+
+IMPORTANT:
+
+Do NOT say 148 tests.
+
+Do NOT imply that 27 tests represent a complete historical test suite.
+
+Do NOT claim the canonical protocol is deployed.
+
+Do NOT claim an independent professional audit has been completed.
+
+Do NOT describe the historical Base Sepolia V1.1 deployment as the canonical protocol.
+
+Website:
+
+https://vaeloryn.com
+
+==================================================
+PAGE 2 — WHAT HAS BEEN BUILT
+==================================================
+
+The purpose of this page is to establish credibility.
+
+Make it immediately clear that Vaeloryn is an existing technical project rather than simply an idea.
+
+Briefly present:
+
+• Canonical token architecture
+• Fixed 1B VAELO supply
+• Genesis distribution architecture
+• Founder vesting architecture
+• Burn and Permit functionality
+• No additional minting
+• No owner/admin controls
+• No upgradeability
+• Foundry testing
+• Internal code review
+• Existing website/project infrastructure
+• Development roadmap
+
+Keep the technical information understandable to an investor.
+
+Include a compact visual showing canonical token allocation:
+
+Ecosystem & Community — 30%
+Public Distribution — 20%
+Vaeloryn Treasury — 20%
+Team & Contributors — 15%
+Founder — 10%
+Strategic Partnerships — 5%
+
+Also state clearly:
+
+“The canonical implementation is currently locally implemented and has not yet been deployed.”
+
+If mentioning the existing Base Sepolia deployment, label it:
+
+“Historical Base Sepolia V1.1 prototype — non-canonical.”
+
+Do not spend significant space discussing the old prototype.
+
+==================================================
+PAGE 3 — WHY NOW / INVESTMENT OPPORTUNITY
+==================================================
+
+Explain why Vaeloryn is approaching investors at this stage.
+
+Communicate:
+
+• The technical foundation has already been established.
+• The project is preparing for its next stage.
+• Early-stage capital can accelerate the next development milestones.
+• Areas may include final security work, deployment preparation, ecosystem development and launch/growth activities, but only where supported by existing project documentation.
+• Vaeloryn is looking for early partners who can contribute both capital and strategic experience.
+
+Do NOT invent:
+
+• Funding target
+• Valuation
+• Token price
+• Investor allocation
+• Expected return
+• Revenue
+• Users
+• Partnerships
+• Market share
+
+Do NOT make financial promises or price predictions.
+
+Instead, position the opportunity around:
+
+“An established technical foundation entering the stage where the right early partners can help turn it into a scalable ecosystem.”
+
+Finish with a strong but understated call to action:
+
+“We would welcome the opportunity to discuss Vaeloryn, the vision behind VAELO and the next stage of the project.”
+
+Website:
+
+https://vaeloryn.com
+
+==================================================
+TONE
+==================================================
+
+Write for an experienced Web3 investor.
+
+The tone should be:
+
+• Confident
+• Intelligent
+• Professional
+• Ambitious
+• Realistic
+• Technically credible
+• Founder-led
+
+Avoid:
+
+• Crypto hype
+• Buzzword-heavy language
+• “Revolutionary”
+• “Guaranteed”
+• “100x”
+• Price predictions
+• Generic AI language
+• Excessive technical jargon
+• Excessive text
+
+Do not make it sound like we are begging for investment.
+
+The tone should be:
+
+“We have built something substantial and are now looking for the right people to help take it further.”
+
+==================================================
+DESIGN
+==================================================
+
+Use the existing Vaeloryn visual identity, logo and branding.
+
+Create a premium minimalist investor presentation.
+
+It should look like a serious early-stage technology/Web3 company.
+
+Use:
+
+• Strong typography
+• Excellent spacing
+• Clear hierarchy
+• Minimal text
+• High-quality diagrams
+• Clean tokenomics visual
+• Professional presentation layout
+
+Do NOT redesign the Vaeloryn brand.
+
+Do NOT make it flashy or resemble a crypto marketing brochure.
+
+Page 1 must be visually strongest.
+
+==================================================
+FACTUAL ACCURACY
+==================================================
+
+Before creating the document, inspect the CURRENT reconciled website and canonical project materials.
+
+The website has recently been corrected to align public claims with verifiable evidence.
+
+Use the corrected wording as the source of truth.
+
+If any conflict remains between project files, STOP and report it rather than inventing or choosing a figure.
+
+In particular:
+
+Use:
+
+“Latest recorded canonical Foundry run: 27 tests passed, 0 failed, 0 skipped.”
+
+Do not use:
+
+“148 / 148 tests”
+
+Do not claim:
+
+“Canonical protocol deployed”
+
+Do not claim:
+
+“Independently audited”
+
+==================================================
+OUTPUT
+==================================================
+
+Create:
+
+reports/investor/VAELO_John_Lilic_Investor_Teaser.pdf
+
+Also create the editable source:
+
+reports/investor/VAELO_John_Lilic_Investor_Teaser.pptx
+
+The PDF must be suitable for direct submission to an angel investor.
+
+Do not modify:
+
+• Smart contracts
+• Tokenomics
+• Website
+• DNS
+• Cloudflare
+• Deployment configuration
+• Credentials
+
+Do not deploy anything.
+
+Do not run expensive/full test suites.
+
+DO NOT USE MAX POWER.
+
+After creating the files, provide a concise summary of what was created and any factual conflicts encountered.
