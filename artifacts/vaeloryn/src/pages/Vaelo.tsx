@@ -42,7 +42,7 @@ export function Vaelo() {
     <div className="w-full">
       <SEO
         title="VAELO — Vaeloryn Digital Asset | Base Sepolia Testnet"
-        description="Explore the VAELO digital asset of the Vaeloryn ecosystem — deployed on Base Sepolia testnet, source-verified, with a fixed supply of 1,000,000,000 VAELO and on-chain founder vesting."
+        description="Explore VAELO's intended canonical tokenomics and the historical V1.1 Base Sepolia prototype. The canonical implementation is not yet deployed."
       />
 
       {/* ── Page Header ── */}
@@ -66,14 +66,15 @@ export function Vaelo() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              The VAELO token is the digital asset of the Vaeloryn ecosystem. It is deployed on Base Sepolia testnet
-              with a fixed constitutional supply of 1,000,000,000 VAELO, on-chain founder vesting, and source-verified contracts.
+              The canonical VAELO design is implemented locally with a fixed intended supply of 1,000,000,000 VAELO.
+              The published Base Sepolia deployment is a historical, non-canonical V1.1 prototype and does not
+              represent the canonical implementation described on this page.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex items-center gap-3 pt-2">
               <div className="w-2 h-2 rounded-full bg-primary/70 animate-pulse" />
               <span className="text-sm text-muted-foreground tracking-wide">
-                Deployed on <span className="text-primary/90">Base Sepolia Testnet</span> · Mainnet not launched
+                Canonical implementation <span className="text-primary/90">not yet deployed</span> · Historical V1.1 prototype on Base Sepolia
               </span>
             </motion.div>
           </motion.div>
@@ -96,9 +97,9 @@ export function Vaelo() {
             <div className="space-y-1.5">
               <p className="text-sm font-medium tracking-wide text-primary/90 uppercase">Testnet Notice</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                VAELO is currently deployed on Base Sepolia testnet only. Testnet VAELO has no monetary value.
-                The constitutional tokenomics described on this page are implemented in the deployed testnet contracts.
-                No real-money VAELO distribution is currently active. Mainnet launch requires independent security review
+                The historical V1.1 prototype is deployed on Base Sepolia testnet only and has no monetary value.
+                The canonical tokenomics described on this page are intended design and are implemented locally,
+                not in the published V1.1 contracts. No real-money VAELO distribution is currently active. Mainnet launch requires independent security review
                 and legal and regulatory preparation.
               </p>
             </div>
@@ -116,7 +117,7 @@ export function Vaelo() {
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
               <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Protocol Status</span>
               <h2 className="font-display text-3xl md:text-4xl font-light tracking-[0.1em] uppercase text-foreground">
-                Deployed & Source-Verified
+                Canonical Design · Not Deployed
               </h2>
               <div className="w-10 h-px bg-primary/60" />
             </motion.div>
@@ -139,10 +140,10 @@ export function Vaelo() {
                 <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Protocol Details</p>
                 <div className="space-y-3">
                   {[
-                    { key: 'Protocol Status',    val: 'Deployed & source-verified', highlight: true },
-                    { key: 'Network',            val: 'Base Sepolia', highlight: true },
+                    { key: 'Protocol Status',    val: 'Implemented locally · not deployed', highlight: true },
+                    { key: 'Network',            val: 'Historical V1.1 · Base Sepolia', highlight: true },
                     { key: 'Chain ID',           val: '84532' },
-                    { key: 'Test Suite',         val: '148 / 148 passing', highlight: true },
+                    { key: 'Test Evidence',      val: '27 targeted local tests passing', highlight: true },
                     { key: 'Production / Mainnet', val: 'Not launched' },
                     { key: 'Public Distribution', val: 'Not active' },
                   ].map(({ key, val, highlight }) => (
@@ -166,22 +167,23 @@ export function Vaelo() {
             className="flex flex-col gap-12"
           >
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-              <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Deployed Contracts</span>
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Historical V1.1 Contracts</span>
               <h2 className="font-display text-3xl md:text-4xl font-light tracking-[0.1em] uppercase text-foreground">
-                Verified on Base Sepolia
+                Published on Base Sepolia
               </h2>
               <div className="w-10 h-px bg-primary/60" />
               <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                Three smart contracts form the Vaeloryn constitutional protocol. All are source-verified on Base Sepolia.
-                Contract addresses can be independently inspected via BaseScan or Blockscout.
+                These three contracts are the historical V1.1 testnet prototype, not the canonical implementation.
+                Their addresses can be independently inspected via BaseScan or Blockscout; source-verification
+                metadata is not treated as verification of the canonical production design.
               </p>
             </motion.div>
 
             <div className="flex flex-col gap-4">
               {[
-                { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'ERC-20 · Fixed supply · Burn · Permit' },
-                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'On-chain vesting · 100M VAELO' },
-                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'Constitutional distribution' },
+                { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'V1.1 ERC-20 · Fixed supply' },
+                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'V1.1 vesting · 150M VAELO · five-year schedule' },
+                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'V1.1 genesis allocation' },
               ].map(({ name, addr, role }, i) => (
                 <motion.div
                   key={name}
@@ -220,7 +222,7 @@ export function Vaelo() {
             className="flex flex-col gap-12"
           >
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-              <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Constitutional Tokenomics · Base Sepolia</span>
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Intended Canonical Tokenomics · Not Deployed</span>
               <h2 className="font-display text-3xl md:text-4xl font-light tracking-[0.1em] uppercase text-foreground">
                 Token Allocation
               </h2>
@@ -232,8 +234,9 @@ export function Vaelo() {
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                The full supply was minted once at deployment to the VaelorynGenesisAllocator, which distributed the
-                constitutional allocation to each designated address. No additional VAELO can be minted — there is no mint function.
+                This six-category allocation is the intended canonical design and is implemented locally.
+                It has not been deployed or source-verified on a network. The historical V1.1 deployment uses
+                different allocation and vesting terms.
               </p>
             </motion.div>
 
@@ -331,7 +334,7 @@ export function Vaelo() {
             className="flex flex-col gap-10"
           >
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-              <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Implemented · Deployed & Tested</span>
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Canonical Design · Implemented Locally</span>
               <h2 className="font-display text-3xl md:text-4xl font-light tracking-[0.1em] uppercase text-foreground">
                 Founder Vesting
               </h2>
@@ -342,7 +345,8 @@ export function Vaelo() {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 The founder allocation is held inside the <span className="text-foreground/90 font-medium">VaelorynFounderVesting</span> contract
                 and cannot be freely accessed. The vesting schedule is enforced at the smart contract level —
-                no admin bypass, no manual override. The schedule has been deployed and tested on Base Sepolia.
+                no admin bypass, no manual override. The canonical schedule has been tested locally but has not
+                been deployed. The historical V1.1 contract uses a different 150M, five-year schedule.
               </p>
             </motion.div>
 
@@ -357,7 +361,7 @@ export function Vaelo() {
                   </div>
                   <div className="flex justify-between">
                     <span>Status</span>
-                    <span className="text-primary/80 font-medium">Deployed & tested</span>
+                    <span className="text-primary/80 font-medium">Implemented locally · not deployed</span>
                   </div>
                 </div>
               </motion.div>

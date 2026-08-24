@@ -62,14 +62,14 @@ function BulletItem({ text, kind }: { text: string; kind: StatusKind }) {
 }
 
 const MILESTONES = [
-  { label: 'Protocol Complete',                  detail: 'Full constitutional protocol implemented' },
-  { label: 'Smart Contracts Complete',           detail: 'VaelorynToken, FounderVesting, GenesisDistribution' },
-  { label: 'Base Sepolia Deployment Complete',   detail: 'All 3 contracts deployed successfully' },
-  { label: 'Founder Vesting Verified',           detail: 'On-chain schedule tested and confirmed' },
-  { label: 'Genesis Distribution Verified',      detail: 'Constitutional allocation executed on-chain' },
-  { label: 'Constitutional Allocation Verified', detail: 'All allocations confirmed against specification' },
-  { label: 'Source Verified',                    detail: 'All contracts source-verified on Base Sepolia' },
-  { label: '148 / 148 Tests Passing',            detail: 'Full Foundry test suite — zero failures' },
+  { label: 'Canonical Protocol Implemented',    detail: 'Built locally; not deployed' },
+  { label: 'Canonical Smart Contracts',          detail: 'Token, founder vesting, genesis distribution and factory' },
+  { label: 'Historical V1.1 Testnet',            detail: 'Three prototype contracts remain on Base Sepolia' },
+  { label: 'Canonical Founder Vesting',          detail: 'Locally tested; not deployed' },
+  { label: 'Canonical Genesis Distribution',     detail: 'Locally tested; no network transaction broadcast' },
+  { label: 'Canonical Allocation',               detail: 'Six-category design implemented locally' },
+  { label: 'Canonical Source Verification',      detail: 'Pending deployment' },
+  { label: 'Targeted Local Test Evidence',       detail: '27 passed, 0 failed, 0 skipped' },
 ];
 
 export function Status() {
@@ -77,7 +77,7 @@ export function Status() {
     <div className="w-full">
       <SEO
         title="Engineering Progress — Vaeloryn | Protocol Status Dashboard"
-        description="Live engineering dashboard. Protocol complete, smart contracts deployed and source-verified on Base Sepolia, 148/148 tests passing."
+        description="Engineering dashboard for Vaeloryn's locally implemented canonical protocol and historical Base Sepolia V1.1 prototype."
       />
 
       {/* ── Page Header ── */}
@@ -120,8 +120,8 @@ export function Status() {
               </h2>
               <div className="w-10 h-px bg-primary/60" />
               <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                The Vaeloryn constitutional protocol has been fully implemented and deployed on Base Sepolia testnet.
-                Every milestone below is complete and independently verifiable on-chain.
+                The canonical Vaeloryn protocol has been implemented and tested locally, but is not deployed.
+                The historical V1.1 prototype is the separate deployment currently visible on Base Sepolia.
               </p>
             </motion.div>
 
@@ -177,12 +177,12 @@ export function Status() {
 
             {/* VAELO status grid */}
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <StatusRow label="Protocol"                              value="Deployed & source-verified"      kind="done"     />
-              <StatusRow label="Network"                              value="Base Sepolia Testnet"             kind="done"     />
+              <StatusRow label="Canonical Protocol"                   value="Implemented locally · not deployed" kind="done"     />
+              <StatusRow label="Historical Prototype"                 value="V1.1 · Base Sepolia Testnet"        kind="done"     />
               <StatusRow label="Chain ID"                             value="84532"                            kind="done"     />
-              <StatusRow label="Test Suite"                           value="148 / 148 tests passing"          kind="done"     />
-              <StatusRow label="Constitutional Allocation"            value="Verified on-chain"                kind="done"     />
-              <StatusRow label="Founder Vesting"                      value="Deployed & tested"                kind="done"     />
+              <StatusRow label="Targeted Test Evidence"               value="27 local tests passing"            kind="done"     />
+              <StatusRow label="Canonical Allocation"                 value="Implemented locally · not on-chain" kind="done"    />
+              <StatusRow label="Canonical Founder Vesting"            value="Locally tested · not deployed"      kind="done"     />
               <StatusRow label="Production / Mainnet"                 value="Not launched"                     kind="inactive" />
               <StatusRow label="Public VAELO Distribution"            value="Not active"                       kind="inactive" note="No public sale or token distribution is currently active" />
               <StatusRow label="Independent Production Security Review" value="Pending"                        kind="pending"  />
@@ -200,13 +200,13 @@ export function Status() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Base Sepolia Testnet" title="Deployed & Verified Contracts" />
+            <SectionHeader eyebrow="Historical V1.1 · Base Sepolia Testnet" title="Published Prototype Contracts" />
 
             <div className="flex flex-col gap-4">
               {[
-                { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'ERC-20 · Fixed supply · Burn · Permit' },
-                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'On-chain vesting · 100M VAELO · Tested' },
-                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'Constitutional distribution · Verified' },
+                { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'Historical V1.1 ERC-20 · Fixed supply' },
+                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'Historical V1.1 · 150M VAELO · five-year schedule' },
+                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'Historical V1.1 genesis distribution' },
               ].map(({ name, addr, role }, i) => (
                 <motion.div
                   key={name}
@@ -255,9 +255,9 @@ export function Status() {
                 'VaelorynToken smart contract designed and implemented.',
                 'VaelorynFounderVesting smart contract designed and implemented.',
                 'VaelorynGenesisAllocator smart contract designed and implemented.',
-                '148 / 148 Foundry tests written and passing — zero failures.',
-                'Full constitutional protocol deployed to Base Sepolia testnet.',
-                'All three contracts source-verified on Base Sepolia.',
+                'Canonical Foundry implementation tested locally — 27 targeted tests passed, zero failures.',
+                'Historical V1.1 prototype remains deployed to Base Sepolia; canonical deployment is pending.',
+                'Canonical source verification is pending deployment.',
                 'Constitutional allocation executed and verified on-chain.',
                 'Founder vesting schedule tested and confirmed.',
                 'Fixed supply of 1,000,000,000 VAELO verified — minted once at construction.',

@@ -68,7 +68,7 @@ export function Roadmap() {
     <div className="w-full">
       <SEO
         title="Roadmap — Vaeloryn | From Protocol to Global Ecosystem"
-        description="Follow Vaeloryn's progression from a completed constitutional protocol through Stage A foundation building toward real-world execution and long-term ecosystem development."
+        description="Follow Vaeloryn's progression from a locally implemented canonical protocol through Stage A foundation building toward responsible production."
       />
 
       {/* ── Page Header ── */}
@@ -91,7 +91,7 @@ export function Roadmap() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              From a completed constitutional protocol on Base Sepolia through Stage A foundation building
+              From a locally implemented canonical protocol through Stage A foundation building
               toward real-world execution and a long-term global ecosystem.
             </motion.p>
 
@@ -203,8 +203,8 @@ export function Roadmap() {
               </h2>
               <div className="w-10 h-px bg-primary/60" />
               <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                The following milestones are complete and independently verifiable. This is the foundation
-                on which Stage A continues to build.
+                The following milestones describe completed local implementation work and historical testnet
+                evidence. The canonical protocol is not yet deployed; Stage A continues toward production readiness.
               </p>
             </motion.div>
 
@@ -219,9 +219,9 @@ export function Roadmap() {
                   'VaelorynToken implemented — ERC-20, fixed supply, burn, permit (EIP-2612).',
                   'VaelorynFounderVesting implemented — on-chain vesting with enforced schedule.',
                   'VaelorynGenesisAllocator implemented — constitutional distribution at deployment.',
-                  '148 / 148 Foundry tests written and passing — zero failures.',
-                  'Full constitutional protocol deployed to Base Sepolia testnet.',
-                  'All three contracts source-verified on Base Sepolia.',
+                  'Canonical Foundry implementation tested locally — 27 targeted tests passed, with zero failures.',
+                  'Historical V1.1 prototype remains deployed on Base Sepolia; canonical deployment is pending.',
+                  'Canonical source verification and deployment remain pending.',
                 ].map((item) => (
                   <DoneBullet key={item} text={item} />
                 ))}
@@ -292,7 +292,7 @@ export function Roadmap() {
               </h2>
               <div className="w-10 h-px bg-primary/60" />
               <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                With the constitutional protocol complete, Stage A continues with the organisational, legal,
+                With the canonical protocol implemented locally, Stage A continues with the organisational, legal,
                 security and community foundations needed to progress responsibly toward production.
               </p>
             </motion.div>

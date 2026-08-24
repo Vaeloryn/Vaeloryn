@@ -62,7 +62,7 @@ export function Transparency() {
     <div className="w-full">
       <SEO
         title="Trust & Transparency — Vaeloryn"
-        description="Vaeloryn's constitutional protocol is deployed, source-verified and independently verifiable on-chain. Explore implemented safeguards and what remains pending."
+        description="See what Vaeloryn's canonical protocol implements locally, what the historical Base Sepolia V1.1 prototype proves, and what remains pending."
       />
 
       {/* ── Page Header ── */}
@@ -85,8 +85,8 @@ export function Transparency() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              The Vaeloryn constitutional protocol is deployed and verifiable on-chain. This page explains what has been
-              implemented, what users can independently verify today, and what remains proposed for future production architecture.
+              The canonical Vaeloryn protocol is implemented locally but not yet deployed. This page separates
+              the historical Base Sepolia V1.1 prototype from the intended production architecture and its evidence.
             </motion.p>
           </motion.div>
         </div>
@@ -109,7 +109,7 @@ export function Transparency() {
               Vaeloryn's approach is to make important supply, vesting and allocation protections
               <span className="text-foreground/80"> technically enforceable and independently verifiable</span> — so that
               the architecture itself provides the assurance, not just stated intentions.
-              The constitutional protocol on Base Sepolia testnet is the first step in building that foundation.
+              The historical V1.1 prototype on Base Sepolia is a separate testnet record, not the canonical protocol.
             </p>
           </motion.div>
         </div>
@@ -126,21 +126,21 @@ export function Transparency() {
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-primary/15 bg-primary/5">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                All of the following can be independently confirmed by anyone using a Base Sepolia block explorer
-                (BaseScan or Blockscout) — no trust in Vaeloryn required.
+                The historical V1.1 deployment can be independently inspected using a Base Sepolia block explorer.
+                The canonical implementation is currently supported by reproducible local build and test evidence,
+                not by a network deployment.
               </p>
             </motion.div>
 
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
                 { label: 'Fixed supply — totalSupply() returns exactly 1,000,000,000 VAELO', done: true },
-                { label: 'Token allocation — on-chain balances confirm the constitutional distribution', done: true },
-                { label: 'Founder vesting — VaelorynFounderVesting contract holds 100M VAELO with enforced schedule', done: true },
-                { label: 'Contract verification — all source code is published and verified against deployed bytecode', done: true },
-                { label: 'On-chain balances — every allocation address balance is publicly readable', done: true },
-                { label: 'Genesis distribution — the full allocation transaction is permanently recorded on-chain', done: true },
-                { label: 'No minting — the contract has no mint function beyond initial construction', done: true },
-                { label: 'No admin keys — no owner, no pause, no blacklist functions exist in the deployed contract', done: true },
+                { label: 'Canonical token allocation — implemented locally; not deployed', done: true },
+                { label: 'Historical V1.1 founder vesting — 150M allocation confirmed on Base Sepolia', done: true },
+                { label: 'Canonical source verification — not yet requested or completed', done: false },
+                { label: 'Historical V1.1 balances and deployment transactions — publicly readable', done: true },
+                { label: 'Canonical genesis distribution — tested locally; no network transaction broadcast', done: true },
+                { label: 'Canonical no-mint and admin-control assertions — covered by local tests', done: true },
               ].map(({ label, done }) => (
                 <motion.div key={label} variants={fadeInUp}>
                   <VerifyItem label={label} done={done} />
@@ -167,13 +167,13 @@ export function Transparency() {
             <SectionHeader eyebrow="As of Now" title="Current Status" />
 
             <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-4">
-              <StatusRow label="VaelorynToken"                                      value="Deployed & source-verified — Base Sepolia" ok={true} />
-              <StatusRow label="VaelorynFounderVesting"                             value="Deployed, tested & source-verified"        ok={true} />
-              <StatusRow label="VaelorynGenesisAllocator"                           value="Deployed & source-verified"                ok={true} />
-              <StatusRow label="Fixed supply (1,000,000,000 VAELO)"                value="Implemented — minted once at construction" ok={true} />
-              <StatusRow label="Constitutional allocation"                           value="Verified on-chain"                         ok={true} />
-              <StatusRow label="Founder vesting schedule"                           value="Deployed and tested"                       ok={true} />
-              <StatusRow label="Test suite"                                         value="148 / 148 Foundry tests passing"           ok={true} />
+              <StatusRow label="Canonical implementation"                           value="Implemented locally — not deployed"       ok={true} />
+              <StatusRow label="Historical V1.1 contracts"                          value="Deployed on Base Sepolia"                  ok={true} />
+              <StatusRow label="Canonical fixed supply"                             value="Locally tested — not deployed"             ok={true} />
+              <StatusRow label="Canonical allocation"                               value="Locally implemented — not on-chain"        ok={true} />
+              <StatusRow label="Historical V1.1 allocation"                         value="Confirmed on-chain; differs from canonical design" ok={true} />
+              <StatusRow label="Canonical founder vesting"                         value="Locally tested — not deployed"             ok={true} />
+              <StatusRow label="Targeted local test evidence"                       value="27 passed, 0 failed, 0 skipped"              ok={true} />
               <StatusRow label="Independent production security review"             value="Not yet completed"                         ok={false} />
               <StatusRow label="Formal professional legal / regulatory review"      value="Pending"                                   ok={false} />
               <StatusRow label="Production / mainnet deployment"                    value="Not launched"                              ok={false} />
@@ -214,7 +214,7 @@ export function Transparency() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Base Sepolia Testnet" title="Implemented Safeguards" />
+            <SectionHeader eyebrow="Canonical Implementation · Local Evidence" title="Implemented Safeguards" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {[
@@ -232,7 +232,7 @@ export function Transparency() {
                   title: 'On-Chain Founder Vesting',
                   implemented: true,
                   items: [
-                    '100M VAELO held in VaelorynFounderVesting — cannot be freely accessed.',
+                    '100M VAELO canonical founder allocation — implemented locally, not deployed.',
                     '2,500,000 VAELO immediately claimable.',
                     '2,500,000 VAELO released every 90 days during Year 1.',
                     'Remaining 90,000,000 VAELO vested linearly over 36 months.',
@@ -254,10 +254,10 @@ export function Transparency() {
                   title: 'Supply Transparency',
                   implemented: true,
                   items: [
-                    'Full supply and every allocation balance are publicly readable on-chain.',
-                    'Source code for all contracts is published and verified.',
-                    'Founder vesting contract balance and schedule are publicly verifiable.',
-                    'Genesis distribution transaction is permanently recorded on-chain.',
+                    'Canonical implementation and test evidence are reproducible from the repository.',
+                    'Canonical source verification has not yet been completed.',
+                    'Canonical founder vesting schedule is locally tested, not publicly deployed.',
+                    'No canonical genesis distribution transaction has been broadcast.',
                   ],
                 },
                 {
@@ -302,7 +302,7 @@ export function Transparency() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Implemented · Deployed & Tested" title="Founder Protection" />
+            <SectionHeader eyebrow="Canonical Design · Local Evidence" title="Founder Protection" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-primary/15 bg-primary/5 flex flex-col gap-4">
@@ -323,7 +323,7 @@ export function Transparency() {
                   '2,500,000 VAELO released every 90 days during Year 1.',
                   'Remaining 90,000,000 VAELO vested linearly over the following 36 months.',
                   'Schedule enforced by smart contract — no admin override.',
-                  'Tested with Foundry and deployed on Base Sepolia.',
+                  'Tested locally with Foundry; not deployed on Base Sepolia.',
                 ]} />
               </motion.div>
             </div>
@@ -451,8 +451,9 @@ export function Transparency() {
                 ]} />
               </div>
               <p className="text-sm text-muted-foreground/60 italic mt-5 pt-4 border-t border-white/5">
-                No such review has been completed for production. The testnet implementation has been tested with Foundry (148 / 148 tests passing)
-                but has not undergone independent security review. This is required before mainnet deployment.
+                No such review has been completed for production. The canonical implementation has a recorded local
+                Foundry result of 27 targeted tests passing (0 failed, 0 skipped); it has not undergone independent
+                security review or network deployment. This is required before mainnet deployment.
               </p>
             </motion.div>
           </motion.div>

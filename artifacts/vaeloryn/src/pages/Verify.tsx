@@ -50,32 +50,31 @@ const CONTRACTS = [
   {
     name: 'VaelorynToken',
     addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c',
-    role: 'ERC-20 token · Fixed supply · Burn · Permit (EIP-2612)',
-    verified: true,
+    role: 'Historical V1.1 ERC-20 token · Fixed supply',
+    verified: false,
   },
   {
     name: 'VaelorynFounderVesting',
     addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2',
-    role: 'On-chain founder vesting · 100,000,000 VAELO · Tested',
-    verified: true,
+    role: 'Historical V1.1 vesting · 150,000,000 VAELO · five-year schedule',
+    verified: false,
   },
   {
     name: 'VaelorynGenesisAllocator',
     addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa',
-    role: 'Constitutional distribution · Allocates full supply at deployment',
-    verified: true,
+    role: 'Historical V1.1 genesis allocation',
+    verified: false,
   },
 ];
 
 const MILESTONES = [
-  'Protocol Complete',
-  'Smart Contracts Complete',
-  'Base Sepolia Deployment Complete',
-  'Founder Vesting Verified',
-  'Genesis Distribution Verified',
-  'Constitutional Allocation Verified',
-  'Source Verified',
-  '148 / 148 Tests Passing',
+  'Canonical Protocol Implemented Locally',
+  'Canonical Smart Contracts Tested Locally',
+  'Canonical Deployment Pending',
+  'Historical V1.1 Prototype on Base Sepolia',
+  'Canonical Source Verification Pending',
+  'Independent Security Review Pending',
+  'Targeted Local Test Evidence: 27 Passed',
 ];
 
 const ALLOCATION = [
@@ -106,7 +105,7 @@ export function Verify() {
     <div className="w-full">
       <SEO
         title="Verify — Vaeloryn | Protocol Transparency Hub"
-        description="The Vaeloryn protocol is deployed, source-verified and independently verifiable on-chain. Explore contracts, tokenomics, vesting, allocation and test results."
+        description="Verify the distinction between Vaeloryn's locally implemented canonical protocol and the historical Base Sepolia V1.1 prototype."
       />
 
       {/* ── Page Header ── */}
@@ -130,14 +129,14 @@ export function Verify() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              Every claim made by Vaeloryn is independently verifiable on-chain.
-              This page provides everything needed to inspect, confirm and audit the protocol.
+              This page distinguishes what can be verified in the repository from what can be inspected
+              on the historical Base Sepolia V1.1 deployment. The canonical protocol is not yet deployed.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex items-center gap-3 pt-2">
               <div className="w-2 h-2 rounded-full bg-primary/70 animate-pulse" />
               <span className="text-sm text-muted-foreground tracking-wide">
-                Base Sepolia Testnet · <span className="text-primary/90">All contracts source-verified</span>
+                Canonical implementation · <span className="text-primary/90">Not deployed</span>
               </span>
             </motion.div>
           </motion.div>
@@ -151,7 +150,7 @@ export function Verify() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-12"
           >
-            <SectionHeader eyebrow="Protocol Status" title="All Milestones Complete" />
+            <SectionHeader eyebrow="Protocol Status" title="Evidence & Pending Gates" />
 
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {MILESTONES.map((m) => (
@@ -180,9 +179,8 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-white/8 bg-white/[0.02]">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Three smart contracts form the Vaeloryn constitutional protocol. All three are deployed on Base Sepolia testnet
-                and their source code has been verified against the deployed bytecode. Any user can independently inspect
-                the contract logic using a Base Sepolia block explorer.
+                The listed addresses belong to the historical V1.1 testnet prototype, not the canonical implementation.
+                The canonical contracts are implemented locally and have not been deployed or source-verified.
               </p>
             </motion.div>
 
@@ -203,7 +201,7 @@ export function Verify() {
                     </div>
                     {verified && (
                       <span className="text-xs text-primary/70 border border-primary/20 bg-primary/5 px-2.5 py-1 rounded-full flex-shrink-0">
-                        Source Verified
+                         Historical Prototype
                       </span>
                     )}
                   </div>
@@ -224,7 +222,8 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-4 rounded-lg border border-white/8 bg-white/[0.015]">
               <p className="text-xs text-muted-foreground/60 leading-relaxed italic">
-                These are Base Sepolia testnet contracts. They are not mainnet production contracts.
+                These are Base Sepolia V1.1 testnet prototype contracts. They are not the canonical implementation
+                or mainnet production contracts. Canonical deployment and source verification remain pending.
                 Blockscout links: <a href="https://base-sepolia.blockscout.com" target="_blank" rel="noopener noreferrer" className="text-primary/60 hover:text-primary transition-colors">base-sepolia.blockscout.com</a>
               </p>
             </motion.div>
@@ -257,8 +256,8 @@ export function Verify() {
                 <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Capabilities</p>
                 <BulletList items={[
                   'ERC-20 standard transfer and approval',
-                  'ERC-20 Permit (EIP-2612) — gasless approvals',
-                  'ERC-20 Burnable — voluntary token burn by holders',
+                   'Historical V1.1 ABI does not establish canonical Permit support',
+                   'Historical V1.1 ABI does not establish canonical Burnable support',
                   'Full supply verifiable via totalSupply()',
                   'Per-address balance verifiable via balanceOf()',
                 ]} />
@@ -279,9 +278,9 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-primary/15 bg-primary/5">
               <p className="text-sm font-display italic text-foreground/90 leading-relaxed">
-                "The VaelorynToken contract contains no ownership, no administrative privileges, no upgradeability,
-                no minting after deployment, no transfer taxes, no blacklisting, and no freezing.
-                These are not future intentions — they are structural properties of the deployed contract."
+                "The canonical VaelorynToken design contains no ownership, no administrative privileges, no upgradeability,
+                 no minting after deployment, no transfer taxes, no blacklisting, and no freezing.
+                 These are locally tested design properties, not claims about the historical deployment."
               </p>
             </motion.div>
 
@@ -296,7 +295,7 @@ export function Verify() {
                   'OpenZeppelin ERC20 base',
                   'OpenZeppelin ERC20Burnable extension',
                   'OpenZeppelin ERC20Permit extension',
-                  'Foundry test framework (148 tests)',
+                   'Foundry test framework · targeted local evidence',
                 ]} />
               </motion.div>
 
@@ -327,16 +326,16 @@ export function Verify() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Fixed Supply" title="1,000,000,000 VAELO" />
+              <SectionHeader eyebrow="Canonical Intended Supply" title="1,000,000,000 VAELO" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-4">
                 <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">How to Verify</p>
                 <BulletList items={[
-                  'Connect to Base Sepolia and call totalSupply() on the VaelorynToken contract.',
-                  'The result will always equal 1,000,000,000 × 10^18 (accounting for 18 decimals).',
-                  'No minting function exists — the supply cannot increase after deployment.',
-                  'Voluntary burns by holders reduce total supply — verifiable on-chain.',
+                   'Review the canonical implementation and local test evidence in the repository.',
+                   'The canonical design specifies 1,000,000,000 × 10^18 (accounting for 18 decimals).',
+                   'No post-construction minting function exists in the locally tested canonical design.',
+                   'Voluntary burns are part of the locally tested canonical design; not yet deployed.',
                 ]} />
               </motion.div>
 
@@ -404,7 +403,7 @@ export function Verify() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Founder Vesting" title="On-Chain Vesting — Deployed & Tested" />
+            <SectionHeader eyebrow="Founder Vesting" title="Canonical Vesting — Local Evidence" />
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-primary/15 bg-primary/5">
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -427,7 +426,7 @@ export function Verify() {
                     value="0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2"
                     mono
                   />
-                  <DataRow label="Status" value="Deployed & tested" />
+                  <DataRow label="Status" value="Implemented locally · not deployed" />
                 </div>
               </motion.div>
 
@@ -454,8 +453,9 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-4 rounded-lg border border-white/8 bg-white/[0.015]">
               <p className="text-xs text-muted-foreground/60 italic leading-relaxed">
-                The vesting schedule is enforced at the smart contract level. It has been tested with Foundry and deployed to Base Sepolia.
-                The contract balance and claimable amounts are independently verifiable on-chain at any time.
+                The canonical vesting schedule is enforced by the locally tested smart contract. It has not been
+                deployed to Base Sepolia. The historical V1.1 contract at this address uses a different 150M,
+                five-year schedule.
               </p>
             </motion.div>
           </motion.div>
@@ -473,19 +473,19 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-5">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The VaelorynGenesisAllocator contract received the full supply of 1,000,000,000 VAELO at the moment
-                VaelorynToken was deployed. It immediately distributed the allocations to their designated contract
-                addresses and reserve wallets according to the constitutional protocol.
+                The historical V1.1 VaelorynGenesisAllocator received and distributed the full supply of
+                1,000,000,000 VAELO at deployment. Its allocation structure differs from the canonical design
+                described elsewhere on this page.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                This distribution occurred in a single on-chain transaction and is permanently recorded on Base Sepolia.
-                The allocation has been independently verified against the constitutional specification.
+                This historical V1.1 distribution occurred in a single on-chain transaction and is recorded on
+                Base Sepolia. It is not evidence that the canonical allocation has been deployed.
               </p>
               <div className="space-y-3">
                 <DataRow label="Contract"            value="VaelorynGenesisAllocator" />
                 <DataRow label="Address"             value="0xa3eF040471497538a617061FdDEea0CD4C03beBa" mono />
                 <DataRow label="VAELO received"      value="1,000,000,000" />
-                <DataRow label="Allocation verified" value="Yes — verified on-chain" />
+                <DataRow label="Allocation verified" value="Historical V1.1 transaction confirmed" />
               </div>
             </motion.div>
           </motion.div>
@@ -499,7 +499,7 @@ export function Verify() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Test Results" title="148 / 148 Tests Passing" />
+            <SectionHeader eyebrow="Test Results" title="Recorded Local Evidence" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-primary/15 bg-primary/5 flex flex-col gap-4">
@@ -509,9 +509,9 @@ export function Verify() {
                 </div>
                 <div className="space-y-3">
                   <DataRow label="Framework"    value="Foundry" />
-                  <DataRow label="Tests passed" value="148" />
+                  <DataRow label="Tests passed" value="27 targeted" />
                   <DataRow label="Tests failed" value="0" />
-                  <DataRow label="Result"       value="All passing" />
+                  <DataRow label="Result"       value="27 passed · 0 failed · 0 skipped" />
                 </div>
               </motion.div>
 
@@ -532,9 +532,9 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-4 rounded-lg border border-white/8 bg-white/[0.015]">
               <p className="text-xs text-muted-foreground/60 italic leading-relaxed">
-                The Foundry test suite is the authoritative record of protocol correctness.
-                148 tests covering all major contract behaviours passed with zero failures.
-                This does not replace independent security review — a full production audit is still required before mainnet.
+                The recorded targeted Foundry run covers the canonical unit and invariant test contracts:
+                27 tests passed, with 0 failures and 0 skipped. The canonical implementation has not been
+                independently audited or deployed. Local tests are evidence of behavior, not an audit opinion.
               </p>
             </motion.div>
           </motion.div>
@@ -548,23 +548,23 @@ export function Verify() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Contract Verification" title="Source-Verified on Base Sepolia" />
+            <SectionHeader eyebrow="Contract Verification" title="Canonical Verification Pending" />
 
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
               <p className="text-muted-foreground leading-relaxed max-w-3xl">
-                Source verification means the published Solidity source code matches the deployed bytecode.
-                Any user can independently confirm that the contract executing on-chain is identical to
-                the code published on the block explorer — with no hidden logic, modifications or discrepancies.
+                The canonical implementation has not been deployed or source-verified on Base Sepolia.
+                The explorer links below are provided for inspection of the historical V1.1 prototype only;
+                they do not verify the canonical production design.
               </p>
 
               <div className="p-6 rounded-lg border border-white/8 bg-white/[0.02]">
-                <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70 mb-4">How to Verify Independently</p>
+                <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70 mb-4">Historical Prototype Inspection</p>
                 <BulletList items={[
                   'Visit Base Sepolia BaseScan or Blockscout (links above).',
                   'Search for the contract address.',
                   'Navigate to the "Contract" tab.',
-                  'Confirm the green "Verified" badge and inspect the published source.',
-                  'Compare the ABI and bytecode if desired.',
+                  'Treat any explorer source metadata as historical V1.1 evidence, not canonical verification.',
+                  'Compare the ABI and bytecode with the V1.1 prototype if desired.',
                 ]} />
               </div>
 
@@ -598,13 +598,13 @@ export function Verify() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Deployment" title="Base Sepolia Testnet" />
+            <SectionHeader eyebrow="Historical Deployment" title="Base Sepolia V1.1 Prototype" />
 
             <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02]">
               <div className="space-y-4">
                 <DataRow label="Network"              value="Base Sepolia Testnet" />
                 <DataRow label="Chain ID"             value="84532" />
-                <DataRow label="Protocol status"      value="Deployed & source-verified" />
+                <DataRow label="Protocol status"      value="Historical prototype deployed; canonical protocol not deployed" />
                 <DataRow label="Mainnet / Production" value="Not launched — pending review" />
                 <DataRow label="Public distribution"  value="Not active" />
               </div>

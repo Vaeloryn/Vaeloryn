@@ -63,12 +63,12 @@ const bridgeSteps = [
 type StatusKind = 'achieved' | 'inactive' | 'pending';
 
 const statusItems: { label: string; value: string; kind: StatusKind }[] = [
-  { label: "Protocol",                       value: "Deployed & source-verified",    kind: "achieved"  },
-  { label: "Smart Contracts",                value: "3 contracts deployed",           kind: "achieved"  },
-  { label: "Test Suite",                     value: "148 / 148 tests passing",        kind: "achieved"  },
-  { label: "Constitutional Allocation",      value: "Verified on-chain",              kind: "achieved"  },
-  { label: "VAELO Network",                  value: "Base Sepolia Testnet",           kind: "achieved"  },
-  { label: "Founder Vesting",                value: "Deployed & tested",              kind: "achieved"  },
+  { label: "Canonical Protocol",             value: "Implemented locally · not deployed", kind: "achieved" },
+  { label: "Historical Prototype",           value: "V1.1 on Base Sepolia",              kind: "achieved" },
+  { label: "Canonical Test Evidence",        value: "27 targeted tests passing",         kind: "achieved" },
+  { label: "Canonical Deployment",            value: "Not yet deployed",                  kind: "inactive"  },
+  { label: "VAELO Network",                  value: "Base Sepolia Testnet (V1.1)",      kind: "achieved"  },
+  { label: "Historical Founder Vesting",     value: "V1.1 · 150M / 5-year schedule",    kind: "achieved"  },
   { label: "Production / Mainnet",           value: "Not launched",                   kind: "inactive"  },
   { label: "Public VAELO Distribution",      value: "Not active",                     kind: "inactive"  },
   { label: "Independent Security Review",    value: "Pending",                        kind: "pending"   },
@@ -238,12 +238,12 @@ export function Home() {
                   Protocol Milestone
                 </p>
                 <h3 className="font-display text-2xl md:text-3xl font-light tracking-wide text-foreground">
-                  Constitutional Protocol Deployed
+                  Canonical Protocol Implemented
                 </h3>
                 <p className="text-muted-foreground leading-relaxed max-w-xl">
-                  The Vaeloryn protocol has been successfully deployed on Base Sepolia testnet.
-                  All smart contracts are source-verified, the constitutional allocation is confirmed
-                  on-chain, and 148 / 148 tests are passing.
+                  The canonical Vaeloryn implementation has been built and tested locally, but has not
+                  been deployed or source-verified on a network. The published Base Sepolia contracts
+                  are the historical, non-canonical V1.1 prototype.
                 </p>
               </div>
             </div>
@@ -287,9 +287,9 @@ export function Home() {
                 Project Status
               </h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                The constitutional protocol is live on Base Sepolia testnet. The VAELO token is deployed,
-                founder vesting is active, and all contracts are source-verified. Mainnet launch and public
-                distribution remain pending security review and legal preparation.
+                The canonical protocol is implemented locally and remains pending deployment, source
+                verification and independent security review. The historical V1.1 prototype remains
+                deployed on Base Sepolia; mainnet launch and public distribution remain pending.
               </p>
             </motion.div>
 
@@ -319,8 +319,8 @@ export function Home() {
             {/* Disclaimer note */}
             <motion.div variants={fadeInUp}>
               <p className="text-xs text-muted-foreground/60 leading-relaxed border-l border-white/10 pl-4 max-w-2xl italic">
-                The VAELO deployment is on Base Sepolia testnet only. Testnet VAELO has no monetary value.
-                Mainnet launch and any public distribution are subject to independent security review,
+                The historical V1.1 VAELO prototype is on Base Sepolia testnet only and has no monetary value.
+                The canonical implementation is not deployed. Mainnet launch and any public distribution are subject to independent security review,
                 legal and regulatory preparation, and further development milestones.
               </p>
             </motion.div>
