@@ -1,0 +1,325 @@
+VAELO — REVISE 3-PAGE ANGEL INVESTOR TEASER
+FOCUS: ACTUAL PROJECT, PRODUCT & VAELO PURPOSE
+
+IMPORTANT:
+DO NOT USE MAX POWER.
+Use normal/default mode.
+
+Revise the EXISTING 3-page investor teaser.
+
+Do NOT create a completely new presentation from scratch.
+
+The current teaser is technically accurate, but it places too much emphasis on tokenomics and not enough on explaining what Vaeloryn actually is, what it is building, and WHY VAELO exists.
+
+This must be corrected.
+
+The purpose of the teaser is to make an experienced angel investor understand the BUSINESS/PROTOCOL OPPORTUNITY first, and the tokenomics second.
+
+==================================================
+CORE REQUIREMENT
+==================================================
+
+An investor who knows nothing about Vaeloryn should be able to read the first page and answer:
+
+1. What is Vaeloryn?
+2. What is Vaeloryn actually building?
+3. What problem or opportunity is it addressing?
+4. What is VAELO?
+5. What is the purpose/utility of VAELO within the ecosystem?
+6. Why does this project need a token?
+7. Why could this become valuable as an ecosystem/protocol?
+8. What has already been built?
+9. Why are we approaching investors now?
+
+The current document answers the tokenomics questions better than the actual project questions.
+
+Fix that imbalance.
+
+==================================================
+IMPORTANT — USE PROJECT SOURCE MATERIAL
+==================================================
+
+Before editing the teaser, inspect the EXISTING Vaeloryn project, website, canonical documentation, whitepaper and relevant project materials to accurately explain:
+
+• What Vaeloryn is
+• What the protocol/ecosystem is designed to do
+• The problem/opportunity it addresses
+• What VAELO is intended to enable
+• The role of VAELO within the ecosystem
+• How users/participants are intended to interact with the ecosystem
+• Why the token is integral to the architecture
+• The long-term vision
+• The current development stage
+
+Do NOT invent utility, users, products, partnerships, revenue or functionality that is not already supported by the project documentation.
+
+If the project documentation does not clearly explain an aspect, do not make something up.
+
+Instead, use the strongest accurate explanation available from the existing materials.
+
+==================================================
+PAGE 1 — WHAT IS VAELORYN?
+==================================================
+
+Make this the strongest page.
+
+The first page should NOT primarily be about token allocation.
+
+It should introduce the actual project.
+
+Structure approximately:
+
+VAELORYN
+VAELO
+
+A powerful one-sentence explanation of what Vaeloryn is building.
+
+Then a concise section:
+
+THE OPPORTUNITY
+
+Explain the problem/opportunity in plain English.
+
+Then:
+
+THE SOLUTION
+
+Explain what Vaeloryn is building and how it addresses that opportunity.
+
+Then:
+
+THE ROLE OF VAELO
+
+Clearly explain what VAELO is and WHY it exists.
+
+This is extremely important.
+
+Do not merely say:
+
+“VAELO is the native token.”
+
+Explain its actual purpose according to the canonical project documentation.
+
+Then include a very compact “At a Glance” section containing verified facts such as:
+
+• 1,000,000,000 fixed VAELO supply
+• Canonical implementation completed locally
+• Latest recorded canonical Foundry run: 27 passed, 0 failed, 0 skipped
+• Internal smart-contract review completed
+• Public infrastructure established
+• Defined roadmap
+
+Do not overload page 1 with technical details.
+
+==================================================
+PAGE 2 — THE ECOSYSTEM & WHAT HAS BEEN BUILT
+==================================================
+
+Show the investor that this is more than a token.
+
+Explain the ecosystem/protocol architecture in an intuitive way.
+
+Use a simple visual or flow diagram if the existing project materials support one.
+
+For example, show conceptually:
+
+Users / Participants
+        ↓
+Vaeloryn Ecosystem
+        ↓
+VAELO
+        ↓
+Protocol utility / participation / ecosystem functions
+
+BUT:
+
+Only use labels and relationships that are actually supported by the project's documentation.
+
+Explain:
+
+• Core ecosystem
+• VAELO utility
+• Protocol architecture
+• Token architecture
+• Genesis distribution
+• Founder vesting
+• Security/testing work
+• Existing infrastructure
+• Roadmap
+
+Then include the tokenomics as a SUPPORTING section, not the main story:
+
+Ecosystem & Community — 30%
+Public Distribution — 20%
+Vaeloryn Treasury — 20%
+Team & Contributors — 15%
+Founder — 10%
+Strategic Partnerships — 5%
+
+The investor should leave page 2 thinking:
+
+“This is a project/ecosystem with a token.”
+
+NOT:
+
+“This is a token looking for a project.”
+
+==================================================
+PAGE 3 — WHY NOW / INVESTMENT OPPORTUNITY
+==================================================
+
+Explain why Vaeloryn is approaching investors now.
+
+Communicate:
+
+• Significant technical groundwork has already been completed.
+• The canonical implementation exists locally.
+• Testing and internal code review have been completed.
+• The project is approaching its next development stage.
+• Capital and strategic support can accelerate the next milestones.
+• The project is looking for experienced early partners rather than simply capital.
+
+Explain what the next stage involves ONLY using supported project information.
+
+Possible areas include:
+
+• Final security work
+• Independent audit
+• Deployment preparation
+• Ecosystem development
+• Launch preparation
+• Growth activities
+
+Do not invent funding amounts.
+
+Do not invent valuations.
+
+Do not invent token prices.
+
+Do not promise returns.
+
+Do not make market-cap or price predictions.
+
+End with a strong invitation:
+
+“Vaeloryn is entering the stage where the right early partners can help turn an established technical foundation into a scalable ecosystem.”
+
+Then:
+
+“We would welcome the opportunity to discuss the vision, the technology and the next stage of Vaeloryn.”
+
+Website:
+
+https://vaeloryn.com
+
+==================================================
+TOKENOMICS — IMPORTANT
+==================================================
+
+Tokenomics should remain in the teaser, but they must NOT dominate it.
+
+The current allocation remains canonical:
+
+Ecosystem & Community — 30%
+Public Distribution — 20%
+Vaeloryn Treasury — 20%
+Team & Contributors — 15%
+Founder — 10%
+Strategic Partnerships — 5%
+
+Fixed supply:
+
+1,000,000,000 VAELO
+
+Founder:
+
+100,000,000 VAELO / 10%
+
+Do not alter these figures.
+
+==================================================
+CURRENT STATUS — IMPORTANT
+==================================================
+
+Use the reconciled public/project status.
+
+Correct wording:
+
+“Latest recorded canonical Foundry run: 27 tests passed, 0 failed, 0 skipped.”
+
+Do NOT mention 148.
+
+Do NOT claim the canonical protocol has been deployed.
+
+Do NOT claim an independent professional audit has been completed.
+
+Clearly distinguish the historical Base Sepolia V1.1 prototype from the canonical implementation.
+
+==================================================
+DESIGN
+==================================================
+
+Keep the existing Vaeloryn branding, visual identity and professional design.
+
+Do NOT make it more flashy.
+
+Do NOT turn it into a crypto marketing brochure.
+
+The presentation should feel like:
+
+A serious early-stage technology/Web3 company explaining a genuine protocol opportunity.
+
+Use:
+
+• Premium minimalist design
+• Strong typography
+• Clear visual hierarchy
+• Short paragraphs
+• Diagrams where they genuinely improve understanding
+• Plenty of whitespace
+• Investor-focused language
+
+Reduce the amount of tokenomics/technical information if necessary to make room for the actual project explanation.
+
+==================================================
+CRITICAL TEST
+==================================================
+
+After revising the teaser, ask:
+
+“If an experienced angel investor had never heard of Vaeloryn before, would they understand what Vaeloryn is and why VAELO exists after reading page 1?”
+
+If the answer is no, revise page 1 again.
+
+The investor should understand the PROJECT before seeing the detailed TOKENOMICS.
+
+==================================================
+OUTPUT
+==================================================
+
+Overwrite/update the existing teaser files:
+
+reports/investor/VAELO_John_Lilic_Investor_Teaser.pdf
+reports/investor/VAELO_John_Lilic_Investor_Teaser.pptx
+
+Keep it exactly 3 pages.
+
+Do not modify:
+
+• Smart contracts
+• Tokenomics
+• Website
+• DNS
+• Cloudflare
+• Deployment configuration
+• Credentials
+
+Do not deploy anything.
+
+Do not run expensive/full test suites.
+
+Use only existing project evidence.
+
+DO NOT USE MAX POWER.
+
+After completion, provide a concise summary of the changes made.
