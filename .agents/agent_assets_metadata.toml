@@ -34,3 +34,17 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Corrected.pptx"
 type = "slides"
 title = "VAELO — John Lilic Investor Teaser (Corrected PPTX)"
 description = "Corrected editable three-page deck with the third-slide footer fully visible."
+
+[[outputs]]
+id = "3l9gTotPvxbXjoAshjEt9"
+uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Revised.pdf"
+type = "pdf"
+title = "VAELO — John Lilic Investor Teaser (Revised PDF)"
+description = "Final three-page investor teaser, revised to lead with the Vaeloryn ecosystem and VAELO purpose."
+
+[[outputs]]
+id = "XSvlgJELg1nk7Ft_e0jf7"
+uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Revised.pptx"
+type = "slides"
+title = "VAELO — John Lilic Investor Teaser (Revised PPTX)"
+description = "Final editable three-page investor teaser, revised to lead with the Vaeloryn ecosystem and VAELO purpose."
