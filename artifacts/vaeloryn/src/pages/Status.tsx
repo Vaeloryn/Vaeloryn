@@ -76,8 +76,10 @@ export function Status() {
   return (
     <div className="w-full">
       <SEO
-        title="Engineering Progress — Vaeloryn | Protocol Status Dashboard"
-        description="Engineering dashboard for Vaeloryn's locally implemented canonical protocol and historical Base Sepolia V1.1 prototype."
+        title="Vaeloryn Engineering Progress | Canonical Protocol Status"
+        description="Track Vaeloryn engineering progress, canonical protocol evidence, testing results and the distinction between local work and historical deployment status."
+        canonical="https://vaeloryn.com/status"
+        keywords="Vaeloryn engineering progress, protocol status, Foundry testing, VAELO deployment"
       />
 
       {/* ── Page Header ── */}

@@ -41,8 +41,10 @@ export function Vaelo() {
   return (
     <div className="w-full">
       <SEO
-        title="VAELO — Vaeloryn Digital Asset | Base Sepolia Testnet"
-        description="Explore VAELO's intended canonical tokenomics and the historical V1.1 Base Sepolia prototype. The canonical implementation is not yet deployed."
+        title="VAELO | Vaeloryn Digital Asset, Utility and Status"
+        description="Explore VAELO, the developing digital asset of Vaeloryn, and understand its intended role, tokenomics, historical prototype and canonical status."
+        canonical="https://vaeloryn.com/vaelo"
+        keywords="VAELO, Vaeloryn digital asset, tokenomics, ecosystem utility, Base Sepolia"
       />
 
       {/* ── Page Header ── */}

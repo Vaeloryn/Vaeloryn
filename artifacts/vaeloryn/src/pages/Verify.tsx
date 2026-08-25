@@ -104,8 +104,10 @@ export function Verify() {
   return (
     <div className="w-full">
       <SEO
-        title="Verify — Vaeloryn | Protocol Transparency Hub"
-        description="Verify the distinction between Vaeloryn's locally implemented canonical protocol and the historical Base Sepolia V1.1 prototype."
+        title="Verify Vaeloryn | Protocol Evidence and Transparency"
+        description="Verify Vaeloryn protocol claims, token details, testing evidence and historical Base Sepolia records through the public transparency hub and claims."
+        canonical="https://vaeloryn.com/verify"
+        keywords="verify Vaeloryn, VAELO verification, protocol evidence, Base Sepolia, transparency"
       />
 
       {/* ── Page Header ── */}

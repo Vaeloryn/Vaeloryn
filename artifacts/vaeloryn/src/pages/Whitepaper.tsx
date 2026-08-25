@@ -84,8 +84,10 @@ export function Whitepaper() {
   return (
     <div className="w-full">
       <SEO
-        title="White Paper — Vaeloryn & VAELO | Public Draft"
-        description="Read the current public draft of the Vaeloryn & VAELO White Paper. This document describes our developing vision, architecture and working economic model."
+        title="Vaeloryn & VAELO Whitepaper | Public Project Draft"
+        description="Read the public Vaeloryn and VAELO whitepaper covering the ecosystem vision, scientific innovation model, protocol architecture, roadmap and risks."
+        canonical="https://vaeloryn.com/whitepaper"
+        keywords="Vaeloryn whitepaper, VAELO, scientific innovation, protocol architecture, ecosystem roadmap"
       />
 
       {/* ── Page Header ── */}

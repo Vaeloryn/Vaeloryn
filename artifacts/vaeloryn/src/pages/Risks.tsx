@@ -52,8 +52,10 @@ export function Risks() {
   return (
     <div className="w-full">
       <SEO
-        title="Risks — Vaeloryn & VAELO | Important Disclosures"
-        description="Understand the technical, regulatory, economic, market and execution risks associated with an early-stage project such as Vaeloryn and VAELO."
+        title="Vaeloryn & VAELO Risks | Technical and Project Disclosure"
+        description="Understand the technical, regulatory, economic and execution risks of Vaeloryn and VAELO before evaluating this early-stage innovation ecosystem."
+        canonical="https://vaeloryn.com/risks"
+        keywords="Vaeloryn risks, VAELO risks, technical disclosure, regulatory risk, project transparency"
       />
 
       {/* ── Page Header ── */}

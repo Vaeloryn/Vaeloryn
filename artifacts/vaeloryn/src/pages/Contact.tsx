@@ -101,9 +101,10 @@ export function Contact() {
   return (
     <div className="min-h-screen pt-32 pb-24">
       <SEO
-        title="Contact Us | Vaeloryn"
-        description="Get in touch with Vaeloryn for general inquiries, media requests, or other matters."
+        title="Contact Vaeloryn | Scientific and Technical Progress"
+        description="Contact Vaeloryn for ecosystem, scientific innovation, technology, media or partnership inquiries supporting long-term progress and advancement."
         canonical="https://vaeloryn.com/contact"
+        keywords="contact Vaeloryn, scientific innovation, technology partnerships, media inquiries"
       />
       <div className="container px-6 max-w-2xl mx-auto">
         <motion.div

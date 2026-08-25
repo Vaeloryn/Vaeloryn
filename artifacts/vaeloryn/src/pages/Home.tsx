@@ -119,8 +119,10 @@ export function Home() {
   return (
     <div className="w-full">
       <SEO
-        title="VAELORYN — Born in South Africa. Built for a global future. | Scientific and technological progress"
-        description="Vaeloryn is a South African-founded ecosystem exploring how technology, innovation and long-term thinking can support real-world scientific, medical and technological progress — starting in South Africa, with ambitions that extend beyond borders."
+        title="Vaeloryn | Accelerating Scientific Progress Worldwide"
+        description="Vaeloryn connects exceptional talent, ideas, expertise and resources to support scientific, medical and technological progress through an open ecosystem."
+        canonical="https://vaeloryn.com/"
+        keywords="Vaeloryn, scientific progress, medical advancement, technological innovation, talent, ideas, resources"
       />
 
       {/* 1. Hero Section */}

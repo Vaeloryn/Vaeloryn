@@ -67,8 +67,10 @@ export function Roadmap() {
   return (
     <div className="w-full">
       <SEO
-        title="Roadmap — Vaeloryn | From Protocol to Global Ecosystem"
-        description="Follow Vaeloryn's progression from a locally implemented canonical protocol through Stage A foundation building toward responsible production."
+        title="Vaeloryn Roadmap | From Foundation to Scientific Progress"
+        description="Follow Vaeloryn from protocol foundation through ecosystem development, security, partnerships and responsible progress in science and technology."
+        canonical="https://vaeloryn.com/roadmap"
+        keywords="Vaeloryn roadmap, scientific progress, technological innovation, ecosystem development, VAELO"
       />
 
       {/* ── Page Header ── */}

@@ -116,9 +116,10 @@ export function HelpBuild() {
   return (
     <div className="min-h-screen pt-32 pb-24">
       <SEO
-        title="Help Build Vaeloryn"
-        description="Contribute your expertise, perspective, advice or connections as Vaeloryn develops."
+        title="Help Build Vaeloryn | Connect Ideas and Expertise Together"
+        description="Help Vaeloryn connect talent, ideas, expertise, resources and opportunities that can accelerate scientific, medical and technological progress."
         canonical="https://vaeloryn.com/help-build"
+        keywords="help build Vaeloryn, scientific progress, technical expertise, innovation community, ecosystem partners"
       />
       <div className="container px-6 max-w-3xl mx-auto">
         <motion.div

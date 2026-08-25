@@ -28,8 +28,10 @@ export function Sale() {
   return (
     <div className="w-full">
       <SEO
-        title="Token Sale — Vaeloryn | VAELO Sale Dashboard"
-        description="The VAELO token sale dashboard. No sale is currently active. This page will become the official sale interface when a public distribution opens."
+        title="VAELO Token Sale | Vaeloryn Distribution Status Overview"
+        description="View the official Vaeloryn VAELO distribution status and sale information. No public sale is active while product and compliance work continues."
+        canonical="https://vaeloryn.com/sale"
+        keywords="VAELO token sale, Vaeloryn distribution, public sale status, VAELO"
       />
 
       {/* ── Page Header ── */}

@@ -61,8 +61,10 @@ export function Transparency() {
   return (
     <div className="w-full">
       <SEO
-        title="Trust & Transparency — Vaeloryn"
-        description="See what Vaeloryn's canonical protocol implements locally, what the historical Base Sepolia V1.1 prototype proves, and what remains pending."
+        title="Vaeloryn Transparency | Protocol, Testing & Status"
+        description="Review Vaeloryn protocol evidence, testing, historical deployments and open disclosures as the ecosystem works toward scientific progress and innovation."
+        canonical="https://vaeloryn.com/transparency"
+        keywords="Vaeloryn transparency, protocol evidence, smart contract testing, VAELO status"
       />
 
       {/* ── Page Header ── */}

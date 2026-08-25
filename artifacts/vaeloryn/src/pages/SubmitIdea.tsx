@@ -91,8 +91,10 @@ export function SubmitIdea() {
   return (
     <div className="min-h-screen pt-32 pb-24">
       <SEO 
-        title="Submit an Idea or Project | Vaeloryn" 
-        description="Share a high-level description of your scientific, medical or technological idea."
+        title="Submit an Idea to Vaeloryn | Scientific Innovation"
+        description="Submit a high-level scientific, medical or technological idea for consideration within Vaeloryn’s transparent ecosystem for innovation and progress."
+        canonical="https://vaeloryn.com/submit-idea"
+        keywords="submit scientific idea, Vaeloryn innovation, medical technology, technological progress"
       />
       <div className="container px-6 max-w-3xl mx-auto">
         <motion.div 
