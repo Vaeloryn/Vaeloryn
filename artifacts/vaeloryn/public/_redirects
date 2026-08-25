@@ -1,4 +1,17 @@
 # Cloudflare Pages routing
 # Functions at /api/* take precedence over this file (Cloudflare priority order).
-# This rule provides SPA fallback for all client-side routes.
+# Serve the pre-rendered SEO shell for every public route before the SPA fallback.
+/vaelo          /vaelo/index.html          200
+/whitepaper     /whitepaper/index.html     200
+/transparency   /transparency/index.html   200
+/roadmap        /roadmap/index.html        200
+/risks          /risks/index.html          200
+/status         /status/index.html         200
+/verify         /verify/index.html         200
+/sale           /sale/index.html           200
+/help-build     /help-build/index.html     200
+/submit-idea    /submit-idea/index.html    200
+/contact        /contact/index.html        200
+
+# Fallback for any future client-side route.
 /*    /index.html    200

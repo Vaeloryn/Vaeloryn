@@ -46,6 +46,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://vaeloryn.com/submit-idea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://vaeloryn.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
