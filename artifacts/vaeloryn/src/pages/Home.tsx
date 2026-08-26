@@ -193,6 +193,22 @@ export function Home() {
               </p>
             </motion.div>
 
+            {/* Orynth feature badge */}
+            <a
+              href="https://orynth.dev/projects/vaeloryn"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex max-w-full"
+            >
+              <img
+                src="https://orynth.dev/api/badge/vaeloryn?theme=dark&style=default"
+                alt="Featured on Orynth"
+                width="260"
+                height="80"
+                className="h-auto max-w-full"
+              />
+            </a>
+
             {/* CTAs */}
             <motion.div
               variants={heroFadeInUp}
