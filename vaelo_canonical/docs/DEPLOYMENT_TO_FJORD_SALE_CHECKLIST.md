@@ -1,7 +1,7 @@
 # Canonical VAELO Deployment-to-Fjord Sale Checklist
 
-**Status:** Planning checklist only — no step executed  
-**Network:** Base Mainnet  
+**Status:** Planning checklist only — no step executed
+**Network:** Base Mainnet
 **Sale:** Initial tiered Fjord Foundry sale, maximum 10,000,000 VAELO
 
 ## Stop conditions

@@ -1,8 +1,8 @@
 # VAELO Initial Fjord Foundry Sale Specification
 
-**Status:** Preparation only — sale not created  
-**Network:** Base Mainnet  
-**Canonical token:** VAELO  
+**Status:** Preparation only — sale not created
+**Network:** Base Mainnet
+**Canonical token:** VAELO
 **Canonical token address:** Not deployed; to be populated only after the approved canonical Base Mainnet deployment and source verification
 
 ## A. Sale specification

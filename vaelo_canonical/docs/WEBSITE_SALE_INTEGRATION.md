@@ -1,7 +1,7 @@
 # Future Website Sale Integration
 
-**Status:** Planning only — website unchanged  
-**Sale status:** Fjord sale not created  
+**Status:** Planning only — website unchanged
+**Sale status:** Fjord sale not created
 **Canonical VAELO address:** Not deployed yet
 
 ## Integration goals
