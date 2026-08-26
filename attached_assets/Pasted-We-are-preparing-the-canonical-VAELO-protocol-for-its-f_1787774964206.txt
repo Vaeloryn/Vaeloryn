@@ -1,0 +1,334 @@
+We are preparing the canonical VAELO protocol for its first Base Mainnet deployment and eventual Fjord Foundry tiered token sale.
+
+IMPORTANT:
+DO NOT deploy anything.
+DO NOT broadcast any transaction.
+DO NOT transfer any tokens or ETH.
+DO NOT modify or delete existing canonical contracts.
+DO NOT commit changes.
+
+This is a READINESS/PREFLIGHT task only.
+
+Use ONLY the canonical VAELO implementation in vaelo_canonical/.
+Do NOT use any historical V1.1 contracts or addresses.
+
+==================================================
+CANONICAL VAELO TOKENOMICS
+==================================================
+
+Total supply: 1,000,000,000 VAELO
+
+Ecosystem & Community:
+300,000,000 VAELO (30%)
+Recipient:
+0x43dF3281C2Cc960cD2837a153Ec397a2b67e18a7
+
+Public Distribution:
+200,000,000 VAELO (20%)
+Recipient:
+0x653835dc0fF216D2B10fF64153A9aA6A0639Fb82
+
+Vaeloryn Treasury:
+200,000,000 VAELO (20%)
+Recipient:
+0x3A9bee20360294F8439513Ae70D189f56288baF2
+
+Team & Contributors:
+150,000,000 VAELO (15%)
+Recipient:
+0x2fB598d102303E5c0E7D36Db94CFBC76a680c7F4
+
+Founder:
+100,000,000 VAELO (10%)
+Beneficiary:
+0x254D5eE9D7216bB8601B5D2156072863A975b309
+
+Strategic Partnerships:
+50,000,000 VAELO (5%)
+Recipient:
+0xC263222BB55289D0a442871aF04A5065f87e9D87
+
+Verify mathematically that all allocations total exactly:
+1,000,000,000 VAELO.
+
+==================================================
+FOUNDER VESTING
+==================================================
+
+Confirm the canonical founder vesting contract implements:
+
+2,500,000 VAELO at T0
+2,500,000 VAELO at T0 + 90 days
+2,500,000 VAELO at T0 + 180 days
+2,500,000 VAELO at T0 + 270 days
+
+Remaining 90,000,000 VAELO:
+Linear vesting beginning at T0 + 270 days
+Exactly 1,095 days duration
+
+Confirm the beneficiary is:
+
+0x254D5eE9D7216bB8601B5D2156072863A975b309
+
+==================================================
+CANONICAL CONTRACTS
+==================================================
+
+Confirm these canonical contracts are being used:
+
+vaelo_canonical/src/VaelorynToken.sol
+vaelo_canonical/src/VaelorynFounderVesting.sol
+vaelo_canonical/src/VaelorynGenesisDistribution.sol
+vaelo_canonical/src/VaelorynDeploymentFactory.sol
+
+Confirm the token provides:
+
+- ERC-20
+- ERC20Burnable
+- burn
+- burnFrom
+- ERC20Permit
+- EIP-2612
+- EIP-712
+- Nonces
+
+Confirm there is:
+
+- No additional minting
+- No owner/admin control
+- No upgradeability
+- No pause
+- No blacklist
+- No transfer tax
+- No post-deployment allocation modification
+
+Confirm the atomic factory creates exactly:
+
+1. VaelorynDeploymentFactory
+2. VaelorynGenesisDistribution
+3. VaelorynToken
+4. VaelorynFounderVesting
+
+Confirm the complete 1B supply is allocated exactly according to the addresses above.
+
+==================================================
+BASE MAINNET DEPLOYMENT
+==================================================
+
+Target network:
+Base Mainnet
+
+Chain ID:
+8453
+
+Required compiler settings:
+
+Solidity: 0.8.24
+Optimizer: enabled
+Optimizer runs: 200
+EVM version: paris
+
+The current deployment script is reportedly locked to Base Sepolia.
+
+Inspect the existing deployment package and determine exactly what is required to make it safe for Base Mainnet.
+
+If a separate Mainnet deployment script/configuration is required, identify it.
+
+DO NOT create or modify it yet.
+
+==================================================
+PRODUCTION RECIPIENT ADDRESSES
+==================================================
+
+Founder:
+0x254D5eE9D7216bB8601B5D2156072863A975b309
+
+Public Distribution:
+0x653835dc0fF216D2B10fF64153A9aA6A0639Fb82
+
+Ecosystem:
+0x43dF3281C2Cc960cD2837a153Ec397a2b67e18a7
+
+Team:
+0x2fB598d102303E5c0E7D36Db94CFBC76a680c7F4
+
+Strategic Partnerships:
+0xC263222BB55289D0a442871aF04A5065f87e9D87
+
+Treasury Safe:
+0x3A9bee20360294F8439513Ae70D189f56288baF2
+
+IMPORTANT:
+The Treasury recipient is the Safe address above.
+
+Do NOT use this old MetaMask Treasury address:
+0xF9763fF07F8c897701F7166Af9e4d50AdA842a3B
+
+Do not invent, alter, or substitute any recipient addresses.
+
+==================================================
+FJORD FOUNDRY INITIAL SALE
+==================================================
+
+We have now changed the initial sale plan.
+
+The initial Fjord Foundry sale will make a maximum of:
+
+10,000,000 VAELO
+
+This represents:
+
+1% of total VAELO supply.
+
+The 10M comes from the 200M Public Distribution allocation.
+
+Therefore:
+
+Public Distribution allocation:
+200,000,000 VAELO
+
+Initial Fjord sale:
+10,000,000 VAELO
+
+Remaining Public Distribution allocation after initial sale:
+190,000,000 VAELO
+
+IMPORTANT:
+The 10M sale allocation is NOT a change to the canonical tokenomics.
+
+The 200M Public Distribution allocation remains 20% of total supply.
+
+Sale type:
+Tiered
+
+Target network:
+Base
+
+Current proposed tier structure for planning purposes ONLY:
+
+Tier 1:
+1,000,000 VAELO
+$0.002 per VAELO
+Potential raise: $2,000
+
+Tier 2:
+2,000,000 VAELO
+$0.003 per VAELO
+Potential raise: $6,000
+
+Tier 3:
+3,000,000 VAELO
+$0.004 per VAELO
+Potential raise: $12,000
+
+Tier 4:
+4,000,000 VAELO
+$0.005 per VAELO
+Potential raise: $20,000
+
+Maximum total:
+10,000,000 VAELO
+Maximum theoretical raise:
+$40,000
+
+IMPORTANT:
+These are proposed sale parameters only.
+
+DO NOT encode sale prices, tiers, or sale mechanics into the VAELO token contract.
+
+DO NOT modify the canonical tokenomics because of the sale.
+
+==================================================
+SECURITY / CREDENTIAL CHECK
+==================================================
+
+Check whether the deployment environment has:
+
+- Base Mainnet RPC URL
+- Deployment wallet/private key
+- BaseScan/Etherscan API key
+
+DO NOT display any secrets, private keys, seed phrases, or API keys.
+
+Only report whether each required credential is present or missing.
+
+Confirm that the deployment wallet will require sufficient Base ETH for gas.
+
+==================================================
+TESTING
+==================================================
+
+Run the existing canonical test suite read-only.
+
+Report:
+
+- Tests passed
+- Tests failed
+- Tests skipped
+- Fuzz results
+- Invariant results
+
+Previously established canonical result:
+
+27 passed
+0 failed
+0 skipped
+
+Confirm whether this remains true.
+
+==================================================
+HISTORICAL V1.1 WARNING
+==================================================
+
+The following are historical, NON-CANONICAL Base Sepolia V1.1 contracts:
+
+Token:
+0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c
+
+Founder vesting:
+0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2
+
+Genesis allocator:
+0xa3eF040471497538a617061FdDEea0CD4C03beBa
+
+Network:
+Base Sepolia
+Chain ID:
+84532
+
+DO NOT use these contracts or addresses for the Mainnet deployment or Fjord sale.
+
+==================================================
+FINAL REPORT
+==================================================
+
+Return a concise but complete report with:
+
+1. CANONICAL CONTRACT STATUS
+2. TOKENOMICS VALIDATION
+3. RECIPIENT ADDRESS VALIDATION
+4. FOUNDER VESTING VALIDATION
+5. BASE MAINNET DEPLOYMENT READINESS
+6. REQUIRED CONFIGURATION CHANGES
+7. CREDENTIAL STATUS
+8. TREASURY SAFE STATUS
+9. FJORD SALE PLAN
+10. TEST RESULTS
+11. REMAINING BLOCKERS
+12. EXACT NEXT STEPS
+
+Clearly state:
+
+READY TO DEPLOY
+or
+NOT READY TO DEPLOY
+
+Again:
+
+DO NOT deploy.
+DO NOT broadcast.
+DO NOT transfer funds.
+DO NOT modify or delete files.
+DO NOT commit changes.
+
+This is inspection and preparation only.
