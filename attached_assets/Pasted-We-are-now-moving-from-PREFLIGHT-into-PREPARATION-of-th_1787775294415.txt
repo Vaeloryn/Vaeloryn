@@ -1,0 +1,416 @@
+We are now moving from PREFLIGHT into PREPARATION of the canonical VAELO Base Mainnet deployment package.
+
+IMPORTANT SAFETY RULES:
+
+DO NOT deploy.
+DO NOT broadcast any transaction.
+DO NOT transfer ETH or VAELO.
+DO NOT execute any Mainnet transaction.
+DO NOT use --broadcast.
+DO NOT commit changes.
+DO NOT delete or overwrite the existing canonical contracts.
+
+You ARE authorized to create/update the necessary deployment configuration and scripts described below, but ONLY for preparation and review.
+
+==================================================
+1. CANONICAL CONTRACTS — DO NOT CHANGE
+==================================================
+
+The canonical contracts are:
+
+vaelo_canonical/src/VaelorynToken.sol
+vaelo_canonical/src/VaelorynFounderVesting.sol
+vaelo_canonical/src/VaelorynGenesisDistribution.sol
+vaelo_canonical/src/VaelorynDeploymentFactory.sol
+
+Do not modify their Solidity logic.
+
+The canonical implementation has already passed:
+
+27 tests passed
+0 failed
+0 skipped
+
+Preserve this result.
+
+==================================================
+2. BASE MAINNET
+==================================================
+
+Prepare the deployment package specifically for:
+
+Network: Base Mainnet
+Chain ID: 8453
+
+Compiler:
+
+Solidity: 0.8.24
+Optimizer: enabled
+Optimizer runs: 200
+EVM version: paris
+
+The existing deployment script is hard-coded for Base Sepolia (84532).
+
+Create a dedicated Mainnet deployment script:
+
+vaelo_canonical/script/DeployCanonicalMainnet.s.sol
+
+OR, if you determine a safer architecture is to modify/reuse the existing script, explain exactly why before doing so.
+
+The Mainnet deployment script MUST contain an explicit chain-ID guard requiring:
+
+8453
+
+It must revert/refuse to deploy if the connected chain is anything other than Base Mainnet.
+
+It must NOT contain any fallback to Base Sepolia.
+
+==================================================
+3. PRODUCTION RECIPIENT ADDRESSES
+==================================================
+
+Use these exact addresses:
+
+Founder beneficiary:
+0x254D5eE9D7216bB8601B5D2156072863A975b309
+
+Public Distribution:
+0x653835dc0fF216D2B10fF64153A9aA6A0639Fb82
+
+Ecosystem & Community:
+0x43dF3281C2Cc960cD2837a153Ec397a2b67e18a7
+
+Team & Contributors:
+0x2fB598d102303E5c0E7D36Db94CFBC76a680c7F4
+
+Strategic Partnerships:
+0xC263222BB55289D0a442871aF04A5065f87e9D87
+
+Treasury Safe:
+0x3A9bee20360294F8439513Ae70D189f56288baF2
+
+IMPORTANT:
+
+The Treasury address above is the Safe multisig.
+
+DO NOT use the old MetaMask Treasury address:
+
+0xF9763fF07F8c897701F7166Af9e4d50AdA842a3B
+
+Do not alter, substitute, normalize, or invent any address.
+
+==================================================
+4. CANONICAL TOKENOMICS
+==================================================
+
+Total supply:
+
+1,000,000,000 VAELO
+
+Ecosystem & Community:
+300,000,000
+
+Public Distribution:
+200,000,000
+
+Treasury:
+200,000,000
+
+Team & Contributors:
+150,000,000
+
+Founder:
+100,000,000
+
+Strategic Partnerships:
+50,000,000
+
+Total:
+1,000,000,000
+
+The factory must allocate these amounts exactly.
+
+The founder's 100M must go through the canonical founder vesting contract using the beneficiary above.
+
+Do not change the tokenomics.
+
+==================================================
+5. SECURE CONFIGURATION
+==================================================
+
+Do NOT hard-code private keys, RPC credentials, API keys, or other secrets into source code.
+
+Create a secure configuration approach using environment variables / Foundry configuration.
+
+The deployment package should expect:
+
+BASE_MAINNET_RPC_URL
+DEPLOYER_PRIVATE_KEY
+ETHERSCAN_API_KEY
+
+Recipient addresses may be represented as configuration values, but do not create a committed plaintext secrets file.
+
+If an .env.example is useful, create only a template containing variable names and NO real secrets.
+
+For example:
+
+BASE_MAINNET_RPC_URL=
+DEPLOYER_PRIVATE_KEY=
+ETHERSCAN_API_KEY=
+
+Recipient variables may be documented separately if appropriate.
+
+==================================================
+6. FOUNDRY CONFIGURATION
+==================================================
+
+Update the appropriate Foundry configuration so the canonical Mainnet build explicitly uses:
+
+solc_version = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+evm_version = "paris"
+
+Do not change unrelated project configuration.
+
+==================================================
+7. MAINNET DEPLOYMENT MANIFEST
+==================================================
+
+Create a dedicated Mainnet manifest template, for example:
+
+vaelo_canonical/deployments/base-mainnet.manifest.json
+
+It must clearly distinguish:
+
+STATUS:
+NOT_DEPLOYED
+
+It should contain fields for:
+
+network
+chain_id
+factory_address
+token_address
+distribution_address
+vesting_address
+deployment_transaction_hash
+deployment_block
+deployment_timestamp
+founder_beneficiary
+all allocation recipient addresses
+allocation amounts
+constructor inputs
+compiler version
+optimizer settings
+EVM version
+bytecode hashes
+verification status
+verification URLs
+
+Before deployment, deployment-specific fields must remain empty/null.
+
+DO NOT fabricate deployment addresses or transaction hashes.
+
+==================================================
+8. DEPLOYMENT SCRIPT SAFETY
+==================================================
+
+The Mainnet deployment script must:
+
+- Verify chain ID == 8453
+- Validate all recipient addresses are non-zero
+- Validate the founder beneficiary is non-zero
+- Use the canonical factory
+- Preserve the atomic deployment architecture
+- Emit/read back the factory, token, distribution and vesting addresses
+- Verify the resulting addresses can be recovered deterministically from the deployment transaction/event
+- Fail safely if required configuration is missing
+
+Do not include any automatic transfer of ETH or unrelated assets.
+
+==================================================
+9. VERIFICATION PREPARATION
+==================================================
+
+Prepare the configuration necessary for BaseScan/Etherscan source verification.
+
+Expected compiler settings:
+
+Solidity 0.8.24
+Optimizer enabled
+Runs 200
+EVM Paris
+
+Determine the exact OpenZeppelin dependency version currently used by the canonical project and record it.
+
+Do not claim verification has succeeded.
+
+Verification can only occur after actual Mainnet deployment.
+
+==================================================
+10. FJORD FOUNDry SALE
+==================================================
+
+Do NOT modify the token contract for the sale.
+
+The planned initial sale is:
+
+Maximum sale allocation:
+10,000,000 VAELO
+
+This equals:
+1% of total VAELO supply.
+
+It comes from the Public Distribution allocation:
+
+Public Distribution:
+200,000,000 VAELO
+
+Initial Fjord sale:
+10,000,000 VAELO
+
+Remaining Public Distribution:
+190,000,000 VAELO
+
+Proposed tier structure:
+
+Tier 1:
+1,000,000 VAELO
+$0.002
+
+Tier 2:
+2,000,000 VAELO
+$0.003
+
+Tier 3:
+3,000,000 VAELO
+$0.004
+
+Tier 4:
+4,000,000 VAELO
+$0.005
+
+Maximum:
+10,000,000 VAELO
+Maximum theoretical raise:
+$40,000
+
+These sale parameters are NOT final contract parameters.
+
+Do not embed them into the VAELO token.
+
+Do not change the canonical tokenomics.
+
+==================================================
+11. TESTING
+==================================================
+
+After making the preparation changes, run the full canonical test suite.
+
+Use temporary build/cache output if necessary so unrelated generated files are not committed.
+
+Confirm:
+
+27 tests passed
+0 failed
+0 skipped
+
+If the result changes, stop and explain exactly why.
+
+Do not deploy anything during testing.
+
+==================================================
+12. STATIC / SAFETY REVIEW
+==================================================
+
+Before reporting completion, inspect the newly prepared Mainnet deployment package for:
+
+- Chain-ID mistakes
+- Wrong recipient ordering
+- Historical V1.1 addresses
+- Incorrect tokenomics
+- Missing environment variables
+- Accidental private-key exposure
+- Incorrect EVM version
+- Incorrect compiler settings
+- Missing Mainnet guard
+- Accidental --broadcast execution
+- Incorrect factory constructor arguments
+- Incorrect founder beneficiary
+- Incorrect Treasury Safe address
+
+==================================================
+13. FINAL OUTPUT
+==================================================
+
+Return:
+
+A. FILES CREATED/CHANGED
+
+List every file created or modified and explain the change.
+
+B. RECIPIENT VALIDATION
+
+Confirm all six production addresses and their intended allocations.
+
+C. TOKENOMICS
+
+Confirm exactly 1,000,000,000 VAELO total.
+
+D. BUILD SETTINGS
+
+Confirm:
+
+Solidity 0.8.24
+Optimizer 200
+EVM Paris
+Chain ID 8453
+
+E. TEST RESULTS
+
+Report exact test results.
+
+F. DEPLOYMENT SAFETY
+
+Confirm:
+
+NO deployment occurred.
+NO transaction was broadcast.
+NO funds were transferred.
+
+G. REMAINING BLOCKERS
+
+List everything that must still be completed before Mainnet deployment, including:
+
+- Secure deployment wallet
+- Base Mainnet RPC
+- Base ETH for gas
+- BaseScan API key
+- Independent security review/audit
+- Final deployment review
+- Final recipient-address verification
+- Legal/regulatory review appropriate to the planned public sale
+- Fjord sale configuration/review
+
+H. EXACT DEPLOYMENT COMMAND
+
+Provide the exact command that WOULD be used after all blockers are cleared.
+
+DO NOT execute it.
+
+The command must be clearly labelled:
+
+DO NOT RUN YET
+
+I. FINAL STATUS
+
+Clearly state one of:
+
+MAINNET DEPLOYMENT PACKAGE PREPARED — NOT AUTHORIZED TO DEPLOY
+
+or
+
+PREPARATION FAILED — SEE BLOCKERS
+
+ABSOLUTELY NO MAINNET DEPLOYMENT OR BROADCAST IS AUTHORIZED BY THIS REQUEST.
