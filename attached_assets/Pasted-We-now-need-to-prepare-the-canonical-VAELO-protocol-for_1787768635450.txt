@@ -1,0 +1,46 @@
+We now need to prepare the canonical VAELO protocol for its first Base Mainnet deployment.
+
+DO NOT deploy anything yet and DO NOT make any code changes.
+
+Perform a deployment preflight using the canonical contracts only.
+
+Check:
+
+1. Identify the exact deployment script/configuration that would deploy:
+    * VaelorynDeploymentFactory
+    * VaelorynGenesisDistribution
+    * VaelorynToken
+    * VaelorynFounderVesting
+2. Confirm exactly how the constructor/deployment parameters are supplied.
+3. Confirm the intended recipient addresses for every canonical allocation:
+    * Ecosystem & Community: 300M
+    * Public Distribution: 200M
+    * Vaeloryn Treasury: 200M
+    * Team & Contributors: 150M
+    * Founder: 100M
+    * Strategic Partnerships: 50M
+4. Identify which wallet/address will receive each allocation and flag anything that is still a placeholder, unset, unsafe, or incorrectly configured.
+5. Confirm the founder vesting beneficiary address and all vesting parameters.
+6. Confirm the deployment factory will create exactly one canonical token and that the resulting token address can be deterministically/reliably obtained from the deployment transaction.
+7. Confirm the deployment script is configured for:
+    * Base Mainnet
+    * Chain ID 8453
+    * Solidity version 0.8.24
+    * Optimizer enabled, runs = 200
+    * EVM version = paris
+8. Confirm whether contract verification on BaseScan is supported by the existing deployment setup and identify exactly what will be required.
+9. Check whether any deployment wallet private key, RPC URL, API key or other secret is missing. Do NOT display any secrets.
+10. Run all existing tests again without modifying the project.
+11. Produce a final preflight report containing:
+
+* READY TO DEPLOY
+* NOT READY TO DEPLOY
+* Exact deployment command that would be used (but DO NOT execute it)
+* Exact addresses that still need to be supplied
+* Any risks or issues that must be resolved first
+* Expected contracts created by the deployment
+
+IMPORTANT:
+Use only the canonical VAELO implementation. Do not use or reference the historical V1.1 Base Sepolia token as the sale token.
+
+Do not deploy, modify, delete, or commit anything.
