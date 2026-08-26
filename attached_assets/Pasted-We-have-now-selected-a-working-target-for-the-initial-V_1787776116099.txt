@@ -1,0 +1,254 @@
+We have now selected a working target for the initial VAELO Fjord Foundry sale.
+
+IMPORTANT:
+This is PREPARATION ONLY.
+
+DO NOT deploy VAELO.
+DO NOT broadcast transactions.
+DO NOT transfer VAELO.
+DO NOT transfer ETH/USDC.
+DO NOT create the Fjord sale.
+DO NOT modify the canonical Solidity contracts.
+DO NOT change the website.
+DO NOT commit changes.
+
+Prepare the sale specification and integration plan only.
+
+==================================================
+VAELO INITIAL SALE
+==================================================
+
+Network:
+Base Mainnet
+
+Canonical token:
+VAELO
+
+Total supply:
+1,000,000,000 VAELO
+
+Target FDV:
+$5,000,000
+
+Reference token price:
+$0.005 per VAELO
+
+Initial sale maximum:
+10,000,000 VAELO
+
+Initial sale percentage:
+1% of total supply
+
+Source allocation:
+Public Distribution
+
+Public Distribution:
+200,000,000 VAELO
+
+Initial sale:
+10,000,000 VAELO
+
+Remaining Public Distribution:
+190,000,000 VAELO
+
+==================================================
+PROPOSED TIER STRUCTURE
+==================================================
+
+Tier 1:
+1,000,000 VAELO
+$0.003 per VAELO
+Gross raise: $3,000
+
+Tier 2:
+2,000,000 VAELO
+$0.004 per VAELO
+Gross raise: $8,000
+
+Tier 3:
+3,000,000 VAELO
+$0.005 per VAELO
+Gross raise: $15,000
+
+Tier 4:
+4,000,000 VAELO
+$0.006 per VAELO
+Gross raise: $24,000
+
+TOTAL:
+10,000,000 VAELO
+$50,000 maximum gross raise
+
+These are proposed parameters and must NOT be written into the immutable VAELO token contract.
+
+==================================================
+TASK 1 — FJORD COMPATIBILITY
+==================================================
+
+Review the current project and prepare a document:
+
+vaelo_canonical/docs/FJORD_INITIAL_SALE_SPEC.md
+
+Document:
+
+- Network
+- Token
+- Token contract requirement
+- Sale allocation
+- Tier structure
+- Prices
+- Maximum raise
+- Intended FDV
+- Public Distribution accounting
+- Required sale recipient/custody arrangement
+- Any Fjord-specific requirements that must be completed before sale creation
+- Any parameters that cannot be changed after the sale goes live
+- Any required claim configuration
+- Any required wallet limits
+- Any required eligibility/geographic restrictions
+- Any required collateral configuration
+
+Do not invent Fjord requirements.
+
+If the repository does not contain sufficient information, clearly mark the item:
+
+REQUIRES EXTERNAL FJORD CONFIRMATION
+
+==================================================
+TASK 2 — TOKEN ALLOCATION
+==================================================
+
+Prepare a clear operational plan showing how 10M VAELO would move from the Public Distribution allocation into the Fjord sale.
+
+IMPORTANT:
+
+Do not execute the transfer.
+
+Do not create the sale.
+
+The plan must distinguish:
+
+200M Public Distribution allocation
+10M initial sale allocation
+190M remaining Public Distribution
+
+The plan must also identify which wallet/custody address is expected to hold the sale allocation before the sale is created.
+
+Do not invent a new wallet address.
+
+==================================================
+TASK 3 — WEBSITE
+==================================================
+
+Do NOT modify the website.
+
+Instead create:
+
+vaelo_canonical/docs/WEBSITE_SALE_INTEGRATION.md
+
+Describe the future website integration:
+
+Primary CTA:
+BUY VAELO
+
+Future destination:
+Official Fjord Foundry VAELO sale page
+
+Secondary CTA:
+VIEW VAELO CONTRACT
+
+Future destination:
+Verified BaseScan VAELO contract page
+
+IMPORTANT:
+
+Do not insert fake URLs.
+
+Do not create a placeholder that looks like a live sale.
+
+The website should only receive the real Fjord URL after the sale has actually been created and verified.
+
+==================================================
+TASK 4 — DEPLOYMENT → SALE SEQUENCE
+==================================================
+
+Create a precise checklist describing the correct sequence:
+
+1. Final independent contract/security review
+2. Final recipient-address verification
+3. Final Mainnet deployment authorization
+4. Deploy canonical factory
+5. Read back factory/token/distribution/vesting addresses
+6. Verify Mainnet source code
+7. Confirm tokenomics on-chain
+8. Confirm founder vesting on-chain
+9. Confirm Treasury Safe allocation
+10. Confirm Public Distribution allocation
+11. Establish the official canonical VAELO contract address
+12. Configure Fjord using ONLY the verified canonical VAELO Mainnet token
+13. Configure the 10M tiered sale
+14. Complete required sale/legal/disclosure checks
+15. Create/activate the sale only after final approval
+16. Obtain the official Fjord sale URL
+17. Add the real Fjord URL to the website
+18. Publish the sale announcement
+
+Do not execute any step.
+
+==================================================
+TASK 5 — FINANCIAL MODEL
+==================================================
+
+Calculate:
+
+Total tokens sold:
+10M
+
+Gross proceeds if all tiers sell:
+$50,000
+
+Calculate the proceeds at each individual tier.
+
+Clearly distinguish:
+
+Gross proceeds
+Fjord/platform fees
+Other potential costs
+Net proceeds
+
+Do not assume unknown fees. Mark unknown values as:
+
+REQUIRES CURRENT FJORD CONFIRMATION
+
+==================================================
+TASK 6 — FINAL REVIEW
+==================================================
+
+Return:
+
+A. Sale specification
+B. Tier table
+C. Token allocation reconciliation
+D. Fjord compatibility issues
+E. Missing information
+F. Website integration plan
+G. Deployment-to-sale sequence
+H. Financial model
+I. Legal/regulatory items requiring professional review
+J. Final blockers
+
+Final status must be:
+
+SALE PREPARATION COMPLETE — NOT CREATED
+
+or
+
+SALE PREPARATION BLOCKED — SEE ISSUES
+
+Again:
+
+DO NOT deploy.
+DO NOT broadcast.
+DO NOT transfer tokens.
+DO NOT create the Fjord sale.
+DO NOT modify the website.
