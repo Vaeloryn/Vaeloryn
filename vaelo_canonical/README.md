@@ -71,5 +71,17 @@ recipient and founder beneficiary. The accompanying `config/recipients.example.e
 contains text placeholders, not wallet addresses; it is intentionally not
 deployable as supplied.
 
+`script/DeployCanonicalMainnet.s.sol` is a separate Base Mainnet preparation
+script. It accepts recipient values only through environment variables, compares
+them to the approved public Mainnet addresses, and refuses every chain other
+than Base Mainnet (8453). It does not fall back to Base Sepolia. The associated
+`config/base-mainnet.example.env` contains no credentials, and
+`deployments/base-mainnet.manifest.json` is a `NOT_DEPLOYED` record with all
+deployment-specific address and transaction fields left null.
+
+The Mainnet package requires Solidity 0.8.24, optimizer enabled with 200 runs,
+and the Paris EVM target. BaseScan verification must use a secret-managed
+`ETHERSCAN_API_KEY` only after deployment.
+
 Do not run a broadcast deployment until recipient custody, the generated
 manifest, source-verification inputs and test evidence have been reviewed.

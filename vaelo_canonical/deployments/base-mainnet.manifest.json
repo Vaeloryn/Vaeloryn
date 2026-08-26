@@ -1,0 +1,91 @@
+{
+  "status": "NOT_DEPLOYED",
+  "network": "Base Mainnet",
+  "chainId": 8453,
+  "canonicalIdentity": {
+    "selectionRule": "Only the officially approved Base Mainnet deployment transaction recorded in this manifest is canonical.",
+    "requiredEvidence": [
+      "chainId",
+      "deploymentFactory address",
+      "canonicalToken address",
+      "genesisDistribution address",
+      "founderVesting address",
+      "deployment transaction hash",
+      "deployment block and timestamp",
+      "factory event and constructor inputs",
+      "verified source and compiler settings",
+      "canonical contract bytecode hashes"
+    ]
+  },
+  "deployment": {
+    "factoryAddress": null,
+    "tokenAddress": null,
+    "distributionAddress": null,
+    "vestingAddress": null,
+    "transactionHash": null,
+    "blockNumber": null,
+    "timestamp": null
+  },
+  "recipients": {
+    "ecosystemAndCommunity": "0x43dF3281C2Cc960cD2837a153Ec397a2b67e18a7",
+    "publicDistribution": "0x653835dc0fF216D2B10fF64153A9aA6A0639Fb82",
+    "vaelorynTreasurySafe": "0x3A9bee20360294F8439513Ae70D189f56288baF2",
+    "teamAndContributors": "0x2fB598d102303E5c0E7D36Db94CFBC76a680c7F4",
+    "strategicPartnerships": "0xC263222BB55289D0a442871aF04A5065f87e9D87",
+    "founderBeneficiary": "0x254D5eE9D7216bB8601B5D2156072863A975b309",
+    "founderVestingContract": null
+  },
+  "allocations": {
+    "ecosystemAndCommunityWei": "300000000000000000000000000",
+    "publicDistributionWei": "200000000000000000000000000",
+    "vaelorynTreasuryWei": "200000000000000000000000000",
+    "teamAndContributorsWei": "150000000000000000000000000",
+    "founderWei": "100000000000000000000000000",
+    "strategicPartnershipsWei": "50000000000000000000000000",
+    "totalSupplyWei": "1000000000000000000000000000"
+  },
+  "constructorInputs": {
+    "deploymentFactory": {
+      "ecosystemRecipient": "0x43dF3281C2Cc960cD2837a153Ec397a2b67e18a7",
+      "publicDistributionRecipient": "0x653835dc0fF216D2B10fF64153A9aA6A0639Fb82",
+      "vaelorynTreasuryRecipient": "0x3A9bee20360294F8439513Ae70D189f56288baF2",
+      "teamAndContributorsRecipient": "0x2fB598d102303E5c0E7D36Db94CFBC76a680c7F4",
+      "strategicPartnershipsRecipient": "0xC263222BB55289D0a442871aF04A5065f87e9D87",
+      "founderBeneficiary": "0x254D5eE9D7216bB8601B5D2156072863A975b309"
+    },
+    "token": {
+      "genesisDistribution": null
+    },
+    "founderVesting": {
+      "vaeloToken": null,
+      "beneficiary": "0x254D5eE9D7216bB8601B5D2156072863A975b309",
+      "officialLaunchTimestamp": null
+    }
+  },
+  "build": {
+    "solcVersion": "0.8.24",
+    "optimizerEnabled": true,
+    "optimizerRuns": 200,
+    "evmVersion": "paris",
+    "openzeppelinVersion": "5.4.0"
+  },
+  "bytecodeHashes": {
+    "deploymentFactory": null,
+    "canonicalToken": null,
+    "genesisDistribution": null,
+    "founderVesting": null
+  },
+  "verification": {
+    "status": "NOT_REQUESTED",
+    "factorySourceVerificationUrl": null,
+    "tokenSourceVerificationUrl": null,
+    "genesisDistributionSourceVerificationUrl": null,
+    "founderVestingSourceVerificationUrl": null
+  },
+  "salePlanReference": {
+    "publicDistributionAllocationWei": "200000000000000000000000000",
+    "initialFjordSaleMaximumWei": "10000000000000000000000000",
+    "remainingPublicDistributionWei": "190000000000000000000000000",
+    "note": "The tiered Fjord sale is configured externally and is not encoded in the canonical token contracts."
+  }
+}
