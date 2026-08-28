@@ -68,3 +68,24 @@ id = "TKGtMqjbIpBIPtICfL_PL"
 uri = "file://.local/outputs/Vaeloryn---Fjord-Foundry-Pitch-Deck.pdf"
 type = "pdf"
 title = "Vaeloryn — Fjord Foundry Pitch Deck.pdf"
+
+[[outputs]]
+id = "TQr1tZaIf8QdpJgJbHaM-"
+uri = "file://deliverables/vaeloryn_product_documentation_v1.pdf"
+type = "pdf"
+title = "Vaeloryn Product Documentation v1.0 (PDF)"
+description = "Polished 20-page VAELO ecosystem and product overview prepared for Fjord Foundry review."
+
+[[outputs]]
+id = "2g86jICAHJNbixTpHod1w"
+uri = "file://deliverables/vaeloryn_product_documentation_v1.docx"
+type = "word_document"
+title = "Vaeloryn Product Documentation v1.0 (DOCX)"
+description = "Editable source document with all 18 requested sections, tables and graphics."
+
+[[outputs]]
+id = "oq-U7WDU1TczB_YBTk9Kv"
+uri = "file://reports/VAELO_Product_Documentation_Final_Report.md"
+type = "text"
+title = "VAELO Product Documentation — Final Report"
+description = "Created files, included sections, sources, missing information, excluded claims and no-action confirmation."

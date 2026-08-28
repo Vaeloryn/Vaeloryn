@@ -23,4 +23,4 @@ timeoutMs = 20000
 
 [nix]
 channel = "stable-25_05"
-packages = ["fontconfig", "foundry", "ghostscript", "glib", "harfbuzz", "pango"]
+packages = ["fontconfig", "foundry", "freetype", "ghostscript", "glib", "gumbo", "harfbuzz", "jbig2dec", "libjpeg_turbo", "mupdf", "openjpeg", "pango", "swig", "xcbuild"]
