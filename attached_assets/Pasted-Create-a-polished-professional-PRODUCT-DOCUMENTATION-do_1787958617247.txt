@@ -1,0 +1,554 @@
+Create a polished, professional PRODUCT DOCUMENTATION document for Vaeloryn (VAELO).
+
+This document is being prepared for a Fjord Foundry partnered public-sale application.
+
+IMPORTANT:
+- Do NOT deploy anything.
+- Do NOT broadcast transactions.
+- Do NOT transfer VAELO, ETH, USDC or any other assets.
+- Do NOT create the Fjord sale.
+- Do NOT modify the canonical Solidity contracts.
+- Do NOT modify the existing website.
+- Do NOT invent partnerships, users, revenue, investors, audits, deployments or achievements.
+- Do NOT claim that functionality exists if it is only planned.
+- Clearly distinguish CURRENT functionality from PLANNED functionality.
+- Do not make legal or financial promises to token holders.
+- Do not describe VAELO as an investment, equity, security or ownership interest.
+- Do not claim the Base Mainnet token has been deployed. It has NOT yet been deployed.
+
+==================================================
+DOCUMENT
+==================================================
+
+Title:
+
+VAELORYN
+PRODUCT DOCUMENTATION
+
+Subtitle:
+
+VAELO Ecosystem & Product Overview
+
+Version:
+1.0
+
+Date:
+August 2026
+
+==================================================
+1. EXECUTIVE OVERVIEW
+==================================================
+
+Explain Vaeloryn clearly and professionally.
+
+Vaeloryn is being developed as a long-term ecosystem intended to connect capital, expertise, technology and opportunity around projects capable of contributing to meaningful advances in science, medicine, energy and frontier technology.
+
+Explain that the project's ambition is to create infrastructure through which resources can be coordinated toward real-world technological and scientific development.
+
+Do not claim that this ecosystem is already fully operational.
+
+Clearly state the current development stage.
+
+==================================================
+2. THE PROBLEM
+==================================================
+
+Explain the underlying problem Vaeloryn is attempting to address.
+
+Discuss how promising scientific and technological initiatives can face difficulties accessing:
+
+- Capital
+- Expertise
+- Infrastructure
+- Networks
+- Development resources
+- Long-term support
+
+Explain why a coordinated ecosystem could potentially improve the path from idea → development → real-world implementation.
+
+Do not claim that Vaeloryn has already solved these problems.
+
+==================================================
+3. THE VAELORYN VISION
+==================================================
+
+Describe the long-term vision.
+
+Focus areas may include:
+
+- Medical science
+- Energy
+- Artificial intelligence
+- Computing
+- Aerospace
+- Engineering
+- Fundamental science
+- Frontier technologies
+
+Explain that these are intended areas of focus, not claims that Vaeloryn currently operates projects in all of them.
+
+Use the concept:
+
+Capital + Expertise + Technology + Execution
+
+→ Real-world innovation
+
+==================================================
+4. THE VAELORYN ECOSYSTEM
+==================================================
+
+Explain the intended ecosystem architecture.
+
+Create a clear diagram showing:
+
+Participants
+↓
+VAELO ecosystem
+↓
+Capital / coordination / participation
+↓
+Scientific & technological initiatives
+↓
+Development
+↓
+Real-world outcomes
+↓
+Expansion of ecosystem capacity
+
+Explain each component.
+
+Clearly distinguish the current state from the planned ecosystem.
+
+==================================================
+5. VAELO TOKEN
+==================================================
+
+Explain VAELO's role within the intended ecosystem.
+
+Token:
+VAELO
+
+Total supply:
+1,000,000,000 VAELO
+
+Target network:
+Base Mainnet
+
+Standard:
+ERC-20
+
+Current status:
+Canonical Base Mainnet deployment has been prepared but NOT deployed.
+
+Explain the currently implemented token functionality:
+
+- ERC-20
+- ERC20Burnable
+- burn
+- burnFrom
+- ERC20Permit
+- EIP-2612 Permit
+- EIP-712 support
+- Nonce tracking
+
+Explain that the canonical token has:
+
+- No additional mint function
+- No owner/admin control
+- No upgradeability
+- No pause mechanism
+- No blacklist
+- No transfer tax
+
+Do not imply these features provide investment value.
+
+==================================================
+6. PRODUCT / TOKEN UTILITY
+==================================================
+
+Explain the intended utility of VAELO without inventing functionality.
+
+Discuss potential roles within the future ecosystem such as:
+
+- Ecosystem participation
+- Coordination
+- Access to ecosystem initiatives where appropriate
+- Supporting ecosystem funding mechanisms
+- Participation in future products/services
+- Facilitating interactions between ecosystem participants
+
+IMPORTANT:
+
+Clearly label future functionality as PLANNED.
+
+Do not claim that VAELO currently provides access to products or services that do not yet exist.
+
+Do not invent specific applications, platforms, staking mechanisms, governance systems, payment systems or revenue-sharing mechanisms.
+
+==================================================
+7. TOKENOMICS
+==================================================
+
+Include the finalized canonical tokenomics:
+
+Ecosystem & Community:
+300,000,000 VAELO — 30%
+
+Public Distribution:
+200,000,000 VAELO — 20%
+
+Vaeloryn Treasury:
+200,000,000 VAELO — 20%
+
+Team & Contributors:
+150,000,000 VAELO — 15%
+
+Founder:
+100,000,000 VAELO — 10%
+
+Strategic Partnerships:
+50,000,000 VAELO — 5%
+
+TOTAL:
+1,000,000,000 VAELO — 100%
+
+Create a professional allocation chart.
+
+==================================================
+8. FOUNDER VESTING
+==================================================
+
+Document the canonical founder vesting schedule:
+
+2,500,000 VAELO at T0
+
+2,500,000 VAELO at T0 + 90 days
+
+2,500,000 VAELO at T0 + 180 days
+
+2,500,000 VAELO at T0 + 270 days
+
+Remaining 90,000,000 VAELO released linearly over exactly 1,095 days beginning at T0 + 270 days.
+
+Total:
+100,000,000 VAELO
+
+Explain that the vesting parameters are immutable within the canonical implementation.
+
+==================================================
+9. TECHNICAL ARCHITECTURE
+==================================================
+
+Document the four canonical contracts:
+
+VaelorynToken.sol
+VaelorynFounderVesting.sol
+VaelorynGenesisDistribution.sol
+VaelorynDeploymentFactory.sol
+
+Explain the role of each.
+
+Explain the atomic deployment design:
+
+Factory
+↓
+Genesis Distribution
+↓
+VAELO Token
+↓
+Founder Vesting
+↓
+Complete genesis allocation
+
+Explain that the complete fixed supply is created once and distributed according to the canonical allocation.
+
+Do not claim the Mainnet deployment has occurred.
+
+==================================================
+10. SECURITY & TESTING
+==================================================
+
+Document current test evidence:
+
+27 tests passed
+0 failed
+0 skipped
+
+Breakdown:
+
+25 canonical unit, edge-case, Permit, allocation, vesting, fuzz and factory tests
+
+2 invariant suites
+
+256 fuzz runs per fuzz target
+
+128 invariant runs with 8,192 calls per invariant
+
+Clearly state:
+
+"These are internal development and verification tests and do not constitute an independent security audit."
+
+State:
+
+Independent security audit:
+NOT YET COMPLETED
+
+Do not use the word "audited" unless referring specifically to a completed independent audit.
+
+==================================================
+11. TREASURY & ALLOCATION STRUCTURE
+==================================================
+
+Explain the intended custody structure.
+
+Use only the approved addresses already documented in the repository.
+
+Do not expose private keys, seed phrases or credentials.
+
+Approved Treasury Safe:
+
+0x3A9bee20360294F8439513Ae70D189f56288baF2
+
+Explain that the Treasury allocation is intended to be controlled through the Treasury Safe.
+
+Do not claim that tokens have already been transferred to these addresses.
+
+==================================================
+12. INITIAL PUBLIC SALE
+==================================================
+
+Document the current proposed Fjord sale concept.
+
+Network:
+Base
+
+Sale type:
+Tiered
+
+Maximum sale allocation:
+10,000,000 VAELO
+
+Percentage of total supply:
+1%
+
+Target reference FDV:
+$5,000,000
+
+Reference price:
+$0.005 per VAELO
+
+Proposed working tiers:
+
+Tier 1:
+1,000,000 VAELO
+$0.003
+
+Tier 2:
+2,000,000 VAELO
+$0.004
+
+Tier 3:
+3,000,000 VAELO
+$0.005
+
+Tier 4:
+4,000,000 VAELO
+$0.006
+
+Maximum theoretical gross proceeds:
+$50,000
+
+IMPORTANT:
+
+Label all sale parameters:
+
+PROPOSED / WORKING PARAMETERS — SUBJECT TO FINAL FJORD CONFIGURATION
+
+Do not claim that the Fjord sale has been created, approved, funded or launched.
+
+Do not claim the $5M FDV represents a guaranteed valuation.
+
+==================================================
+13. USE OF INITIAL CAPITAL
+==================================================
+
+Explain the intended use of initial project funding.
+
+Potential areas:
+
+- Technical development
+- Independent security review
+- Infrastructure
+- Essential team capability
+- Legal/compliance work
+- Corporate/operational setup
+- Development of the first Vaeloryn initiative
+- Communications and transparency infrastructure
+
+Clearly describe these as intended uses rather than completed activities.
+
+==================================================
+14. ROADMAP
+==================================================
+
+Use the existing Vaeloryn roadmap from the repository.
+
+Organize into:
+
+Phase 1 — Foundation
+
+Phase 2 — Execution
+
+Phase 3 — Expansion
+
+Phase 4 — Global Ecosystem
+
+For every milestone, clearly indicate whether it is:
+
+COMPLETED
+IN PROGRESS
+PLANNED
+
+Do not invent dates.
+
+==================================================
+15. CURRENT DEVELOPMENT STATUS
+==================================================
+
+Provide an honest status summary.
+
+CURRENT:
+
+- Canonical contracts implemented
+- Canonical tokenomics finalized
+- Canonical test suite passing
+- Mainnet deployment package prepared
+- Fjord sale preparation documentation prepared
+- Pitch deck prepared
+
+NOT YET COMPLETED:
+
+- Base Mainnet deployment
+- Mainnet source verification
+- Independent security audit
+- Fjord sale creation
+- Fjord sale approval
+- Public token sale
+- Full ecosystem launch
+
+==================================================
+16. TRANSPARENCY & VERIFICATION
+==================================================
+
+Explain the project's approach to transparency.
+
+Future Mainnet verification should include:
+
+- Official VAELO contract address
+- Factory address
+- Genesis distribution address
+- Founder vesting address
+- Deployment transaction
+- Verified source code
+- Tokenomics readback
+- Vesting readback
+
+Do not insert fabricated addresses.
+
+==================================================
+17. RISKS & LIMITATIONS
+==================================================
+
+Include a professional section explaining:
+
+- Early-stage project risk
+- Development risk
+- Smart-contract risk
+- Market risk
+- Regulatory uncertainty
+- Adoption risk
+- Execution risk
+- Sale/liquidity risk
+
+Make clear that VAELO does not guarantee returns.
+
+Do not make legal conclusions.
+
+==================================================
+18. CONTACT & LINKS
+==================================================
+
+Use only verified project links already present in the repository.
+
+Website:
+https://vaeloryn.com
+
+GitHub:
+Use the actual repository URL if available.
+
+X:
+Use the actual project URL if available.
+
+Telegram:
+Use the actual project Telegram URL if available.
+
+DO NOT invent links.
+
+==================================================
+DESIGN REQUIREMENTS
+==================================================
+
+Create a professional PDF document.
+
+Use the existing Vaeloryn visual identity.
+
+Style:
+
+- Premium
+- Modern
+- Scientific
+- Technological
+- Institutional
+- Clean
+- Easy to read
+
+Use:
+
+- Tables
+- Diagrams
+- Token allocation graphics
+- Architecture diagrams
+- Timeline/roadmap graphics
+
+Avoid excessive text.
+
+This is PRODUCT DOCUMENTATION, not a marketing hype document.
+
+Every factual claim must be supported by the existing repository/project documentation.
+
+==================================================
+OUTPUT
+==================================================
+
+Create:
+
+1. PDF:
+vaeloryn_product_documentation_v1.pdf
+
+2. Editable source:
+vaeloryn_product_documentation_v1.docx
+
+Save both in the project.
+
+Also provide a final report containing:
+
+- Files created
+- Pages/sections included
+- Sources used
+- Any missing information
+- Any claims intentionally excluded
+- Confirmation that no deployment, transaction, transfer, sale creation or website modification occurred
+
+FINAL STATUS:
+
+PRODUCT DOCUMENTATION CREATED — NO DEPLOYMENT OR SALE ACTION PERFORMED
