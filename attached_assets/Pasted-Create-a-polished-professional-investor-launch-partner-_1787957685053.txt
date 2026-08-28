@@ -1,0 +1,268 @@
+Create a polished, professional investor/launch-partner pitch deck for Vaeloryn (VAELO).
+
+IMPORTANT:
+This is for a Fjord Foundry partnered public-sale application.
+
+Do NOT deploy anything.
+Do NOT modify or deploy the VAELO contracts.
+Do NOT modify the website.
+Do NOT create a token sale.
+Do NOT invent statistics, partnerships, investors, users, revenue, audits, deployments, or achievements.
+Do NOT claim VAELO is currently deployed on Base Mainnet.
+Clearly distinguish completed work from planned work.
+
+Use the existing Vaeloryn project documentation, canonical tokenomics, technical documentation, roadmap, and existing visual identity in the repository as source material.
+
+Create the deck as a professional presentation suitable for sending to Fjord Foundry.
+
+TARGET:
+10–12 slides.
+
+SLIDE 1 — COVER
+Vaeloryn
+VAELO
+
+"Begin in South Africa. Build for humanity."
+
+Science • Technology • Innovation • Energy • Medicine
+
+Include the Vaeloryn branding/logo from the existing project where appropriate.
+
+SLIDE 2 — THE VISION
+Explain Vaeloryn's core vision:
+
+Build a long-term innovation ecosystem connecting capital, expertise, people and opportunity to support meaningful advances in science and technology.
+
+Focus areas include:
+- Medical science
+- Energy
+- Artificial intelligence
+- Computing
+- Engineering
+- Aerospace
+- Fundamental science
+- Frontier technologies
+
+Make this compelling but do not exaggerate the current stage of the project.
+
+SLIDE 3 — THE PROBLEM
+Explain the problem Vaeloryn is attempting to address:
+
+Important scientific and technological ideas can struggle to access capital, expertise, infrastructure and coordinated support.
+
+Vaeloryn's ambition is to create a structure that can connect these resources and help promising projects move from ideas toward real-world execution.
+
+Do not claim Vaeloryn has already solved this problem.
+
+SLIDE 4 — THE VAELORYN MODEL
+Explain the intended ecosystem:
+
+Capital
+↓
+Vaeloryn
+↓
+Projects / technology / scientific initiatives
+↓
+Development and measurable outcomes
+↓
+Further ecosystem capacity
+
+Explain that VAELO is intended to become a native digital asset supporting participation, coordination and useful economic activity within the ecosystem.
+
+Do not imply token holders automatically own Vaeloryn, its companies, projects or investment returns.
+
+SLIDE 5 — VAELO
+Explain VAELO's intended role.
+
+Include:
+
+Token: VAELO
+Total supply: 1,000,000,000
+Network target: Base Mainnet
+Token standard: ERC-20
+Fixed supply
+No additional minting
+Burn functionality
+EIP-2612 Permit
+No transfer tax
+No blacklist
+No pause mechanism
+No upgradeability
+No owner/admin control
+
+Clearly state:
+
+"Canonical Base Mainnet deployment is prepared but has not yet occurred."
+
+SLIDE 6 — TOKENOMICS
+Show the finalized canonical allocation as a clear visual chart/table:
+
+Ecosystem & Community — 300M — 30%
+Public Distribution — 200M — 20%
+Vaeloryn Treasury — 200M — 20%
+Team & Contributors — 150M — 15%
+Founder — 100M — 10%
+Strategic Partnerships — 50M — 5%
+
+Total — 1B — 100%
+
+Use the actual approved custody structure from the project documentation where appropriate, but DO NOT display private keys or secrets.
+
+SLIDE 7 — FOUNDER VESTING & SUPPLY DISCIPLINE
+Show:
+
+2.5M at T0
+2.5M at T0 + 90 days
+2.5M at T0 + 180 days
+2.5M at T0 + 270 days
+90M linearly over exactly 1,095 days after the 270-day point
+
+Explain that the founder allocation is capped at 100M and the vesting parameters are immutable.
+
+Do not make claims about founder identity beyond what is already publicly intended.
+
+SLIDE 8 — TECHNICAL FOUNDATION & SECURITY
+Explain:
+
+Canonical contracts:
+- VaelorynToken
+- VaelorynFounderVesting
+- VaelorynGenesisDistribution
+- VaelorynDeploymentFactory
+
+Atomic deployment architecture.
+
+Testing:
+27 passed
+0 failed
+0 skipped
+
+Include:
+25 canonical unit/edge/fuzz/Permit/allocation/vesting/factory tests
+2 invariant suites
+
+State clearly:
+
+"Independent security audit: not yet completed."
+
+Do not describe internal testing as an independent audit.
+
+SLIDE 9 — INITIAL PUBLIC SALE
+Present the proposed Fjord launch:
+
+Network: Base
+Sale type: Tiered
+Maximum allocation: 10,000,000 VAELO
+Share of total supply: 1%
+Target reference FDV: $5M
+
+Proposed working tiers:
+
+Tier 1 — 1M VAELO — $0.003
+Tier 2 — 2M VAELO — $0.004
+Tier 3 — 3M VAELO — $0.005
+Tier 4 — 4M VAELO — $0.006
+
+Maximum theoretical gross proceeds:
+$50,000
+
+IMPORTANT:
+Clearly label these as PROPOSED / WORKING SALE PARAMETERS.
+
+Do not claim the Fjord sale has been created or approved.
+
+SLIDE 10 — USE OF INITIAL CAPITAL
+Explain that initial funding is intended to support the foundation of the project.
+
+Potential areas:
+
+- Independent security review
+- Legal and regulatory work
+- Corporate structure
+- Production infrastructure
+- Technical development
+- Essential team capability
+- First real Vaeloryn project
+- Transparency and operational infrastructure
+
+Do not promise specific returns to token purchasers.
+
+SLIDE 11 — ROADMAP
+Use the existing Vaeloryn roadmap:
+
+Stage A — Foundation
+Legal/corporate structure, regulatory analysis, security review, treasury architecture, essential team capability, transparency infrastructure and first project selection.
+
+Stage B — Execution
+Build a flagship project and demonstrate measurable value.
+
+Stage C — Expansion
+Internal projects, partnerships and potential strategic investments where appropriately structured.
+
+Stage D — Global Ecosystem
+Develop a globally connected innovation ecosystem.
+
+Clearly distinguish current/planned milestones.
+
+SLIDE 12 — WHY VAELORYN / CLOSING
+Create a strong final slide explaining:
+
+Vaeloryn is building toward a long-term ecosystem where capital, expertise and technology can reinforce one another.
+
+VAELO is one component of that ecosystem, not a substitute for building real products and projects.
+
+Include:
+
+Website:
+vaeloryn.com
+
+GitHub:
+Use the actual repository URL from the project if available.
+
+X / Telegram:
+Use the actual project links if available.
+
+Do not invent links.
+
+==================================================
+DESIGN
+==================================================
+
+Use the existing Vaeloryn visual identity.
+
+Style:
+- Premium
+- Modern
+- Technology/science focused
+- Serious rather than "meme coin"
+- Clean typography
+- Strong visual hierarchy
+- Professional enough for a launch partner/investor review
+
+Use diagrams, charts and visual hierarchy rather than filling slides with paragraphs.
+
+Keep text concise.
+
+==================================================
+OUTPUT
+==================================================
+
+Create the finished pitch deck as a PPTX.
+
+Also create a PDF version suitable for uploading/sharing with Fjord.
+
+Save them in a clearly named project directory, for example:
+
+vaeloryn_fjord_pitch_deck.pptx
+vaeloryn_fjord_pitch_deck.pdf
+
+Also provide a concise summary of:
+1. Files created
+2. Slide contents
+3. Sources used
+4. Any information that was unavailable
+5. Any claims deliberately excluded because they could not be verified
+
+Final status:
+
+PITCH DECK CREATED — NO DEPLOYMENT OR SALE ACTION PERFORMED
