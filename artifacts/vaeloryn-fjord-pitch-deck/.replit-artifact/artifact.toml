@@ -1,0 +1,28 @@
+kind = "slides"
+previewPath = "/vaeloryn-fjord-pitch-deck/"
+title = "Vaeloryn — Fjord Foundry Pitch Deck"
+description = "A 12-slide investor and launch-partner presentation for Vaeloryn's proposed Fjord Foundry public-sale application, grounded in verified canonical VAELO documentation and clearly separating completed preparation from planned work."
+version = "1.0.0"
+id = "artifacts/vaeloryn-fjord-pitch-deck"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/vaeloryn-fjord-pitch-deck/" ]
+localPort = 22298
+
+[services.development]
+run = "pnpm --filter @workspace/vaeloryn-fjord-pitch-deck run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vaeloryn-fjord-pitch-deck", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/vaeloryn-fjord-pitch-deck/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22298"
+BASE_PATH = "/vaeloryn-fjord-pitch-deck/"

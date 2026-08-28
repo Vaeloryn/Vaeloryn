@@ -48,3 +48,17 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Revised.pptx"
 type = "slides"
 title = "VAELO — John Lilic Investor Teaser (Revised PPTX)"
 description = "Final editable three-page investor teaser, revised to lead with the Vaeloryn ecosystem and VAELO purpose."
+
+[[outputs]]
+id = "QTqjkL-rBooyuzyRytC9g"
+uri = "file://.local/outputs/vaeloryn_fjord_pitch_deck.pptx"
+type = "slides"
+title = "Vaeloryn — Fjord Foundry Pitch Deck (PPTX)"
+description = "Editable 12-slide investor and launch-partner presentation."
+
+[[outputs]]
+id = "l_q10cOiEFaydLe1_M96M"
+uri = "file://.local/outputs/vaeloryn_fjord_pitch_deck.pdf"
+type = "pdf"
+title = "Vaeloryn — Fjord Foundry Pitch Deck (PDF)"
+description = "Shareable 12-slide presentation for Fjord Foundry review."
