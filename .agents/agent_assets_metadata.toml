@@ -62,3 +62,9 @@ uri = "file://.local/outputs/vaeloryn_fjord_pitch_deck.pdf"
 type = "pdf"
 title = "Vaeloryn — Fjord Foundry Pitch Deck (PDF)"
 description = "Shareable 12-slide presentation for Fjord Foundry review."
+
+[[outputs]]
+id = "TKGtMqjbIpBIPtICfL_PL"
+uri = "file://.local/outputs/Vaeloryn---Fjord-Foundry-Pitch-Deck.pdf"
+type = "pdf"
+title = "Vaeloryn — Fjord Foundry Pitch Deck.pdf"
