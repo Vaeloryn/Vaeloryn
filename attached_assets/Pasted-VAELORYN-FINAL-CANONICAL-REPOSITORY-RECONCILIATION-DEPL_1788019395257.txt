@@ -1,0 +1,420 @@
+VAELORYN — FINAL CANONICAL REPOSITORY RECONCILIATION & DEPLOYMENT READINESS AUDIT
+
+We are now preparing Vaeloryn/VAELO for a potential Base Mainnet deployment and a Fjord Foundry or comparable public token sale.
+
+Perform a COMPLETE READ-ONLY audit of the entire repository.
+
+DO NOT:
+
+* Deploy anything
+* Broadcast any transaction
+* Transfer ETH or VAELO
+* Modify Solidity contracts
+* Modify the website
+* Create a Fjord sale
+* Change tokenomics
+* Generate or expose private keys
+* Commit changes
+
+The purpose of this task is to identify exactly what is complete, what is inconsistent, and what must be fixed before Mainnet deployment.
+
+==================================================
+CANONICAL STATE — AUTHORITATIVE
+
+Treat the following as the CURRENT CANONICAL specification.
+
+Token:
+Vaeloryn
+
+Symbol:
+VAELO
+
+Total supply:
+1,000,000,000 VAELO
+
+Target network:
+Base Mainnet
+
+Chain ID:
+8453
+
+Solidity:
+0.8.24
+
+Optimizer:
+Enabled
+
+Optimizer runs:
+200
+
+EVM:
+Paris
+
+Canonical tokenomics:
+
+Ecosystem & Community:
+300,000,000 — 30%
+
+Public Distribution:
+200,000,000 — 20%
+
+Vaeloryn Treasury:
+200,000,000 — 20%
+
+Team & Contributors:
+150,000,000 — 15%
+
+Founder:
+100,000,000 — 10%
+
+Strategic Partnerships:
+50,000,000 — 5%
+
+TOTAL:
+1,000,000,000 — 100%
+
+Founder beneficiary:
+
+0x254D5eE9D7216bB8601B5D2156072863A975b309
+
+Treasury Safe:
+
+0x3A9bee20360294F8439513Ae70D189f56288baF2
+
+Ecosystem:
+
+0x43dF3281C2Cc960cD2837a153Ec397a2b67e18a7
+
+Public Distribution:
+
+0x653835dc0fF216D2B10fF64153A9aA6A0639Fb82
+
+Team:
+
+0x2fB598d102303E5c0E7D36Db94CFBC76a680c7F4
+
+Strategic Partnerships:
+
+0xC263222BB55289D0a442871aF04A5065f87e9D87
+
+These addresses are public recipient addresses only.
+
+Never expose or request private keys.
+
+==================================================
+CANONICAL FOUNDER VESTING
+
+Founder allocation:
+100,000,000 VAELO
+
+Schedule:
+
+2.5M at T0
+2.5M at T0 + 90 days
+2.5M at T0 + 180 days
+2.5M at T0 + 270 days
+
+Remaining:
+90M
+
+Linear vesting:
+Exactly 1,095 days beginning at T0 + 270 days.
+
+Confirm the actual Solidity implementation matches this.
+
+If it does not match, report the discrepancy.
+
+DO NOT modify it.
+
+==================================================
+CANONICAL CONTRACT ARCHITECTURE
+
+Canonical contracts:
+
+VaelorynToken.sol
+VaelorynFounderVesting.sol
+VaelorynGenesisDistribution.sol
+VaelorynDeploymentFactory.sol
+
+Confirm:
+
+* Fixed 1B supply
+* Minted exactly once
+* No additional minting
+* ERC-20
+* Burn
+* burnFrom
+* ERC20Permit
+* EIP-2612
+* EIP-712
+* Nonces
+* No owner
+* No admin
+* No upgradeability
+* No pause
+* No blacklist
+* No transfer tax
+* No allocation-edit mechanism
+
+Confirm the factory creates the canonical deployment atomically.
+
+==================================================
+TESTING
+
+Run the canonical tests READ-ONLY.
+
+Expected current result:
+
+27 passed
+0 failed
+0 skipped
+
+If the result differs, report the exact result.
+
+Do not alter tests merely to make them pass.
+
+==================================================
+OLD / HISTORICAL MATERIAL
+
+Search the ENTIRE repository for obsolete tokenomics or architecture.
+
+Specifically search for:
+
+35% Ecosystem
+25% Public
+15% Founder
+10% Team
+10% Partnerships
+5% Reserve
+
+350M
+250M
+150M
+100M
+50M
+
+Old founder allocation:
+150,000,000
+
+Old Base Sepolia contract addresses:
+
+0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c
+0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2
+0xa3eF040471497538a617061FdDEea0CD4C03beBa
+
+DO NOT automatically delete historical records.
+
+Instead classify every occurrence as:
+
+CURRENT CANONICAL
+HISTORICAL
+OR
+ERRONEOUS / NEEDS CORRECTION
+
+The historical V1.1 prototype must remain clearly separated from the production architecture.
+
+==================================================
+SALE SPECIFICATION
+
+Current proposed initial sale:
+
+Network:
+Base Mainnet
+
+Maximum sale allocation:
+10,000,000 VAELO
+
+Percentage of total supply:
+1%
+
+Target reference FDV:
+$5,000,000
+
+Reference price:
+$0.005/VAELO
+
+Current proposed tier model:
+
+Tier 1:
+1M VAELO at $0.003
+
+Tier 2:
+2M VAELO at $0.004
+
+Tier 3:
+3M VAELO at $0.005
+
+Tier 4:
+4M VAELO at $0.006
+
+Maximum:
+10M VAELO
+
+Maximum theoretical gross proceeds:
+$50,000
+
+IMPORTANT:
+
+These are PROPOSED WORKING PARAMETERS.
+
+Do not claim:
+
+* Fjord sale created
+* Fjord sale approved
+* Fjord partnership confirmed
+* Mainnet token deployed
+* Mainnet token verified
+
+==================================================
+DOCUMENTATION AUDIT
+
+Audit:
+
+README
+white paper
+product documentation
+pitch deck
+tokenomics documents
+technical specifications
+deployment documentation
+sale documentation
+website-facing documentation
+Fjord documentation
+
+Identify every place where:
+
+* Old tokenomics appear
+* Old founder allocation appears
+* Old sale assumptions appear
+* Testnet is described as Mainnet
+* Prototype contracts are presented as production
+* Future functionality is presented as live
+* Unsupported partnerships are claimed
+* An independent audit is claimed
+* Revenue is claimed without evidence
+* Users/adoption are claimed without evidence
+
+==================================================
+DEPLOYMENT READINESS
+
+Confirm whether the repository contains:
+
+DeployCanonicalMainnet.s.sol
+
+Confirm it:
+
+* Requires chain ID 8453
+* Has no Sepolia fallback
+* Uses canonical factory
+* Validates recipients
+* Reads environment variables securely
+* Performs post-deployment readback
+* Does not hard-code private credentials
+
+Confirm foundry.toml:
+
+solc_version = 0.8.24
+optimizer = true
+optimizer_runs = 200
+evm_version = “paris”
+
+Confirm Base Mainnet manifest exists.
+
+Confirm it remains:
+
+NOT_DEPLOYED
+
+until an actual deployment occurs.
+
+==================================================
+SECURITY
+
+Confirm whether an independent smart-contract audit exists.
+
+If not:
+
+State:
+INDEPENDENT AUDIT NOT COMPLETED.
+
+Do not call internal testing an audit.
+
+Also identify any remaining technical security risks that should be addressed before deployment.
+
+==================================================
+TREASURY
+
+Confirm the Treasury allocation points to:
+
+0x3A9bee20360294F8439513Ae70D189f56288baF2
+
+Confirm the old MetaMask treasury address is not used by the production configuration.
+
+Confirm whether the Treasury Safe is correctly represented in documentation.
+
+==================================================
+WEBSITE
+
+Do not modify the website.
+
+Check only whether the website currently contains:
+
+* Old tokenomics
+* Old contract addresses
+* Incorrect sale information
+* Incorrect Mainnet claims
+* Broken links
+* Unsupported claims
+
+Report findings only.
+
+==================================================
+FINAL OUTPUT
+
+Produce a detailed report with:
+
+1. CANONICAL STATUS
+2. CONTRACT STATUS
+3. TEST STATUS
+4. TOKENOMICS STATUS
+5. FOUNDER VESTING STATUS
+6. RECIPIENT ADDRESS STATUS
+7. TREASURY STATUS
+8. MAINNET DEPLOYMENT STATUS
+9. DOCUMENTATION STATUS
+10. WEBSITE STATUS
+11. HISTORICAL/OBSOLETE MATERIAL FOUND
+12. SECURITY STATUS
+13. SALE READINESS
+14. EXACT REMAINING BLOCKERS
+15. RECOMMENDED ORDER OF OPERATIONS
+
+For every issue, classify:
+
+CRITICAL
+HIGH
+MEDIUM
+LOW
+INFORMATIONAL
+
+Most importantly:
+
+DO NOT FIX ANYTHING IN THIS TASK.
+
+This is an AUDIT ONLY.
+
+No deployment.
+No broadcast.
+No transfer.
+No contract modification.
+No website modification.
+No commit.
+
+FINAL STATUS MUST BE ONE OF:
+
+READY FOR FINAL REVIEW
+
+or
+
+NOT READY — BLOCKERS REMAIN
+
+Do not declare the project ready merely because tests pass.
