@@ -219,7 +219,7 @@ export function Roadmap() {
               <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
                 {[
                   'VaelorynToken implemented — ERC-20, fixed supply, burn, permit (EIP-2612).',
-                  'VaelorynFounderVesting implemented — on-chain vesting with enforced schedule.',
+                  'VaelorynFounderVesting implemented locally — canonical on-chain vesting logic with an enforced schedule.',
                   'VaelorynGenesisAllocator implemented — constitutional distribution at deployment.',
                   'Canonical Foundry implementation tested locally — 27 targeted tests passed, with zero failures.',
                   'Historical V1.1 prototype remains deployed on Base Sepolia; canonical deployment is pending.',
@@ -239,9 +239,9 @@ export function Roadmap() {
               <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
                 {[
                   'Fixed supply of 1,000,000,000 VAELO verified — minted once at construction.',
-                  'Constitutional allocation executed and verified on-chain.',
-                  'Founder vesting schedule deployed, tested and confirmed.',
-                  'Genesis distribution transaction permanently recorded on Base Sepolia.',
+                  'Historical V1.1 allocation executed and verified on-chain.',
+                  'Canonical founder vesting schedule tested and confirmed locally; canonical deployment is pending.',
+                  'Historical V1.1 genesis distribution transaction permanently recorded on Base Sepolia.',
                 ].map((item) => (
                   <DoneBullet key={item} text={item} />
                 ))}

@@ -437,8 +437,8 @@ export function Verify() {
                 <ul className="space-y-4">
                   {[
                     { phase: 'Immediately Claimable', amount: '2,500,000 VAELO', desc: 'Available at contract deployment.' },
-                    { phase: 'Year 1 — Quarterly', amount: '2,500,000 VAELO / 90 days', desc: 'Released every 90 days during Year 1.' },
-                    { phase: 'Months 13–48 — Linear', amount: '90,000,000 VAELO', desc: 'Vested linearly over the following 36 months.' },
+                    { phase: 'Three scheduled releases', amount: '2,500,000 VAELO at +90, +180 and +270 days', desc: 'Exactly three additional releases after the T0 initial release; no fourth release at +360 days.' },
+                    { phase: 'Linear phase', amount: '90,000,000 VAELO', desc: 'Vests from T0 + 270 days over exactly 1,095 days.' },
                   ].map(({ phase, amount, desc }) => (
                     <li key={phase} className="flex gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />

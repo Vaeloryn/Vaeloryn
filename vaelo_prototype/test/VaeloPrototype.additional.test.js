@@ -3,8 +3,8 @@ const { ethers } = require("hardhat");
 const { time } = require("@nomicfoundation/hardhat-network-helpers");
 
 // ──────────────────────────────────────────────────────────────────────────────
-// Helper: deploy the three-contract system and fund the vesting contract with
-// the full 150 000 000 VAELO founder allocation.
+// Historical V1.1 prototype helper: deploy the three-contract system and fund
+// the vesting contract with its historical 150 000 000 VAELO allocation.
 // ──────────────────────────────────────────────────────────────────────────────
 async function deployVesting() {
   const [owner, founder] = await ethers.getSigners();
@@ -79,9 +79,9 @@ describe("VaelorynGenesisAllocator – additional coverage", function () {
 });
 
 // ──────────────────────────────────────────────────────────────────────────────
-// 2. Founder vesting – cumulative schedule years 2, 3, 4
+// 2. Historical V1.1 founder vesting – cumulative schedule years 2, 3, 4
 // ──────────────────────────────────────────────────────────────────────────────
-describe("VaelorynFounderVesting – cumulative schedule (Years 2–4)", function () {
+describe("Historical V1.1 VaelorynFounderVesting – cumulative schedule (Years 2–4)", function () {
   it("vests exactly 25% (37 500 000 VAELO) by Year 2", async function () {
     const { vesting, start } = await deployVesting();
 
@@ -180,10 +180,10 @@ describe("VaelorynFounderVesting – release() controls", function () {
     );
   });
 
-  it("releases the full 150 000 000 VAELO by Year 5 in one or more calls", async function () {
+  it("releases the full historical 150 000 000 VAELO by Year 5 in one or more calls", async function () {
     const { vesting, token, founder, start } = await deployVesting();
 
-    // Advance past the 5-year cliff and release everything at once
+    // Advance past the historical five-year schedule and release everything at once
     await time.increaseTo(start + 5 * YEAR + 1);
     await vesting.release();
 

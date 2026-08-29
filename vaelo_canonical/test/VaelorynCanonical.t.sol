@@ -382,16 +382,19 @@ contract VaelorynCanonicalTest is Test {
         assertEq(vesting.released(), 2_500_000 ether);
     }
 
-    function testVestingExactQuarterlyAndLinearBoundaries() public view {
+    function testVestingExactCanonicalBoundariesAndNoFourthRelease() public view {
         assertEq(vesting.vestedAmount(t0), 2_500_000 ether);
+        assertEq(vesting.vestedAmount(t0 + 90 days - 1), 2_500_000 ether);
         assertEq(vesting.vestedAmount(t0 + 90 days), 5_000_000 ether);
         assertEq(vesting.vestedAmount(t0 + 180 days), 7_500_000 ether);
         assertEq(vesting.vestedAmount(t0 + 270 days), 10_000_000 ether);
         uint256 linearElapsedAt360Days = 90 days;
-        uint256 expectedAt360Days =
-            10_000_000 ether +
+        uint256 linearAmountAt360Days =
             (vesting.LINEAR_ALLOCATION() * linearElapsedAt360Days) /
             vesting.LINEAR_DURATION();
+        uint256 expectedAt360Days =
+            10_000_000 ether +
+            linearAmountAt360Days;
         assertEq(vesting.vestedAmount(t0 + 360 days), expectedAt360Days);
 
         uint256 midpoint = vesting.linearStartTimestamp() + (vesting.LINEAR_DURATION() / 2);
@@ -411,6 +414,7 @@ contract VaelorynCanonicalTest is Test {
         vesting.release();
         assertEq(vesting.released(), 5_000_000 ether);
         assertEq(token.balanceOf(founder), 5_000_000 ether);
+        assertLe(vesting.released(), vesting.vestedAmount(block.timestamp));
     }
 
     function testThirdPartyCanTriggerFounderClaimOnlyFounderReceivesTokens() public {

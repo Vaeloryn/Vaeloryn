@@ -235,9 +235,9 @@ export function Transparency() {
                   implemented: true,
                   items: [
                     '100M VAELO canonical founder allocation — implemented locally, not deployed.',
-                    '2,500,000 VAELO immediately claimable.',
-                    '2,500,000 VAELO released every 90 days during Year 1.',
-                    'Remaining 90,000,000 VAELO vested linearly over 36 months.',
+                    '2,500,000 VAELO claimable at T0.',
+                    '2,500,000 VAELO released at each of T0 + 90, +180 and +270 days — exactly three scheduled releases.',
+                    'Remaining 90,000,000 VAELO vested linearly from T0 + 270 days over exactly 1,095 days.',
                     'Schedule enforced by contract logic — no admin bypass.',
                   ],
                 },
@@ -321,9 +321,9 @@ export function Transparency() {
               <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-4">
                 <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Vesting Schedule (Implemented)</p>
                 <BulletList items={[
-                  '2,500,000 VAELO immediately claimable at deployment.',
-                  '2,500,000 VAELO released every 90 days during Year 1.',
-                  'Remaining 90,000,000 VAELO vested linearly over the following 36 months.',
+                  '2,500,000 VAELO claimable at T0, the official launch timestamp.',
+                  '2,500,000 VAELO released at T0 + 90, +180 and +270 days — exactly three scheduled releases.',
+                  'Remaining 90,000,000 VAELO vested linearly from T0 + 270 days over exactly 1,095 days.',
                   'Schedule enforced by smart contract — no admin override.',
                   'Tested locally with Foundry; not deployed on Base Sepolia.',
                 ]} />

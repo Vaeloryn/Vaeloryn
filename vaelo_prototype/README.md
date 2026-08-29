@@ -1,8 +1,8 @@
-# VAELO Prototype V1.1
+# VAELO Prototype V1.1 — Historical / Non-Canonical
 
 Test-only prototype for **Vaeloryn (VAELO)** on the Base/Ethereum ecosystem.
 
-**Status: 14/14 automated tests passing.**
+**Status: Historical Base Sepolia testnet prototype; 14/14 automated tests passing.**
 
 ## Current working design
 
@@ -11,15 +11,15 @@ Test-only prototype for **Vaeloryn (VAELO)** on the Base/Ethereum ecosystem.
 - Standard: ERC-20
 - Maximum supply: 1,000,000,000 VAELO
 - Additional minting: none
-- Founder allocation: 150,000,000 VAELO (15%)
-- Founder vesting: 5 years, with cumulative vesting of 10%, 25%, 45%, 70%, 100%
+- Historical prototype founder allocation: 150,000,000 VAELO (15%)
+- Historical prototype founder vesting: 5 years, with cumulative vesting of 10%, 25%, 45%, 70%, 100%
 - Year 1 vesting is linear and totals 15,000,000 VAELO
 
 ## Genesis allocation
 
 - 35% Ecosystem & Mission Treasury (350,000,000 VAELO)
 - 25% Public & Community (250,000,000 VAELO)
-- 15% Founder Vesting (150,000,000 VAELO)
+- 15% Historical V1.1 Founder Vesting (150,000,000 VAELO)
 - 10% Future Team & Advisers (100,000,000 VAELO)
 - 10% Strategic Partnerships (100,000,000 VAELO)
 - 5% Long-Term Reserve (50,000,000 VAELO)
@@ -90,7 +90,7 @@ The deployment script temporarily uses the deployer address for multiple treasur
 roles. A production version must use properly separated treasury addresses and
 appropriate multisignature controls.
 
-The testnet deployment starts the prototype vesting clock immediately for
+The historical V1.1 testnet deployment starts the prototype vesting clock immediately for
 testing. The production Founder vesting schedule is intended to begin on the
 approved official VAELO public/token launch date.
 

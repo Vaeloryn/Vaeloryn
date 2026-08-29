@@ -6,9 +6,10 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 /**
  * @title VaelorynFounderVesting
- * @notice Prototype vesting contract for the 150 million VAELO Founder allocation.
+ * @notice Historical V1.1 prototype vesting contract for the 150 million VAELO
+ * Founder allocation. This is not the canonical production schedule.
  *
- * Working schedule from the official launch timestamp:
+ * Historical V1.1 schedule from the official launch timestamp:
  * Year 1: 10% cumulative
  * Year 2: 25% cumulative
  * Year 3: 45% cumulative

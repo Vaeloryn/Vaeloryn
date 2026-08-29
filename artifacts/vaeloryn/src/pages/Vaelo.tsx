@@ -19,7 +19,7 @@ const ALLOCATION = [
   { label: 'Public Distribution',   pct: 20, amount: '200M', note: 'Milestone-gated. No active sale. Subject to regulatory preparation.' },
   { label: 'Vaeloryn Treasury',     pct: 20, amount: '200M', note: 'Long-term development reserve. Not a founder wallet.' },
   { label: 'Team & Contributors',   pct: 15, amount: '150M', note: 'Reserved for future team and contributor grants with vesting conditions.' },
-  { label: 'Founder',               pct: 10, amount: '100M', note: 'Held in FounderVesting contract. 2.5M immediately claimable; 2.5M per quarter Year 1; 90M linear over 36 months.' },
+  { label: 'Founder',               pct: 10, amount: '100M', note: 'Held in FounderVesting contract. 2.5M at T0 and at +90, +180 and +270 days; 90M linear over exactly 1,095 days from +270 days.' },
   { label: 'Strategic Partnerships',pct:  5, amount:  '50M', note: 'For aligned ecosystem partners and integrations.' },
 ];
 
@@ -184,7 +184,7 @@ export function Vaelo() {
             <div className="flex flex-col gap-4">
               {[
                 { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'V1.1 ERC-20 · Fixed supply' },
-                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'V1.1 vesting · 150M VAELO · five-year schedule' },
+                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'Historical V1.1 testnet vesting · 150M VAELO · five-year schedule' },
                 { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'V1.1 genesis allocation' },
               ].map(({ name, addr, role }, i) => (
                 <motion.div
@@ -372,9 +372,9 @@ export function Vaelo() {
                 <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Vesting Schedule</p>
                 <ul className="space-y-4">
                   {[
-                    { phase: 'Immediately Claimable', amount: '2,500,000 VAELO', desc: 'Available at contract deployment.' },
-                    { phase: 'Year 1 — Quarterly', amount: '2,500,000 VAELO / 90 days', desc: 'Released every 90 days during Year 1.' },
-                    { phase: 'Months 13–48 — Linear', amount: '90,000,000 VAELO', desc: 'Vested linearly over the following 36 months.' },
+                    { phase: 'Initial release', amount: '2,500,000 VAELO', desc: 'Claimable at T0, the official launch timestamp.' },
+                    { phase: 'Three scheduled releases', amount: '2,500,000 VAELO at +90, +180 and +270 days', desc: 'Exactly three additional releases; no fourth release at +360 days.' },
+                    { phase: 'Linear phase', amount: '90,000,000 VAELO', desc: 'Vests from T0 + 270 days over exactly 1,095 days.' },
                   ].map(({ phase, amount, desc }) => (
                     <li key={phase} className="flex gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
