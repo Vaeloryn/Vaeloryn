@@ -12,7 +12,7 @@ import {
   useChainId,
 } from 'wagmi';
 import { QRCodeSVG } from 'qrcode.react';
-import { ErrorBoundary } from '@/components/error-boundary';
+import { ErrorBoundary } from './components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
@@ -381,6 +381,16 @@ function WalletHome({ wallet }: { wallet: ReturnType<typeof useWalletState> }) {
         </div>
       )}
       {wallet.mode === 'disconnected' && <div className="mt-8 flex items-center gap-3 text-xs text-[#7d8491]"><span className="h-px w-8 bg-[#C9A227]/50" /> Connect or preview to view assets on Base Sepolia.</div>}
+      <section className="card-surface mt-8 rounded-xl p-6 md:p-7" data-testid="panel-install-wallet">
+        <div className="flex items-start gap-3">
+          <Smartphone size={17} className="mt-0.5 shrink-0 text-[#C9A227]" />
+          <div>
+            <div className="text-[10px] font-semibold uppercase tracking-[.2em] text-[#C9A227]">Add to Home Screen</div>
+            <h2 className="mt-2 font-display text-2xl">Keep the wallet close.</h2>
+            <p className="mt-2 max-w-2xl text-xs leading-5 text-[#9AA0AD]">On iPhone, open this page in Safari, tap Share, choose Add to Home Screen, then tap Add. On Android, open it in Chrome and choose Add to Home screen or Install app from the browser menu.</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
@@ -417,20 +427,17 @@ function SendPage({ wallet }: { wallet: ReturnType<typeof useWalletState> }) {
   const [, setLocation] = useLocation();
   const { data: walletClient } = useWalletClient();
   const publicClient = usePublicClient();
-  const [asset, setAsset] = useState<'ETH' | 'VAELO'>('ETH');
+  const asset = 'ETH' as const;
   const [recipient, setRecipient] = useState('');
   const [amount, setAmount] = useState('');
   const [reviewing, setReviewing] = useState(false);
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
-  const vaeloDisabled = !walletConfig.vaeloAddress;
-
   const review = (event: FormEvent) => {
     event.preventDefault();
     setError('');
     if (wallet.mode === 'disconnected') { setError('Connect an injected wallet or enter iPhone preview before continuing.'); return; }
-    if (asset === 'VAELO' && vaeloDisabled) { setError('VAELO transfers are disabled until the canonical contract is configured.'); return; }
     if (!validateRecipient(recipient)) { setError('Enter a valid EVM address.'); return; }
     try {
       asset === 'ETH'
@@ -497,8 +504,7 @@ function SendPage({ wallet }: { wallet: ReturnType<typeof useWalletState> }) {
     <div className="route-enter max-w-2xl">
       <PageHeading eyebrow="Send" title="Send with intent." description="ETH transfers are available on Base Sepolia. VAELO remains unavailable until its canonical contract is configured." action={<Link href="/" className="focus-ring inline-flex items-center gap-2 text-xs text-[#9AA0AD] hover:text-[#E0C15A]" data-testid="link-send-back"><ArrowLeft size={15} /> Wallet</Link>} />
       <form onSubmit={review} className="card-surface rounded-xl p-6 md:p-8" data-testid="form-send-transfer">
-        <div className="mb-7 flex items-center justify-between border-b border-[#C9A227]/15 pb-5"><div className="text-[10px] font-semibold uppercase tracking-[.2em] text-[#9AA0AD]">Asset</div><div className="flex gap-2"><button type="button" className={`focus-ring rounded-md px-4 py-2 text-xs font-semibold ${asset === 'ETH' ? 'bg-[#C9A227]/15 text-[#E0C15A]' : 'text-[#9AA0AD]'}`} onClick={() => setAsset('ETH')} data-testid="button-select-eth">ETH</button><button type="button" disabled={vaeloDisabled} className={`focus-ring rounded-md px-4 py-2 text-xs font-semibold ${asset === 'VAELO' ? 'bg-[#C9A227]/15 text-[#E0C15A]' : 'text-[#7d8491]'} disabled:cursor-not-allowed disabled:opacity-50`} onClick={() => setAsset('VAELO')} data-testid="button-select-vaelo">VAELO</button></div></div>
-        {vaeloDisabled && <div className="mb-6 flex items-center gap-2 text-[11px] text-[#9AA0AD]" data-testid="status-vaelo-disabled"><LockKeyhole size={14} className="text-[#C9A227]" />VAELO disabled — canonical contract not set.</div>}
+        <div className="mb-7 flex items-center justify-between border-b border-[#C9A227]/15 pb-5"><div className="text-[10px] font-semibold uppercase tracking-[.2em] text-[#9AA0AD]">Asset</div><div className="rounded-md bg-[#C9A227]/15 px-4 py-2 text-xs font-semibold text-[#E0C15A]">ETH</div></div>
         <label className="block text-[10px] font-semibold uppercase tracking-[.18em] text-[#9AA0AD]" htmlFor="recipient">Recipient address</label>
         <input id="recipient" value={recipient} onChange={(event) => setRecipient(event.target.value)} placeholder="0x..." className="focus-ring mt-3 w-full rounded-md border border-[#C9A227]/20 bg-[#0b0e15] px-4 py-3.5 font-mono text-sm text-[#F4F1EA] placeholder:text-[#5f6672]" data-testid="input-recipient-address" />
         <label className="mt-6 block text-[10px] font-semibold uppercase tracking-[.18em] text-[#9AA0AD]" htmlFor="amount">Amount <span className="normal-case tracking-normal text-[#7d8491]">({asset})</span></label>
@@ -587,12 +593,12 @@ function RoutedErrorBoundary({ children }: { children: ReactNode }) {
   return <ErrorBoundary resetKey={location}>{children}</ErrorBoundary>;
 }
 
-function App() {
+function App({ base }: { base?: string } = {}) {
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
-          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+          <WouterRouter base={base ?? import.meta.env.BASE_URL.replace(/\/$/, '')}>
             <Router />
           </WouterRouter>
           <Toaster />

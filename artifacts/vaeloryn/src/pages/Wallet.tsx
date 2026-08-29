@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowUpRight, Check, Chrome, Plus, Share, Smartphone } from 
 import { Link } from 'wouter';
 import { SEO } from '@/components/SEO';
 
-const WALLET_URL = '/vaeloryn-wallet/';
+const WALLET_URL = '/app';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 22 },

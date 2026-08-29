@@ -7,8 +7,8 @@ import {
 import { baseSepolia } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';
 import { encodeFunctionData, erc20Abi, parseUnits, type Address, type PublicClient, type WalletClient } from 'viem';
-import { parseEthAmount, validateRecipient } from '@/lib/format';
-import { walletConfig } from '@/config';
+import { parseEthAmount, validateRecipient } from './format';
+import { walletConfig } from '../config';
 
 export const wagmiConfig = createConfig({
   chains: [baseSepolia],

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -67,6 +67,106 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
+
+/* Same-site wallet surface */
+@keyframes wallet-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.wallet-app {
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 0%, rgba(201,162,39,.075), transparent 27rem),
+    radial-gradient(circle at 10% 58%, rgba(31,48,74,.13), transparent 26rem),
+    #07090f;
+  color: #f4f1ea;
+}
+
+.wallet-app::before {
+  content: '';
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image: linear-gradient(rgba(224,193,90,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(224,193,90,.018) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
+
+.wallet-app .app-frame { position: relative; z-index: 1; }
+.wallet-app .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+.wallet-app .font-mono { font-family: 'SFMono-Regular', Consolas, monospace; }
+.wallet-app .wallet-main { max-width: 1120px; margin: 0 auto; }
+
+.wallet-app .gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,.64), transparent);
+}
+
+.wallet-app .status-pill {
+  border: 1px solid rgba(201,162,39,.42);
+  background: rgba(201,162,39,.08);
+  color: #e0c15a;
+}
+
+.wallet-app .card-surface {
+  background: rgba(16,21,31,.92);
+  border: 1px solid rgba(201,162,39,.18);
+  box-shadow: 0 18px 50px rgba(0,0,0,.2);
+}
+
+.wallet-app .card-surface:hover { border-color: rgba(201,162,39,.34); }
+.wallet-app .gold-button { background: #c9a227; color: #0a0d13; }
+.wallet-app .gold-button:hover { background: #e0c15a; }
+.wallet-app .gold-button:disabled { opacity: .42; cursor: not-allowed; }
+.wallet-app .ghost-button { border: 1px solid rgba(224,193,90,.32); background: rgba(224,193,90,.045); color: #e0c15a; }
+.wallet-app .ghost-button:hover { background: rgba(224,193,90,.1); border-color: rgba(224,193,90,.62); }
+.wallet-app .route-enter { animation: wallet-in .42s ease-out both; }
+.wallet-app .route-enter > * { animation: wallet-in .42s ease-out both; }
+.wallet-app .route-enter > *:nth-child(2) { animation-delay: 45ms; }
+.wallet-app .route-enter > *:nth-child(3) { animation-delay: 90ms; }
+.wallet-app .route-enter > *:nth-child(4) { animation-delay: 135ms; }
+
+.wallet-app .qr-shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 232px);
+  aspect-ratio: 1;
+  padding: 15px;
+  background: #f4f1ea;
+  border: 1px solid rgba(224,193,90,.65);
+  box-shadow: 0 0 0 8px rgba(201,162,39,.04);
+}
+
+.wallet-app .qr-pattern {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(90deg, #10151f 10%, transparent 10% 20%, #10151f 20% 30%, transparent 30% 40%, #10151f 40% 50%, transparent 50% 60%, #10151f 60% 70%, transparent 70% 80%, #10151f 80% 90%, transparent 90%),
+    linear-gradient(#10151f 10%, transparent 10% 20%, #10151f 20% 30%, transparent 30% 40%, #10151f 40% 50%, transparent 50% 60%, #10151f 60% 70%, transparent 70% 80%, #10151f 80% 90%, transparent 90%);
+  background-size: 23px 23px;
+  opacity: .88;
+}
+
+.wallet-app .qr-pattern::after,
+.wallet-app .qr-pattern::before {
+  content: '';
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border: 8px solid #10151f;
+  background: #f4f1ea;
+  box-shadow: inset 0 0 0 7px #10151f;
+}
+
+.wallet-app .qr-pattern::before { top: 22px; left: 22px; }
+.wallet-app .qr-pattern::after { right: 22px; bottom: 22px; }
+.wallet-app .focus-ring:focus-visible { outline: 2px solid #e0c15a; outline-offset: 3px; }
 
 /* LIGHT MODE */
 :root {

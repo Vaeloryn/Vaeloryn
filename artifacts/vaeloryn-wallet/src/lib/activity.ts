@@ -1,4 +1,4 @@
-import type { ActivityEntry } from '@/config';
+import type { ActivityEntry } from '../config';
 
 const ACTIVITY_KEY_PREFIX = 'vaeloryn-wallet:activity:v1:';
 

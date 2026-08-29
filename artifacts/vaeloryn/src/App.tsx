@@ -16,6 +16,7 @@ import { Risks } from '@/pages/Risks';
 import { Status } from '@/pages/Status';
 import { Verify } from '@/pages/Verify';
 import { Wallet } from '@/pages/Wallet';
+import WalletApp from '../../vaeloryn-wallet/src/App';
 
 const queryClient = new QueryClient();
 
@@ -44,7 +45,25 @@ function Router() {
   );
 }
 
+function WalletEntry() {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+
+  if (pathname === '/vaeloryn-wallet') {
+    window.history.replaceState(null, '', '/app');
+  }
+
+  return <WalletApp base="/app" />;
+}
+
 function App() {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+  const isWalletPath = pathname === '/app' || pathname.startsWith('/app/');
+  const isLegacyWalletPath = pathname === '/vaeloryn-wallet';
+
+  if (isWalletPath || isLegacyWalletPath) {
+    return <WalletEntry />;
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
