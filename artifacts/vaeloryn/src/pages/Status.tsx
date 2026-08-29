@@ -261,7 +261,7 @@ export function Status() {
                 'Canonical Foundry implementation tested locally — 27 targeted tests passed, zero failures.',
                 'Historical V1.1 prototype remains deployed to Base Sepolia; canonical deployment is pending.',
                 'Canonical source verification is pending deployment.',
-                'Historical V1.1 allocation executed and verified on-chain.',
+                'Historical V1.1 allocation recorded and inspectable on-chain.',
                 'Canonical founder vesting schedule implemented and locally tested; not deployed.',
                 'Canonical initial mint of 1,000,000,000 VAELO implemented and locally tested — minted once at construction.',
                 'VAELO tokenomics framework developed.',

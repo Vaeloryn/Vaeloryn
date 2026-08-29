@@ -4,3 +4,4 @@
 - [Wagmi v3 token balances](wagmi-v3-token-balance.md) — native useBalance does not expose ERC-20 token parameters; read configured tokens with viem readContract.
 - [Artifact route ownership](artifact-route-ownership.md) — registered artifact paths intercept root-app redirects; move obsolete registrations before reusing their URLs.
 - [Cross-package wallet styling](cross-package-wallet-styling.md) — critical responsive layout rules need host CSS when wallet UI is imported from a sibling package.
+- [Launchpad-agnostic VAELO](launchpad-agnostic-protocol.md) — sale venues are optional external distribution choices; never couple the canonical token or deployment to one platform.

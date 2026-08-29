@@ -321,7 +321,7 @@ export function Verify() {
         </div>
       </section>
 
-      {/* ── Fixed Supply ── */}
+      {/* ── Initial Mint and Supply Mechanics ── */}
       <section className="py-20 md:py-28 border-b border-white/5 bg-white/[0.01]">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div

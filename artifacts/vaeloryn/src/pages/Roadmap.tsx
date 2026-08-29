@@ -239,7 +239,7 @@ export function Roadmap() {
               <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
                 {[
                   'Canonical initial mint of 1,000,000,000 VAELO implemented locally — minted once at construction.',
-                  'Historical V1.1 allocation executed and verified on-chain.',
+                  'Historical V1.1 allocation recorded and inspectable on-chain.',
                   'Canonical founder vesting schedule tested and confirmed locally; canonical deployment is pending.',
                   'Historical V1.1 genesis distribution transaction permanently recorded on Base Sepolia.',
                 ].map((item) => (

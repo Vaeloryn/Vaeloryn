@@ -16,8 +16,8 @@ Stop immediately if any of the following occurs:
 - The canonical source or build settings differ from the reviewed package.
 - The token address is historical, placeholder, unverified, or not recovered from
   the approved factory transaction.
- - A future distribution would exceed 10,000,000 VAELO without separate approval.
- - Potential venue requirements or legal approvals remain unresolved.
+- A future distribution would exceed 10,000,000 VAELO without separate approval.
+- Potential venue requirements or legal approvals remain unresolved.
 - Any step would require using `--broadcast` before final authorization.
 
 ## Ordered sequence

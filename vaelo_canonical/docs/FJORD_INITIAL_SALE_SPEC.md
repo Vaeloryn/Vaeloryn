@@ -1,9 +1,13 @@
-# VAELO Initial Fjord Foundry Sale Specification
+# Potential Initial VAELO Distribution Specification
 
-**Status:** Preparation only — sale not created
+**Status:** Planning only — no venue selected; sale not created
 **Network:** Base Mainnet
 **Canonical token:** VAELO
 **Canonical token address:** Not deployed; to be populated only after the approved canonical Base Mainnet deployment and source verification
+
+Fjord Foundry is one potential public-sale venue under evaluation. No acceptance,
+partnership, approval, sale creation, or launch date is implied. The canonical
+protocol and token remain launchpad-agnostic.
 
 ## A. Sale specification
 
@@ -41,7 +45,7 @@ Required preconditions:
 - The on-chain total supply and allocation balances match the canonical manifest.
 - The historical Base Sepolia V1.1 token is not used.
 
-No canonical token address exists yet. A Fjord sale must not be created against a
+No canonical token address exists yet. A sale must not be created against a
 placeholder, historical, or unverified address.
 
 ## C. Tier table
@@ -65,7 +69,7 @@ it is not an additional allocation.
 | Account | Amount |
 |---|---:|
 | Canonical Public Distribution allocation | 200,000,000 VAELO |
-| Initial Fjord sale maximum | 10,000,000 VAELO |
+| Initial potential sale maximum | 10,000,000 VAELO |
 | Remaining Public Distribution allocation | 190,000,000 VAELO |
 
 The approved Public Distribution custody address is:
@@ -78,14 +82,16 @@ Operationally, the canonical Genesis Distribution will send the complete
 200,000,000 VAELO Public Distribution allocation to that address. After the
 canonical token has been deployed and verified, the approved Public Distribution
 custody will be expected to transfer no more than 10,000,000 VAELO to the final,
-verified Fjord sale contract, if that arrangement is approved.
+verified distribution contract or venue-controlled recipient, if that arrangement
+is separately approved.
 
-The Fjord sale contract address does not exist yet and must not be invented.
+The future distribution contract or venue recipient does not exist yet and must
+not be invented.
 No transfer is authorized by this document. The 190,000,000 VAELO remainder
 stays within the Public Distribution allocation and is not part of the initial
 sale.
 
-## E. Required sale custody arrangement
+## E. Required future distribution custody arrangement
 
 The expected pre-sale holder of the 10,000,000 VAELO sale allocation is the
 approved Public Distribution custody address above. No new wallet address may
@@ -93,24 +99,24 @@ be substituted.
 
 Before any transfer or sale creation, the following must be documented:
 
-- The exact Fjord sale contract address.
+- The exact distribution contract or venue recipient.
 - The authority controlling the Public Distribution custody.
 - The approved transaction or operational procedure for funding the sale.
 - The maximum amount funded: 10,000,000 VAELO.
 - The treatment of any unsold tokens.
-- A readback proving that the sale contract received the intended amount.
+- A readback proving that the approved recipient received the intended amount.
 
-The exact Fjord custody and funding workflow is **REQUIRES EXTERNAL FJORD
+The exact venue custody and funding workflow is **REQUIRES EXTERNAL VENUE
 CONFIRMATION**.
 
-## F. Fjord-specific requirements requiring confirmation
+## F. Potential venue requirements requiring confirmation
 
-The repository does not contain Fjord Foundry platform documentation or a created
-sale configuration. The following items must therefore be confirmed externally
-before sale creation:
+The repository does not contain platform documentation or a created sale
+configuration. If Fjord Foundry or another venue is selected, the following
+items must be confirmed externally before sale creation:
 
-- Whether Fjord supports this tiered sale structure and Base Mainnet token flow.
-- Required token funding method and the correct sale contract recipient.
+- Whether the selected venue supports this tiered sale structure and Base Mainnet token flow.
+- Required token funding method and the correct distribution recipient.
 - Accepted payment asset, payment chain, settlement process, and decimal handling.
 - Sale creation fields and which fields are fixed after creation.
 - Parameters that cannot be changed after the sale goes live.
@@ -119,9 +125,9 @@ before sale creation:
 - Eligibility, whitelist, KYC/AML, sanctions, and geographic restrictions.
 - Whether collateral is required, what asset is used, and how it is held or returned.
 - Oversubscription, refunds, cancellation, and unsold-token handling.
-- Fjord/platform fees and any required service or settlement costs.
+- Platform fees and any required service or settlement costs.
 
-Each item is **REQUIRES EXTERNAL FJORD CONFIRMATION**. This document does not
+Each item is **REQUIRES EXTERNAL VENUE CONFIRMATION**. This document does not
 assume any platform behavior.
 
 ## G. Financial model
@@ -140,10 +146,10 @@ If every tier sells, the maximum gross proceeds are **$50,000**.
 
 ### Fees and costs
 
-- Fjord/platform fees: **REQUIRES CURRENT FJORD CONFIRMATION**
-- Payment or settlement fees: **REQUIRES CURRENT FJORD CONFIRMATION**
+- Platform fees: **REQUIRES CURRENT VENUE CONFIRMATION**
+- Payment or settlement fees: **REQUIRES CURRENT VENUE CONFIRMATION**
 - Gas for approved token funding and operational transactions:
-  **REQUIRES CURRENT FJORD CONFIRMATION**
+  **REQUIRES CURRENT VENUE CONFIRMATION**
 - Legal, regulatory, compliance, accounting, custody, and communications costs:
   **REQUIRES PROFESSIONAL ESTIMATE**
 
@@ -154,18 +160,18 @@ No unknown fee or cost is assumed. The net proceeds formula is:
 ```text
 Net proceeds =
   gross proceeds
-  - Fjord/platform fees
+  - platform fees
   - payment and settlement fees
   - approved transaction costs
   - other approved sale costs
 ```
 
-The numerical net proceeds are **REQUIRES CURRENT FJORD CONFIRMATION** and
+The numerical net proceeds are **REQUIRES CURRENT VENUE CONFIRMATION** and
 professional cost estimates.
 
 ## H. Parameters that must be treated as final before activation
 
-The following must be approved before sale activation, even if Fjord permits
+The following must be approved before sale activation, even if the selected venue permits
 some changes after creation:
 
 - Canonical verified VAELO token address.
@@ -180,7 +186,7 @@ some changes after creation:
 - Unsold-token and refund treatment.
 
 Whether any of these fields can technically be changed after the sale goes live
-is **REQUIRES EXTERNAL FJORD CONFIRMATION**. No live-sale mutation should be
+is **REQUIRES EXTERNAL VENUE CONFIRMATION**. No live-sale mutation should be
 assumed.
 
 ## I. Sale-to-token boundary
@@ -196,10 +202,10 @@ The VAELO token contract remains deliberately unaware of:
 - Geographic restrictions
 - Claims
 - Collateral
-- Fjord mechanics
+- launchpad or venue mechanics
 
-Those settings belong to the separately reviewed sale configuration and Fjord
-contracts or platform workflow.
+Those settings belong to the separately reviewed sale configuration and the
+selected venue's contracts or platform workflow.
 
 ## J. Legal and operational review
 
@@ -225,10 +231,10 @@ The sale remains blocked until:
    authorized.
 2. The canonical token is deployed and verified.
 3. The factory, distribution, vesting, tokenomics, and recipient readbacks pass.
-4. Fjord confirms the required sale, funding, claim, eligibility, collateral, and
-   fee configuration.
+4. The selected venue confirms the required sale, funding, claim, eligibility,
+   collateral, and fee configuration.
 5. The Public Distribution custody and funding procedure is approved.
 6. Legal, regulatory, compliance, and disclosure review is complete.
 7. The final sale configuration is approved.
 
-**Final status: SALE PREPARATION COMPLETE — NOT CREATED**
+**Final status: POTENTIAL DISTRIBUTION PREPARATION COMPLETE — NOT CREATED**
