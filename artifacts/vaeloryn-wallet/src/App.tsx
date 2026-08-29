@@ -234,7 +234,7 @@ function Shell({ children, mode, address, onConnect, onPreview, onDisconnect }: 
   return (
     <div className="wallet-app text-[#F4F1EA]">
       <div className="app-frame mx-auto flex min-h-[100dvh] max-w-[1440px]">
-        <aside className="hidden w-[236px] shrink-0 flex-col border-r border-[#C9A227]/15 px-6 py-8 md:flex">
+        <aside className="hidden w-[236px] shrink-0 flex-col border-r border-[#C9A227]/15 bg-[#090c13]/75 px-6 py-8 shadow-[12px_0_40px_rgba(0,0,0,.12)] md:flex">
           <BrandMark />
           <div className="mt-14 space-y-1">
             <div className="mb-4 px-3 text-[9px] font-semibold uppercase tracking-[.24em] text-[#9AA0AD]">Workspace</div>
@@ -254,7 +254,7 @@ function Shell({ children, mode, address, onConnect, onPreview, onDisconnect }: 
           </div>
         </aside>
         <div className="flex min-w-0 flex-1 flex-col">
-          <header className="flex items-center justify-between border-b border-[#C9A227]/15 px-5 py-5 md:px-12 md:py-8">
+          <header className="flex items-center justify-between border-b border-[#C9A227]/15 bg-[#07090f]/75 px-5 py-5 backdrop-blur-xl md:px-12 md:py-6">
             <div className="md:hidden"><BrandMark compact /></div>
             <div className="hidden items-center gap-2 text-[11px] text-[#9AA0AD] md:flex">
               <span className="text-[#F4F1EA]">VAELORYN WALLET</span><span className="text-[#C9A227]/60">/</span><span>BASE SEPOLIA</span>
@@ -270,8 +270,8 @@ function Shell({ children, mode, address, onConnect, onPreview, onDisconnect }: 
               )}
             </div>
           </header>
-          <main className="wallet-main w-full flex-1 px-5 pb-28 pt-8 md:px-12 md:pb-12 md:pt-12">{children}</main>
-          <nav className="fixed bottom-0 left-0 right-0 z-20 flex border-t border-[#C9A227]/20 bg-[#0a0d14]/95 px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-3 backdrop-blur md:hidden">
+          <main className="wallet-main w-full flex-1 px-5 pb-36 pt-8 md:px-12 md:pb-12 md:pt-10">{children}</main>
+          <nav className="fixed bottom-3 left-3 right-3 z-20 flex rounded-2xl border border-[#C9A227]/20 bg-[#0a0d14]/95 px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-3 shadow-[0_18px_45px_rgba(0,0,0,.42)] backdrop-blur-xl md:hidden">
             {navItems.map(({ href, label, icon: Icon, testId }) => (
               <Link key={href} href={href} className={`focus-ring flex flex-1 flex-col items-center gap-1.5 py-1 text-[10px] font-medium ${location === href ? 'text-[#E0C15A]' : 'text-[#7d8491]'}`} data-testid={`${testId}-mobile`}>
                 <Icon size={19} strokeWidth={1.5} />
@@ -298,7 +298,7 @@ function PageHeading({ eyebrow, title, description, action }: { eyebrow: string;
     <div className="mb-9 flex flex-col justify-between gap-5 md:flex-row md:items-end">
       <div>
         <div className="mb-3 text-[10px] font-semibold uppercase tracking-[.25em] text-[#C9A227]" data-testid={`text-eyebrow-${eyebrow.toLowerCase().replaceAll(' ', '-')}`}>{eyebrow}</div>
-        <h1 className="font-display text-5xl leading-[.95] text-[#F4F1EA] md:text-6xl">{title}</h1>
+        <h1 className="font-display text-4xl leading-[.98] text-[#F4F1EA] md:text-6xl">{title}</h1>
         {description && <p className="mt-4 max-w-lg text-sm leading-6 text-[#9AA0AD]">{description}</p>}
       </div>
       {action}
