@@ -56,7 +56,7 @@ const CONTRACTS = [
   {
     name: 'VaelorynFounderVesting',
     addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2',
-    role: 'Historical V1.1 vesting · 150,000,000 VAELO · five-year schedule',
+    role: 'Historical V1.1 vesting contract · non-canonical',
     verified: false,
   },
   {
@@ -436,7 +436,7 @@ export function Verify() {
                 <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Vesting Schedule</p>
                 <ul className="space-y-4">
                   {[
-                    { phase: 'Immediately Claimable', amount: '2,500,000 VAELO', desc: 'Available at contract deployment.' },
+                    { phase: 'Initial release', amount: '2,500,000 VAELO', desc: 'Claimable at T0, the official launch timestamp.' },
                     { phase: 'Three scheduled releases', amount: '2,500,000 VAELO at +90, +180 and +270 days', desc: 'Exactly three additional releases after the T0 initial release; no fourth release at +360 days.' },
                     { phase: 'Linear phase', amount: '90,000,000 VAELO', desc: 'Vests from T0 + 270 days over exactly 1,095 days.' },
                   ].map(({ phase, amount, desc }) => (
@@ -455,9 +455,9 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-4 rounded-lg border border-white/8 bg-white/[0.015]">
               <p className="text-xs text-muted-foreground/60 italic leading-relaxed">
-                The canonical vesting schedule is enforced by the locally tested smart contract. It has not been
-                deployed to Base Sepolia. The historical V1.1 contract at this address uses a different 150M,
-                five-year schedule.
+                 The canonical vesting schedule is enforced by the locally tested smart contract. It has not been
+                 deployed to Base Sepolia. The published address is a historical prototype reference, not the
+                 canonical deployment.
               </p>
             </motion.div>
           </motion.div>

@@ -138,7 +138,7 @@ export function Transparency() {
               {[
                 { label: 'Fixed supply — totalSupply() returns exactly 1,000,000,000 VAELO', done: true },
                 { label: 'Canonical token allocation — implemented locally; not deployed', done: true },
-                { label: 'Historical V1.1 founder vesting — 150M allocation confirmed on Base Sepolia', done: true },
+                { label: 'Historical V1.1 vesting contract — publicly readable, not canonical', done: true },
                 { label: 'Canonical source verification — not yet requested or completed', done: false },
                 { label: 'Historical V1.1 balances and deployment transactions — publicly readable', done: true },
                 { label: 'Canonical genesis distribution — tested locally; no network transaction broadcast', done: true },

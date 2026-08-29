@@ -184,7 +184,7 @@ export function Vaelo() {
             <div className="flex flex-col gap-4">
               {[
                 { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'V1.1 ERC-20 · Fixed supply' },
-                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'Historical V1.1 testnet vesting · 150M VAELO · five-year schedule' },
+                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'Historical V1.1 testnet vesting contract · non-canonical' },
                 { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'V1.1 genesis allocation' },
               ].map(({ name, addr, role }, i) => (
                 <motion.div
@@ -348,7 +348,8 @@ export function Vaelo() {
                 The founder allocation is held inside the <span className="text-foreground/90 font-medium">VaelorynFounderVesting</span> contract
                 and cannot be freely accessed. The vesting schedule is enforced at the smart contract level —
                 no admin bypass, no manual override. The canonical schedule has been tested locally but has not
-                been deployed. The historical V1.1 contract uses a different 150M, five-year schedule.
+                been deployed. The published V1.1 address above is historical prototype evidence, not the canonical
+                founder vesting deployment.
               </p>
             </motion.div>
 

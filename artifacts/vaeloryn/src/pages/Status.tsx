@@ -207,7 +207,7 @@ export function Status() {
             <div className="flex flex-col gap-4">
               {[
                 { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'Historical V1.1 ERC-20 · Fixed supply' },
-                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'Historical V1.1 · 150M VAELO · five-year schedule' },
+                { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'Historical V1.1 vesting contract · non-canonical' },
                 { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'Historical V1.1 genesis distribution' },
               ].map(({ name, addr, role }, i) => (
                 <motion.div
