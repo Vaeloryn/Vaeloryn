@@ -77,7 +77,7 @@ export function Transparency() {
             className="flex flex-col gap-6"
           >
             <motion.span variants={fadeInUp} className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full w-fit">
-              Protocol Implemented · Verifiable On-Chain
+              Protocol Implemented · Mainnet Pending
             </motion.span>
 
             <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl font-light tracking-[0.15em] uppercase text-foreground">
@@ -109,7 +109,7 @@ export function Transparency() {
             </p>
             <p className="text-muted-foreground leading-relaxed max-w-3xl">
               Vaeloryn's approach is to make important supply, vesting and allocation protections
-              <span className="text-foreground/80"> technically enforceable and independently verifiable</span> — so that
+               <span className="text-foreground/80"> technically enforceable and independently inspectable</span> — so that
               the architecture itself provides the assurance, not just stated intentions.
               The historical V1.1 prototype on Base Sepolia is a separate testnet record, not the canonical protocol.
             </p>
@@ -124,7 +124,7 @@ export function Transparency() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-10"
           >
-            <SectionHeader eyebrow="Independently Verifiable" title="What You Can Verify Today" />
+            <SectionHeader eyebrow="Evidence Available Today" title="What You Can Verify Today" />
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-primary/15 bg-primary/5">
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -136,7 +136,7 @@ export function Transparency() {
 
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
-                { label: 'Fixed supply — totalSupply() returns exactly 1,000,000,000 VAELO', done: true },
+                { label: 'Canonical one-time 1B mint design — implemented locally; not deployed', done: true },
                 { label: 'Canonical token allocation — implemented locally; not deployed', done: true },
                 { label: 'Historical V1.1 vesting contract — publicly readable, not canonical', done: true },
                 { label: 'Canonical source verification — not yet requested or completed', done: false },
@@ -224,8 +224,8 @@ export function Transparency() {
                   title: 'Fixed Maximum Supply',
                   implemented: true,
                   items: [
-                    'Fixed supply of 1,000,000,000 VAELO — implemented and verified on-chain.',
-                    'Minted once at construction to the VaelorynGenesisAllocator.',
+                    'Initial mint of 1,000,000,000 VAELO — implemented and locally tested; not deployed.',
+                    'Minted once at construction to the VaelorynGenesisDistribution.',
                     'No mint function exists — supply cannot increase after deployment.',
                     'Voluntary holder burns reduce total supply — verifiable via totalSupply().',
                   ],

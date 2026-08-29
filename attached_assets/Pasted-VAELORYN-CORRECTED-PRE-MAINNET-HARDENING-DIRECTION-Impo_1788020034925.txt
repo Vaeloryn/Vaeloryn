@@ -1,0 +1,300 @@
+VAELORYN — CORRECTED PRE-MAINNET HARDENING DIRECTION
+
+Important correction to the previous instructions:
+
+DO NOT design, modify, or architect the VAELO project around Fjord Foundry.
+
+Fjord is currently ONLY a potential launch/distribution platform that we have applied to.
+
+There is no guarantee that Fjord will accept Vaeloryn.
+
+The canonical VAELO protocol, token contracts, deployment architecture, documentation, and website must therefore remain completely LAUNCHPAD-AGNOSTIC.
+
+==================================================
+CORE PRINCIPLE
+
+VAELO must be deployable independently of any particular launchpad.
+
+The canonical token must not contain:
+
+* Fjord-specific logic
+* Fjord-specific addresses
+* Fjord-specific contracts
+* Launchpad-specific transfer restrictions
+* Launchpad-specific sale mechanics
+* Launchpad-specific dependencies
+
+The canonical VAELO contracts should remain completely independent from the eventual distribution venue.
+
+==================================================
+CURRENT CANONICAL STATE
+
+Token:
+Vaeloryn
+
+Symbol:
+VAELO
+
+Initial minted supply:
+1,000,000,000 VAELO
+
+Base Mainnet:
+Chain ID 8453
+
+Canonical tokenomics:
+
+Ecosystem & Community — 300M — 30%
+Public Distribution — 200M — 20%
+Vaeloryn Treasury — 200M — 20%
+Team & Contributors — 150M — 15%
+Founder — 100M — 10%
+Strategic Partnerships — 50M — 5%
+
+Founder beneficiary:
+
+0x254D5eE9D7216bB8601B5D2156072863A975b309
+
+Treasury Safe:
+
+0x3A9bee20360294F8439513Ae70D189f56288baF2
+
+Ecosystem:
+
+0x43dF3281C2Cc960cD2837a153Ec397a2b67e18a7
+
+Public Distribution:
+
+0x653835dc0fF216D2B10fF64153A9aA6A0639Fb82
+
+Team:
+
+0x2fB598d102303E5c0E7D36Db94CFBC76a680c7F4
+
+Strategic Partnerships:
+
+0xC263222BB55289D0a442871aF04A5065f87e9D87
+
+==================================================
+DEPLOYMENT OBJECTIVE
+
+Our immediate objective is:
+
+MAKE VAELO SAFE, CLEAN, VERIFIED, AND READY FOR INDEPENDENT BASE MAINNET DEPLOYMENT.
+
+NOT:
+
+“Make VAELO ready for Fjord.”
+
+The deployment package should be capable of supporting whichever legitimate distribution/sale mechanism is selected later.
+
+==================================================
+SALE / DISTRIBUTION ARCHITECTURE
+
+Keep the Public Distribution allocation independent.
+
+Public Distribution:
+200,000,000 VAELO
+
+A future sale may use a portion of this allocation.
+
+Current working planning assumption:
+
+Up to 10,000,000 VAELO may eventually be used for an initial public sale.
+
+However, this is NOT a requirement of the canonical token.
+
+Do not hard-code the 10M amount into the token contracts.
+
+Do not hard-code the $5M FDV into the token contracts.
+
+Do not hard-code sale tiers into the token contracts.
+
+Do not hard-code any launchpad into the token contracts.
+
+These are external distribution parameters.
+
+==================================================
+LAUNCHPAD-AGNOSTIC DOCUMENTATION
+
+Where documentation currently refers to Fjord as though it is the planned or required launch venue, change the language to:
+
+“Potential launch/distribution platform”
+
+or
+
+“Launch platform under evaluation”
+
+or
+
+“Potential public sale venue”
+
+depending on context.
+
+Do NOT state:
+
+* Fjord partner
+* Fjord-approved
+* Fjord launch confirmed
+* Fjord sale created
+* Fjord sale contract
+* Fjord launch date
+
+unless those things actually occur.
+
+If Fjord accepts the project later, we can create a separate Fjord integration document.
+
+==================================================
+SALE PARAMETERS
+
+Keep these as PROJECT PLANNING PARAMETERS only:
+
+Potential initial sale:
+10,000,000 VAELO maximum
+
+Potential allocation:
+1% of total supply
+
+Target reference FDV:
+$5,000,000
+
+Reference price:
+$0.005/VAELO
+
+Potential maximum gross raise:
+$50,000
+
+These parameters must remain external to the canonical token contracts.
+
+They may be changed later without redeploying the VAELO token.
+
+==================================================
+WEBSITE
+
+Do not create a Fjord-specific website dependency.
+
+The website should be capable of supporting a future:
+
+“Buy VAELO”
+
+or
+
+“Participate in VAELO Sale”
+
+CTA.
+
+But until a legitimate sale venue is confirmed, the website must NOT link to a fabricated or placeholder sale URL.
+
+The future destination should be configurable once a launch venue is selected.
+
+==================================================
+DOCUMENTATION
+
+Create/update documentation so that the architecture is clearly divided into:
+
+1. CANONICAL PROTOCOL
+2. BASE MAINNET DEPLOYMENT
+3. TOKENOMICS
+4. TREASURY & CUSTODY
+5. PRODUCT / ECOSYSTEM DEVELOPMENT
+6. FUTURE DISTRIBUTION
+7. POTENTIAL SALE VENUES
+
+Fjord should appear ONLY under:
+
+POTENTIAL SALE / DISTRIBUTION VENUES
+
+and nowhere as a dependency of the core protocol.
+
+==================================================
+HISTORICAL V1.1
+
+Continue keeping the Base Sepolia V1.1 prototype clearly separated.
+
+Old contracts and old addresses must remain:
+
+HISTORICAL — NON-CANONICAL
+
+They must never be confused with the future Base Mainnet deployment.
+
+==================================================
+MAINNET DEPLOYMENT
+
+Continue hardening:
+
+DeployCanonicalMainnet.s.sol
+
+Require:
+
+chain ID 8453
+Solidity 0.8.24
+optimizer 200
+EVM Paris
+approved recipient addresses
+secure environment configuration
+post-deployment readback
+deployment receipt reconciliation
+
+Do not deploy.
+
+Do not broadcast.
+
+Do not transfer.
+
+Do not create a sale.
+
+==================================================
+SECURITY
+
+Continue identifying:
+
+Independent audit requirement
+Treasury Safe custody verification
+Signer/threshold verification
+Deployment signer controls
+Recipient verification
+Manifest integrity
+Source verification procedure
+Post-deployment verification
+
+The 27 passing tests remain engineering evidence, not an independent audit.
+
+==================================================
+FINAL OBJECTIVE
+
+The desired final state is:
+
+VAELO can be safely deployed to Base Mainnet independently of Fjord.
+
+After deployment, we can separately decide whether to use:
+
+Fjord
+Another launchpad
+A direct sale mechanism
+A private/public distribution
+Another compliant distribution structure
+Or no immediate sale
+
+Changing the sale venue must NOT require changing or redeploying the canonical VAELO token.
+
+DO NOT deploy.
+DO NOT broadcast.
+DO NOT transfer.
+DO NOT create a sale.
+DO NOT modify canonical Solidity contracts.
+
+Perform only the repository hardening and documentation changes described above.
+
+Report:
+
+* Files changed
+* Changes made
+* Tests
+* Build result
+* Remaining Mainnet blockers
+* Remaining distribution/sale blockers
+* Confirmation that the core protocol is launchpad-agnostic
+* Confirmation that no deployment or transaction occurred
+
+Final status:
+
+NOT READY — LAUNCHPAD-AGNOSTIC PRE-MAINNET PACKAGE

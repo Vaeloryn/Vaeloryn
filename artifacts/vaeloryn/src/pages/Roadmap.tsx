@@ -218,9 +218,9 @@ export function Roadmap() {
               </div>
               <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
                 {[
-                  'VaelorynToken implemented — ERC-20, fixed supply, burn, permit (EIP-2612).',
+                  'VaelorynToken implemented — ERC-20, one-time 1B initial mint, burn, permit (EIP-2612).',
                   'VaelorynFounderVesting implemented locally — canonical on-chain vesting logic with an enforced schedule.',
-                  'VaelorynGenesisAllocator implemented — constitutional distribution at deployment.',
+                  'VaelorynGenesisDistribution implemented — constitutional distribution at deployment.',
                   'Canonical Foundry implementation tested locally — 27 targeted tests passed, with zero failures.',
                   'Historical V1.1 prototype remains deployed on Base Sepolia; canonical deployment is pending.',
                   'Canonical source verification and deployment remain pending.',
@@ -238,7 +238,7 @@ export function Roadmap() {
               </div>
               <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
                 {[
-                  'Fixed supply of 1,000,000,000 VAELO verified — minted once at construction.',
+                  'Canonical initial mint of 1,000,000,000 VAELO implemented locally — minted once at construction.',
                   'Historical V1.1 allocation executed and verified on-chain.',
                   'Canonical founder vesting schedule tested and confirmed locally; canonical deployment is pending.',
                   'Historical V1.1 genesis distribution transaction permanently recorded on Base Sepolia.',

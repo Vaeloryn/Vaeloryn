@@ -11,7 +11,7 @@ The PDF contains 20 A4 pages: a cover, contents page and all 18 requested sectio
 ## Primary sources used
 - Attached product-documentation brief
 - Canonical Solidity contracts in `vaelo_canonical/src/`
-- Base Mainnet manifest and Fjord sale specification
+- Base Mainnet manifest and potential distribution specification
 - Canonical implementation, testing and founder-vesting reports
 - Vaeloryn roadmap and repository metadata
 
@@ -19,10 +19,10 @@ The PDF contains 20 A4 pages: a cover, contents page and all 18 requested sectio
 - No verified X URL was found; the document marks it as not supplied.
 - No verified Telegram URL was found; the document marks it as not supplied.
 - Canonical Base Mainnet addresses, transaction data and verification URLs remain unavailable because deployment has not occurred.
-- Final Fjord configuration, timing, accepted assets, eligibility, claims, fees and approval remain externally unconfirmed.
+- No distribution venue is confirmed; timing, accepted assets, eligibility, claims, fees and approval remain externally unconfirmed.
 
 ## Claims intentionally excluded
-No claims of active partnerships, users, revenue, investors, independent audit completion, Base Mainnet deployment, Fjord approval, live sale, guaranteed valuation, operational utility, returns, equity, security status or ownership rights were added.
+No claims of active partnerships, users, revenue, investors, independent audit completion, Base Mainnet deployment, venue approval, live sale, guaranteed valuation, operational utility, returns, equity, security status or ownership rights were added.
 
 ## Action confirmation
 No deployment, transaction broadcast, VAELO/ETH/USDC transfer, sale creation, canonical Solidity modification or website modification was performed.

@@ -1,8 +1,11 @@
-# Canonical VAELO Deployment-to-Fjord Sale Checklist
+# Canonical VAELO Base Mainnet Deployment and Future Distribution Checklist
 
 **Status:** Planning checklist only — no step executed
 **Network:** Base Mainnet
-**Sale:** Initial tiered Fjord Foundry sale, maximum 10,000,000 VAELO
+**Distribution:** Potential future public distribution; no venue selected or sale created
+
+Fjord Foundry is one potential launch/distribution platform under evaluation. It is
+not a protocol dependency, confirmed partner, or required deployment destination.
 
 ## Stop conditions
 
@@ -13,8 +16,8 @@ Stop immediately if any of the following occurs:
 - The canonical source or build settings differ from the reviewed package.
 - The token address is historical, placeholder, unverified, or not recovered from
   the approved factory transaction.
-- The sale would exceed 10,000,000 VAELO.
-- Fjord requirements or legal approvals remain unresolved.
+ - A future distribution would exceed 10,000,000 VAELO without separate approval.
+ - Potential venue requirements or legal approvals remain unresolved.
 - Any step would require using `--broadcast` before final authorization.
 
 ## Ordered sequence
@@ -115,14 +118,16 @@ transaction, event, getters, bytecode, constructor inputs, and manifest.
 
 Do not use any historical Base Sepolia V1.1 address.
 
-### 12. Configure Fjord using only the verified canonical VAELO Mainnet token
+### 12. Evaluate a potential distribution venue using only the verified canonical VAELO Mainnet token
 
-Use the verified canonical token address and Base Mainnet network. Confirm
-Fjord's current token, funding, claim, and sale requirements first.
+Use the verified canonical token address and Base Mainnet network. Confirm the
+selected venue's current token, funding, claim, and distribution requirements
+first. No venue is implied by this checklist.
 
-### 13. Configure the 10M tiered sale
+### 13. Configure any approved initial distribution
 
-Configure the approved working target:
+If a future venue and sale structure are approved, the current external planning
+target is:
 
 - Tier 1: 1M at $0.003
 - Tier 2: 2M at $0.004
@@ -133,33 +138,33 @@ Configure the approved working target:
 
 Do not modify the VAELO token contract.
 
-### 14. Complete required sale, legal, and disclosure checks
+### 14. Complete required distribution, legal, and disclosure checks
 
-Confirm Fjord requirements, claim behavior, wallet limits, eligibility,
-geographic restrictions, collateral, fees, refunds, unsold tokens, KYC/AML,
-sanctions, and required public disclosures.
+Confirm the selected venue's requirements, claim behavior, wallet limits,
+eligibility, geographic restrictions, collateral, fees, refunds, unsold tokens,
+KYC/AML, sanctions, and required public disclosures.
 
-Any unknown Fjord behavior is **REQUIRES EXTERNAL FJORD CONFIRMATION**.
+Any unknown venue behavior is **REQUIRES EXTERNAL VENUE CONFIRMATION**.
 
-### 15. Create or activate the sale only after final approval
+### 15. Create or activate a distribution only after final approval
 
-Confirm the final sale configuration, funding amount, custody path, and all
-professional approvals before sale creation or activation.
+Confirm the final distribution configuration, funding amount, custody path, and
+all professional approvals before creation or activation.
 
-### 16. Obtain the official Fjord sale URL
+### 16. Obtain the official public distribution URL
 
-Record the real public Fjord URL only after the sale has actually been created
+Record the real public URL only after the distribution has actually been created
 and verified. Do not fabricate or publish a placeholder URL.
 
-### 17. Add the real Fjord URL to the website
+### 17. Add the real venue URL to the website
 
-Update the website only with the official Fjord URL and the verified BaseScan
-VAELO contract URL. This step is intentionally deferred until Steps 11 and 16
-are complete.
+Update the website only with the official selected-venue URL and the verified
+BaseScan VAELO contract URL. This step is intentionally deferred until Steps 11
+and 16 are complete.
 
-### 18. Publish the sale announcement
+### 18. Publish the distribution announcement
 
-Publish only after the token, sale, links, disclosures, custody, and required
+Publish only after the token, distribution, links, disclosures, custody, and required
 legal/compliance approvals are final.
 
 ## Current status

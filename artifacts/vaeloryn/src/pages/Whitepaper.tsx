@@ -19,7 +19,7 @@ const TOC = [
   { num: '03', title: 'Core Development Philosophy' },
   { num: '04', title: 'What Is VAELO?' },
   { num: '05', title: 'Current Testnet Development' },
-  { num: '06', title: 'Working Tokenomics' },
+  { num: '06', title: 'Canonical Tokenomics' },
   { num: '07', title: 'Stage A Funding Direction' },
   { num: '08', title: 'Trust, Transparency & Supply Protection' },
   { num: '09', title: 'Contribution & Community' },
@@ -267,20 +267,22 @@ export function Whitepaper() {
           {/* 05 */}
           <WpSection id="section-05" num="05" title="Current Testnet Development">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Three prototype contracts are currently deployed and source-verified on Base Sepolia.
+              Three historical V1.1 prototype contracts are currently deployed and source-verified on Base Sepolia.
+              Explorer source verification is not an independent security audit and does not establish the canonical
+              production deployment.
               A controlled 100 VAELO wallet-to-wallet test transfer has been completed successfully.
             </p>
             <div className="flex flex-col gap-3">
               {[
                 { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c' },
                 { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2' },
-                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa' },
+                { name: 'VaelorynGenesisAllocator (historical V1.1)', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa' },
               ].map(({ name, addr }) => (
                 <div key={name} className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 rounded-md border border-white/8 bg-white/[0.02]">
                   <span className="text-sm font-medium text-foreground/85 tracking-wide">{name}</span>
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-mono text-muted-foreground/55 break-all">{addr}</span>
-                    <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full flex-shrink-0">Verified</span>
+                    <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full flex-shrink-0">Source verified · testnet</span>
                   </div>
                 </div>
               ))}
@@ -293,13 +295,13 @@ export function Whitepaper() {
           </WpSection>
 
           {/* 06 */}
-          <WpSection id="section-06" num="06" title="Working Tokenomics">
+          <WpSection id="section-06" num="06" title="Canonical Tokenomics">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full">Working Tokenomics V1.0</span>
-              <span className="text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground/50 border border-white/10 bg-white/5 px-3 py-1.5 rounded-full">Pre-Professional Review</span>
+              <span className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full">Finalized Canonical Allocation</span>
+              <span className="text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground/50 border border-white/10 bg-white/5 px-3 py-1.5 rounded-full">Pre-Deployment · Pre-Professional Review</span>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground/50 uppercase tracking-widest mb-1">Proposed Maximum Supply</p>
+              <p className="text-xs text-muted-foreground/50 uppercase tracking-widest mb-1">Initial Minted Supply</p>
               <p className="font-display text-2xl font-light tracking-wider text-primary">1,000,000,000 <span className="text-base text-primary/60">VAELO</span></p>
             </div>
             <div className="flex flex-col gap-2">
@@ -320,7 +322,8 @@ export function Whitepaper() {
             <Quote text='"Allocation does not equal circulation."' />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Allocated VAELO may remain locked, reserved, vested or otherwise non-circulating.
-              The intended production architecture should not permit minting beyond the proposed maximum supply.
+              The canonical design mints 1,000,000,000 VAELO once and exposes no additional mint path.
+              Voluntary burns may reduce totalSupply() after deployment.
             </p>
             <NavButton href="/vaelo" label="View Full Tokenomics" primary />
           </WpSection>

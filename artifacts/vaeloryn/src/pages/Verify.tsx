@@ -50,7 +50,7 @@ const CONTRACTS = [
   {
     name: 'VaelorynToken',
     addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c',
-    role: 'Historical V1.1 ERC-20 token · Fixed supply',
+    role: 'Historical V1.1 ERC-20 token · legacy testnet',
     verified: false,
   },
   {
@@ -121,7 +121,7 @@ export function Verify() {
             className="flex flex-col gap-6"
           >
             <motion.span variants={fadeInUp} className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full w-fit">
-              Transparency Hub · Independently Verifiable
+              Transparency Hub · Repository Evidence
             </motion.span>
 
             <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl font-light tracking-[0.15em] uppercase text-foreground">
@@ -177,7 +177,7 @@ export function Verify() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
             className="flex flex-col gap-12"
           >
-            <SectionHeader eyebrow="Smart Contracts" title="Deployed & Source-Verified" />
+            <SectionHeader eyebrow="Smart Contracts" title="Canonical Contracts · Not Deployed" />
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-white/8 bg-white/[0.02]">
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -346,7 +346,7 @@ export function Verify() {
                 <div className="space-y-3">
                   <DataRow label="Maximum supply"      value="1,000,000,000 VAELO" />
                   <DataRow label="Minted"              value="Once — at contract construction" />
-                  <DataRow label="Minted to"           value="VaelorynGenesisAllocator" />
+                  <DataRow label="Minted to"           value="VaelorynGenesisDistribution" />
                   <DataRow label="Post-deployment mint" value="Not possible — no mint function" />
                   <DataRow label="Voluntary burn"       value="Supported — reduces total supply" />
                 </div>
@@ -367,7 +367,8 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-white/8 bg-white/[0.02]">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The full supply of 1,000,000,000 VAELO was allocated at deployment by the VaelorynGenesisAllocator.
+                 The full supply of 1,000,000,000 VAELO is intended to be allocated atomically at deployment by the
+                 VaelorynGenesisDistribution contract.
                 The on-chain balance of each allocation address can be independently verified via balanceOf() at any time.
               </p>
             </motion.div>

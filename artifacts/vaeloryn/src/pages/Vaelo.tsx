@@ -68,7 +68,8 @@ export function Vaelo() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              The canonical VAELO design is implemented locally with a fixed intended supply of 1,000,000,000 VAELO.
+              The canonical VAELO design is implemented locally with a 1,000,000,000 VAELO initial mint and no
+              additional mint path.
               The published Base Sepolia deployment is a historical, non-canonical V1.1 prototype and does not
               represent the canonical implementation described on this page.
             </motion.p>
@@ -183,9 +184,9 @@ export function Vaelo() {
 
             <div className="flex flex-col gap-4">
               {[
-                { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'V1.1 ERC-20 · Fixed supply' },
+                { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'V1.1 ERC-20 · legacy testnet prototype' },
                 { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'Historical V1.1 testnet vesting contract · non-canonical' },
-                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'V1.1 genesis allocation' },
+                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'V1.1 genesis allocation · historical only' },
               ].map(({ name, addr, role }, i) => (
                 <motion.div
                   key={name}
@@ -201,7 +202,7 @@ export function Vaelo() {
                   </div>
                   <div className="flex items-center gap-2 pl-6 sm:pl-0">
                     <span className="text-xs font-mono text-muted-foreground/70 break-all">{addr}</span>
-                    <span className="flex-shrink-0 text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full">Verified</span>
+                    <span className="flex-shrink-0 text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full">Source verified · testnet</span>
                   </div>
                 </motion.div>
               ))}
@@ -231,7 +232,7 @@ export function Vaelo() {
               <div className="w-10 h-px bg-primary/60" />
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="flex flex-col gap-1">
-                  <span className="text-xs text-muted-foreground/60 uppercase tracking-widest">Fixed Constitutional Supply</span>
+                   <span className="text-xs text-muted-foreground/60 uppercase tracking-widest">Initial Minted Supply</span>
                   <span className="font-display text-3xl font-light tracking-wider text-primary">1,000,000,000 <span className="text-lg text-primary/70">VAELO</span></span>
                 </div>
               </div>
@@ -265,7 +266,8 @@ export function Vaelo() {
               <p className="text-sm font-display italic text-foreground/90 mb-2">"Allocation does not equal circulation."</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Allocated VAELO may remain locked, reserved, vested or otherwise non-circulating for extended periods.
-                The fixed supply of 1 billion VAELO is constitutionally enforced — no additional minting is possible.
+                 One billion VAELO is minted once at construction and no additional minting is possible.
+                 Voluntary burns may reduce totalSupply() after deployment.
               </p>
             </motion.div>
           </motion.div>

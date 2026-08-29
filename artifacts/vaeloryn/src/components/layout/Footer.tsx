@@ -94,7 +94,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              GenesisAllocator ↗
+              Genesis Distribution ↗
             </a>
           </div>
         </div>

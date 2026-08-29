@@ -102,7 +102,7 @@ export function Status() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              A transparent record of what has been built, deployed and verified — and what remains ahead.
+               A transparent record of what has been built, deployed and source-verified — and what remains ahead.
             </motion.p>
           </motion.div>
         </div>
@@ -206,9 +206,9 @@ export function Status() {
 
             <div className="flex flex-col gap-4">
               {[
-                { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'Historical V1.1 ERC-20 · Fixed supply' },
+                { name: 'VaelorynToken',            addr: '0xAD1cdb84Ead8b3DA2aBDDC3bF692dDDA677B479c', role: 'Historical V1.1 ERC-20 · legacy testnet prototype' },
                 { name: 'VaelorynFounderVesting',   addr: '0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2', role: 'Historical V1.1 vesting contract · non-canonical' },
-                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'Historical V1.1 genesis distribution' },
+                { name: 'VaelorynGenesisAllocator', addr: '0xa3eF040471497538a617061FdDEea0CD4C03beBa', role: 'Historical V1.1 genesis distribution · non-canonical' },
               ].map(({ name, addr, role }, i) => (
                 <motion.div
                   key={name}
@@ -236,7 +236,8 @@ export function Status() {
             <motion.div variants={fadeInUp}>
               <p className="text-xs text-muted-foreground/50 italic border-l border-white/10 pl-4">
                 These are Base Sepolia testnet contracts. They are not mainnet production contracts and do not represent a launched product.
-                All contracts are independently verifiable on Base Sepolia block explorers.
+                Their deployed bytecode and published source metadata are independently inspectable on Base Sepolia
+                block explorers. This does not constitute an independent security audit or canonical Mainnet verification.
               </p>
             </motion.div>
           </motion.div>
@@ -256,13 +257,13 @@ export function Status() {
               {[
                 'VaelorynToken smart contract designed and implemented.',
                 'VaelorynFounderVesting smart contract designed and implemented.',
-                'VaelorynGenesisAllocator smart contract designed and implemented.',
+                'VaelorynGenesisDistribution smart contract designed and implemented.',
                 'Canonical Foundry implementation tested locally — 27 targeted tests passed, zero failures.',
                 'Historical V1.1 prototype remains deployed to Base Sepolia; canonical deployment is pending.',
                 'Canonical source verification is pending deployment.',
                 'Historical V1.1 allocation executed and verified on-chain.',
                 'Canonical founder vesting schedule implemented and locally tested; not deployed.',
-                'Fixed supply of 1,000,000,000 VAELO verified — minted once at construction.',
+                'Canonical initial mint of 1,000,000,000 VAELO implemented and locally tested — minted once at construction.',
                 'VAELO tokenomics framework developed.',
                 'Trust, Transparency & Supply Protection Framework developed.',
                 'Stage A roadmap developed.',

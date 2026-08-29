@@ -10,7 +10,7 @@ export default function Cover() {
         <img src={`${base}vaeloryn-logo.png`} crossOrigin="anonymous" alt="Vaeloryn logo" className="h-[5.2vw] w-[5.2vw] object-contain" />
         <div>
           <p className="font-body text-[1.55vw] font-bold tracking-[0.32em] text-accent">VAELORYN</p>
-          <p className="mt-[0.4vh] font-body text-[1.5vw] tracking-[0.18em] text-primary">FJORD FOUNDRY PARTNER BRIEF</p>
+          <p className="mt-[0.4vh] font-body text-[1.5vw] tracking-[0.18em] text-primary">POTENTIAL DISTRIBUTION VENUE BRIEF</p>
         </div>
       </div>
       <div className="absolute bottom-[9vh] left-[5.5vw] w-[88vw]">
