@@ -3,3 +3,4 @@
 - [VAELO atomic Genesis deployment](vaelo-atomic-genesis-deployment.md) — allocate only from an immutable one-shot factory to prevent vesting or token substitution.
 - [Wagmi v3 token balances](wagmi-v3-token-balance.md) — native useBalance does not expose ERC-20 token parameters; read configured tokens with viem readContract.
 - [Artifact route ownership](artifact-route-ownership.md) — registered artifact paths intercept root-app redirects; move obsolete registrations before reusing their URLs.
+- [Cross-package wallet styling](cross-package-wallet-styling.md) — critical responsive layout rules need host CSS when wallet UI is imported from a sibling package.

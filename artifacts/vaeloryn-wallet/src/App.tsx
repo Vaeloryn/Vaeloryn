@@ -199,7 +199,7 @@ function useWalletState() {
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`brand-mark ${compact ? 'brand-mark-compact' : ''}`} data-testid="brand-vaeloryn">
-      <div className="brand-v font-display">V</div>
+      <div className="brand-v font-display" aria-hidden="true">V</div>
       <div>
         <div className="brand-word font-display">VAELORYN</div>
         {!compact && <div className="brand-caption">Institutional wallet</div>}
@@ -270,8 +270,8 @@ function Shell({ children, mode, address, onConnect, onPreview, onDisconnect }: 
               )}
             </div>
           </header>
-          <main className="wallet-main w-full flex-1 px-5 pb-36 pt-8 md:px-12 md:pb-12 md:pt-10">{children}</main>
-          <nav className="fixed bottom-3 left-3 right-3 z-20 flex rounded-2xl border border-[#C9A227]/20 bg-[#0a0d14]/95 px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-3 shadow-[0_18px_45px_rgba(0,0,0,.42)] backdrop-blur-xl md:hidden">
+          <main className="wallet-main w-full flex-1 px-5 pt-8 md:px-12 md:pt-10">{children}</main>
+          <nav className="mobile-nav z-20 flex rounded-2xl border border-[#C9A227]/20 bg-[#0a0d14]/95 px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-3 shadow-[0_18px_45px_rgba(0,0,0,.42)] backdrop-blur-xl md:hidden">
             {navItems.map(({ href, label, icon: Icon, testId }) => (
               <Link key={href} href={href} className={`focus-ring flex flex-1 flex-col items-center gap-1.5 py-1 text-[10px] font-medium ${location === href ? 'text-[#E0C15A]' : 'text-[#7d8491]'}`} data-testid={`${testId}-mobile`}>
                 <Icon size={19} strokeWidth={1.5} />
@@ -308,21 +308,26 @@ function PageHeading({ eyebrow, title, description, action }: { eyebrow: string;
 
 function ConnectPanel({ onConnect, onPreview, error }: { onConnect: () => void; onPreview: () => void; error: string }) {
   return (
-    <div className="card-surface rounded-xl p-6 md:p-8" data-testid="panel-connect-wallet">
-      <div className="flex items-start justify-between gap-4">
+    <div className="connect-panel card-surface rounded-xl p-6 md:p-8" data-testid="panel-connect-wallet">
+      <div className="connect-panel-body">
         <div>
           <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-[#C9A227]/30 bg-[#C9A227]/10"><KeyRound size={18} className="text-[#E0C15A]" strokeWidth={1.5} /></div>
-          <h2 className="font-display text-3xl">Your wallet, your keys.</h2>
-          <p className="mt-2 max-w-sm text-sm leading-6 text-[#9AA0AD]">Connect an injected wallet to use Base Sepolia, or open a local preview with no wallet access.</p>
+          <h2 className="connect-panel-title font-display text-3xl">Your wallet, your keys.</h2>
+          <p className="connect-panel-copy mt-2 max-w-sm text-sm leading-6 text-[#9AA0AD]">Connect an injected wallet to use Base Sepolia, or open a local preview with no wallet access.</p>
         </div>
-        <span className="hidden text-[10px] uppercase tracking-[.18em] text-[#9AA0AD] md:block">No custody</span>
+        <div className="connect-panel-actions">
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <span className="text-[10px] uppercase tracking-[.18em] text-[#9AA0AD]">No custody</span>
+            <ShieldCheck size={15} className="text-[#C9A227]" />
+          </div>
+          <div className="flex flex-col gap-3">
+            <button className="gold-button focus-ring rounded-md px-4 py-3 text-xs font-semibold" onClick={onConnect} data-testid="button-connect-injected">Connect injected wallet</button>
+            <button className="ghost-button focus-ring rounded-md px-4 py-3 text-xs font-semibold" onClick={onPreview} data-testid="button-enter-preview">iPhone preview <span className="ml-1 text-[#9AA0AD]">(no wallet)</span></button>
+          </div>
+          <div className="connect-panel-help mt-5 flex items-center gap-2 text-[10px] uppercase tracking-[.15em] text-[#7d8491]"><ShieldCheck size={14} className="text-[#C9A227]" /> MetaMask or Rabby on desktop</div>
+        </div>
       </div>
-      {error && <div className="mt-5 flex items-start gap-2 border-l border-[#c97968] pl-3 text-xs leading-5 text-[#e1a49a]" data-testid="status-connect-error"><CircleAlert size={14} className="mt-0.5 shrink-0" />{error}</div>}
-      <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-        <button className="gold-button focus-ring rounded-md px-4 py-3 text-xs font-semibold" onClick={onConnect} data-testid="button-connect-injected">Connect injected wallet</button>
-        <button className="ghost-button focus-ring rounded-md px-4 py-3 text-xs font-semibold" onClick={onPreview} data-testid="button-enter-preview">iPhone preview <span className="ml-1 text-[#9AA0AD]">(no wallet)</span></button>
-      </div>
-      <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[.15em] text-[#7d8491]"><ShieldCheck size={14} className="text-[#C9A227]" /> MetaMask or Rabby on desktop</div>
+      {error && <div className="mt-6 flex items-start gap-2 border-l border-[#c97968] pl-3 text-xs leading-5 text-[#e1a49a]" data-testid="status-connect-error"><CircleAlert size={14} className="mt-0.5 shrink-0" />{error}</div>}
     </div>
   );
 }
@@ -345,6 +350,16 @@ function WalletHome({ wallet }: { wallet: ReturnType<typeof useWalletState> }) {
     <div className="route-enter">
       <PageHeading eyebrow="Wallet" title="A measured place for your VAELO." description="A deliberate interface for Base Sepolia test assets. No market noise, no custody, no assumptions." />
       <div className="mb-7 flex items-center gap-2 text-[11px] uppercase tracking-[.18em] text-[#9AA0AD]" data-testid="text-network-identity"><span className="text-[#E0C15A]">VAELO</span><span className="text-[#C9A227]/50">·</span><span>Base Sepolia</span></div>
+      <section className="install-panel card-surface rounded-xl p-5 md:p-6" data-testid="panel-install-wallet">
+        <div className="flex items-start gap-3">
+          <Smartphone size={17} className="mt-0.5 shrink-0 text-[#C9A227]" />
+          <div>
+            <div className="text-[10px] font-semibold uppercase tracking-[.2em] text-[#C9A227]">Add to Home Screen</div>
+            <h2 className="install-panel-title mt-2 font-display text-2xl">Keep the wallet close.</h2>
+            <p className="install-panel-description mt-2 max-w-2xl text-xs leading-5 text-[#9AA0AD]">On iPhone, open this page in Safari, tap Share, choose Add to Home Screen, then tap Add. On Android, open it in Chrome and choose Add to Home screen or Install app from the browser menu.</p>
+          </div>
+        </div>
+      </section>
       {wallet.mode === 'disconnected' ? (
         <ConnectPanel onConnect={wallet.connectInjected} onPreview={wallet.usePreview} error={wallet.connectError} />
       ) : (
@@ -382,16 +397,6 @@ function WalletHome({ wallet }: { wallet: ReturnType<typeof useWalletState> }) {
         </div>
       )}
       {wallet.mode === 'disconnected' && <div className="mt-8 flex items-center gap-3 text-xs text-[#7d8491]"><span className="h-px w-8 bg-[#C9A227]/50" /> Connect or preview to view assets on Base Sepolia.</div>}
-      <section className="card-surface mt-8 rounded-xl p-6 md:p-7" data-testid="panel-install-wallet">
-        <div className="flex items-start gap-3">
-          <Smartphone size={17} className="mt-0.5 shrink-0 text-[#C9A227]" />
-          <div>
-            <div className="text-[10px] font-semibold uppercase tracking-[.2em] text-[#C9A227]">Add to Home Screen</div>
-            <h2 className="mt-2 font-display text-2xl">Keep the wallet close.</h2>
-            <p className="mt-2 max-w-2xl text-xs leading-5 text-[#9AA0AD]">On iPhone, open this page in Safari, tap Share, choose Add to Home Screen, then tap Add. On Android, open it in Chrome and choose Add to Home screen or Install app from the browser menu.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
