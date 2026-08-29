@@ -1,0 +1,84 @@
+Build a production-quality web app called VAELORYN WALLET. This is the first flagship product for Vaeloryn (https://vaeloryn.com) and the VAELO token.
+
+MISSION
+Vaeloryn is a South African-founded ecosystem that accelerates scientific, medical and technological progress by connecting people and ideas with expertise, resources and opportunities. Tone: serious, long-term, institutional. Not a meme coin. Not a casino. Not hype.
+
+PRODUCT DECISION
+Wallet first. Other features are added later inside the same app. Do not build Bridge / expert network / project tracker as working products yet — show them as locked “Coming” cards only.
+
+DESIGN
+- Mobile-first, iPhone-shaped layout that also works on desktop
+- Background: #07090f
+- Cards: #10151f
+- Gold: #C9A227 and #E0C15A
+- Text: #F4F1EA
+- Muted: #9AA0AD
+- Fonts: Cormorant Garamond for titles / brand, Inter for UI
+- Gold V monogram + wordmark VAELORYN
+- Lots of space, thin gold borders, no cartoons, no neon, no emoji-heavy UI
+- Bottom nav: Wallet, Activity, Discover
+- Status pill always visible: “Testnet / not live”
+
+NETWORK
+- Default chain: Base Sepolia (chain id 84532)
+- RPC: https://sepolia.base.org
+- Explorer: https://sepolia.basescan.org
+- Canonical VAELO is NOT deployed on mainnet
+- Public sale is NOT active
+- No token price, no Buy button, no charts, no “invest” language
+
+SCREENS
+1) Wallet home
+   - Brand header
+   - VAELO · Base Sepolia
+   - Connect wallet (injected: MetaMask / Rabby) AND an “iPhone preview (no wallet)” demo mode
+   - After connect: short address + Disconnect
+   - Actions: Receive, Send, Scan (Scan can open Receive for now)
+   - Asset list:
+     - VAELO primary row, balance 0.00 and “— USD” until a contract address is set in config
+     - ETH on Base Sepolia with live balance when a real wallet is connected
+   - Disclaimer: Historical V1.1 prototype on Base Sepolia has no monetary value. Canonical VAELO is not deployed. No public sale is active.
+
+2) Receive
+   - Address + copy button
+   - QR of the address
+   - Warning: only Base Sepolia test assets
+
+3) Send
+   - Token selector: ETH works now; VAELO disabled with message “Canonical contract not set”
+   - Recipient field, amount field, Review & send
+   - Real ETH send on Base Sepolia via the connected wallet
+   - Preview mode: do not broadcast, only log a local preview event
+
+4) Activity
+   - Local history of sends from this app
+   - Empty state if none
+
+5) Discover (locked)
+   - Cards: Bridge Pipeline, Expert Network, Project Tracker
+   - Each has a “Coming” lock
+   - Short line: “The wallet ships first. These layers attach later.”
+
+CONFIG
+Create a single config file:
+- vaeloAddress: "" (empty string)
+- vaeloDecimals: 18
+- When vaeloAddress is later filled, show ERC-20 balance and enable VAELO transfer
+- Never hardcode a fake contract or fake price
+
+TECH
+- Vite + React (or Next.js if you prefer)
+- wagmi + viem for wallet connection on desktop
+- Works as a PWA: manifest, theme-color #07090f, apple-mobile-web-app-capable, Add to Home Screen
+- Responsive; on iPhone it should feel like a native app
+- No backend required for v1
+- Clear README: how to run, how to set the VAELO contract later, how to add the page to an iPhone home screen from Safari once hosted on HTTPS
+
+DO NOT
+- Do not invent tokenomics, a live price, or a sale
+- Do not use Solana
+- Do not scrape or copy other crypto wallet brands
+- Do not add staking, swaps, or fiat on-ramps in v1
+- Do not say the token is live
+
+Deliver a running Replit web app I can open on my phone in Safari.
