@@ -233,53 +233,36 @@ function Shell({ children, mode, address, onConnect, onPreview, onDisconnect }: 
   ];
   return (
     <div className="wallet-app text-[#F4F1EA]">
-      <div className="app-frame mx-auto flex min-h-[100dvh] max-w-[1440px]">
-        <aside className="hidden w-[236px] shrink-0 flex-col border-r border-[#C9A227]/15 bg-[#090c13]/75 px-6 py-8 shadow-[12px_0_40px_rgba(0,0,0,.12)] md:flex">
-          <BrandMark />
-          <div className="mt-14 space-y-1">
-            <div className="mb-4 px-3 text-[9px] font-semibold uppercase tracking-[.24em] text-[#9AA0AD]">Workspace</div>
-            {navItems.map(({ href, label, icon: Icon, testId }) => (
-              <Link key={href} href={href} className={`focus-ring flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition-colors ${location === href ? 'bg-[#C9A227]/10 text-[#E0C15A]' : 'text-[#9AA0AD] hover:bg-[#10151f] hover:text-[#F4F1EA]'}`} data-testid={testId}>
-                <Icon size={17} strokeWidth={1.5} />
-                {label}
-              </Link>
-            ))}
-          </div>
-          <div className="mt-auto">
-            <div className="gold-rule mb-5" />
-            <div className="flex items-start gap-2 text-[11px] leading-5 text-[#9AA0AD]">
-              <ShieldCheck size={15} className="mt-0.5 shrink-0 text-[#C9A227]" strokeWidth={1.5} />
-              <span>Base Sepolia<br /><span className="text-[#F4F1EA]/65">Chain ID {walletConfig.chainId}</span></span>
-            </div>
-          </div>
-        </aside>
-        <div className="flex min-w-0 flex-1 flex-col">
-          <header className="flex items-center justify-between border-b border-[#C9A227]/15 bg-[#07090f]/75 px-5 py-5 backdrop-blur-xl md:px-12 md:py-6">
-            <div className="md:hidden"><BrandMark compact /></div>
-            <div className="hidden items-center gap-2 text-[11px] text-[#9AA0AD] md:flex">
-              <span className="text-[#F4F1EA]">VAELORYN WALLET</span><span className="text-[#C9A227]/60">/</span><span>BASE SEPOLIA</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <TestnetStatus />
-              {mode === 'disconnected' ? (
-                <button className="ghost-button focus-ring hidden rounded-md px-3 py-2 text-[11px] font-semibold md:block" onClick={onConnect} data-testid="button-header-connect">Connect</button>
-              ) : (
-                <button className="hidden items-center gap-2 rounded-md border border-[#C9A227]/20 bg-[#10151f] px-3 py-2 text-[11px] text-[#F4F1EA] md:flex" onClick={onDisconnect} data-testid="button-header-disconnect">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#7EBD9A]" />{shortAddress(address)}<X size={13} className="text-[#9AA0AD]" />
-                </button>
-              )}
-            </div>
-          </header>
-          <main className="wallet-main w-full flex-1 px-5 pt-8 md:px-12 md:pt-10">{children}</main>
-          <nav className="mobile-nav z-20 flex rounded-2xl border border-[#C9A227]/20 bg-[#0a0d14]/95 px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-3 shadow-[0_18px_45px_rgba(0,0,0,.42)] backdrop-blur-xl md:hidden">
-            {navItems.map(({ href, label, icon: Icon, testId }) => (
-              <Link key={href} href={href} className={`focus-ring flex flex-1 flex-col items-center gap-1.5 py-1 text-[10px] font-medium ${location === href ? 'text-[#E0C15A]' : 'text-[#7d8491]'}`} data-testid={`${testId}-mobile`}>
-                <Icon size={19} strokeWidth={1.5} />
+      <div className="app-frame mx-auto flex min-h-[100dvh] max-w-[1440px] flex-col">
+        <header className="wallet-topbar flex items-center justify-between border-b border-[#C9A227]/15 bg-[#07090f]/75 px-5 py-5 backdrop-blur-xl md:px-12 md:py-6">
+          <a href="/" className="wallet-wordmark font-display" data-testid="brand-vaeloryn">VAELORYN</a>
+          <nav className="wallet-topnav hidden items-center gap-7 md:flex" aria-label="Wallet navigation">
+            {navItems.map(({ href, label, testId }) => (
+              <Link key={href} href={href} className={`focus-ring ${location === href ? 'wallet-topnav-active' : ''}`} data-testid={testId}>
                 {label}
               </Link>
             ))}
           </nav>
-        </div>
+          <div className="flex items-center gap-3">
+            <TestnetStatus />
+            {mode === 'disconnected' ? (
+              <button className="ghost-button focus-ring hidden rounded-md px-3 py-2 text-[11px] font-semibold md:block" onClick={onConnect} data-testid="button-header-connect">Connect</button>
+            ) : (
+              <button className="wallet-account focus-ring hidden items-center gap-2 rounded-md px-3 py-2 text-[11px] md:flex" onClick={onDisconnect} data-testid="button-header-disconnect">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#7EBD9A]" />{shortAddress(address)}<X size={13} className="text-[#9AA0AD]" />
+              </button>
+            )}
+          </div>
+        </header>
+        <main className="wallet-main w-full flex-1 px-5 pt-10 md:px-12 md:pt-16">{children}</main>
+        <nav className="mobile-nav z-20 flex rounded-2xl border border-[#C9A227]/20 bg-[#0a0d14] px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-3 shadow-[0_18px_45px_rgba(0,0,0,.42)] backdrop-blur-xl md:hidden" aria-label="Wallet navigation">
+          {navItems.map(({ href, label, icon: Icon, testId }) => (
+            <Link key={href} href={href} className={`focus-ring flex flex-1 flex-col items-center gap-1.5 py-1 text-[10px] font-medium ${location === href ? 'text-[#E0C15A]' : 'text-[#7d8491]'}`} data-testid={`${testId}-mobile`}>
+              <Icon size={19} strokeWidth={1.5} />
+              {label}
+            </Link>
+          ))}
+        </nav>
       </div>
       {mode === 'disconnected' && location === '/' && (
         <div className="fixed inset-x-0 bottom-[76px] z-10 px-5 md:hidden">
