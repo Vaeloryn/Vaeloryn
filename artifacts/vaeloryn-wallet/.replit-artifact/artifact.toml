@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/vaeloryn-wallet/"
+title = "VAELORYN WALLET"
+description = "A mobile-first Base Sepolia wallet for safely previewing and sending testnet ETH, with VAELO held disabled until the canonical contract is configured."
+version = "1.0.0"
+id = "artifacts/vaeloryn-wallet"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/vaeloryn-wallet/" ]
+localPort = 24217
+
+[services.development]
+run = "pnpm --filter @workspace/vaeloryn-wallet run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vaeloryn-wallet", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/vaeloryn-wallet/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24217"
+BASE_PATH = "/vaeloryn-wallet/"

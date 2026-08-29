@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 228 38% 4%;
+  --foreground: 42 26% 94%;
+  --border: 218 26% 18%;
+  --input: 218 26% 21%;
+  --card: 218 32% 9%;
+  --card-foreground: 42 26% 94%;
+  --primary: 46 68% 47%;
+  --primary-foreground: 228 38% 4%;
+  --secondary: 218 29% 13%;
+  --secondary-foreground: 42 26% 94%;
+  --muted: 218 23% 16%;
+  --muted-foreground: 220 12% 64%;
+  --accent: 46 69% 62%;
+  --accent-foreground: 228 38% 4%;
+  --destructive: 1 56% 61%;
+  --destructive-foreground: 42 26% 94%;
+  --ring: 46 69% 62%;
+  --sidebar: 218 32% 9%;
+  --sidebar-foreground: 42 26% 94%;
+  --sidebar-border: 218 26% 18%;
+  --app-font-sans: 'Inter', sans-serif;
+  --app-font-serif: 'Cormorant Garamond', Georgia, serif;
+  --app-font-mono: 'SFMono-Regular', Consolas, monospace;
+  --radius: 0.8rem;
+}
+
+.dark {
+  --background: 228 38% 4%;
+  --foreground: 42 26% 94%;
+  --border: 218 26% 18%;
+  --input: 218 26% 21%;
+  --card: 218 32% 9%;
+  --card-foreground: 42 26% 94%;
+  --primary: 46 68% 47%;
+  --primary-foreground: 228 38% 4%;
+  --secondary: 218 29% 13%;
+  --secondary-foreground: 42 26% 94%;
+  --muted: 218 23% 16%;
+  --muted-foreground: 220 12% 64%;
+  --accent: 46 69% 62%;
+  --accent-foreground: 228 38% 4%;
+  --destructive: 1 56% 61%;
+  --destructive-foreground: 42 26% 94%;
+  --ring: 46 69% 62%;
+  --sidebar: 218 32% 9%;
+  --sidebar-foreground: 42 26% 94%;
+  --sidebar-border: 218 26% 18%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { background: #07090f; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--app-font-sans);
+    min-width: 320px;
+  }
+  button, input { font: inherit; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+}
+
+@keyframes vaeloryn-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vaeloryn-pulse {
+  0%, 100% { opacity: .42; }
+  50% { opacity: 1; }
+}
+
+.wallet-app {
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 0%, rgba(201,162,39,.075), transparent 27rem),
+    radial-gradient(circle at 10% 58%, rgba(31,48,74,.13), transparent 26rem),
+    #07090f;
+}
+
+.wallet-app::before {
+  content: '';
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image: linear-gradient(rgba(224,193,90,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(224,193,90,.018) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
+
+.app-frame { position: relative; z-index: 1; }
+.font-display { font-family: var(--app-font-serif); }
+.font-mono { font-family: var(--app-font-mono); }
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,.64), transparent);
+}
+
+.status-pill {
+  border: 1px solid rgba(201,162,39,.42);
+  background: rgba(201,162,39,.08);
+  color: #e0c15a;
+}
+
+.card-surface {
+  background: rgba(16,21,31,.92);
+  border: 1px solid rgba(201,162,39,.18);
+  box-shadow: 0 18px 50px rgba(0,0,0,.2);
+}
+
+.card-surface:hover { border-color: rgba(201,162,39,.34); }
+.gold-button { background: #c9a227; color: #0a0d13; }
+.gold-button:hover { background: #e0c15a; }
+.gold-button:disabled { opacity: .42; cursor: not-allowed; }
+.ghost-button { border: 1px solid rgba(224,193,90,.32); background: rgba(224,193,90,.045); color: #e0c15a; }
+.ghost-button:hover { background: rgba(224,193,90,.1); border-color: rgba(224,193,90,.62); }
+
+.route-enter { animation: vaeloryn-in .42s ease-out both; }
+.route-enter > * { animation: vaeloryn-in .42s ease-out both; }
+.route-enter > *:nth-child(2) { animation-delay: 45ms; }
+.route-enter > *:nth-child(3) { animation-delay: 90ms; }
+.route-enter > *:nth-child(4) { animation-delay: 135ms; }
+
+.qr-shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 232px);
+  aspect-ratio: 1;
+  padding: 15px;
+  background: #f4f1ea;
+  border: 1px solid rgba(224,193,90,.65);
+  box-shadow: 0 0 0 8px rgba(201,162,39,.04);
+}
+
+.qr-pattern {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(90deg, #10151f 10%, transparent 10% 20%, #10151f 20% 30%, transparent 30% 40%, #10151f 40% 50%, transparent 50% 60%, #10151f 60% 70%, transparent 70% 80%, #10151f 80% 90%, transparent 90%),
+    linear-gradient(#10151f 10%, transparent 10% 20%, #10151f 20% 30%, transparent 30% 40%, #10151f 40% 50%, transparent 50% 60%, #10151f 60% 70%, transparent 70% 80%, #10151f 80% 90%, transparent 90%);
+  background-size: 23px 23px;
+  opacity: .88;
+}
+
+.qr-pattern::after, .qr-pattern::before {
+  content: '';
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border: 8px solid #10151f;
+  background: #f4f1ea;
+  box-shadow: inset 0 0 0 7px #10151f;
+}
+.qr-pattern::before { top: 22px; left: 22px; }
+.qr-pattern::after { right: 22px; bottom: 22px; }
+
+.focus-ring:focus-visible { outline: 2px solid #e0c15a; outline-offset: 3px; }
+
+@media (min-width: 768px) {
+  .wallet-main { max-width: 1120px; margin: 0 auto; }
+}

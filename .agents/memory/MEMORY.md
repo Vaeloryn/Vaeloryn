@@ -1,3 +1,4 @@
 - [Etherscan v2 hardhat-verify config](etherscan-v2-hardhat-verify.md) — single string apiKey (not object) is required to activate v2 API and auto-append chainid to all requests.
 - [VAELO canonical reconciliation](vaelo-canonical-reconciliation.md) — distinguish the live V1.1 testnet prototype from newer unverified public production claims.
 - [VAELO atomic Genesis deployment](vaelo-atomic-genesis-deployment.md) — allocate only from an immutable one-shot factory to prevent vesting or token substitution.
+- [Wagmi v3 token balances](wagmi-v3-token-balance.md) — native useBalance does not expose ERC-20 token parameters; read configured tokens with viem readContract.
