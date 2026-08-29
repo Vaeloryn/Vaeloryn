@@ -68,7 +68,7 @@ const statusItems: { label: string; value: string; kind: StatusKind }[] = [
   { label: "Canonical Test Evidence",        value: "27 targeted tests passing",         kind: "achieved" },
   { label: "Canonical Deployment",            value: "Not yet deployed",                  kind: "inactive"  },
   { label: "VAELO Network",                  value: "Base Sepolia Testnet (V1.1)",      kind: "achieved"  },
-  { label: "Historical Founder Vesting",     value: "V1.1 · non-canonical testnet record", kind: "achieved"  },
+  { label: "Canonical Founder Vesting",       value: "100M · 3 releases + 1,095-day linear", kind: "achieved"  },
   { label: "Production / Mainnet",           value: "Not launched",                   kind: "inactive"  },
   { label: "Public VAELO Distribution",      value: "Not active",                     kind: "inactive"  },
   { label: "Independent Security Review",    value: "Pending",                        kind: "pending"   },
