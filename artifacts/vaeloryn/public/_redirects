@@ -13,5 +13,8 @@
 /submit-idea    /submit-idea/index.html    200
 /contact        /contact/index.html        200
 
+/vaeloryn-wallet /app 301
+/vaeloryn-wallet/ /app 301
+
 # Fallback for any future client-side route.
 /*    /index.html    200
