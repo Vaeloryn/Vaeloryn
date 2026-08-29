@@ -1,0 +1,65 @@
+Correct founder vesting to match the canonical product documentation. Do not invent a new schedule.
+
+SOURCE OF TRUTH
+- Founder allocation is 100,000,000 VAELO (10%), NOT 150,000,000.
+- 150,000,000 / 15% is Team & Contributors. Do not put that in founder vesting.
+- There is NO simple 5-year founder vest.
+- There is NO fourth quarterly release.
+
+CANONICAL SCHEDULE (relative to T0 = officialLaunchTimestamp)
+1. T0: release 2,500,000
+2. T0 + 90 days: additional 2,500,000 (cumulative 5,000,000)
+3. T0 + 180 days: additional 2,500,000 (cumulative 7,500,000)
+4. T0 + 270 days: additional 2,500,000 (cumulative 10,000,000)
+5. From T0 + 270 days for exactly 1,095 days: remaining 90,000,000 vest linearly
+6. At T0 + 270 days + 1,095 days: cumulative 100,000,000 and nothing more
+
+CONTRACT RULES
+- Edit vaelo_canonical/src/VaelorynFounderVesting.sol if it does not already match the schedule above.
+- Keep TOTAL_ALLOCATION = 100_000_000 ether
+- INITIAL_RELEASE = 2_500_000 ether
+- QUARTERLY_RELEASE = 2_500_000 ether (exactly three quarters after T0, not four)
+- LINEAR_ALLOCATION = 90_000_000 ether
+- QUARTERLY_1 = 90 days, QUARTERLY_2 = 180 days, QUARTERLY_3 = 270 days
+- LINEAR_DURATION = 1_095 days
+- linearStartTimestamp = T0 + 270 days
+- linearEndTimestamp = linearStartTimestamp + 1_095 days
+- vaelo, beneficiary, startTimestamp, linearStartTimestamp, linearEndTimestamp must stay immutable
+- No owner, no pause, no revoke, no ability to change the schedule after deploy
+- vestedAmount() / releasableAmount() / release() must match the table exactly
+- Use 1e18 token units (ether suffix) consistent with the existing token
+
+DO NOT CHANGE
+- Total supply 1,000,000,000
+- Other allocations:
+  Ecosystem 300M, Public 200M, Treasury 200M, Team 150M, Founder 100M, Partnerships 50M
+- Token: no extra mint, no admin, no upgrade, no tax
+- Do not modify vaelo_prototype except to label V1.1 as historical / non-canonical if it still says 150M founder vest
+
+ALSO FIX EVERY REFERENCE
+Search the whole repo (website copy, README, docs, comments, tests, manifests) for:
+- "150M" founder vest
+- "5-year" founder vest
+- "150,000,000" tied to founder
+- a fourth quarterly founder release
+Replace those with the canonical 100M schedule above.
+
+TESTS
+Update vaelo_canonical tests so they assert:
+- at T0-1: vested = 0
+- at T0: vested = 2.5M
+- just before +90d: still 2.5M
+- at +90d: 5M
+- at +180d: 7.5M
+- at +270d: 10M
+- no extra 2.5M at +360d beyond the linear amount
+- at linear start + 1,095 days: 100M
+- cannot release more than vested
+- total founder cap 100M
+Run the existing Foundry suite in vaelo_canonical and leave tests passing.
+
+When done, print:
+1. files changed
+2. confirmation the on-chain schedule matches the table
+3. test command + results
+4. any leftover 150M/5-year founder references you found
