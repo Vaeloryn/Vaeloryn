@@ -393,7 +393,7 @@ function ReceivePage({ wallet }: { wallet: ReturnType<typeof useWalletState> }) 
     window.setTimeout(() => setCopied(false), 1800);
   };
   return (
-    <div className="route-enter max-w-3xl">
+    <div className="route-enter wallet-utility-page max-w-3xl">
       <PageHeading eyebrow="Receive" title="Receive test assets." description="Share this address only with someone sending on Base Sepolia." action={<Link href="/" className="focus-ring inline-flex items-center gap-2 text-xs text-[#9AA0AD] hover:text-[#E0C15A]" data-testid="link-back-wallet"><ArrowLeft size={15} /> Wallet</Link>} />
       <div className="grid gap-8 md:grid-cols-[.9fr_1.1fr] md:items-center">
         <div className="flex justify-center rounded-xl border border-[#C9A227]/20 bg-[#10151f]/70 p-8 md:p-10" data-testid="panel-address-qr">
@@ -483,7 +483,7 @@ function SendPage({ wallet }: { wallet: ReturnType<typeof useWalletState> }) {
   };
 
   if (result) return (
-    <div className="route-enter max-w-2xl">
+     <div className="route-enter wallet-utility-page max-w-2xl">
       <PageHeading eyebrow="Send" title="Transfer prepared." description={result} />
       <div className="card-surface rounded-xl p-7" data-testid="panel-send-result"><div className="flex items-start gap-3"><div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#7EBD9A]/10 text-[#9ed2b3]"><Check size={18} /></div><div><div className="text-sm font-medium">It is recorded in local Activity.</div><div className="mt-1 text-xs leading-5 text-[#9AA0AD]">{wallet.mode === 'preview' ? 'Preview mode keeps every action on this device.' : 'Your wallet provider owns the signing step.'}</div></div></div><div className="mt-7 flex gap-3"><Link href="/activity" className="gold-button focus-ring rounded-md px-4 py-3 text-xs font-semibold" data-testid="link-view-activity">View Activity</Link><button className="ghost-button focus-ring rounded-md px-4 py-3 text-xs font-semibold" onClick={() => { setResult(''); setReviewing(false); setRecipient(''); setAmount(''); }} data-testid="button-new-transfer">New transfer</button></div></div>
     </div>
