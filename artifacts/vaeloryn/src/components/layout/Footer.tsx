@@ -31,9 +31,9 @@ export function Footer() {
             <Link href="/status" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Progress
             </Link>
-            <Link href="/sale" className="text-sm text-primary/70 hover:text-primary transition-colors">
-              Token Sale
-            </Link>
+            <a href="/vaeloryn-wallet/" className="text-sm text-primary/70 hover:text-primary transition-colors">
+              Wallet
+            </a>
             <Link href="/help-build" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Help Build
             </Link>

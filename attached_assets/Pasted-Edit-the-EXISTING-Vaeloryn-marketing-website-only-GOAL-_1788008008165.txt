@@ -1,0 +1,55 @@
+Edit the EXISTING Vaeloryn marketing website only.
+
+GOAL
+Remove the SALE section from the public site and replace it with WALLET.
+Clicking Wallet must open the standalone Vaeloryn Wallet app.
+Also offer a clear “Add to Home Screen” path.
+
+DO NOT
+- Do not rebuild the wallet inside this marketing site
+- Do not delete Progress, Verify, Roadmap, Help Build, Contact, or VAELO content
+- Do not add a Buy button, token price, or say a public sale is live
+- Do not change brand colours or tone
+
+1) NAVIGATION
+Find every “Sale” link in the header, footer, and homepage buttons.
+Replace the label with “Wallet”.
+Point it to: YOUR_WALLET_URL
+Open in the same tab on mobile, new tab on desktop is fine.
+
+2) DELETE / RETIRE THE SALE PAGE
+If there is a Sale page or “VAELO Sale” / “Public distribution” section:
+- Remove it from the menu
+- Replace that page with a short Wallet page (see below) OR redirect /sale to the wallet URL
+- Remove leftover “Sale” CTAs
+
+3) NEW WALLET PAGE ON THIS SITE
+Create a simple page at /wallet that matches the current dark navy + gold site.
+
+Headline: Wallet
+Subhead: The Vaeloryn wallet is the first flagship product. Hold, receive and send when you are ready. Canonical VAELO is not live. No public sale is active.
+
+Two buttons:
+- “Open wallet” → YOUR_WALLET_URL
+- “Add to iPhone Home Screen” → scrolls to the install steps on the same page
+
+Install steps (required, because iOS blocks automatic install):
+1. Open the wallet in Safari (not Chrome)
+2. Tap the Share button (square with arrow)
+3. Tap Add to Home Screen
+4. Name it Vaeloryn
+5. Open the new icon on the Home Screen
+
+Also show a short Android note: Chrome → menu → Add to Home screen / Install app.
+
+4) HOMEPAGE
+If the homepage mentions Sale or public distribution as a primary action, replace that button with “Open wallet”.
+
+5) COPY TONE
+Keep the existing serious Vaeloryn voice.
+One line is enough: “Wallet first. Discover features will be added later.”
+
+After the change, give me:
+- which files you edited
+- the new /wallet URL on this site
+- confirm Sale is gone from the header
