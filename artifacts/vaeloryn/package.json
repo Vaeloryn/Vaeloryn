@@ -72,6 +72,9 @@
     "vaul": "^1.1.2",
     "vite": "catalog:",
     "wouter": "^3.3.5",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "qrcode.react": "^4.2.0",
+    "viem": "^2.56.0",
+    "wagmi": "^3.7.7"
   }
 }
