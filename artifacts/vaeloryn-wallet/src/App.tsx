@@ -33,6 +33,7 @@ import {
   ScanLine,
   Send,
   ShieldCheck,
+  Smartphone,
   WalletCards,
   X,
 } from 'lucide-react';

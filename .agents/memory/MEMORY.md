@@ -2,3 +2,4 @@
 - [VAELO canonical reconciliation](vaelo-canonical-reconciliation.md) — distinguish the live V1.1 testnet prototype from newer unverified public production claims.
 - [VAELO atomic Genesis deployment](vaelo-atomic-genesis-deployment.md) — allocate only from an immutable one-shot factory to prevent vesting or token substitution.
 - [Wagmi v3 token balances](wagmi-v3-token-balance.md) — native useBalance does not expose ERC-20 token parameters; read configured tokens with viem readContract.
+- [Artifact route ownership](artifact-route-ownership.md) — registered artifact paths intercept root-app redirects; move obsolete registrations before reusing their URLs.

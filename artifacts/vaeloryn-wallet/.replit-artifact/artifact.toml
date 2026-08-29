@@ -1,5 +1,5 @@
 kind = "web"
-previewPath = "/vaeloryn-wallet/"
+previewPath = "/legacy-wallet-source/"
 title = "VAELORYN WALLET"
 description = "A mobile-first Base Sepolia wallet for safely previewing and sending testnet ETH, with VAELO held disabled until the canonical contract is configured."
 version = "1.0.0"
@@ -8,7 +8,7 @@ router = "path"
 
 [[services]]
 name = "web"
-paths = [ "/vaeloryn-wallet/" ]
+paths = [ "/legacy-wallet-source/" ]
 localPort = 24217
 
 [services.development]
@@ -25,4 +25,4 @@ to = "/index.html"
 
 [services.env]
 PORT = "24217"
-BASE_PATH = "/vaeloryn-wallet/"
+BASE_PATH = "/legacy-wallet-source/"
