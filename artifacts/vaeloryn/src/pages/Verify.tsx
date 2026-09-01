@@ -512,9 +512,9 @@ export function Verify() {
                 </div>
                 <div className="space-y-3">
                   <DataRow label="Framework"    value="Foundry" />
-                   <DataRow label="Tests passed" value="28 targeted" />
+                   <DataRow label="Tests passed" value="32 targeted" />
                   <DataRow label="Tests failed" value="0" />
-                   <DataRow label="Result"       value="28 passed · 0 failed · 0 skipped" />
+                   <DataRow label="Result"       value="32 passed · 0 failed · 0 skipped" />
                 </div>
               </motion.div>
 

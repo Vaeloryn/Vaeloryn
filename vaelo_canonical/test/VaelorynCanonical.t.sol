@@ -7,6 +7,7 @@ import {VaelorynToken} from "../src/VaelorynToken.sol";
 import {VaelorynFounderVesting} from "../src/VaelorynFounderVesting.sol";
 import {VaelorynGenesisDistribution} from "../src/VaelorynGenesisDistribution.sol";
 import {VaelorynDeploymentFactory} from "../src/VaelorynDeploymentFactory.sol";
+import {DeployCanonicalMainnet} from "../script/DeployCanonicalMainnet.s.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract GetterCompatibleMaliciousVesting {
@@ -19,6 +20,12 @@ contract GetterCompatibleMaliciousVesting {
 
     function drain(address recipient) external {
         vaelo.transfer(recipient, vaelo.balanceOf(address(this)));
+    }
+}
+
+contract DeployCanonicalMainnetPolicyHarness is DeployCanonicalMainnet {
+    function validateOfficialLaunchTimestamp(uint256 launchTimestamp) external view {
+        _validateOfficialLaunchTimestamp(launchTimestamp);
     }
 }
 
@@ -39,6 +46,7 @@ contract VaelorynCanonicalTest is Test {
     VaelorynToken internal token;
     VaelorynGenesisDistribution internal distribution;
     VaelorynFounderVesting internal vesting;
+    DeployCanonicalMainnetPolicyHarness internal mainnetPolicy;
 
     function setUp() public {
         ecosystem = vm.addr(ECOSYSTEM_KEY);
@@ -60,6 +68,7 @@ contract VaelorynCanonicalTest is Test {
 
         t0 = block.timestamp + 7 days;
         vesting = new VaelorynFounderVesting(address(token), founder, t0);
+        mainnetPolicy = new DeployCanonicalMainnetPolicyHarness();
     }
 
     function _allocateGenesis() internal {
@@ -233,6 +242,43 @@ contract VaelorynCanonicalTest is Test {
             founder,
             0
         );
+    }
+
+    function testMainnetPolicyAcceptsFutureLaunchTimestamp() public {
+        uint256 futureLaunchTimestamp = block.timestamp + 1;
+
+        mainnetPolicy.validateOfficialLaunchTimestamp(futureLaunchTimestamp);
+    }
+
+    function testMainnetPolicyRejectsZeroLaunchTimestamp() public {
+        vm.expectRevert(DeployCanonicalMainnet.InvalidOfficialLaunchTimestamp.selector);
+        mainnetPolicy.validateOfficialLaunchTimestamp(0);
+    }
+
+    function testMainnetPolicyRejectsPastLaunchTimestamp() public {
+        uint256 pastLaunchTimestamp = block.timestamp - 1;
+
+        vm.expectRevert(
+            abi.encodeWithSelector(
+                DeployCanonicalMainnet.OfficialLaunchTimestampNotFuture.selector,
+                pastLaunchTimestamp,
+                block.timestamp
+            )
+        );
+        mainnetPolicy.validateOfficialLaunchTimestamp(pastLaunchTimestamp);
+    }
+
+    function testMainnetPolicyRejectsLaunchTimestampAtCurrentTime() public {
+        uint256 currentTimestamp = block.timestamp;
+
+        vm.expectRevert(
+            abi.encodeWithSelector(
+                DeployCanonicalMainnet.OfficialLaunchTimestampNotFuture.selector,
+                currentTimestamp,
+                currentTimestamp
+            )
+        );
+        mainnetPolicy.validateOfficialLaunchTimestamp(currentTimestamp);
     }
 
     function testAllocationConstantsSumToFixedSupply() public view {

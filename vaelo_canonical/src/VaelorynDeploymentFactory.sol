@@ -12,7 +12,9 @@ import {VaelorynGenesisDistribution} from "./VaelorynGenesisDistribution.sol";
  *      configuration. Its constructor deploys one distribution, token and
  *      founder vesting contract, then completes the one-time Genesis
  *      allocation inside the same transaction. It has no callable function
- *      that can deploy a second instance.
+ *      that can deploy a second instance. The chain-specific policy requiring
+ *      a future T0 on Base Mainnet is enforced by the preparation script; this
+ *      contract stores the supplied timestamp immutably and only rejects zero.
  */
 contract VaelorynDeploymentFactory {
     event CanonicalProtocolDeployed(

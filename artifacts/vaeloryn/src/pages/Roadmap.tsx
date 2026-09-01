@@ -221,7 +221,7 @@ export function Roadmap() {
                   'VaelorynToken implemented — ERC-20, one-time 1B initial mint, burn, permit (EIP-2612).',
                   'VaelorynFounderVesting implemented locally — canonical on-chain vesting logic with an enforced schedule.',
                   'VaelorynGenesisDistribution implemented — constitutional distribution at deployment.',
-                  'Canonical Foundry implementation tested locally — 28 targeted tests passed, with zero failures.',
+                  'Canonical Foundry implementation tested locally — 32 targeted tests passed, with zero failures.',
                   'Historical V1.1 prototype remains deployed on Base Sepolia; canonical deployment is pending.',
                   'Canonical source verification and deployment remain pending.',
                 ].map((item) => (

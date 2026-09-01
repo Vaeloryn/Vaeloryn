@@ -69,7 +69,7 @@ const MILESTONES = [
   { label: 'Canonical Genesis Distribution',     detail: 'Locally tested; no network transaction broadcast' },
   { label: 'Canonical Allocation',               detail: 'Six-category design implemented locally' },
   { label: 'Canonical Source Verification',      detail: 'Pending deployment' },
-  { label: 'Targeted Local Test Evidence',       detail: '28 passed, 0 failed, 0 skipped' },
+  { label: 'Targeted Local Test Evidence',       detail: '32 passed, 0 failed, 0 skipped' },
 ];
 
 export function Status() {
@@ -182,10 +182,10 @@ export function Status() {
               <StatusRow label="Canonical Protocol"                   value="Implemented locally · not deployed" kind="done"     />
               <StatusRow label="Historical Prototype"                 value="V1.1 · Base Sepolia Testnet"        kind="done"     />
               <StatusRow label="Chain ID"                             value="84532"                            kind="done"     />
-              <StatusRow label="Targeted Test Evidence"               value="28 local tests passing"            kind="done"     />
+              <StatusRow label="Targeted Test Evidence"               value="32 local tests passing"            kind="done"     />
               <StatusRow label="Canonical Allocation"                 value="Implemented locally · not on-chain" kind="done"    />
               <StatusRow label="Canonical Founder Vesting"            value="Locally tested · not deployed"      kind="done"     />
-              <StatusRow label="Official launch timestamp (T0)"       value="Not set · deployment pending"      kind="pending"  />
+              <StatusRow label="Official launch timestamp (T0)"       value="Not set · deployment pending"      kind="pending"  note="Chosen before authorized Mainnet broadcast; must be a future Unix timestamp" />
               <StatusRow label="Production / Mainnet"                 value="Not launched"                     kind="inactive" />
               <StatusRow label="Public VAELO Distribution"            value="Not active"                       kind="inactive" note="No public sale or token distribution is currently active" />
               <StatusRow label="Independent Production Security Review" value="Pending"                        kind="pending"  />
@@ -259,7 +259,7 @@ export function Status() {
                 'VaelorynToken smart contract designed and implemented.',
                 'VaelorynFounderVesting smart contract designed and implemented.',
                 'VaelorynGenesisDistribution smart contract designed and implemented.',
-                'Canonical Foundry implementation tested locally — 28 targeted tests passed, zero failures.',
+                'Canonical Foundry implementation tested locally — 32 targeted tests passed, zero failures.',
                 'Historical V1.1 prototype remains deployed to Base Sepolia; canonical deployment is pending.',
                 'Canonical source verification is pending deployment.',
                 'Historical V1.1 allocation recorded and inspectable on-chain.',

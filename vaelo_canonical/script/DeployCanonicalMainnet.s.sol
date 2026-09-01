@@ -40,6 +40,7 @@ contract DeployCanonicalMainnet is Script {
     error IncorrectNetwork(uint256 actualChainId);
     error InvalidDeployerKey();
     error InvalidOfficialLaunchTimestamp();
+    error OfficialLaunchTimestampNotFuture(uint256 launchTimestamp, uint256 currentTimestamp);
     error UnexpectedRecipient(bytes32 role, address actual);
     error DeploymentReadbackFailed();
 
@@ -60,9 +61,7 @@ contract DeployCanonicalMainnet is Script {
         address strategicPartnershipsRecipient = vm.envAddress("VAELO_STRATEGIC_PARTNERSHIPS_RECIPIENT");
         address founderBeneficiary = vm.envAddress("VAELO_FOUNDER_BENEFICIARY");
         uint256 officialLaunchTimestamp = vm.envUint("VAELO_OFFICIAL_LAUNCH_TIMESTAMP");
-        if (officialLaunchTimestamp == 0) {
-            revert InvalidOfficialLaunchTimestamp();
-        }
+        _validateOfficialLaunchTimestamp(officialLaunchTimestamp);
 
         _validateApprovedRecipients(ecosystemRecipient, publicDistributionRecipient, treasuryRecipient, teamRecipient, strategicPartnershipsRecipient, founderBeneficiary);
 
@@ -82,6 +81,17 @@ contract DeployCanonicalMainnet is Script {
         console2.log("Canonical Mainnet Founder Vesting:", address(vesting));
         console2.log("Founder vesting T0:", vesting.startTimestamp());
         console2.log("Founder vesting end:", vesting.linearEndTimestamp());
+    }
+
+    /// @dev Mainnet policy requires the reviewed T0 to be strictly future-dated.
+    ///      The vesting contract remains schedule-pure and only rejects zero.
+    function _validateOfficialLaunchTimestamp(uint256 officialLaunchTimestamp) internal view {
+        if (officialLaunchTimestamp == 0) {
+            revert InvalidOfficialLaunchTimestamp();
+        }
+        if (officialLaunchTimestamp <= block.timestamp) {
+            revert OfficialLaunchTimestampNotFuture(officialLaunchTimestamp, block.timestamp);
+        }
     }
 
     function _validateApprovedRecipients(
