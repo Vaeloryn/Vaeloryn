@@ -34,7 +34,7 @@ _Describe the high-level user-facing capabilities of this app once they exist._
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep the Vaeloryn pitch deck out of scope for future work unless explicitly requested.
 
 ## Gotchas
 
