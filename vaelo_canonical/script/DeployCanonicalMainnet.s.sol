@@ -22,6 +22,7 @@ import {VaelorynDeploymentFactory} from "../src/VaelorynDeploymentFactory.sol";
  * - VAELO_TEAM_RECIPIENT
  * - VAELO_STRATEGIC_PARTNERSHIPS_RECIPIENT
  * - VAELO_FOUNDER_BENEFICIARY
+ * - VAELO_OFFICIAL_LAUNCH_TIMESTAMP
  *
  * The public recipient addresses are compared against the approved Mainnet
  * values below before broadcasting. No key, RPC URL, or API key is stored here.
@@ -38,6 +39,7 @@ contract DeployCanonicalMainnet is Script {
 
     error IncorrectNetwork(uint256 actualChainId);
     error InvalidDeployerKey();
+    error InvalidOfficialLaunchTimestamp();
     error UnexpectedRecipient(bytes32 role, address actual);
     error DeploymentReadbackFailed();
 
@@ -57,18 +59,22 @@ contract DeployCanonicalMainnet is Script {
         address teamRecipient = vm.envAddress("VAELO_TEAM_RECIPIENT");
         address strategicPartnershipsRecipient = vm.envAddress("VAELO_STRATEGIC_PARTNERSHIPS_RECIPIENT");
         address founderBeneficiary = vm.envAddress("VAELO_FOUNDER_BENEFICIARY");
+        uint256 officialLaunchTimestamp = vm.envUint("VAELO_OFFICIAL_LAUNCH_TIMESTAMP");
+        if (officialLaunchTimestamp == 0) {
+            revert InvalidOfficialLaunchTimestamp();
+        }
 
         _validateApprovedRecipients(ecosystemRecipient, publicDistributionRecipient, treasuryRecipient, teamRecipient, strategicPartnershipsRecipient, founderBeneficiary);
 
         vm.startBroadcast(deployerPrivateKey);
-        factory = new VaelorynDeploymentFactory(ecosystemRecipient, publicDistributionRecipient, treasuryRecipient, teamRecipient, strategicPartnershipsRecipient, founderBeneficiary);
+        factory = new VaelorynDeploymentFactory(ecosystemRecipient, publicDistributionRecipient, treasuryRecipient, teamRecipient, strategicPartnershipsRecipient, founderBeneficiary, officialLaunchTimestamp);
         vm.stopBroadcast();
 
         token = factory.token();
         distribution = factory.distribution();
         vesting = factory.vesting();
 
-        _validateDeploymentReadback(factory, token, distribution, vesting, founderBeneficiary);
+         _validateDeploymentReadback(factory, token, distribution, vesting, founderBeneficiary, officialLaunchTimestamp);
 
         console2.log("Canonical Mainnet deployment factory:", address(factory));
         console2.log("Canonical Mainnet VAELO token:", address(token));
@@ -106,14 +112,15 @@ contract DeployCanonicalMainnet is Script {
         }
     }
 
-    function _validateDeploymentReadback(VaelorynDeploymentFactory factory, VaelorynToken token, VaelorynGenesisDistribution distribution, VaelorynFounderVesting vesting, address founderBeneficiary)
+    function _validateDeploymentReadback(VaelorynDeploymentFactory factory, VaelorynToken token, VaelorynGenesisDistribution distribution, VaelorynFounderVesting vesting, address founderBeneficiary, uint256 officialLaunchTimestamp)
         private
         view
     {
         if (
             address(factory) == address(0) || address(token) == address(0) || address(distribution) == address(0) || address(vesting) == address(0)
-                || token.genesisDistribution() != address(distribution) || distribution.deploymentFactory() != address(factory) || distribution.founderVestingRecipient() != address(vesting)
+                || factory.officialLaunchTimestamp() != officialLaunchTimestamp || token.genesisDistribution() != address(distribution) || distribution.deploymentFactory() != address(factory) || distribution.founderVestingRecipient() != address(vesting)
                 || !distribution.allocationCompleted() || vesting.beneficiary() != founderBeneficiary || address(vesting.vaelo()) != address(token) || token.totalSupply() != token.TOTAL_SUPPLY()
+                || vesting.startTimestamp() != officialLaunchTimestamp
                 || token.balanceOf(address(distribution)) != 0 || distribution.ecosystemRecipient() != APPROVED_ECOSYSTEM_RECIPIENT
                 || distribution.publicDistributionRecipient() != APPROVED_PUBLIC_DISTRIBUTION_RECIPIENT || distribution.vaelorynTreasuryRecipient() != APPROVED_TREASURY_SAFE
                 || distribution.teamAndContributorsRecipient() != APPROVED_TEAM_RECIPIENT || distribution.strategicPartnershipsRecipient() != APPROVED_STRATEGIC_PARTNERSHIPS_RECIPIENT

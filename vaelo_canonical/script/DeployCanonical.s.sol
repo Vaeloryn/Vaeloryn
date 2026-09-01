@@ -10,9 +10,12 @@ import {VaelorynGenesisDistribution} from "../src/VaelorynGenesisDistribution.so
 import {VaelorynDeploymentFactory} from "../src/VaelorynDeploymentFactory.sol";
 
 /**
- * @notice Deployment preparation only. This script does not run automatically
- * and must not be broadcast until the recipient configuration and test
- * evidence are reviewed and approved.
+ * @notice Base Sepolia practice deployment preparation only. This script does
+ *      not define the canonical Mainnet launch timestamp and must not be
+ *      treated as a production deployment path.
+ * @dev This practice-only path derives T0 from the current Base Sepolia block.
+ *      It does not run automatically and must not be broadcast until the
+ *      recipient configuration and test evidence are reviewed and approved.
  *
  * Required environment variables:
  * - PRIVATE_KEY
@@ -51,6 +54,7 @@ contract DeployCanonical is Script {
             "VAELO_STRATEGIC_PARTNERSHIPS_RECIPIENT"
         );
         address founderBeneficiary = vm.envAddress("VAELO_FOUNDER_BENEFICIARY");
+        uint256 practiceLaunchTimestamp = block.timestamp;
 
         vm.startBroadcast(deployerPrivateKey);
         VaelorynDeploymentFactory factory = new VaelorynDeploymentFactory(
@@ -59,7 +63,8 @@ contract DeployCanonical is Script {
             treasuryRecipient,
             teamRecipient,
             strategicPartnershipsRecipient,
-            founderBeneficiary
+            founderBeneficiary,
+            practiceLaunchTimestamp
         );
         vm.stopBroadcast();
 
@@ -67,11 +72,11 @@ contract DeployCanonical is Script {
         distribution = factory.distribution();
         vesting = factory.vesting();
 
-        console2.log("Canonical deployment factory:", address(factory));
-        console2.log("Canonical VAELO token:", address(token));
-        console2.log("Canonical Genesis Distribution:", address(distribution));
-        console2.log("Canonical Founder Vesting:", address(vesting));
-        console2.log("Founder vesting T0:", vesting.startTimestamp());
+        console2.log("PRACTICE ONLY — Base Sepolia factory:", address(factory));
+        console2.log("PRACTICE ONLY — Base Sepolia VAELO:", address(token));
+        console2.log("PRACTICE ONLY — Genesis Distribution:", address(distribution));
+        console2.log("PRACTICE ONLY — Founder Vesting:", address(vesting));
+        console2.log("Practice T0 (current Sepolia block):", vesting.startTimestamp());
         console2.log("Founder vesting end:", vesting.linearEndTimestamp());
     }
 }

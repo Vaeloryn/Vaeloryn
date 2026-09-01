@@ -51,7 +51,8 @@
       "vaelorynTreasuryRecipient": "0x3A9bee20360294F8439513Ae70D189f56288baF2",
       "teamAndContributorsRecipient": "0x2fB598d102303E5c0E7D36Db94CFBC76a680c7F4",
       "strategicPartnershipsRecipient": "0xC263222BB55289D0a442871aF04A5065f87e9D87",
-      "founderBeneficiary": "0x254D5eE9D7216bB8601B5D2156072863A975b309"
+      "founderBeneficiary": "0x254D5eE9D7216bB8601B5D2156072863A975b309",
+      "officialLaunchTimestamp": null
     },
     "token": {
       "genesisDistribution": null

@@ -26,6 +26,7 @@ contract VaelorynDeploymentFactory {
     VaelorynToken public immutable token;
     VaelorynGenesisDistribution public immutable distribution;
     VaelorynFounderVesting public immutable vesting;
+    uint256 public immutable officialLaunchTimestamp;
 
     constructor(
         address ecosystemRecipient,
@@ -33,9 +34,15 @@ contract VaelorynDeploymentFactory {
         address vaelorynTreasuryRecipient,
         address teamAndContributorsRecipient,
         address strategicPartnershipsRecipient,
-        address founderBeneficiary
+        address founderBeneficiary,
+        uint256 officialLaunchTimestamp_
     )
     {
+        if (officialLaunchTimestamp_ == 0) {
+            revert InvalidLaunchTimestamp();
+        }
+
+        officialLaunchTimestamp = officialLaunchTimestamp_;
         distribution = new VaelorynGenesisDistribution(
             ecosystemRecipient,
             publicDistributionRecipient,
@@ -47,7 +54,7 @@ contract VaelorynDeploymentFactory {
         vesting = new VaelorynFounderVesting(
             address(token),
             founderBeneficiary,
-            block.timestamp
+            officialLaunchTimestamp_
         );
 
         distribution.allocateGenesis(address(token), address(vesting));
@@ -57,7 +64,9 @@ contract VaelorynDeploymentFactory {
             address(distribution),
             address(vesting),
             founderBeneficiary,
-            block.timestamp
+            officialLaunchTimestamp_
         );
     }
+
+    error InvalidLaunchTimestamp();
 }

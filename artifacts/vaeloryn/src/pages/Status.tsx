@@ -185,6 +185,7 @@ export function Status() {
               <StatusRow label="Targeted Test Evidence"               value="27 local tests passing"            kind="done"     />
               <StatusRow label="Canonical Allocation"                 value="Implemented locally · not on-chain" kind="done"    />
               <StatusRow label="Canonical Founder Vesting"            value="Locally tested · not deployed"      kind="done"     />
+              <StatusRow label="Official launch timestamp (T0)"       value="Not set · deployment pending"      kind="pending"  />
               <StatusRow label="Production / Mainnet"                 value="Not launched"                     kind="inactive" />
               <StatusRow label="Public VAELO Distribution"            value="Not active"                       kind="inactive" note="No public sale or token distribution is currently active" />
               <StatusRow label="Independent Production Security Review" value="Pending"                        kind="pending"  />

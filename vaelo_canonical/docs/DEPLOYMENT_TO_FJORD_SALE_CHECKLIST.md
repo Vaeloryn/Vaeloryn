@@ -57,7 +57,9 @@ If authorized, run only the reviewed Base Mainnet deployment script using chain
 ID `8453` and the approved environment configuration.
 
 The factory must atomically create the distribution, token, vesting, and
-allocation. Do not deploy a separate token or sale contract as a substitute.
+allocation. Pass the reviewed `VAELO_OFFICIAL_LAUNCH_TIMESTAMP` explicitly;
+never let the Mainnet path derive T0 from `block.timestamp`. Do not deploy a
+separate token or sale contract as a substitute.
 
 ### 5. Read back factory, token, distribution, and vesting addresses
 

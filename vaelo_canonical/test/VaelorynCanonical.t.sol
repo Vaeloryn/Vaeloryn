@@ -169,13 +169,15 @@ contract VaelorynCanonicalTest is Test {
 
     function testFactoryDeploysAndAllocatesAtomically() public {
         vm.warp(30 days);
+        uint256 officialLaunchTimestamp = block.timestamp + 365 days;
         VaelorynDeploymentFactory factory = new VaelorynDeploymentFactory(
             ecosystem,
             publicDistribution,
             treasury,
             team,
             strategic,
-            founder
+            founder,
+            officialLaunchTimestamp
         );
         VaelorynToken deployedToken = factory.token();
         VaelorynGenesisDistribution deployedDistribution = factory.distribution();
@@ -185,11 +187,12 @@ contract VaelorynCanonicalTest is Test {
         assertTrue(deployedDistribution.allocationCompleted());
         assertEq(deployedToken.genesisDistribution(), address(deployedDistribution));
         assertEq(deployedToken.balanceOf(address(deployedDistribution)), 0);
+        assertEq(factory.officialLaunchTimestamp(), officialLaunchTimestamp);
         assertEq(
             deployedToken.balanceOf(address(deployedVesting)),
             deployedVesting.TOTAL_ALLOCATION()
         );
-        assertEq(deployedVesting.startTimestamp(), block.timestamp);
+        assertEq(deployedVesting.startTimestamp(), officialLaunchTimestamp);
     }
 
     function testFactoryCannotDeployASecondCanonicalInstance() public {
@@ -199,7 +202,8 @@ contract VaelorynCanonicalTest is Test {
             treasury,
             team,
             strategic,
-            founder
+            founder,
+            block.timestamp + 1 days
         );
 
         (bool success,) = address(factory).call(
@@ -216,6 +220,19 @@ contract VaelorynCanonicalTest is Test {
 
         assertFalse(success);
         assertTrue(factory.distribution().allocationCompleted());
+    }
+
+    function testFactoryRejectsZeroLaunchTimestamp() public {
+        vm.expectRevert(VaelorynDeploymentFactory.InvalidLaunchTimestamp.selector);
+        new VaelorynDeploymentFactory(
+            ecosystem,
+            publicDistribution,
+            treasury,
+            team,
+            strategic,
+            founder,
+            0
+        );
     }
 
     function testAllocationConstantsSumToFixedSupply() public view {

@@ -16,7 +16,7 @@ Prototype V1.1 historical deployment.
 3. `VaelorynToken` is deployed with the distribution contract address and
    mints the fixed 1,000,000,000 VAELO supply directly to that contract.
 4. `VaelorynFounderVesting` is deployed with the canonical token, approved
-   founder beneficiary and the Genesis timestamp (`T0`).
+   founder beneficiary and the explicit official launch timestamp (`T0`).
 5. The factory completes the one-time allocation in that same transaction. It
    verifies the token identifies this distribution, holds the complete supply,
    and the founder recipient is a matching 100M VAELO vesting contract.
@@ -65,17 +65,19 @@ existing library directory.
 
 ## Deployment safety
 
-`script/DeployCanonical.s.sol` is preparation only and is chain-locked to Base
-Sepolia (84532). It requires explicit environment variables for every custody
-recipient and founder beneficiary. The accompanying `config/recipients.example.env`
-contains text placeholders, not wallet addresses; it is intentionally not
-deployable as supplied.
+`script/DeployCanonical.s.sol` is a practice-only preparation path chain-locked
+to Base Sepolia (84532). It derives T0 from the current Sepolia block and logs
+every result as practice-only. It requires explicit environment variables for
+every custody recipient and founder beneficiary. The accompanying
+`config/recipients.example.env` contains text placeholders, not wallet
+addresses; it is intentionally not deployable as supplied.
 
 `script/DeployCanonicalMainnet.s.sol` is a separate Base Mainnet preparation
-script. It accepts recipient values only through environment variables, compares
-them to the approved public Mainnet addresses, and refuses every chain other
-than Base Mainnet (8453). It does not fall back to Base Sepolia. The associated
-`config/base-mainnet.example.env` contains no credentials, and
+script. It accepts recipient values and the explicit
+`VAELO_OFFICIAL_LAUNCH_TIMESTAMP` only through environment variables, compares
+recipients to the approved public Mainnet addresses, and refuses every chain
+other than Base Mainnet (8453). It does not fall back to Base Sepolia. The
+associated `config/base-mainnet.example.env` contains no credentials, and
 `deployments/base-mainnet.manifest.json` is a `NOT_DEPLOYED` record with all
 deployment-specific address and transaction fields left null.
 
