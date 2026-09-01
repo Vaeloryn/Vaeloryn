@@ -59,10 +59,10 @@ upgrade, pause, blacklist, transfer-tax or post-Genesis mint functionality.
 The final local Foundry run passed:
 
 ```text
-28 tests passed, 0 failed, 0 skipped
+32 tests passed, 0 failed, 0 skipped
 ```
 
-This includes 26 unit/edge/fuzz test targets, two 256-run fuzz tests, and two
+This includes 30 unit/edge/fuzz test targets, two 256-run fuzz tests, and two
 128-run invariants totaling 16,384 handler calls. Full command output and
 toolchain details are recorded in
 `reports/VAELO_Canonical_Test_Evidence.md`.
@@ -127,7 +127,8 @@ reviewed:
    Vaeloryn Treasury, Team & Contributors and Strategic Partnerships.
 2. An approved founder beneficiary address.
 3. A completed deployment manifest with the real addresses, constructor
-   inputs, transaction hashes and generated `T0` / linear-end timestamps.
+   inputs, transaction hashes and the reviewed future official `T0` /
+   linear-end timestamps.
 4. A deployment and source-verification review. An independent security audit
    is recommended before a production deployment.
 5. Any credential previously committed to project configuration has been

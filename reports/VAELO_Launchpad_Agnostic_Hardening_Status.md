@@ -56,15 +56,17 @@
   timestamp rather than deriving T0 from the deployment block.
 - Added `VAELO_OFFICIAL_LAUNCH_TIMESTAMP` to the Mainnet preparation path and
   validated it again during post-deployment readback.
+- Required the Mainnet timestamp to be strictly greater than the current chain
+  timestamp, while leaving future-time policy out of the vesting contract.
 - Labelled the Base Sepolia block-time path as practice-only.
 
 ## Tests
 
 The updated canonical engineering evidence is:
 
-- 26 canonical unit/edge/fuzz tests passed.
+- 30 canonical unit/edge/fuzz tests passed.
 - 2 invariant tests passed.
-- 28 total passed.
+- 32 total passed.
 - 0 failed.
 - 0 skipped.
 

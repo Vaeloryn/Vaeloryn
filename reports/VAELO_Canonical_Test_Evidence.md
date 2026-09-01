@@ -88,6 +88,8 @@ Covered behavior includes:
 - Zero-address validation.
 - Atomic deployment from the one-shot factory.
 - No second deployment method on the canonical factory.
+- Mainnet launch policy accepts a future T0 and rejects zero, past and current
+  timestamps without changing the vesting contract's schedule semantics.
 - Rejection of untrusted allocation attempts.
 - Regression coverage for a getter-compatible malicious vesting contract.
 - Regression coverage for a fake VAELO token attempting to front-run allocation.
@@ -121,14 +123,15 @@ after the targeted hardening changes:
 ```text
 forge test --match-contract 'Vaeloryn(Canonical|Invariant)Test' -vv
 Ran 2 test suites:
-28 tests passed, 0 failed, 0 skipped (28 total tests)
+32 tests passed, 0 failed, 0 skipped (32 total tests)
 ```
 
-The unit/edge/fuzz suite increased from 20 to 25 tests. The two invariant tests
+The unit/edge/fuzz suite increased from 20 to 30 tests. The two invariant tests
 remain unchanged. New unit tests cover Permit replay, expired signatures,
-incorrect signers, incorrect nonces, and third-party founder vesting triggers.
-The existing valid Permit, nonce increment, and EIP-712 domain tests remain in
-the targeted suite. No deployment or blockchain transaction was performed.
+incorrect signers, incorrect nonces, third-party founder vesting triggers, and
+the Mainnet future-T0 policy boundaries. The existing valid Permit, nonce
+increment, and EIP-712 domain tests remain in the targeted suite. No deployment
+or blockchain transaction was performed.
 
 ## Security and design assertions tested
 

@@ -244,7 +244,7 @@ contract VaelorynCanonicalTest is Test {
         );
     }
 
-    function testMainnetPolicyAcceptsFutureLaunchTimestamp() public {
+    function testMainnetPolicyAcceptsFutureLaunchTimestamp() public view {
         uint256 futureLaunchTimestamp = block.timestamp + 1;
 
         mainnetPolicy.validateOfficialLaunchTimestamp(futureLaunchTimestamp);
@@ -256,6 +256,7 @@ contract VaelorynCanonicalTest is Test {
     }
 
     function testMainnetPolicyRejectsPastLaunchTimestamp() public {
+        vm.warp(1_000);
         uint256 pastLaunchTimestamp = block.timestamp - 1;
 
         vm.expectRevert(

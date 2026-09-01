@@ -31,12 +31,12 @@ retained. New tests cover:
 Only the relevant canonical unit and invariant contracts were run:
 
 ```text
-Previous recorded baseline: 27 total
-New targeted result: 28 total
-28 passed, 0 failed, 0 skipped
+Previous recorded baseline: 28 total
+New targeted result: 32 total
+32 passed, 0 failed, 0 skipped
 ```
 
-The run included 26 unit/edge/fuzz tests and 2 invariant tests. The two
+The run included 30 unit/edge/fuzz tests and 2 invariant tests. The two
 existing fuzz targets ran 256 cases each, and each invariant ran 128 cases.
 The full suite was not rerun, and no blockchain transaction was performed.
 

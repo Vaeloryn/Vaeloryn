@@ -175,7 +175,7 @@ export function Transparency() {
               <StatusRow label="Canonical allocation"                               value="Locally implemented — not on-chain"        ok={true} />
               <StatusRow label="Historical V1.1 allocation"                         value="Confirmed on-chain; differs from canonical design" ok={true} />
               <StatusRow label="Canonical founder vesting"                         value="Locally tested — not deployed"             ok={true} />
-              <StatusRow label="Targeted local test evidence"                       value="27 passed, 0 failed, 0 skipped"              ok={true} />
+              <StatusRow label="Targeted local test evidence"                       value="32 passed, 0 failed, 0 skipped"              ok={true} />
               <StatusRow label="Independent production security review"             value="Not yet completed"                         ok={false} />
               <StatusRow label="Formal professional legal / regulatory review"      value="Pending"                                   ok={false} />
               <StatusRow label="Production / mainnet deployment"                    value="Not launched"                              ok={false} />
@@ -454,7 +454,7 @@ export function Transparency() {
               </div>
               <p className="text-sm text-muted-foreground/60 italic mt-5 pt-4 border-t border-white/5">
                 No such review has been completed for production. The canonical implementation has a recorded local
-                Foundry result of 28 targeted tests passing (0 failed, 0 skipped); it has not undergone independent
+                Foundry result of 32 targeted tests passing (0 failed, 0 skipped); it has not undergone independent
                 security review or network deployment. This is required before mainnet deployment.
               </p>
             </motion.div>

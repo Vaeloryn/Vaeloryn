@@ -12,7 +12,7 @@ The canonical implementation is present and matches the specified fixed supply,
 six allocations, founder vesting schedule, and non-administrative token design.
 The contracts use OpenZeppelin ERC-20, Burnable, and Permit/EIP-2612
 implementations. The original Foundry evidence reports 22 passed tests, with no
-failures or skips. A targeted hardening run subsequently reports 27 passed
+failures or skips. A targeted hardening run subsequently reports 32 passed
 tests, with no failures or skips.
 
 No CRITICAL or HIGH code-level finding was identified in the reviewed source.
@@ -158,7 +158,9 @@ method. Its constructor performs the complete deployment and allocation
 atomically, preventing an external party from substituting a malicious
 vesting contract or token between those operations.
 
-The factory is useful for the intended atomic architecture. Its limitation is
+The factory is useful for the intended atomic architecture. Its chain-specific
+future-T0 policy belongs in the Mainnet preparation script rather than the
+schedule contract. Its limitation is
 that it is not a global singleton: the EVM permits multiple independent
 factory instances. The official deployment process must therefore identify one
 approved factory instance and publish its emitted addresses and constructor
@@ -177,10 +179,10 @@ The previous recorded evidence stated:
 
 The latest targeted hardening run states:
 
-- 28 total tests
-- 26 unit/edge/fuzz tests
+- 32 total tests
+- 30 unit/edge/fuzz tests
 - 2 invariant tests
-- 28 passed
+- 32 passed
 - 0 failed
 - 0 skipped
 
