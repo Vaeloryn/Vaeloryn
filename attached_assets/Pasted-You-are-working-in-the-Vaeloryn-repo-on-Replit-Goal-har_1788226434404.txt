@@ -1,0 +1,42 @@
+You are working in the Vaeloryn repo on Replit.
+
+Goal: harden official launch timestamp (T0) policy on the CANONICAL path only. The previous change already requires an explicit timestamp. Now prevent a past or “deploy-now” T0 from becoming the official clock.
+
+DO NOT
+- Deploy or broadcast anything
+- Touch Base mainnet
+- Modify vaelo_prototype/
+- Add admin, upgrade, pause, mint, or change allocations
+- Write a real launch date into the mainnet manifest
+- Change NOT_DEPLOYED
+
+LOCKED RULES
+- Canonical founder T0 is officialLaunchTimestamp, never an implicit block.timestamp on mainnet
+- Factory and VaelorynFounderVesting must receive the exact same T0
+- Base Sepolia (84532) practice path may still use block.timestamp, and must stay labelled practice-only
+- Base Mainnet (8453) path must read VAELO_OFFICIAL_LAUNCH_TIMESTAMP from env and refuse to run if it is missing, zero, or not strictly in the future
+
+IMPLEMENT
+1. Mainnet deploy script (DeployCanonicalMainnet.s.sol and any wrapper):
+   - Require VAELO_OFFICIAL_LAUNCH_TIMESTAMP
+   - Revert if timestamp == 0
+   - Revert if timestamp <= block.timestamp (T0 must be a future unix time)
+   - Pass that same value into the factory; do not recompute T0 from block.timestamp
+   - After dry-run/readback, assert factory.startTimestamp == vesting.startTimestamp == env timestamp
+2. Factory:
+   - Keep explicit officialLaunchTimestamp constructor arg
+   - Keep reject-zero
+   - Do not add owner or setters; T0 stays immutable
+   - Optional but preferred: if you can do it without breaking the one-shot design, document that chain-8453 policy lives in the script, not in the token
+3. Do not bake “must be future” into the vesting contract itself unless tests still cover T0-in-the-past for unit tests. Vesting should remain a pure schedule from whatever T0 it is given. Policy belongs in the mainnet script.
+4. Tests:
+   - Keep existing coverage
+   - Add script/policy tests or Foundry tests that simulate the mainnet guard: future T0 accepted, past T0 rejected, T0 == now rejected, factory T0 matches vesting T0
+   - Sepolia practice path still allowed to use block.timestamp
+5. Docs / website / manifest:
+   - State: official T0 is chosen before mainnet broadcast and must be a future unix timestamp
+   - Do not pick or publish an actual date
+   - Manifest stays NOT_DEPLOYED; officialLaunchTimestamp field stays null
+   - Public test count should reflect the new tests
+
+After edits, run canonical Foundry tests and the project typecheck/build if those are already part of the workflow. Report files changed, new test count, and confirm no deploy and no prototype edits.
