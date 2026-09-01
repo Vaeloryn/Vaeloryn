@@ -1,0 +1,68 @@
+You are working in the Vaeloryn repo on Replit.
+
+Goal: align the CANONICAL VAELO contracts to the locked token design. Do not treat the historical Base Sepolia V1.1 prototype as production.
+
+DO NOT
+- Deploy to Base mainnet (chain id 8453) or any mainnet
+- Broadcast any deploy unless I explicitly say so
+- Delete, rewrite, or “fix allocations” inside vaelo_prototype/ — that folder is historical V1.1 only
+- Add owner, admin, upgrade proxy, pause, blacklist, tax, or extra mint
+- Change token name/symbol (Vaeloryn / VAELO) or total supply (1_000_000_000e18)
+
+CONTEXT
+- vaelo_prototype/ = historical Hardhat V1.1 (150M founder, 5-year vest, old split). Leave it.
+- vaelo_canonical/ = source of truth. Align this.
+
+LOCKED CANONICAL ECONOMICS
+Total supply: 1,000,000,000 VAELO (18 decimals), minted once to genesis distribution.
+
+Allocations (must match exactly):
+- Ecosystem & Community: 300,000,000
+- Public Distribution: 200,000,000
+- Vaeloryn Treasury: 200,000,000
+- Team & Contributors: 150,000,000
+- Founder Vesting: 100,000,000
+- Strategic Partnerships: 50,000,000
+
+FOUNDER VESTING (100M only)
+Relative to official launch timestamp T0:
+- 2,500,000 at T0
+- 2,500,000 at T0 + 90 days
+- 2,500,000 at T0 + 180 days
+- 2,500,000 at T0 + 270 days
+- 90,000,000 linear from T0 + 270 days for 1,095 days
+No 4th quarterly cliff. No 150M. No 5-year 10/25/45/70/100 schedule.
+
+ARCHITECTURE TO PRESERVE
+1. VaelorynDeploymentFactory — one-shot constructor, no owner, deploys distribution + token + vesting and calls allocateGenesis in the same tx
+2. VaelorynToken — ERC-20 + burnable + permit, mint full supply once to genesisDistribution
+3. VaelorynGenesisDistribution — one-time allocate of the six buckets; founder bucket goes only to the vesting contract
+4. VaelorynFounderVesting — immutable token, beneficiary, timestamps; permissionless release() to beneficiary only
+
+REQUIRED CORRECTIONS
+1. Factory must NOT silently use block.timestamp as T0 for a “real” launch path.
+   - Keep a local/test factory path if needed.
+   - Production/mainnet script must pass an explicit officialLaunchTimestamp.
+   - Practice deploys may use block.timestamp only on Base Sepolia (84532) and must be labelled practice.
+2. Genesis recipients stay constructor/env-injected. Do not hardcode mainnet wallets into Solidity.
+3. allocateGenesis remains factory-only and one-shot.
+4. Vesting math must match the 2.5M x4 + 90M linear schedule, including the T0 immediate 2.5M.
+5. Update README, tests, deploy scripts, and website status copy so they all say:
+   - Canonical code exists locally
+   - V1.1 on Base Sepolia is historical / non-canonical / no value
+   - Mainnet is NOT_DEPLOYED
+   - No public distribution
+6. Keep deployments/base-mainnet.manifest.json status NOT_DEPLOYED. Do not invent mainnet contract addresses.
+7. Chain guards: Sepolia script = 84532 only. Mainnet script = 8453 only and must not run unless I ask.
+
+TESTS
+Update vaelo_canonical tests so they fail if:
+- founder allocation is not 100M
+- any old V1.1 split is used
+- a second mint is possible
+- allocateGenesis can be called twice or by a non-factory
+- vesting at T0, T0+90, T0+180, T0+270, mid-linear, and after 1,095 days is wrong
+
+After edits, run the canonical test suite. If Foundry libs are missing, use the existing bootstrap script. Paste the test results and a short diff summary of files changed.
+
+Do not open a PR. Do not deploy.
