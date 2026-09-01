@@ -72,10 +72,10 @@ contract DeployCanonical is Script {
         distribution = factory.distribution();
         vesting = factory.vesting();
 
-        console2.log("PRACTICE ONLY — Base Sepolia factory:", address(factory));
-        console2.log("PRACTICE ONLY — Base Sepolia VAELO:", address(token));
-        console2.log("PRACTICE ONLY — Genesis Distribution:", address(distribution));
-        console2.log("PRACTICE ONLY — Founder Vesting:", address(vesting));
+        console2.log("PRACTICE ONLY - Base Sepolia factory:", address(factory));
+        console2.log("PRACTICE ONLY - Base Sepolia VAELO:", address(token));
+        console2.log("PRACTICE ONLY - Genesis Distribution:", address(distribution));
+        console2.log("PRACTICE ONLY - Founder Vesting:", address(vesting));
         console2.log("Practice T0 (current Sepolia block):", vesting.startTimestamp());
         console2.log("Founder vesting end:", vesting.linearEndTimestamp());
     }

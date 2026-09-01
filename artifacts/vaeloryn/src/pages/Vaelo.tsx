@@ -146,7 +146,7 @@ export function Vaelo() {
                     { key: 'Protocol Status',    val: 'Implemented locally · not deployed', highlight: true },
                     { key: 'Network',            val: 'Historical V1.1 · Base Sepolia', highlight: true },
                     { key: 'Chain ID',           val: '84532' },
-                    { key: 'Test Evidence',      val: '27 targeted local tests passing', highlight: true },
+                     { key: 'Test Evidence',      val: '28 targeted local tests passing', highlight: true },
                     { key: 'Production / Mainnet', val: 'Not launched' },
                     { key: 'Public Distribution', val: 'Not active' },
                   ].map(({ key, val, highlight }) => (

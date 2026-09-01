@@ -65,7 +65,7 @@ type StatusKind = 'achieved' | 'inactive' | 'pending';
 const statusItems: { label: string; value: string; kind: StatusKind }[] = [
   { label: "Canonical Protocol",             value: "Implemented locally · not deployed", kind: "achieved" },
   { label: "Historical Prototype",           value: "V1.1 on Base Sepolia",              kind: "achieved" },
-  { label: "Canonical Test Evidence",        value: "27 targeted tests passing",         kind: "achieved" },
+  { label: "Canonical Test Evidence",        value: "28 targeted tests passing",         kind: "achieved" },
   { label: "Canonical Deployment",            value: "Not yet deployed",                  kind: "inactive"  },
   { label: "VAELO Network",                  value: "Base Sepolia Testnet (V1.1)",      kind: "achieved"  },
   { label: "Canonical Founder Vesting",       value: "100M · 3 releases + 1,095-day linear", kind: "achieved"  },

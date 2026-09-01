@@ -175,12 +175,12 @@ The previous recorded evidence stated:
 - 0 failed
 - 0 skipped
 
-The targeted hardening run states:
+The latest targeted hardening run states:
 
-- 27 total tests
-- 25 unit/edge/fuzz tests
+- 28 total tests
+- 26 unit/edge/fuzz tests
 - 2 invariant tests
-- 27 passed
+- 28 passed
 - 0 failed
 - 0 skipped
 

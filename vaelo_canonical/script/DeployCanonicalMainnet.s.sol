@@ -74,7 +74,7 @@ contract DeployCanonicalMainnet is Script {
         distribution = factory.distribution();
         vesting = factory.vesting();
 
-         _validateDeploymentReadback(factory, token, distribution, vesting, founderBeneficiary, officialLaunchTimestamp);
+        _validateDeploymentReadback(factory, token, distribution, vesting, founderBeneficiary, officialLaunchTimestamp);
 
         console2.log("Canonical Mainnet deployment factory:", address(factory));
         console2.log("Canonical Mainnet VAELO token:", address(token));

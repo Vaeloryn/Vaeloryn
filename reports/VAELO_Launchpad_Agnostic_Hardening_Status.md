@@ -10,9 +10,19 @@
 - `vaelo_canonical/docs/DEPLOYMENT_TO_FJORD_SALE_CHECKLIST.md`
 - `vaelo_canonical/docs/FJORD_INITIAL_SALE_SPEC.md`
 - `vaelo_canonical/docs/WEBSITE_SALE_INTEGRATION.md`
+- `vaelo_canonical/src/VaelorynDeploymentFactory.sol`
+- `vaelo_canonical/script/DeployCanonical.s.sol`
+- `vaelo_canonical/script/DeployCanonicalMainnet.s.sol`
+- `vaelo_canonical/config/base-mainnet.example.env`
+- `vaelo_canonical/deployments/base-mainnet.manifest.json`
+- `vaelo_canonical/README.md`
+- `vaelo_canonical/test/VaelorynCanonical.t.sol`
 - `artifacts/vaeloryn/src/pages/Verify.tsx`
 - `artifacts/vaeloryn/src/pages/Status.tsx`
 - `artifacts/vaeloryn/src/pages/Roadmap.tsx`
+- `artifacts/vaeloryn/src/pages/Home.tsx`
+- `artifacts/vaeloryn/src/pages/Transparency.tsx`
+- `artifacts/vaeloryn/src/pages/Vaelo.tsx`
 - `artifacts/vaeloryn-fjord-pitch-deck/src/data/slides-manifest.json`
 - `reports/VAELO_Product_Documentation_Final_Report.md`
 - `reports/VAELO_Launchpad_Agnostic_Hardening_Status.md`
@@ -42,14 +52,19 @@
   non-canonical testnet evidence.
 - Kept all sale links unconfigured until a legitimate venue, verified token, and
   official public URL exist.
+- Made the canonical factory store and validate an explicit official launch
+  timestamp rather than deriving T0 from the deployment block.
+- Added `VAELO_OFFICIAL_LAUNCH_TIMESTAMP` to the Mainnet preparation path and
+  validated it again during post-deployment readback.
+- Labelled the Base Sepolia block-time path as practice-only.
 
 ## Tests
 
-The previously recorded canonical engineering evidence remains:
+The updated canonical engineering evidence is:
 
-- 25 canonical Foundry tests passed.
+- 26 canonical unit/edge/fuzz tests passed.
 - 2 invariant tests passed.
-- 27 total passed.
+- 28 total passed.
 - 0 failed.
 - 0 skipped.
 
@@ -105,4 +120,4 @@ or no immediate sale without changing or redeploying the canonical token.
 - No broadcast occurred.
 - No token or ETH transfer occurred.
 - No sale was created.
-- No canonical Solidity contract was modified.
+- No canonical Mainnet deployment or broadcast occurred.

@@ -454,7 +454,7 @@ export function Transparency() {
               </div>
               <p className="text-sm text-muted-foreground/60 italic mt-5 pt-4 border-t border-white/5">
                 No such review has been completed for production. The canonical implementation has a recorded local
-                Foundry result of 27 targeted tests passing (0 failed, 0 skipped); it has not undergone independent
+                Foundry result of 28 targeted tests passing (0 failed, 0 skipped); it has not undergone independent
                 security review or network deployment. This is required before mainnet deployment.
               </p>
             </motion.div>

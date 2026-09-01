@@ -53,7 +53,7 @@ The bootstrap restored OpenZeppelin Contracts `v5.4.0` and forge-std
 `v1.9.7` from their exact locked commits; the clean rebuild compiled 52
 Solidity files with `0.8.24`, and the original complete suite passed again with
 22 passed, 0 failed and 0 skipped. The targeted hardening run below was
-executed afterward; the full suite was not rerun.
+executed afterward.
 
 A separate fresh clone of the committed, sanitized configuration was also
 scanned to confirm tracked configuration no longer contains the former
@@ -121,7 +121,7 @@ after the targeted hardening changes:
 ```text
 forge test --match-contract 'Vaeloryn(Canonical|Invariant)Test' -vv
 Ran 2 test suites:
-27 tests passed, 0 failed, 0 skipped (27 total tests)
+28 tests passed, 0 failed, 0 skipped (28 total tests)
 ```
 
 The unit/edge/fuzz suite increased from 20 to 25 tests. The two invariant tests

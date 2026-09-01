@@ -512,9 +512,9 @@ export function Verify() {
                 </div>
                 <div className="space-y-3">
                   <DataRow label="Framework"    value="Foundry" />
-                  <DataRow label="Tests passed" value="27 targeted" />
+                   <DataRow label="Tests passed" value="28 targeted" />
                   <DataRow label="Tests failed" value="0" />
-                  <DataRow label="Result"       value="27 passed · 0 failed · 0 skipped" />
+                   <DataRow label="Result"       value="28 passed · 0 failed · 0 skipped" />
                 </div>
               </motion.div>
 
@@ -536,7 +536,7 @@ export function Verify() {
             <motion.div variants={fadeInUp} className="p-4 rounded-lg border border-white/8 bg-white/[0.015]">
               <p className="text-xs text-muted-foreground/60 italic leading-relaxed">
                 The recorded targeted Foundry run covers the canonical unit and invariant test contracts:
-                27 tests passed, with 0 failures and 0 skipped. The canonical implementation has not been
+                28 tests passed, with 0 failures and 0 skipped. The canonical implementation has not been
                 independently audited or deployed. Local tests are evidence of behavior, not an audit opinion.
               </p>
             </motion.div>

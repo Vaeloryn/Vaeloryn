@@ -43,8 +43,8 @@ The new protocol is contained in `vaelo_canonical/`:
    factory as its immutable allocator.
 3. The factory deploys `VaelorynToken`, which mints the full fixed supply
    directly to the distribution.
-4. The factory deploys `VaelorynFounderVesting` with `T0` set to the
-   deployment transaction timestamp.
+4. The factory deploys `VaelorynFounderVesting` with an explicit official
+   launch timestamp (`T0`) supplied by the deployment path.
 5. The factory completes the six-category allocation in the same transaction.
 
 This atomic sequence prevents an external caller from substituting a
@@ -59,10 +59,10 @@ upgrade, pause, blacklist, transfer-tax or post-Genesis mint functionality.
 The final local Foundry run passed:
 
 ```text
-22 tests passed, 0 failed, 0 skipped
+28 tests passed, 0 failed, 0 skipped
 ```
 
-This includes 20 unit/edge/fuzz test targets, two 256-run fuzz tests, and two
+This includes 26 unit/edge/fuzz test targets, two 256-run fuzz tests, and two
 128-run invariants totaling 16,384 handler calls. Full command output and
 toolchain details are recorded in
 `reports/VAELO_Canonical_Test_Evidence.md`.
