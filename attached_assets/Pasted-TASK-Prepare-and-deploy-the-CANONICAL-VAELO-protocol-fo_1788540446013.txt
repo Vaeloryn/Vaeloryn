@@ -1,0 +1,100 @@
+TASK
+Prepare and deploy the CANONICAL VAELO protocol for Vaeloryn.com with Phase-1 single-Safe custody.
+
+Do not invent new tokenomics.
+Do not use the historical Base Sepolia V1.1 prototype (150M founder / 5-year vest).
+Do not add owner, admin, pause, proxy, extra mint, tax, blacklist, or launchpad coupling.
+
+SOURCE OF TRUTH
+Repo: Vaeloryn/Vaeloryn
+Code: vaelo_canonical/src/
+Scripts: vaelo_canonical/script/
+Spec: reports/VAELO_Founder_Vesting_Final_Specification.md
+Memory:
+- .agents/memory/vaelo-atomic-genesis-deployment.md
+- .agents/memory/vaelo-canonical-reconciliation.md
+
+PHASE-1 CUSTODY  — THIS IS THE FIX
+There is ONE receiving wallet: the Safe / treasury.
+
+SAFE_ADDRESS = <PASTE_SAFE_0x_ADDRESS_HERE>
+
+Set every recipient and the founder beneficiary to that same Safe:
+
+VAELO_ECOSYSTEM_RECIPIENT=SAFE_ADDRESS
+VAELO_PUBLIC_DISTRIBUTION_RECIPIENT=SAFE_ADDRESS
+VAELO_TREASURY_RECIPIENT=SAFE_ADDRESS
+VAELO_TEAM_RECIPIENT=SAFE_ADDRESS
+VAELO_STRATEGIC_PARTNERSHIPS_RECIPIENT=SAFE_ADDRESS
+VAELO_FOUNDER_BENEFICIARY=SAFE_ADDRESS
+
+Expected balances after Genesis:
+- Safe holds 900,000,000 VAELO immediately
+  (300M ecosystem + 200M public + 200M treasury + 150M team + 50M strategic)
+- VaelorynFounderVesting holds 100,000,000 VAELO
+- founder beneficiary on the vesting contract = SAFE_ADDRESS
+- When release() is called, vested founder tokens go to the Safe
+- Genesis distribution ends at 0
+- totalSupply remains 1,000,000,000 VAELO
+
+Do NOT send the 100M founder allocation unlocked to the Safe.
+Keep the canonical vesting contract.
+
+CONTRACTS TO USE / FINISH  (Solidity 0.8.24 + OpenZeppelin + Foundry)
+1. VaelorynToken
+   - Vaeloryn / VAELO
+   - fixed 1_000_000_000 ether
+   - mint once to Genesis Distribution
+   - ERC20 + Burnable + Permit
+   - no owner
+
+2. VaelorynGenesisDistribution
+   - factory-only, one-shot allocateGenesis
+   - buckets exactly:
+     300M Ecosystem & Community
+     200M Public Distribution
+     200M Vaeloryn Treasury
+     150M Team & Contributors
+     100M Founder -> vesting contract
+     50M Strategic Partnerships
+
+3. VaelorynFounderVesting
+   - 100M cap
+   - T0 = officialLaunchTimestamp
+   - 2.5M at T0
+   - 2.5M at T0+90d, T0+180d, T0+270d
+   - then 90M linear for 1,095 days
+   - no 4th quarterly release
+   - immutable beneficiary = SAFE_ADDRESS
+
+4. VaelorynDeploymentFactory
+   - one-shot constructor
+   - deploy distribution + token + vesting + allocateGenesis in the same tx
+   - no second deploy path
+
+DEPLOY PLAN
+1. First network: Base Sepolia (84532) practice deploy.
+2. Do not broadcast Base Mainnet unless I type: CONFIRM MAINNET.
+3. Deployer key signs the factory tx. The Safe only receives tokens.
+   PRIVATE_KEY is the deployer EOA, not the Safe.
+4. Use / adapt:
+   vaelo_canonical/script/DeployCanonical.s.sol
+
+AFTER DEPLOY, PROVE
+- factory, token, distribution, vesting addresses
+- token.totalSupply() == 1e9 ether
+- token.balanceOf(SAFE) == 900_000_000 ether
+- token.balanceOf(vesting) == 100_000_000 ether
+- token.balanceOf(distribution) == 0
+- vesting.beneficiary() == SAFE_ADDRESS
+- vesting.TOTAL_ALLOCATION() == 100_000_000 ether
+- allocationCompleted == true
+Write deployments/base-sepolia-phase1-safe.json with addresses, T0, linearEnd, tx hash, and the Safe address.
+
+TESTS
+Run forge test. Must cover vesting boundaries, no 4th quarterly, 100M cap, factory atomic allocation, and single-Safe recipient configuration.
+
+SAFETY
+- never commit private keys
+- never treat V1.1 Sepolia contracts as canonical
+- add a short README: Phase 1 = one Safe custody; Phase 2 = Safe sends buckets to separate wallets later
