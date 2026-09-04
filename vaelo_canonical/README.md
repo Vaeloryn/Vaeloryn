@@ -69,8 +69,17 @@ existing library directory.
 to Base Sepolia (84532). It derives T0 from the current Sepolia block and logs
 every result as practice-only. It requires explicit environment variables for
 every custody recipient and founder beneficiary. The accompanying
-`config/recipients.example.env` contains text placeholders, not wallet
-addresses; it is intentionally not deployable as supplied.
+`config/recipients.example.env` contains the reviewed Phase-1 Safe configuration
+for the current practice run. The script rejects any configuration where the
+five Genesis recipients and founder beneficiary are not the same nonzero Safe.
+After deployment it verifies that the Safe holds 900M VAELO, the vesting
+contract holds 100M VAELO, the distribution contract holds zero, and the
+beneficiary is the same Safe.
+
+Phase 1 intentionally uses one Safe for custody. The Safe can later send the
+five unlocked buckets to separate wallets through its own reviewed multisig
+process; that later operational distribution is not encoded into the canonical
+contracts.
 
 `script/DeployCanonicalMainnet.s.sol` is a separate Base Mainnet preparation
 script. It accepts recipient values and the explicit

@@ -57,13 +57,7 @@ contract VaelorynCanonicalTest is Test {
         founder = makeAddr("founder");
         spender = vm.addr(SPENDER_KEY);
 
-        distribution = new VaelorynGenesisDistribution(
-            ecosystem,
-            publicDistribution,
-            treasury,
-            team,
-            strategic
-        );
+        distribution = new VaelorynGenesisDistribution(ecosystem, publicDistribution, treasury, team, strategic);
         token = new VaelorynToken(address(distribution));
 
         t0 = block.timestamp + 7 days;
@@ -89,9 +83,7 @@ contract VaelorynCanonicalTest is Test {
         (bool ownerFound,) = address(token).staticcall(abi.encodeWithSignature("owner()"));
         assertFalse(ownerFound);
 
-        (bool mintFound,) = address(token).call(
-            abi.encodeWithSignature("mint(address,uint256)", address(this), 1)
-        );
+        (bool mintFound,) = address(token).call(abi.encodeWithSignature("mint(address,uint256)", address(this), 1));
         assertFalse(mintFound);
         assertEq(token.totalSupply(), token.TOTAL_SUPPLY());
     }
@@ -110,12 +102,7 @@ contract VaelorynCanonicalTest is Test {
         assertEq(distribution.founderVestingRecipient(), address(vesting));
 
         uint256 distributed =
-            token.balanceOf(ecosystem) +
-            token.balanceOf(publicDistribution) +
-            token.balanceOf(treasury) +
-            token.balanceOf(team) +
-            token.balanceOf(address(vesting)) +
-            token.balanceOf(strategic);
+            token.balanceOf(ecosystem) + token.balanceOf(publicDistribution) + token.balanceOf(treasury) + token.balanceOf(team) + token.balanceOf(address(vesting)) + token.balanceOf(strategic);
         assertEq(distributed, token.TOTAL_SUPPLY());
 
         vm.expectRevert(VaelorynGenesisDistribution.AllocationAlreadyCompleted.selector);
@@ -141,9 +128,7 @@ contract VaelorynCanonicalTest is Test {
     }
 
     function testGetterCompatibleMaliciousVestingCannotFrontRunAllocation() public {
-        GetterCompatibleMaliciousVesting malicious = new GetterCompatibleMaliciousVesting(
-            address(token)
-        );
+        GetterCompatibleMaliciousVesting malicious = new GetterCompatibleMaliciousVesting(address(token));
         address attacker = makeAddr("attacker");
 
         vm.startPrank(attacker);
@@ -179,15 +164,7 @@ contract VaelorynCanonicalTest is Test {
     function testFactoryDeploysAndAllocatesAtomically() public {
         vm.warp(30 days);
         uint256 officialLaunchTimestamp = block.timestamp + 365 days;
-        VaelorynDeploymentFactory factory = new VaelorynDeploymentFactory(
-            ecosystem,
-            publicDistribution,
-            treasury,
-            team,
-            strategic,
-            founder,
-            officialLaunchTimestamp
-        );
+        VaelorynDeploymentFactory factory = new VaelorynDeploymentFactory(ecosystem, publicDistribution, treasury, team, strategic, founder, officialLaunchTimestamp);
         VaelorynToken deployedToken = factory.token();
         VaelorynGenesisDistribution deployedDistribution = factory.distribution();
         VaelorynFounderVesting deployedVesting = factory.vesting();
@@ -197,35 +174,36 @@ contract VaelorynCanonicalTest is Test {
         assertEq(deployedToken.genesisDistribution(), address(deployedDistribution));
         assertEq(deployedToken.balanceOf(address(deployedDistribution)), 0);
         assertEq(factory.officialLaunchTimestamp(), officialLaunchTimestamp);
-        assertEq(
-            deployedToken.balanceOf(address(deployedVesting)),
-            deployedVesting.TOTAL_ALLOCATION()
-        );
+        assertEq(deployedToken.balanceOf(address(deployedVesting)), deployedVesting.TOTAL_ALLOCATION());
         assertEq(deployedVesting.startTimestamp(), officialLaunchTimestamp);
     }
 
-    function testFactoryCannotDeployASecondCanonicalInstance() public {
-        VaelorynDeploymentFactory factory = new VaelorynDeploymentFactory(
-            ecosystem,
-            publicDistribution,
-            treasury,
-            team,
-            strategic,
-            founder,
-            block.timestamp + 1 days
-        );
+    function testFactorySupportsSingleSafePhaseOneCustody() public {
+        address phaseOneSafe = makeAddr("phaseOneSafe");
+        uint256 officialLaunchTimestamp = block.timestamp + 365 days;
+        VaelorynDeploymentFactory factory = new VaelorynDeploymentFactory(phaseOneSafe, phaseOneSafe, phaseOneSafe, phaseOneSafe, phaseOneSafe, phaseOneSafe, officialLaunchTimestamp);
+        VaelorynToken phaseOneToken = factory.token();
+        VaelorynGenesisDistribution phaseOneDistribution = factory.distribution();
+        VaelorynFounderVesting phaseOneVesting = factory.vesting();
 
-        (bool success,) = address(factory).call(
-            abi.encodeWithSignature(
-                "deployCanonical(address,address,address,address,address,address)",
-                ecosystem,
-                publicDistribution,
-                treasury,
-                team,
-                strategic,
-                founder
-            )
-        );
+        assertTrue(phaseOneDistribution.allocationCompleted());
+        assertEq(phaseOneDistribution.ecosystemRecipient(), phaseOneSafe);
+        assertEq(phaseOneDistribution.publicDistributionRecipient(), phaseOneSafe);
+        assertEq(phaseOneDistribution.vaelorynTreasuryRecipient(), phaseOneSafe);
+        assertEq(phaseOneDistribution.teamAndContributorsRecipient(), phaseOneSafe);
+        assertEq(phaseOneDistribution.strategicPartnershipsRecipient(), phaseOneSafe);
+        assertEq(phaseOneVesting.beneficiary(), phaseOneSafe);
+        assertEq(phaseOneToken.balanceOf(phaseOneSafe), 900_000_000 ether);
+        assertEq(phaseOneToken.balanceOf(address(phaseOneVesting)), 100_000_000 ether);
+        assertEq(phaseOneToken.balanceOf(address(phaseOneDistribution)), 0);
+        assertEq(phaseOneToken.totalSupply(), 1_000_000_000 ether);
+    }
+
+    function testFactoryCannotDeployASecondCanonicalInstance() public {
+        VaelorynDeploymentFactory factory = new VaelorynDeploymentFactory(ecosystem, publicDistribution, treasury, team, strategic, founder, block.timestamp + 1 days);
+
+        (bool success,) =
+            address(factory).call(abi.encodeWithSignature("deployCanonical(address,address,address,address,address,address)", ecosystem, publicDistribution, treasury, team, strategic, founder));
 
         assertFalse(success);
         assertTrue(factory.distribution().allocationCompleted());
@@ -233,15 +211,7 @@ contract VaelorynCanonicalTest is Test {
 
     function testFactoryRejectsZeroLaunchTimestamp() public {
         vm.expectRevert(VaelorynDeploymentFactory.InvalidLaunchTimestamp.selector);
-        new VaelorynDeploymentFactory(
-            ecosystem,
-            publicDistribution,
-            treasury,
-            team,
-            strategic,
-            founder,
-            0
-        );
+        new VaelorynDeploymentFactory(ecosystem, publicDistribution, treasury, team, strategic, founder, 0);
     }
 
     function testMainnetPolicyAcceptsFutureLaunchTimestamp() public view {
@@ -259,37 +229,20 @@ contract VaelorynCanonicalTest is Test {
         vm.warp(1_000);
         uint256 pastLaunchTimestamp = block.timestamp - 1;
 
-        vm.expectRevert(
-            abi.encodeWithSelector(
-                DeployCanonicalMainnet.OfficialLaunchTimestampNotFuture.selector,
-                pastLaunchTimestamp,
-                block.timestamp
-            )
-        );
+        vm.expectRevert(abi.encodeWithSelector(DeployCanonicalMainnet.OfficialLaunchTimestampNotFuture.selector, pastLaunchTimestamp, block.timestamp));
         mainnetPolicy.validateOfficialLaunchTimestamp(pastLaunchTimestamp);
     }
 
     function testMainnetPolicyRejectsLaunchTimestampAtCurrentTime() public {
         uint256 currentTimestamp = block.timestamp;
 
-        vm.expectRevert(
-            abi.encodeWithSelector(
-                DeployCanonicalMainnet.OfficialLaunchTimestampNotFuture.selector,
-                currentTimestamp,
-                currentTimestamp
-            )
-        );
+        vm.expectRevert(abi.encodeWithSelector(DeployCanonicalMainnet.OfficialLaunchTimestampNotFuture.selector, currentTimestamp, currentTimestamp));
         mainnetPolicy.validateOfficialLaunchTimestamp(currentTimestamp);
     }
 
     function testAllocationConstantsSumToFixedSupply() public view {
-        uint256 allocationSum =
-            distribution.ECOSYSTEM_AND_COMMUNITY() +
-            distribution.PUBLIC_DISTRIBUTION() +
-            distribution.VAELORYN_TREASURY() +
-            distribution.TEAM_AND_CONTRIBUTORS() +
-            distribution.FOUNDER() +
-            distribution.STRATEGIC_PARTNERSHIPS();
+        uint256 allocationSum = distribution.ECOSYSTEM_AND_COMMUNITY() + distribution.PUBLIC_DISTRIBUTION() + distribution.VAELORYN_TREASURY() + distribution.TEAM_AND_CONTRIBUTORS()
+            + distribution.FOUNDER() + distribution.STRATEGIC_PARTNERSHIPS();
 
         assertEq(allocationSum, token.TOTAL_SUPPLY());
         assertEq(distribution.FOUNDER(), vesting.TOTAL_ALLOCATION());
@@ -317,14 +270,9 @@ contract VaelorynCanonicalTest is Test {
         uint256 amount = 42 ether;
         uint256 deadline = block.timestamp + 1 days;
         uint256 nonce = token.nonces(ecosystem);
-        bytes32 permitTypehash =
-            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
-        bytes32 structHash = keccak256(
-            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
-        );
-        bytes32 digest = keccak256(
-            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
-        );
+        bytes32 permitTypehash = keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline));
+        bytes32 digest = keccak256(abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash));
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(ECOSYSTEM_KEY, digest);
 
         token.permit(ecosystem, spender, amount, deadline, v, r, s);
@@ -339,14 +287,9 @@ contract VaelorynCanonicalTest is Test {
         uint256 amount = 42 ether;
         uint256 deadline = block.timestamp + 1 days;
         uint256 nonce = token.nonces(ecosystem);
-        bytes32 permitTypehash =
-            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
-        bytes32 structHash = keccak256(
-            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
-        );
-        bytes32 digest = keccak256(
-            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
-        );
+        bytes32 permitTypehash = keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline));
+        bytes32 digest = keccak256(abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash));
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(ECOSYSTEM_KEY, digest);
 
         token.permit(ecosystem, spender, amount, deadline, v, r, s);
@@ -360,14 +303,9 @@ contract VaelorynCanonicalTest is Test {
         uint256 amount = 42 ether;
         uint256 deadline = block.timestamp;
         uint256 nonce = token.nonces(ecosystem);
-        bytes32 permitTypehash =
-            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
-        bytes32 structHash = keccak256(
-            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
-        );
-        bytes32 digest = keccak256(
-            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
-        );
+        bytes32 permitTypehash = keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline));
+        bytes32 digest = keccak256(abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash));
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(ECOSYSTEM_KEY, digest);
 
         vm.warp(deadline + 1);
@@ -381,14 +319,9 @@ contract VaelorynCanonicalTest is Test {
         uint256 amount = 42 ether;
         uint256 deadline = block.timestamp + 1 days;
         uint256 nonce = token.nonces(ecosystem);
-        bytes32 permitTypehash =
-            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
-        bytes32 structHash = keccak256(
-            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
-        );
-        bytes32 digest = keccak256(
-            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
-        );
+        bytes32 permitTypehash = keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline));
+        bytes32 digest = keccak256(abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash));
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(SPENDER_KEY, digest);
 
         vm.expectRevert();
@@ -401,14 +334,9 @@ contract VaelorynCanonicalTest is Test {
         uint256 amount = 42 ether;
         uint256 deadline = block.timestamp + 1 days;
         uint256 nonce = token.nonces(ecosystem) + 1;
-        bytes32 permitTypehash =
-            keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
-        bytes32 structHash = keccak256(
-            abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline)
-        );
-        bytes32 digest = keccak256(
-            abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash)
-        );
+        bytes32 permitTypehash = keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        bytes32 structHash = keccak256(abi.encode(permitTypehash, ecosystem, spender, amount, nonce, deadline));
+        bytes32 digest = keccak256(abi.encodePacked("\x19\x01", token.DOMAIN_SEPARATOR(), structHash));
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(ECOSYSTEM_KEY, digest);
 
         vm.expectRevert();
@@ -418,13 +346,7 @@ contract VaelorynCanonicalTest is Test {
     function testEip712DomainSeparatorMatchesCanonicalTokenDomain() public view {
         bytes32 expectedDomainSeparator = keccak256(
             abi.encode(
-                keccak256(
-                    "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
-                ),
-                keccak256(bytes("Vaeloryn")),
-                keccak256(bytes("1")),
-                block.chainid,
-                address(token)
+                keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"), keccak256(bytes("Vaeloryn")), keccak256(bytes("1")), block.chainid, address(token)
             )
         );
 
@@ -453,12 +375,8 @@ contract VaelorynCanonicalTest is Test {
         assertEq(vesting.vestedAmount(t0 + 180 days), 7_500_000 ether);
         assertEq(vesting.vestedAmount(t0 + 270 days), 10_000_000 ether);
         uint256 linearElapsedAt360Days = 90 days;
-        uint256 linearAmountAt360Days =
-            (vesting.LINEAR_ALLOCATION() * linearElapsedAt360Days) /
-            vesting.LINEAR_DURATION();
-        uint256 expectedAt360Days =
-            10_000_000 ether +
-            linearAmountAt360Days;
+        uint256 linearAmountAt360Days = (vesting.LINEAR_ALLOCATION() * linearElapsedAt360Days) / vesting.LINEAR_DURATION();
+        uint256 expectedAt360Days = 10_000_000 ether + linearAmountAt360Days;
         assertEq(vesting.vestedAmount(t0 + 360 days), expectedAt360Days);
 
         uint256 midpoint = vesting.linearStartTimestamp() + (vesting.LINEAR_DURATION() / 2);
@@ -527,11 +445,7 @@ contract VaelorynCanonicalTest is Test {
     }
 
     function testFuzzVestingNeverExceedsCap(uint256 timestamp) public view {
-        uint256 boundedTimestamp = bound(
-            timestamp,
-            t0 - 1,
-            vesting.linearEndTimestamp() + 10_000 days
-        );
+        uint256 boundedTimestamp = bound(timestamp, t0 - 1, vesting.linearEndTimestamp() + 10_000 days);
 
         assertLe(vesting.vestedAmount(boundedTimestamp), vesting.TOTAL_ALLOCATION());
     }
