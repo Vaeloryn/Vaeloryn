@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
-import { Redirect, Route, Switch, Router as WouterRouter } from 'wouter';
+import { Route, Switch, Router as WouterRouter } from 'wouter';
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Home } from '@/pages/Home';
 import { HelpBuild } from '@/pages/HelpBuild';
@@ -16,6 +16,7 @@ import { Risks } from '@/pages/Risks';
 import { Status } from '@/pages/Status';
 import { Verify } from '@/pages/Verify';
 import { Wallet } from '@/pages/Wallet';
+import { Sale } from '@/pages/Sale';
 import WalletApp from '../../vaeloryn-wallet/src/App';
 
 const queryClient = new QueryClient();
@@ -33,9 +34,7 @@ function Router() {
         <Route path="/status" component={Status} />
         <Route path="/verify" component={Verify} />
         <Route path="/wallet" component={Wallet} />
-        <Route path="/sale">
-          <Redirect to="/wallet" />
-        </Route>
+        <Route path="/sale" component={Sale} />
         <Route path="/help-build" component={HelpBuild} />
         <Route path="/submit-idea" component={SubmitIdea} />
         <Route path="/contact" component={Contact} />
