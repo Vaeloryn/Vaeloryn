@@ -346,9 +346,6 @@ export function Home() {
             >
               Vaeloryn
             </motion.h1>
->
-              Vaeloryn
-            </motion.h1>
 
             <motion.div variants={heroFadeInUp} className="mt-2">
               <a href="https://tools.launchllama.co?utm_source=badge&utm_medium=referral" target="_blank" rel="noopener noreferrer">
