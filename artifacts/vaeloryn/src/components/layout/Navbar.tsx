@@ -31,9 +31,9 @@ export function Navbar() {
       <Link href="/roadmap" onClick={closeMenu} className={linkClass}>
         Roadmap
       </Link>
-      <a href="/app" onClick={closeMenu} className="text-sm font-medium text-primary/80 hover:text-primary transition-colors border border-primary/25 hover:border-primary/50 px-3 py-1 rounded-md hover:bg-primary/5">
-        Wallet
-      </a>
+      <Link href="/private-sales" onClick={closeMenu} className="text-sm font-medium text-primary/80 hover:text-primary transition-colors border border-primary/25 hover:border-primary/50 px-3 py-1 rounded-md hover:bg-primary/5">
+        Private Sales
+      </Link>
       <Link href="/help-build" onClick={closeMenu} className={linkClass}>
         Help Build
       </Link>

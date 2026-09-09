@@ -71,12 +71,12 @@ const pages = [
       'verify Vaeloryn, VAELO verification, protocol evidence, Base Sepolia, transparency',
   },
   {
-    path: '/sale',
-    title: 'VAELO Token Sale | Vaeloryn Distribution Status Overview',
+    path: '/private-sales',
+    title: 'VAELO Private Sales | Vaeloryn',
     description:
-      'View the official Vaeloryn VAELO distribution status and sale information. No public sale is active while product and compliance work continues.',
+      'Contact Vaeloryn to discuss an initial private-sales conversation for VAELO. No public sale is active.',
     keywords:
-      'VAELO token sale, Vaeloryn distribution, public sale status, VAELO',
+      'VAELO private sales, Vaeloryn private allocation, initial VAELO inquiry',
   },
   {
     path: '/help-build',

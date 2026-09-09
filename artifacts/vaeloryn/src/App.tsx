@@ -15,8 +15,7 @@ import { Roadmap } from '@/pages/Roadmap';
 import { Risks } from '@/pages/Risks';
 import { Status } from '@/pages/Status';
 import { Verify } from '@/pages/Verify';
-import { Wallet } from '@/pages/Wallet';
-import WalletApp from '../../vaeloryn-wallet/src/App';
+import { PrivateSales } from '@/pages/PrivateSales';
 
 const queryClient = new QueryClient();
 
@@ -32,9 +31,12 @@ function Router() {
         <Route path="/risks" component={Risks} />
         <Route path="/status" component={Status} />
         <Route path="/verify" component={Verify} />
-        <Route path="/wallet" component={Wallet} />
+        <Route path="/private-sales" component={PrivateSales} />
+        <Route path="/wallet">
+          <Redirect to="/private-sales" />
+        </Route>
         <Route path="/sale">
-          <Redirect to="/wallet" />
+          <Redirect to="/private-sales" />
         </Route>
         <Route path="/help-build" component={HelpBuild} />
         <Route path="/submit-idea" component={SubmitIdea} />
@@ -45,23 +47,16 @@ function Router() {
   );
 }
 
-function WalletEntry() {
-  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
-
-  if (pathname === '/vaeloryn-wallet') {
-    window.history.replaceState(null, '', '/app');
-  }
-
-  return <WalletApp base="/app" />;
-}
-
 function App() {
   const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
-  const isWalletPath = pathname === '/app' || pathname.startsWith('/app/');
-  const isLegacyWalletPath = pathname === '/vaeloryn-wallet';
+  const isHiddenWalletPath =
+    pathname === '/app' ||
+    pathname.startsWith('/app/') ||
+    pathname === '/vaeloryn-wallet';
 
-  if (isWalletPath || isLegacyWalletPath) {
-    return <WalletEntry />;
+  if (isHiddenWalletPath) {
+    const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+    window.history.replaceState(null, '', `${basePath}/private-sales` || '/private-sales');
   }
 
   return (
