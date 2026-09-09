@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'wouter';
+import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 export function Navbar() {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const smoothScrollProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 28,
+    mass: 0.2,
+  });
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -79,6 +87,13 @@ export function Navbar() {
           <NavLinks />
         </div>
       </div>
+      {location === '/' && (
+        <motion.div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-px origin-left bg-primary shadow-[0_0_10px_rgba(245,166,11,0.45)]"
+          style={{ scaleX: prefersReducedMotion ? 1 : smoothScrollProgress }}
+        />
+      )}
     </nav>
   );
 }

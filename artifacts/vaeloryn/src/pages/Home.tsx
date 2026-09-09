@@ -1,5 +1,13 @@
-import React from 'react';
-import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import React, { useRef } from 'react';
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  type MotionValue,
+  type Variants,
+} from 'framer-motion';
 import { Link } from 'wouter';
 import { Card, CardContent } from '@/components/ui/card';
 import { SEO } from '@/components/SEO';
@@ -60,6 +68,16 @@ const bridgeSteps = [
   { step: 7, title: "Scale", desc: "Help successful ideas reach greater impact." },
 ];
 
+const pipelineSteps = [
+  "Idea",
+  "Research",
+  "Validation",
+  "Prototype",
+  "Commercialisation",
+  "Scale",
+  "Reinvestment",
+];
+
 type StatusKind = 'achieved' | 'inactive' | 'pending';
 
 const statusItems: { label: string; value: string; kind: StatusKind }[] = [
@@ -86,8 +104,166 @@ function StatusIcon({ kind }: { kind: StatusKind }) {
   return <Clock size={16} strokeWidth={1.75} className="text-muted-foreground/60 shrink-0 mt-0.5" />;
 }
 
+interface ScrollStepProps {
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+  reducedMotion: boolean;
+}
+
+function PipelineStep({
+  label,
+  index,
+  total,
+  progress,
+  reducedMotion,
+}: ScrollStepProps & { label: string }) {
+  const threshold = 0.08 + (index / Math.max(total - 1, 1)) * 0.84;
+  const activation = useTransform(
+    progress,
+    [Math.max(0, threshold - 0.1), threshold],
+    [0, 1],
+  );
+  const borderColor = useTransform(
+    activation,
+    [0, 1],
+    ['rgba(255,255,255,0.1)', 'hsl(38, 92%, 50%)'],
+  );
+  const numberColor = useTransform(
+    activation,
+    [0, 1],
+    ['rgba(248,250,252,0.8)', 'hsl(38, 92%, 50%)'],
+  );
+  const labelColor = useTransform(
+    activation,
+    [0, 1],
+    ['hsl(215, 20%, 65%)', 'hsl(210, 40%, 98%)'],
+  );
+  const glowOpacity = useTransform(activation, [0, 1], [0, 0.08]);
+
+  return (
+    <motion.div
+      initial={reducedMotion ? false : { opacity: 0.55, y: 14 }}
+      whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="flex flex-col items-center gap-4 group"
+    >
+      <motion.div
+        className="w-16 h-16 rounded-full bg-background border flex items-center justify-center relative overflow-hidden group-hover:border-primary/50 transition-colors"
+        style={{ borderColor }}
+      >
+        <motion.div
+          className="absolute inset-0 bg-primary"
+          style={{ opacity: glowOpacity }}
+        />
+        <motion.span
+          className="font-display font-medium text-sm relative z-10"
+          style={{ color: numberColor }}
+        >
+          {index + 1}
+        </motion.span>
+      </motion.div>
+      <motion.span
+        className="font-medium text-sm tracking-wide text-center group-hover:text-foreground transition-colors"
+        style={{ color: labelColor }}
+      >
+        {label}
+      </motion.span>
+    </motion.div>
+  );
+}
+
+function BridgeStep({
+  step,
+  index,
+  total,
+  progress,
+}: ScrollStepProps & { step: (typeof bridgeSteps)[number] }) {
+  const threshold = 0.06 + (index / Math.max(total - 1, 1)) * 0.88;
+  const activation = useTransform(
+    progress,
+    [Math.max(0, threshold - 0.11), threshold],
+    [0, 1],
+  );
+  const borderColor = useTransform(
+    activation,
+    [0, 1],
+    ['rgba(255,255,255,0.1)', 'hsl(38, 92%, 50%)'],
+  );
+  const numberColor = useTransform(
+    activation,
+    [0, 1],
+    ['hsl(215, 20%, 65%)', 'hsl(38, 92%, 50%)'],
+  );
+  const stepOpacity = useTransform(activation, [0, 1], [0.72, 1]);
+
+  return (
+    <motion.div variants={fadeInUp} className="relative z-10 flex gap-6 group">
+      <div className="flex flex-col items-center">
+        <motion.div
+          className="w-10 h-10 rounded-full border bg-background flex items-center justify-center font-display text-sm group-hover:border-primary group-hover:text-primary transition-colors shrink-0"
+          style={{ borderColor, color: numberColor }}
+        >
+          {step.step}
+        </motion.div>
+      </div>
+      <motion.div className="pb-8 pt-1" style={{ opacity: stepOpacity }}>
+        <h4 className="font-display text-xl mb-2 text-foreground/90 group-hover:text-white transition-colors">
+          {step.title}
+        </h4>
+        <p className="text-muted-foreground">{step.desc}</p>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export function Home() {
   const prefersReducedMotion = useReducedMotion();
+  const pipelineRef = useRef<HTMLDivElement>(null);
+  const bridgeRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const { scrollYProgress: pipelineScrollProgress } = useScroll({
+    target: pipelineRef,
+    offset: ["start 82%", "end 30%"],
+  });
+  const { scrollYProgress: bridgeScrollProgress } = useScroll({
+    target: bridgeRef,
+    offset: ["start 78%", "end 32%"],
+  });
+  const smoothPipelineProgress = useSpring(pipelineScrollProgress, {
+    stiffness: 105,
+    damping: 28,
+    mass: 0.25,
+  });
+  const smoothBridgeProgress = useSpring(bridgeScrollProgress, {
+    stiffness: 105,
+    damping: 28,
+    mass: 0.25,
+  });
+  const pipelineVisualProgress = useTransform(
+    smoothPipelineProgress,
+    value => prefersReducedMotion ? 1 : value,
+  );
+  const bridgeVisualProgress = useTransform(
+    smoothBridgeProgress,
+    value => prefersReducedMotion ? 1 : value,
+  );
+  const heroGlowY = useTransform(
+    scrollY,
+    [0, 760],
+    prefersReducedMotion ? [0, 0] : [0, 64],
+  );
+  const heroLogoY = useTransform(
+    scrollY,
+    [0, 760],
+    prefersReducedMotion ? [0, 0] : [0, 48],
+  );
+  const heroWordmarkY = useTransform(
+    scrollY,
+    [0, 760],
+    prefersReducedMotion ? [0, 0] : [0, -18],
+  );
 
   const heroContainer: Variants = {
     hidden: { opacity: 0 },
@@ -132,7 +308,10 @@ export function Home() {
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none">
           <motion.div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[960px] h-[960px] rounded-full"
-            style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 68%)' }}
+            style={{
+              background: 'radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 68%)',
+              y: heroGlowY,
+            }}
             animate={prefersReducedMotion ? {} : { opacity: [0.4, 0.72, 0.4] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -155,13 +334,14 @@ export function Home() {
           >
 
             {/* Logo mark */}
-            <motion.div variants={logoVariant} className="mb-1">
+            <motion.div variants={logoVariant} style={{ y: heroLogoY }} className="mb-1">
               <VaelorynLogo className="w-14 h-14 md:w-[68px] md:h-[68px] lg:w-20 lg:h-20" />
             </motion.div>
 
             {/* Wordmark */}
             <motion.h1
               variants={heroFadeInUp}
+              style={{ y: heroWordmarkY }}
               className="font-display text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.15em] uppercase text-foreground"
             >
               Vaeloryn
@@ -246,7 +426,7 @@ export function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
             className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12"
           >
@@ -291,7 +471,7 @@ export function Home() {
       <section id="progress" className="py-24 md:py-32 border-b border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={staggerContainer}
             className="flex flex-col gap-12"
           >
@@ -352,7 +532,7 @@ export function Home() {
       <section id="mission" className="py-24 md:py-32 border-b border-white/5 bg-black/20">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={staggerContainer}
             className="flex flex-col gap-16"
           >
@@ -369,17 +549,23 @@ export function Home() {
             </motion.div>
 
             {/* Pipeline Visual */}
-            <motion.div variants={fadeInUp} className="relative py-12">
+            <motion.div ref={pipelineRef} variants={fadeInUp} className="relative py-12">
               <div className="absolute top-1/2 left-0 right-0 h-px bg-white/10 -translate-y-1/2 hidden lg:block" />
+              <motion.div
+                aria-hidden="true"
+                className="absolute top-1/2 left-0 right-0 h-px bg-primary -translate-y-1/2 hidden lg:block origin-left shadow-[0_0_10px_rgba(245,166,11,0.35)]"
+                style={{ scaleX: pipelineVisualProgress }}
+              />
               <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-row lg:justify-between gap-6 relative z-10">
-                {["Idea", "Research", "Validation", "Prototype", "Commercialisation", "Scale", "Reinvestment"].map((step, i) => (
-                  <div key={i} className="flex flex-col items-center gap-4 group">
-                    <div className="w-16 h-16 rounded-full bg-background border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-primary/50 transition-colors">
-                      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span className="font-display font-medium text-sm text-foreground/80 group-hover:text-primary transition-colors">{i + 1}</span>
-                    </div>
-                    <span className="font-medium text-sm tracking-wide text-muted-foreground text-center group-hover:text-foreground transition-colors">{step}</span>
-                  </div>
+                {pipelineSteps.map((step, i) => (
+                  <PipelineStep
+                    key={step}
+                    label={step}
+                    index={i}
+                    total={pipelineSteps.length}
+                    progress={pipelineVisualProgress}
+                    reducedMotion={Boolean(prefersReducedMotion)}
+                  />
                 ))}
               </div>
             </motion.div>
@@ -391,7 +577,7 @@ export function Home() {
       <section id="areas" className="py-24 md:py-40">
         <div className="container px-6 max-w-6xl mx-auto">
           <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={staggerContainer}
             className="space-y-16"
           >
@@ -428,7 +614,7 @@ export function Home() {
       <section className="py-24 md:py-40 border-y border-white/5 bg-black/20">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={staggerContainer}
             className="grid lg:grid-cols-2 gap-16 items-start"
           >
@@ -444,22 +630,29 @@ export function Home() {
               </div>
             </motion.div>
 
-            <motion.div variants={staggerContainer} className="space-y-8">
+            <motion.div
+              ref={bridgeRef}
+              variants={staggerContainer}
+              className="relative space-y-8"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute left-5 top-5 bottom-12 w-px -translate-x-1/2 bg-white/5"
+              />
+              <motion.div
+                aria-hidden="true"
+                className="absolute left-5 top-5 bottom-12 w-px -translate-x-1/2 origin-top bg-primary shadow-[0_0_10px_rgba(245,166,11,0.3)]"
+                style={{ scaleY: bridgeVisualProgress }}
+              />
               {bridgeSteps.map((step, i) => (
-                <motion.div key={i} variants={fadeInUp} className="flex gap-6 group">
-                  <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center font-display text-sm text-muted-foreground group-hover:border-primary group-hover:text-primary transition-colors shrink-0">
-                      {step.step}
-                    </div>
-                    {i !== bridgeSteps.length - 1 && (
-                      <div className="w-px h-full bg-white/5 group-hover:bg-primary/20 transition-colors my-2" />
-                    )}
-                  </div>
-                  <div className="pb-8 pt-1">
-                    <h4 className="font-display text-xl mb-2 text-foreground/90 group-hover:text-white transition-colors">{step.title}</h4>
-                    <p className="text-muted-foreground">{step.desc}</p>
-                  </div>
-                </motion.div>
+                <BridgeStep
+                  key={step.step}
+                  step={step}
+                  index={i}
+                  total={bridgeSteps.length}
+                  progress={bridgeVisualProgress}
+                  reducedMotion={Boolean(prefersReducedMotion)}
+                />
               ))}
             </motion.div>
           </motion.div>
@@ -473,7 +666,7 @@ export function Home() {
 
         <div className="container px-6 max-w-4xl mx-auto relative z-10 text-center">
           <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={staggerContainer}
             className="space-y-10"
           >
@@ -516,7 +709,7 @@ export function Home() {
       <section className="py-24 md:py-32 border-t border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={staggerContainer}
             className="flex flex-col gap-16"
           >
