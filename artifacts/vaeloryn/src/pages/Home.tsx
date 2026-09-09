@@ -346,7 +346,20 @@ export function Home() {
             >
               Vaeloryn
             </motion.h1>
+>
+              Vaeloryn
+            </motion.h1>
 
+            <motion.div variants={heroFadeInUp} className="mt-2">
+              <a href="https://tools.launchllama.co?utm_source=badge&utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://tools.launchllama.co/featured-badge.png?v=2"
+                  alt="As seen on Launch Llama Newsletter"
+                  width="200"
+                  height="50"
+                />
+              </a>
+            </motion.div>
             {/* Divider */}
             <motion.div
               variants={heroFadeInUp}
