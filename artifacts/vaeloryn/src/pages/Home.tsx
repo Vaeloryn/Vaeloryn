@@ -218,6 +218,24 @@ export function Home() {
               </Link>
             </motion.div>
 
+            <motion.a
+              variants={heroFadeInUp}
+              href="https://x.com/vaelorynfuture?s=11"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Vaeloryn on X"
+              title="Follow Vaeloryn on X"
+              className="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 text-primary transition-all hover:border-primary/80 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-5 w-5 fill-current transition-transform group-hover:scale-105"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.967 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+              </svg>
+            </motion.a>
+
           </motion.div>
         </div>
       </section>
