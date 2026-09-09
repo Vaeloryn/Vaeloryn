@@ -8,7 +8,7 @@ const defaultImage = `${siteUrl}/social-preview.png`;
 const pages = [
   {
     path: '/',
-    title: 'Vaeloryn | Accelerating Scientific Progress Worldwide',
+    title: 'VAELO | Vaeloryn',
     description:
       'Vaeloryn connects exceptional talent, ideas, expertise and resources to support scientific, medical and technological progress through an open ecosystem.',
     keywords:

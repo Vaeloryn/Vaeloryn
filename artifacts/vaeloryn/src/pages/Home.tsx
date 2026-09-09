@@ -119,7 +119,7 @@ export function Home() {
   return (
     <div className="w-full">
       <SEO
-        title="Vaeloryn | Accelerating Scientific Progress Worldwide"
+        title="VAELO | Vaeloryn"
         description="Vaeloryn connects exceptional talent, ideas, expertise and resources to support scientific, medical and technological progress through an open ecosystem."
         canonical="https://vaeloryn.com/"
         keywords="Vaeloryn, scientific progress, medical advancement, technological innovation, talent, ideas, resources"
