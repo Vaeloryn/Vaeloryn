@@ -1,0 +1,59 @@
+Edit ONLY the existing Vaeloryn marketing website in artifacts/vaeloryn/.
+
+GOAL
+Add a premium, subtle scroll-driven experience on the homepage as the user scrolls down. Keep the current dark navy + gold luxury look. Do not redesign the site. Do not change copy, routes, wallet, protocol, or other packages.
+
+CONSTRAINTS
+- Work only in artifacts/vaeloryn/
+- Reuse framer-motion (already a dependency). Do not add GSAP unless necessary.
+- Respect prefers-reduced-motion via useReducedMotion() — if reduced motion, skip parallax/scrub and show static content.
+- Do not scroll-hijack, do not pin the whole page, do not add particle systems, 3D, or loud effects.
+- Keep TypeScript compiling. Do not break wouter routing or SEO.
+
+WHAT TO IMPLEMENT
+
+1) Scroll progress bar
+Add a thin gold progress line fixed under the navbar that scales from 0→1 with page scroll (framer-motion useScroll + useSpring). Only on the Home page.
+
+2) Hero parallax (subtle)
+In Home.tsx hero:
+- The gold radial glow and VaelorynLogo should move slightly slower than scroll (useScroll + useTransform, max ~40–80px).
+- Wordmark can have a very slight opposite shift.
+- Keep existing entrance animations.
+
+3) Section reveals (upgrade existing whileInView)
+Keep fadeInUp / staggerContainer but:
+- Use viewport={{ once: true, margin: "-80px" }}
+- Stagger status cards, area-of-progress cards, principles, and bridgeSteps so they rise in sequence.
+- Do not re-animate on every scroll.
+
+4) Pipeline scroll animation (the hero feature)
+The 7-step row: Idea → Research → Validation → Prototype → Commercialisation → Scale → Reinvestment.
+
+Make the connecting line fill with gold as that section enters view.
+As the fill reaches each step:
+- circle border becomes primary gold
+- number color becomes primary
+- label becomes foreground
+
+On mobile (stacked/grid), animate each step as it enters view instead of a horizontal fill.
+
+5) Bridge steps (Discover → Scale)
+Add a vertical gold line that grows with scroll through that section, lighting each numbered step in order.
+
+6) Navbar
+Optional: when scrollY > 24px, add a slightly stronger backdrop blur / border. Do not change links.
+
+FILES YOU MAY CHANGE
+- artifacts/vaeloryn/src/pages/Home.tsx
+- artifacts/vaeloryn/src/components/layout/Navbar.tsx or AppLayout.tsx (progress bar + scroll state only)
+- artifacts/vaeloryn/src/index.css (only if a tiny utility is cleaner than inline motion styles)
+- New small helper only if needed, e.g. artifacts/vaeloryn/src/hooks/useScrollProgress.ts
+
+DO NOT CHANGE
+- artifacts/vaeloryn-wallet/
+- vaelo_canonical/, vaelo_prototype/, api-server
+- Copy, SEO titles, status values, CTAs
+
+ACCEPTANCE
+Homepage still looks like Vaeloryn. Scrolling feels intentional: progress bar, glow parallax, pipeline line filling, cards revealing once. Reduced-motion users see no parallax. Site builds.
