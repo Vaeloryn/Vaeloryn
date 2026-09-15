@@ -10,17 +10,17 @@ const pages = [
     path: '/',
     title: 'VAELO | Vaeloryn',
     description:
-      'Vaeloryn connects exceptional talent, ideas, expertise and resources to support scientific, medical and technological progress through an open ecosystem.',
+      'Vaeloryn is building an onchain ecosystem intended to connect global capital with scientific, medical and technological innovation, with Base as its intended primary blockchain home.',
     keywords:
-      'Vaeloryn, scientific progress, medical advancement, technological innovation, talent, ideas, resources',
+      'Vaeloryn, VAELO, onchain innovation, scientific innovation, Base, onchain finance',
   },
   {
     path: '/vaelo',
     title: 'VAELO | Vaeloryn Digital Asset, Utility and Status',
     description:
-      'Explore VAELO, the developing digital asset of Vaeloryn, and understand its intended role, tokenomics, historical prototype and canonical status.',
+      'Explore VAELO, the intended native economic layer of the wider Vaeloryn ecosystem, including its canonical tokenomics, historical prototype and pre-mainnet status.',
     keywords:
-      'VAELO, Vaeloryn digital asset, tokenomics, ecosystem utility, Base Sepolia',
+      'VAELO, Vaeloryn economic layer, onchain innovation, tokenomics, Base, Base Sepolia',
   },
   {
     path: '/whitepaper',

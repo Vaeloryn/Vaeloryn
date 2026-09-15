@@ -74,7 +74,7 @@ const MILESTONES = [
   'Historical V1.1 Prototype on Base Sepolia',
   'Canonical Source Verification Pending',
   'Independent Security Review Pending',
-  'Targeted Local Test Evidence: 27 Passed',
+  'Targeted Local Test Evidence: 32 Passed',
 ];
 
 const ALLOCATION = [
@@ -258,10 +258,10 @@ export function Verify() {
                 <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Capabilities</p>
                 <BulletList items={[
                   'ERC-20 standard transfer and approval',
-                   'Historical V1.1 ABI does not establish canonical Permit support',
-                   'Historical V1.1 ABI does not establish canonical Burnable support',
-                  'Full supply verifiable via totalSupply()',
-                  'Per-address balance verifiable via balanceOf()',
+                  'Historical V1.1 ABI does not establish canonical Permit support',
+                  'Historical V1.1 ABI does not establish canonical Burnable support',
+                  'Historical V1.1 supply is inspectable via totalSupply()',
+                  'Historical V1.1 balances are inspectable via balanceOf()',
                 ]} />
               </motion.div>
             </div>
@@ -307,13 +307,12 @@ export function Verify() {
                   <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">What is NOT Present</p>
                 </div>
                 <BulletList items={[
-                  'No ownership or admin roles',
-                  'No upgradeability',
-                  'No minting after deployment',
-                  'No transfer taxes or fees',
-                  'No blacklisting or address blocking',
-                  'No freezing of accounts',
-                  'No hidden logic or backdoors',
+                  'No ownership or admin roles in the reviewed local design',
+                  'No upgradeability in the reviewed local design',
+                  'No post-construction mint function in the reviewed local design',
+                  'No transfer-tax or fee logic in the reviewed local design',
+                  'No blacklist or address-blocking logic in the reviewed local design',
+                  'No account-freezing logic in the reviewed local design',
                 ]} />
               </motion.div>
             </div>
@@ -342,13 +341,13 @@ export function Verify() {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="p-6 rounded-lg border border-white/8 bg-white/[0.02] flex flex-col gap-4">
-                <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Supply Facts</p>
+                <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70">Intended Canonical Design</p>
                 <div className="space-y-3">
-                  <DataRow label="Maximum supply"      value="1,000,000,000 VAELO" />
-                  <DataRow label="Minted"              value="Once — at contract construction" />
-                  <DataRow label="Minted to"           value="VaelorynGenesisDistribution" />
-                  <DataRow label="Post-deployment mint" value="Not possible — no mint function" />
-                  <DataRow label="Voluntary burn"       value="Supported — reduces total supply" />
+                  <DataRow label="Initial supply"       value="1,000,000,000 VAELO" />
+                  <DataRow label="Mint design"          value="Once — at contract construction" />
+                  <DataRow label="Initial recipient"    value="VaelorynGenesisDistribution" />
+                  <DataRow label="Additional minting"   value="No function in the local design" />
+                  <DataRow label="Voluntary burn"       value="Included in the local design" />
                 </div>
               </motion.div>
             </div>
@@ -367,9 +366,9 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-white/8 bg-white/[0.02]">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                 The full supply of 1,000,000,000 VAELO is intended to be allocated atomically at deployment by the
-                 VaelorynGenesisDistribution contract.
-                The on-chain balance of each allocation address can be independently verified via balanceOf() at any time.
+                 The canonical design intends to allocate the full supply of 1,000,000,000 VAELO atomically at
+                 deployment through VaelorynGenesisDistribution. If deployed, each allocation address would then be
+                 independently inspectable on-chain through balanceOf().
               </p>
             </motion.div>
 
@@ -391,8 +390,8 @@ export function Verify() {
             <motion.div variants={fadeInUp} className="p-4 rounded-lg border border-white/8 bg-white/[0.02]">
               <p className="text-xs text-muted-foreground/60 italic leading-relaxed">
                 Allocation does not equal circulation. Allocated VAELO may remain locked, reserved, vested or otherwise
-                non-circulating for extended periods. Only the Founder allocation currently has an implemented on-chain
-                vesting schedule through the FounderVesting contract.
+                non-circulating for extended periods. The founder allocation has a locally implemented vesting design;
+                the canonical vesting contract is not deployed.
               </p>
             </motion.div>
           </motion.div>
@@ -410,9 +409,9 @@ export function Verify() {
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-primary/15 bg-primary/5">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The founder allocation is held inside the <span className="text-foreground/90 font-medium">VaelorynFounderVesting</span> contract
-                and cannot be freely accessed. The vesting schedule is enforced entirely by smart contract logic —
-                no manual override, no admin bypass.
+                The canonical design places the founder allocation inside the <span className="text-foreground/90 font-medium">VaelorynFounderVesting</span> contract.
+                Its locally tested schedule contains no manual override or admin bypass. These are local design
+                properties, not claims about a deployed canonical contract.
               </p>
             </motion.div>
 
@@ -426,8 +425,7 @@ export function Verify() {
                   <DataRow label="Contract" value="VaelorynFounderVesting" />
                   <DataRow
                     label="Address"
-                    value="0x5858ecb46B6442b665C2a92cb387D3ce11b65FB2"
-                    mono
+                    value="Pending canonical deployment"
                   />
                   <DataRow label="Status" value="Implemented locally · not deployed" />
                 </div>
@@ -536,7 +534,7 @@ export function Verify() {
             <motion.div variants={fadeInUp} className="p-4 rounded-lg border border-white/8 bg-white/[0.015]">
               <p className="text-xs text-muted-foreground/60 italic leading-relaxed">
                 The recorded targeted Foundry run covers the canonical unit and invariant test contracts:
-                28 tests passed, with 0 failures and 0 skipped. The canonical implementation has not been
+                32 targeted tests passed, with 0 failures and 0 skipped. The canonical implementation has not been
                 independently audited or deployed. Local tests are evidence of behavior, not an audit opinion.
               </p>
             </motion.div>

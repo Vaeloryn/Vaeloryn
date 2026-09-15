@@ -101,9 +101,9 @@ export function Footer() {
 
         {/* Disclaimer */}
         <p className="text-xs text-muted-foreground/40 text-center max-w-lg leading-relaxed">
-          Vaeloryn and VAELO are deployed on Base Sepolia testnet. Testnet VAELO has no monetary value.
-          No mainnet product is launched. No public token sale is active. Nothing on this site constitutes
-          financial, legal or investment advice.
+          The historical, non-canonical VAELO V1.1 prototype is deployed on Base Sepolia testnet and has no
+          monetary value. The canonical VAELO implementation is not deployed. No mainnet product or public token
+          sale is active. Nothing on this site constitutes financial, legal or investment advice.
         </p>
       </div>
     </footer>

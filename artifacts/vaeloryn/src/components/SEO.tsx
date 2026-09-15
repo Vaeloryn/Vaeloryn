@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 const SITE_URL = 'https://vaeloryn.com';
 const DEFAULT_IMAGE = `${SITE_URL}/social-preview.png`;
 const DEFAULT_DESCRIPTION =
-  'Vaeloryn connects exceptional talent, ideas, expertise and resources to support scientific, medical and technological progress through an open ecosystem.';
+  'Vaeloryn is building an onchain ecosystem intended to connect global capital with scientific, medical and technological innovation, with Base as its intended primary blockchain home.';
 const DEFAULT_KEYWORDS =
-  'Vaeloryn, VAELO, scientific progress, medical advancement, technological innovation';
+  'Vaeloryn, VAELO, onchain innovation, scientific innovation, Base, onchain finance';
 
 interface SEOProps {
   title: string;
@@ -67,13 +67,16 @@ export function SEO({
     setMeta('meta[property="og:description"]', 'content', description);
     setMeta('meta[property="og:url"]', 'content', canonical);
     setMeta('meta[property="og:image"]', 'content', ogImage);
+    setMeta('meta[property="og:site_name"]', 'content', 'Vaeloryn');
+    setMeta('meta[property="og:image:alt"]', 'content', 'Vaeloryn — onchain infrastructure for real-world innovation');
 
     // Twitter
     setMeta('meta[name="twitter:card"]', 'content', 'summary_large_image');
     setMeta('meta[name="twitter:title"]', 'content', title);
     setMeta('meta[name="twitter:description"]', 'content', description);
     setMeta('meta[name="twitter:image"]', 'content', ogImage);
-  }, [title, description, canonical, ogImage]);
+    setMeta('meta[name="twitter:image:alt"]', 'content', 'Vaeloryn — onchain infrastructure for real-world innovation');
+  }, [title, description, canonical, ogImage, keywords]);
 
   return null;
 }

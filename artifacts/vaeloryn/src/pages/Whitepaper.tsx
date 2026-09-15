@@ -282,7 +282,7 @@ export function Whitepaper() {
                   <span className="text-sm font-medium text-foreground/85 tracking-wide">{name}</span>
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-mono text-muted-foreground/55 break-all">{addr}</span>
-                    <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full flex-shrink-0">Source verified · testnet</span>
+                    <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full flex-shrink-0">Explorer-inspectable · testnet</span>
                   </div>
                 </div>
               ))}

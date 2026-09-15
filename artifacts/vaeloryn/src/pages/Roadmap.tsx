@@ -198,7 +198,7 @@ export function Roadmap() {
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <CheckCircle2 size={18} strokeWidth={1.75} className="text-primary" />
-                <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80">Achieved</span>
+                <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80">Local &amp; Historical Evidence</span>
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-light tracking-[0.12em] uppercase text-foreground">
                 Completed
@@ -256,7 +256,7 @@ export function Roadmap() {
               </div>
               <div className="pl-8 border-l border-primary/20 flex flex-col gap-2">
                 {[
-                  'Vaeloryn public website developed and launched.',
+                  'Vaeloryn public website developed and published.',
                   'Public project documentation published.',
                   'Testnet evidence and verified contract information published.',
                   'VAELO tokenomics framework developed.',
@@ -265,7 +265,7 @@ export function Roadmap() {
                   'Public White Paper draft developed.',
                   'Public Risk Disclosure developed.',
                   'Help Build Vaeloryn contribution pathway established.',
-                  'Public social channels established.',
+                  'Public X channel linked from the website.',
                 ].map((item) => (
                   <DoneBullet key={item} text={item} />
                 ))}
@@ -312,6 +312,7 @@ export function Roadmap() {
                   'Exploring appropriate professional legal and regulatory guidance.',
                   'Refining Stage A strategy and priorities.',
                   'Evaluating potential first flagship project directions.',
+                  'Developing with Base as the intended primary blockchain ecosystem and production home.',
                 ].map((item) => (
                   <ActiveBullet key={item} text={item} />
                 ))}
@@ -360,6 +361,7 @@ export function Roadmap() {
                   'Introduce separation of powers.',
                   'Consider timelocks for sensitive actions.',
                   'Complete appropriate independent smart-contract and security review before production / mainnet.',
+                  'Complete Base Mainnet deployment readiness, verification and operational controls before any production launch.',
                 ]} />
                 <p className="text-xs text-muted-foreground/50 italic">
                   The testnet contracts have been built and tested. Production architecture and independent audit remain pending.
@@ -459,7 +461,9 @@ export function Roadmap() {
 
             <motion.div variants={fadeInUp} className="pl-0 flex flex-col gap-6">
               <BulletList items={[
-                'Build and launch the first flagship project.',
+                'Select, build and validate the first flagship project.',
+                'Prepare the canonical protocol for a reviewed Base Mainnet deployment.',
+                'Develop the first Base-aligned product and ecosystem integrations.',
                 'Demonstrate measurable real-world value.',
                 'Develop sustainable revenue where possible.',
                 'Grow technical and organisational capability.',

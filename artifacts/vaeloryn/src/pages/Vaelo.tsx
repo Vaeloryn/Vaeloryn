@@ -42,9 +42,9 @@ export function Vaelo() {
     <div className="w-full">
       <SEO
         title="VAELO | Vaeloryn Digital Asset, Utility and Status"
-        description="Explore VAELO, the developing digital asset of Vaeloryn, and understand its intended role, tokenomics, historical prototype and canonical status."
+        description="Explore VAELO, the intended native economic layer of the wider Vaeloryn ecosystem, including its canonical tokenomics, historical prototype and pre-mainnet status."
         canonical="https://vaeloryn.com/vaelo"
-        keywords="VAELO, Vaeloryn digital asset, tokenomics, ecosystem utility, Base Sepolia"
+        keywords="VAELO, Vaeloryn economic layer, onchain innovation, tokenomics, Base, Base Sepolia"
       />
 
       {/* ── Page Header ── */}
@@ -58,7 +58,7 @@ export function Vaelo() {
             className="flex flex-col gap-6"
           >
             <motion.span variants={fadeInUp} className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full w-fit">
-              Digital Asset · Base Sepolia Testnet
+              Native Economic Layer · Pre-Mainnet
             </motion.span>
 
             <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl font-light tracking-[0.15em] uppercase text-foreground">
@@ -68,7 +68,8 @@ export function Vaelo() {
             <motion.div variants={fadeInUp} className="w-16 h-px bg-primary" />
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              The canonical VAELO design is implemented locally with a 1,000,000,000 VAELO initial mint and no
+              VAELO is the intended native economic and onchain infrastructure layer for the wider Vaeloryn
+              ecosystem. Its canonical design is implemented locally with a 1,000,000,000 VAELO initial mint and no
               additional mint path.
               The published Base Sepolia deployment is a historical, non-canonical V1.1 prototype and does not
               represent the canonical implementation described on this page.
@@ -202,7 +203,7 @@ export function Vaelo() {
                   </div>
                   <div className="flex items-center gap-2 pl-6 sm:pl-0">
                     <span className="text-xs font-mono text-muted-foreground/70 break-all">{addr}</span>
-                    <span className="flex-shrink-0 text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full">Source verified · testnet</span>
+                    <span className="flex-shrink-0 text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full">Explorer-inspectable · testnet</span>
                   </div>
                 </motion.div>
               ))}
@@ -265,9 +266,9 @@ export function Vaelo() {
               <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary/70 mb-2">Key Principle</p>
               <p className="text-sm font-display italic text-foreground/90 mb-2">"Allocation does not equal circulation."</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Allocated VAELO may remain locked, reserved, vested or otherwise non-circulating for extended periods.
-                 One billion VAELO is minted once at construction and no additional minting is possible.
-                 Voluntary burns may reduce totalSupply() after deployment.
+                 Allocated VAELO may remain locked, reserved, vested or otherwise non-circulating for extended periods.
+                  The canonical design mints one billion VAELO once at construction and includes no additional mint path.
+                  Voluntary burns would be able to reduce totalSupply() after deployment.
               </p>
             </motion.div>
           </motion.div>
@@ -347,9 +348,8 @@ export function Vaelo() {
 
             <motion.div variants={fadeInUp} className="p-5 rounded-lg border border-primary/15 bg-primary/5">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The founder allocation is held inside the <span className="text-foreground/90 font-medium">VaelorynFounderVesting</span> contract
-                and cannot be freely accessed. The vesting schedule is enforced at the smart contract level —
-                no admin bypass, no manual override. The canonical schedule has been tested locally but has not
+                The canonical design places the founder allocation inside the <span className="text-foreground/90 font-medium">VaelorynFounderVesting</span> contract.
+                Its locally tested vesting logic contains no admin bypass or manual override. The canonical schedule has been tested locally but has not
                 been deployed. The published V1.1 address above is historical prototype evidence, not the canonical
                 founder vesting deployment.
               </p>

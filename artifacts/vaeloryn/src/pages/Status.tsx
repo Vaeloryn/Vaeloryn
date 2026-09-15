@@ -116,7 +116,7 @@ export function Status() {
             className="flex flex-col gap-12"
           >
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-              <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Achieved</span>
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/70">Local &amp; Historical Evidence</span>
               <h2 className="font-display text-3xl md:text-4xl font-light tracking-[0.1em] uppercase text-foreground">
                 Protocol Milestones
               </h2>
@@ -226,7 +226,7 @@ export function Status() {
                   <div className="flex flex-wrap items-center gap-2 pl-6 sm:pl-0">
                     <span className="text-xs font-mono text-muted-foreground/60 break-all">{addr}</span>
                     <div className="flex gap-1.5 flex-shrink-0">
-                      <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full">Verified</span>
+                      <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full">Explorer-inspectable</span>
                       <span className="text-xs text-muted-foreground/40 border border-white/8 bg-white/[0.02] px-2 py-0.5 rounded-full">Testnet</span>
                     </div>
                   </div>
@@ -271,7 +271,7 @@ export function Status() {
                 'Public White Paper draft developed.',
                 'Public Risk Disclosure developed.',
                 'Vaeloryn public website developed and launched.',
-                'Public social channels established.',
+                'Public X channel linked from the website.',
                 'Help Build Vaeloryn contributor pathway established.',
               ].map((item) => (
                 <BulletItem key={item} text={item} kind="done" />

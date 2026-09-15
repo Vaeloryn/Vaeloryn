@@ -69,28 +69,27 @@ const bridgeSteps = [
 ];
 
 const pipelineSteps = [
-  "Idea",
-  "Research",
-  "Validation",
-  "Prototype",
-  "Commercialisation",
-  "Scale",
-  "Reinvestment",
+  "Innovation & Projects",
+  "Vaeloryn Ecosystem",
+  "VAELO Economic Layer",
+  "Onchain Participation",
+  "Real-World Development",
 ];
 
 type StatusKind = 'achieved' | 'inactive' | 'pending';
 
-const statusItems: { label: string; value: string; kind: StatusKind }[] = [
-  { label: "Canonical Protocol",             value: "Implemented locally · not deployed", kind: "achieved" },
-  { label: "Historical Prototype",           value: "V1.1 on Base Sepolia",              kind: "achieved" },
+const builtTodayItems: { label: string; value: string; kind: StatusKind }[] = [
+  { label: "Canonical Protocol",             value: "Implemented locally", kind: "achieved" },
   { label: "Canonical Test Evidence",        value: "32 targeted tests passing",         kind: "achieved" },
-  { label: "Canonical Deployment",            value: "Not yet deployed",                  kind: "inactive"  },
-  { label: "VAELO Network",                  value: "Base Sepolia Testnet (V1.1)",      kind: "achieved"  },
-  { label: "Canonical Founder Vesting",       value: "100M · 3 releases + 1,095-day linear", kind: "achieved"  },
-  { label: "Production / Mainnet",           value: "Not launched",                   kind: "inactive"  },
-  { label: "Public VAELO Distribution",      value: "Not active",                     kind: "inactive"  },
+  { label: "Historical Prototype",           value: "V1.1 on Base Sepolia",              kind: "achieved" },
+  { label: "Canonical Founder Vesting",       value: "Locally tested (3 releases + linear)", kind: "achieved"  },
+];
+
+const nextPhaseItems: { label: string; value: string; kind: StatusKind }[] = [
   { label: "Independent Security Review",    value: "Pending",                        kind: "pending"   },
-  { label: "Legal / Regulatory Review",      value: "Pending",                        kind: "pending"   },
+  { label: "Legal / Regulatory Preparation", value: "Pending",                        kind: "pending"   },
+  { label: "Canonical Deployment",           value: "Base Mainnet intended · not deployed",     kind: "inactive"  },
+  { label: "Public VAELO Distribution",      value: "Not active",                     kind: "inactive"  },
   { label: "First Flagship Project",         value: "Selection pending",              kind: "pending"   },
 ];
 
@@ -330,7 +329,7 @@ export function Home() {
             initial="hidden"
             animate="visible"
             variants={heroContainer}
-            className="flex flex-col items-center gap-5"
+            className="flex flex-col items-center gap-5 w-full"
           >
 
             {/* Logo mark */}
@@ -382,25 +381,42 @@ export function Home() {
               variants={heroFadeInUp}
               className="text-xl md:text-3xl font-display font-light text-foreground/90 tracking-wide"
             >
-              Born in South Africa. Built for a global future.
+              Building the financial ecosystem for technologies that shape the future.
             </motion.h2>
 
-            {/* Supporting copy */}
-            <motion.div variants={heroFadeInUp} className="space-y-3 max-w-2xl">
-              <p className="text-lg md:text-xl font-medium text-primary tracking-wide">
-                South African-founded. Globally focused.
-              </p>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Vaeloryn is building an ecosystem to help accelerate scientific, medical and technological
-                progress by connecting exceptional people and ideas with the expertise, resources and
-                opportunities required to move forward.
-              </p>
+            {/* Supporting copy - Rapid Comprehension */}
+            <motion.div variants={heroFadeInUp} className="w-full max-w-3xl mt-4 flex flex-col gap-8">
+              <div className="text-center">
+                <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary/85">
+                  South African-founded. Globally focused.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-10 text-left pt-6 border-t border-white/10">
+                <div className="space-y-3">
+                  <h3 className="text-primary font-medium tracking-widest uppercase text-xs">Why Vaeloryn</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Innovative companies and projects can struggle to access capital, specialist networks and
+                    globally accessible funding through traditional systems.
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  <h3 className="text-primary font-medium tracking-widest uppercase text-xs">The Ecosystem</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Vaeloryn is building an onchain ecosystem connecting global capital with scientific, medical
+                    and technological innovation — powered by VAELO as its intended economic layer and developed
+                    with Base as its intended primary blockchain home.
+                  </p>
+                </div>
+              </div>
+
             </motion.div>
 
             {/* CTAs */}
             <motion.div
               variants={heroFadeInUp}
-              className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-6 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-8 w-full sm:w-auto"
             >
               <Link
                 href="/vaelo"
@@ -491,7 +507,64 @@ export function Home() {
         </div>
       </section>
 
-      {/* 3. Project Status */}
+      {/* 3. Infrastructure: Intended for Base */}
+      <section id="base" className="py-24 md:py-32 border-b border-white/5 bg-black/40 relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
+        <div className="container px-6 max-w-5xl mx-auto relative z-10">
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+            className="flex flex-col md:flex-row gap-16 items-center"
+          >
+            <motion.div variants={fadeInUp} className="flex-1 space-y-6">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full">
+                  Architecture
+                </span>
+              </div>
+              <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground">
+                Built for <span className="text-primary">Base</span>
+              </h3>
+              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  Vaeloryn is being developed with Base as its intended primary blockchain ecosystem and
+                  production home. Base offers low-cost, scalable and globally accessible EVM infrastructure
+                  suited to payments and financial applications.
+                </p>
+                <p>
+                  Its developer ecosystem and connection to Coinbase infrastructure and distribution make Base
+                  strategically relevant to Vaeloryn’s long-term onchain financial use cases. This positioning
+                  does not imply endorsement, investment or partnership by Base or Coinbase.
+                </p>
+                <div className="pt-4 border-t border-white/10 mt-6">
+                  <p className="text-sm italic text-muted-foreground/70 border-l border-primary/30 pl-4">
+                    The canonical Vaeloryn protocol is currently implemented and tested locally. Base Mainnet is
+                    the intended production environment, pending independent security review, legal preparation
+                    and deployment readiness. No canonical Mainnet deployment exists today.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="md:w-[400px] flex-shrink-0 flex justify-center">
+               <div className="relative w-64 h-64 border border-white/10 rounded-full flex items-center justify-center bg-white/[0.02]">
+                  <motion.div
+                    className="absolute inset-0 rounded-full border border-primary/20"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  />
+                  <motion.div
+                    className="absolute inset-6 rounded-full border border-primary/10 border-dashed"
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                  />
+                  <Cpu size={48} className="text-primary/60" strokeWidth={1} />
+               </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. Project Status */}
       <section id="progress" className="py-24 md:py-32 border-b border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
@@ -500,7 +573,7 @@ export function Home() {
             className="flex flex-col gap-12"
           >
             {/* Header */}
-            <motion.div variants={fadeInUp} className="flex flex-col gap-5 max-w-2xl">
+            <motion.div variants={fadeInUp} className="flex flex-col gap-5 max-w-3xl">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full">
                   Stage A — Foundation
@@ -511,38 +584,59 @@ export function Home() {
                 Project Status
               </h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                The canonical protocol is implemented locally and remains pending deployment, source
-                verification and independent security review. The historical V1.1 prototype remains
-                deployed on Base Sepolia; mainnet launch and public distribution remain pending.
+                Vaeloryn is currently in active development. We maintain a strict and transparent boundary between what has been built and tested locally today, and the critical security and regulatory milestones required before production deployment on Base Mainnet.
               </p>
             </motion.div>
 
-            {/* Status grid */}
-            <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {statusItems.map((item, i) => (
-                <motion.div key={i} variants={fadeInUp}>
-                  <Card className="bg-white/[0.025] border-white/5 hover:border-white/10 transition-colors duration-300">
-                    <CardContent className="px-5 py-4 flex items-start gap-3">
-                      <StatusIcon kind={item.kind} />
-                      <div className="flex flex-col gap-0.5 min-w-0">
-                        <span className="text-xs text-muted-foreground tracking-wide uppercase">{item.label}</span>
-                        <span className={`text-sm font-medium leading-snug ${
-                          item.kind === 'achieved'
-                            ? 'text-foreground'
-                            : 'text-muted-foreground'
-                        }`}>
-                          {item.value}
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Built Today */}
+              <motion.div variants={staggerContainer} className="space-y-6">
+                <h4 className="font-display text-xl tracking-wide text-foreground/90 border-b border-white/10 pb-3">Built Today</h4>
+                <div className="grid grid-cols-1 gap-3">
+                  {builtTodayItems.map((item, i) => (
+                    <motion.div key={i} variants={fadeInUp}>
+                      <Card className="bg-white/[0.025] border-white/5 hover:border-white/10 transition-colors duration-300">
+                        <CardContent className="px-5 py-4 flex items-start gap-3">
+                          <StatusIcon kind={item.kind} />
+                          <div className="flex flex-col gap-0.5 min-w-0">
+                            <span className="text-xs text-muted-foreground tracking-wide uppercase">{item.label}</span>
+                            <span className="text-sm font-medium leading-snug text-foreground">
+                              {item.value}
+                            </span>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Next Phase */}
+              <motion.div variants={staggerContainer} className="space-y-6">
+                <h4 className="font-display text-xl tracking-wide text-foreground/90 border-b border-white/10 pb-3">Next Phase Requirements</h4>
+                <div className="grid grid-cols-1 gap-3">
+                  {nextPhaseItems.map((item, i) => (
+                    <motion.div key={i} variants={fadeInUp}>
+                      <Card className="bg-white/[0.025] border-white/5 hover:border-white/10 transition-colors duration-300">
+                        <CardContent className="px-5 py-4 flex items-start gap-3">
+                          <StatusIcon kind={item.kind} />
+                          <div className="flex flex-col gap-0.5 min-w-0">
+                            <span className="text-xs text-muted-foreground tracking-wide uppercase">{item.label}</span>
+                            <span className="text-sm font-medium leading-snug text-muted-foreground">
+                              {item.value}
+                            </span>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
 
             {/* Disclaimer note */}
-            <motion.div variants={fadeInUp}>
-              <p className="text-xs text-muted-foreground/60 leading-relaxed border-l border-white/10 pl-4 max-w-2xl italic">
+            <motion.div variants={fadeInUp} className="pt-4">
+              <p className="text-xs text-muted-foreground/60 leading-relaxed border-l border-white/10 pl-4 max-w-3xl italic">
                 The historical V1.1 VAELO prototype is on Base Sepolia testnet only and has no monetary value.
                 The canonical implementation is not deployed. Mainnet launch and any public distribution are subject to independent security review,
                 legal and regulatory preparation, and further development milestones.
@@ -552,7 +646,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 4. Our Mission */}
+      {/* 5. How It Works */}
       <section id="mission" className="py-24 md:py-32 border-b border-white/5 bg-black/20">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
@@ -561,11 +655,16 @@ export function Home() {
             className="flex flex-col gap-16"
           >
             <motion.div variants={fadeInUp} className="text-center space-y-6 max-w-3xl mx-auto">
-              <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground">Our Mission</h3>
+              <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground">How It Works</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Vaeloryn is a South African-founded ecosystem exploring how technology, innovation and long-term thinking
-                can support real-world progress. South Africa is our home and foundation — and our ambition extends beyond
-                borders, building, supporting and collaborating with projects, technologies and people that can help shape the future.
+                Vaeloryn intends to connect innovation projects with expertise, resources and onchain
+                participation. VAELO is designed to serve as the native economic layer connecting the companies,
+                projects, partners and communities that may participate in that wider ecosystem.
+              </p>
+              <p className="text-lg text-foreground/85 leading-relaxed font-medium">
+                The long-term model is designed to move from promising innovation, through the Vaeloryn ecosystem
+                and VAELO economic layer, toward onchain capital and participation that can support measurable
+                real-world scientific, medical and technological development.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed italic">
                 Not every project needs to become a company. Fundamental scientific and medical research can have enormous value without immediate commercial returns.
@@ -597,7 +696,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 5. Areas of Progress */}
+      {/* 6. Areas of Progress */}
       <section id="areas" className="py-24 md:py-40">
         <div className="container px-6 max-w-6xl mx-auto">
           <motion.div
@@ -634,7 +733,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 6. The Vaeloryn Bridge */}
+      {/* 7. The Vaeloryn Bridge */}
       <section className="py-24 md:py-40 border-y border-white/5 bg-black/20">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
@@ -683,7 +782,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 7. Help Build Vaeloryn */}
+      {/* 8. Help Build Vaeloryn */}
       <section className="py-24 md:py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] opacity-30 pointer-events-none" />
@@ -729,7 +828,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 8. Our Principles */}
+      {/* 9. Our Principles */}
       <section className="py-24 md:py-32 border-t border-white/5">
         <div className="container px-6 max-w-5xl mx-auto">
           <motion.div
