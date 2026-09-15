@@ -123,3 +123,17 @@ mtime_ms = 1789471692213
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/a91501ef-3ca5-4fcc-9839-a7e56fd32376/4a0e966d-3d2c-4174-bddf-6de74150542b"
 storage_version_token = "1789471713609097"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "DyQqcRyQzMOjzIUwmukW7"
+uri = "file://.local/outputs/Vaeloryn-Fjord-Foundry-Pitch-Deck-Download.pdf"
+type = "pdf"
+title = "Vaeloryn — Fjord Foundry Pitch Deck (Download PDF)"
+description = "Fresh downloadable PDF export of the 12-slide Vaeloryn pitch deck."
+logical_id = "01f07c28-adfc-4268-9c35-70555793ef9b"
+content_hash = "sha256:a3d82d4684e5d266c7ca3d07b3fc4b6b93316d0ec47e01dd74f1b84e539c242f"
+size = 919310
+mtime_ms = 1789478361609
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/01f07c28-adfc-4268-9c35-70555793ef9b/9ca212c4-58b0-4e21-9428-e4657ab72aa0"
+storage_version_token = "1789478362652261"
+content_type = "application/pdf"
