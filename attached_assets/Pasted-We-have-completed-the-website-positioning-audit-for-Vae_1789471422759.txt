@@ -1,0 +1,531 @@
+We have completed the website positioning audit for Vaeloryn.
+
+The next task is to prepare Vaeloryn for an actual Base Ecosystem Fund application.
+
+Do NOT redesign the website from scratch.
+
+Do NOT modify any smart contracts.
+
+Do NOT deploy anything.
+
+Do NOT change canonical tokenomics.
+
+Do NOT invent any partnerships, users, customers, funding, revenue, traction, deployments, audits, scientific projects, team members, credentials or achievements.
+
+Use only information that can be verified from the existing repository and project.
+
+Create a PRIVATE/INTERNAL markdown document in the repository:
+
+BASE_ECOSYSTEM_FUND_EVIDENCE.md
+
+This is an internal preparation document and must NOT be linked from the public website.
+
+1. EXECUTIVE SUMMARY
+
+Write a concise investor-quality description of Vaeloryn covering:
+
+* What Vaeloryn is.
+* What problem it is trying to solve.
+* What VAELO is.
+* How VAELO relates to Vaeloryn.
+* Why blockchain is relevant.
+* Why Base is the intended primary blockchain.
+* What has already been built.
+* What remains to be built.
+
+The central positioning should be:
+
+Vaeloryn is building an onchain ecosystem designed to connect capital with scientific, medical and technological innovation.
+
+VAELO is the intended native economic and onchain infrastructure layer for that ecosystem.
+
+Base is the intended primary blockchain ecosystem and production home.
+
+Do NOT describe Vaeloryn as already being deployed on Base Mainnet.
+
+2. COMPANY
+
+Prepare a Base-application-quality answer to:
+
+“What does your company do?”
+
+Keep it concise, ambitious and factual.
+
+The answer should make Vaeloryn sound like an early-stage technology/onchain company rather than simply a token launch.
+
+3. TEAM
+
+Search the repository for existing founder/team information.
+
+Separate information into:
+
+VERIFIED INFORMATION
+
+and
+
+FOUNDER INPUT REQUIRED
+
+Do NOT invent a biography.
+
+Identify exactly what founder information is missing that would strengthen the Base application, including:
+
+* founder background
+* relevant technical experience
+* previous companies/projects
+* engineering experience
+* blockchain experience
+* notable achievements
+* education
+* relevant industry connections
+* other team members
+* advisors
+
+Only include information that is actually available.
+
+4. PRODUCT STATUS
+
+Create a table:
+
+AREA | STATUS | VERIFIED EVIDENCE | NEXT STEP
+
+Audit and include relevant items such as:
+
+* Vaeloryn website
+* VAELO implementation
+* canonical smart contracts
+* tokenomics
+* founder vesting
+* local testing
+* Base Sepolia historical contracts
+* Base Mainnet deployment
+* wallet infrastructure
+* verification infrastructure
+* roadmap
+* white paper
+* any other meaningful product infrastructure
+
+Clearly distinguish:
+
+CURRENTLY IMPLEMENTED
+
+from
+
+HISTORICAL / TESTNET
+
+from
+
+PLANNED
+
+Do not describe historical Base Sepolia contracts as the current canonical production protocol.
+
+5. TECHNICAL EVIDENCE
+
+Collect the strongest technical evidence available in the repository.
+
+Include verified evidence such as:
+
+* targeted tests
+* TypeScript typecheck
+* production build
+* SEO prerender
+* internal link validation
+* contract tests
+* contract architecture
+* token functionality
+* deployment status
+* repository verification
+
+The current website states:
+
+32 targeted local tests passed, 0 failed, 0 skipped.
+
+Verify this against the repository before repeating it.
+
+Do NOT use unsupported claims such as:
+
+“secure”
+
+“fully audited”
+
+“no backdoors”
+
+“guaranteed secure”
+
+“fully verified”
+
+unless there is actual evidence supporting the precise claim.
+
+6. VAELO TOKEN / ECONOMIC MODEL
+
+Record the canonical tokenomics exactly.
+
+TOTAL SUPPLY:
+
+1,000,000,000 VAELO
+
+ECOSYSTEM & COMMUNITY:
+
+300,000,000 — 30%
+
+PUBLIC DISTRIBUTION:
+
+200,000,000 — 20%
+
+VAELORYN TREASURY:
+
+200,000,000 — 20%
+
+TEAM & CONTRIBUTORS:
+
+150,000,000 — 15%
+
+FOUNDER:
+
+100,000,000 — 10%
+
+STRATEGIC PARTNERSHIPS:
+
+50,000,000 — 5%
+
+Record the canonical founder vesting schedule exactly as currently defined.
+
+Do not modify any figures.
+
+Clearly distinguish intended/local protocol properties from properties of a deployed Mainnet contract.
+
+Explain VAELO’s intended role within the Vaeloryn ecosystem.
+
+Do not frame VAELO primarily as a speculative investment.
+
+Do not promise price appreciation or returns.
+
+7. WHY BASE
+
+Prepare a strong Base-specific argument.
+
+The current intended wording is:
+
+“Vaeloryn is being developed with Base as its intended primary blockchain ecosystem and production home.”
+
+Explain why Base is strategically relevant to Vaeloryn.
+
+Focus on legitimate factors such as:
+
+* low-cost transactions
+* scalable EVM infrastructure
+* global accessibility
+* payments
+* financial applications
+* onchain economic activity
+* developer ecosystem
+* Coinbase ecosystem/infrastructure
+
+Do NOT imply:
+
+* Base endorsement
+* Coinbase endorsement
+* Base investment
+* Coinbase investment
+* Base partnership
+* Coinbase partnership
+
+unless such a relationship is actually verified.
+
+Explicitly maintain the distinction between:
+
+INTENDED BASE STRATEGY
+
+and
+
+CURRENT DEPLOYMENT STATUS.
+
+8. BASE ECONOMIC ACTIVITY
+
+This is extremely important.
+
+Analyze how Vaeloryn could eventually create meaningful economic activity on Base.
+
+Do NOT invent current users or transactions.
+
+Instead describe the intended future mechanisms, such as:
+
+* ecosystem participation
+* funding flows
+* project participation
+* payments
+* partnerships
+* onchain assets
+* financial infrastructure
+* future Base-native applications
+
+Then identify:
+
+WHAT EXISTS TODAY
+
+WHAT IS PLANNED
+
+WHAT MUST BE PROVEN
+
+9. FUNDING REQUEST
+
+Do NOT invent a funding request.
+
+Create a section:
+
+FOUNDER INPUT REQUIRED
+
+List the information Gregory needs to decide:
+
+* target raise
+* minimum viable raise
+* desired runway
+* engineering budget
+* security/audit budget
+* legal/regulatory budget
+* infrastructure budget
+* business development budget
+* marketing/community budget
+* founder compensation if applicable
+* expected runway
+* milestones funded by the raise
+
+Then create a proposed allocation framework WITHOUT inventing dollar amounts.
+
+10. 12–18 MONTH ROADMAP
+
+Create a proposed milestone framework.
+
+Clearly label it:
+
+PROPOSED — REQUIRES FOUNDER APPROVAL
+
+Suggested structure:
+
+PHASE 1 — SECURITY & LEGAL READINESS
+
+PHASE 2 — BASE MAINNET READINESS / DEPLOYMENT
+
+PHASE 3 — FIRST BASE-NATIVE PRODUCT OR USE CASE
+
+PHASE 4 — FIRST REAL-WORLD ECOSYSTEM PARTNER
+
+PHASE 5 — FIRST MEASURABLE ONCHAIN ECONOMIC ACTIVITY
+
+PHASE 6 — ECOSYSTEM EXPANSION
+
+For each phase provide:
+
+* objective
+* deliverable
+* dependency
+* measurable acceptance criterion
+
+Do not invent numerical targets unless clearly marked as proposed targets.
+
+11. TRACTION
+
+Create three sections:
+
+VERIFIED TRACTION
+
+NO VERIFIED TRACTION / NOT YET AVAILABLE
+
+WHAT WOULD STRENGTHEN THE APPLICATION
+
+Do not disguise development progress as customer traction.
+
+Identify the highest-value evidence Vaeloryn could obtain before applying, such as:
+
+* pilot
+* signed partnership
+* first project
+* first customer
+* first Base deployment
+* first Base transaction
+* first integration
+* independent technical review
+* user validation
+
+12. FIRST FLAGSHIP USE CASE
+
+Identify that the current Vaeloryn vision is broad and that a Base investor may ask:
+
+“What is the first concrete product or project?”
+
+Do NOT choose the project for Gregory.
+
+Instead:
+
+* explain why a flagship use case matters
+* provide criteria for selecting one
+* identify what information Gregory must decide
+
+Useful criteria include:
+
+* clear scientific/technological value
+* identifiable funding need
+* credible project team
+* measurable outcome
+* realistic deployment timeline
+* potential for onchain economic activity
+* legal feasibility
+* ability to demonstrate Vaeloryn’s model
+
+Mark this:
+
+FOUNDER DECISION REQUIRED.
+
+13. BUSINESS MODEL
+
+Audit the repository for any existing business model.
+
+Clearly separate:
+
+VERIFIED CURRENT BUSINESS MODEL
+
+from
+
+INTENDED FUTURE BUSINESS MODEL
+
+Do not invent revenue.
+
+If the business model is unclear, say so and explain what needs to be defined before applying.
+
+14. BASE APPLICATION DRAFT
+
+Prepare a complete draft of the Base Ecosystem Fund application using the likely application sections:
+
+COMPANY
+
+TEAM
+
+IDEA
+
+FUNDING
+
+WHY BASE
+
+Use verified information only.
+
+Where information is missing, insert:
+
+[FOUNDER INPUT REQUIRED]
+
+Do not fabricate anything.
+
+Make the draft concise and investor-quality.
+
+15. RED TEAM
+
+Pretend you are a Base Ecosystem Fund investment reviewer.
+
+Write:
+
+“WHY BASE MIGHT SAY NO”
+
+Be brutally honest.
+
+Assess:
+
+* lack of traction
+* lack of users
+* lack of revenue
+* unclear first customer
+* broad vision
+* token-first perception
+* lack of flagship use case
+* lack of Base Mainnet deployment
+* lack of Base traction
+* lack of team track record
+* regulatory uncertainty
+* unclear business model
+* unclear competitive advantage
+* insufficient proof of real economic activity
+* insufficient differentiation
+
+For each issue:
+
+1. Explain why it matters.
+2. Give the strongest legitimate mitigation.
+
+Do NOT suggest making unsupported claims.
+
+16. APPLICATION READINESS SCORE
+
+Give Vaeloryn a score from 1–10 for:
+
+* Product
+* Team
+* Market
+* Traction
+* Technical readiness
+* Base fit
+* Business model
+* Token/economic design
+* Roadmap
+* Overall application readiness
+
+Explain every score.
+
+17. TOP FIVE PRIORITIES
+
+Identify the five actions that would most improve the probability of a successful Base application.
+
+Rank them:
+
+Prioritize evidence and actual progress over cosmetic website changes.
+
+18. FINAL SUBMISSION CHECKLIST
+
+Create a checklist covering:
+
+* website
+* founder biography
+* team
+* pitch deck
+* funding request
+* budget
+* roadmap
+* flagship project
+* business model
+* technical documentation
+* smart-contract evidence
+* security review
+* legal review
+* Base deployment strategy
+* partnerships
+* traction
+* application answers
+* working submission form
+
+IMPORTANT FINAL REQUIREMENTS
+
+Do not modify smart contracts.
+
+Do not deploy anything.
+
+Do not change tokenomics.
+
+Do not change legal disclosures.
+
+Do not make unsupported claims.
+
+Do not create fake traction.
+
+Do not invent partners.
+
+Do not claim Base or Coinbase endorsement.
+
+Do not claim an audit that has not occurred.
+
+Do not publicly expose the evidence document.
+
+Run the existing tests and production build after any changes.
+
+At the end of the task, provide me with a concise report containing:
+
+1. What evidence is already available.
+2. What information only Gregory can provide.
+3. The five biggest weaknesses.
+4. The five highest-value actions before submission.
+5. Your honest recommendation: APPLY NOW or STRENGTHEN FIRST.

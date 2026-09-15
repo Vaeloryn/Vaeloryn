@@ -6,6 +6,7 @@ id = "QA_ildjPY3Pol7AQpHUbL"
 uri = "file://Vaeloryn_Website.zip"
 type = "unspecified"
 title = "Vaeloryn Website Source Code"
+logical_id = "fdfb96e0-5175-4c04-9325-cb2191bcb4f5"
 
 [[outputs]]
 id = "yD9bPlxLqlhCFhBptFg-6"
@@ -13,6 +14,7 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser.pdf"
 type = "pdf"
 title = "VAELO — John Lilic Investor Teaser (PDF)"
 description = "Three-page angel investor teaser with reconciled canonical protocol status and evidence."
+logical_id = "36fe66b4-963e-4be3-a18d-72b1201c29b4"
 
 [[outputs]]
 id = "BxjCczExyQEWU1SvXCGxu"
@@ -20,6 +22,7 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser.pptx"
 type = "slides"
 title = "VAELO — John Lilic Investor Teaser (PPTX)"
 description = "Editable three-page angel investor teaser with reconciled canonical protocol status and evidence."
+logical_id = "db4c349a-8457-4908-8b8a-69d8526ece10"
 
 [[outputs]]
 id = "G0VhC5ReXAq5IReXF5RNo"
@@ -27,6 +30,7 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Corrected.pdf"
 type = "pdf"
 title = "VAELO — John Lilic Investor Teaser (Corrected PDF)"
 description = "Corrected three-page PDF export with the third-slide footer fully visible."
+logical_id = "8cb85667-92c4-4d0d-9706-5463fde6cb28"
 
 [[outputs]]
 id = "zmPcGV_xzNhJDtZncBZ5j"
@@ -34,6 +38,7 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Corrected.pptx"
 type = "slides"
 title = "VAELO — John Lilic Investor Teaser (Corrected PPTX)"
 description = "Corrected editable three-page deck with the third-slide footer fully visible."
+logical_id = "1dbed262-dba9-42a8-8e58-d38e105b8105"
 
 [[outputs]]
 id = "3l9gTotPvxbXjoAshjEt9"
@@ -41,6 +46,7 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Revised.pdf"
 type = "pdf"
 title = "VAELO — John Lilic Investor Teaser (Revised PDF)"
 description = "Final three-page investor teaser, revised to lead with the Vaeloryn ecosystem and VAELO purpose."
+logical_id = "3e5e4b8a-12d0-48fe-8bac-c35e0b23b191"
 
 [[outputs]]
 id = "XSvlgJELg1nk7Ft_e0jf7"
@@ -48,6 +54,7 @@ uri = "file://.local/outputs/VAELO_John_Lilic_Investor_Teaser_Revised.pptx"
 type = "slides"
 title = "VAELO — John Lilic Investor Teaser (Revised PPTX)"
 description = "Final editable three-page investor teaser, revised to lead with the Vaeloryn ecosystem and VAELO purpose."
+logical_id = "b478269d-9a50-4dfe-b4e1-962d8b239589"
 
 [[outputs]]
 id = "QTqjkL-rBooyuzyRytC9g"
@@ -55,6 +62,7 @@ uri = "file://.local/outputs/vaeloryn_fjord_pitch_deck.pptx"
 type = "slides"
 title = "Vaeloryn — Fjord Foundry Pitch Deck (PPTX)"
 description = "Editable 12-slide investor and launch-partner presentation."
+logical_id = "9a1dea5d-5b85-4d4f-bde8-950a20a115d4"
 
 [[outputs]]
 id = "l_q10cOiEFaydLe1_M96M"
@@ -62,12 +70,14 @@ uri = "file://.local/outputs/vaeloryn_fjord_pitch_deck.pdf"
 type = "pdf"
 title = "Vaeloryn — Fjord Foundry Pitch Deck (PDF)"
 description = "Shareable 12-slide presentation for Fjord Foundry review."
+logical_id = "584525f8-0a29-417c-8113-20fff1b10f4d"
 
 [[outputs]]
 id = "TKGtMqjbIpBIPtICfL_PL"
 uri = "file://.local/outputs/Vaeloryn---Fjord-Foundry-Pitch-Deck.pdf"
 type = "pdf"
 title = "Vaeloryn — Fjord Foundry Pitch Deck.pdf"
+logical_id = "2d39b51f-bfaf-4c50-b164-2e324d759929"
 
 [[outputs]]
 id = "TQr1tZaIf8QdpJgJbHaM-"
@@ -75,6 +85,7 @@ uri = "file://deliverables/vaeloryn_product_documentation_v1.pdf"
 type = "pdf"
 title = "Vaeloryn Product Documentation v1.0 — PDF download"
 description = "Fresh downloadable copy of the verified 20-page product documentation PDF."
+logical_id = "8ff1baae-8b87-41d1-ba26-db9cc0d82708"
 
 [[outputs]]
 id = "2g86jICAHJNbixTpHod1w"
@@ -82,6 +93,7 @@ uri = "file://deliverables/vaeloryn_product_documentation_v1.docx"
 type = "word_document"
 title = "Vaeloryn Product Documentation v1.0 (DOCX)"
 description = "Editable source document with all 18 requested sections, tables and graphics."
+logical_id = "ae1fa880-781e-469c-9bd9-989945cc5c83"
 
 [[outputs]]
 id = "oq-U7WDU1TczB_YBTk9Kv"
@@ -89,3 +101,18 @@ uri = "file://reports/VAELO_Product_Documentation_Final_Report.md"
 type = "text"
 title = "VAELO Product Documentation — Final Report"
 description = "Created files, included sections, sources, missing information, excluded claims and no-action confirmation."
+logical_id = "67e8774c-8227-4bc9-8157-b95128e0fc56"
+
+[[outputs]]
+id = "CD3qC9JR5Xt6dhakKW04o"
+uri = "file://BASE_ECOSYSTEM_FUND_EVIDENCE.md"
+type = "text"
+title = "Vaeloryn — Base Ecosystem Fund Evidence"
+description = "Private internal evidence dossier, application draft, red-team review, readiness scoring, priorities, and submission checklist. Not linked from the public website."
+logical_id = "a91501ef-3ca5-4fcc-9839-a7e56fd32376"
+content_hash = "sha256:564a0819d7f0bd8c03a59cde513229e7c378af84a129955968dab12d746df6c0"
+size = 45925
+mtime_ms = 1789471692213
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/a91501ef-3ca5-4fcc-9839-a7e56fd32376/4a0e966d-3d2c-4174-bddf-6de74150542b"
+storage_version_token = "1789471713609097"
+content_type = "text/markdown"
