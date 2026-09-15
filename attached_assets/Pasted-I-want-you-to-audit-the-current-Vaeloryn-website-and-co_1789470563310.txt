@@ -1,0 +1,291 @@
+I want you to audit the current Vaeloryn website and codebase at vaeloryn.com and make the website substantially stronger for an application to the Base Ecosystem Fund.
+
+IMPORTANT: Do NOT redesign the website from scratch and do NOT remove or overwrite existing functionality, branding, tokenomics, legal information, VAELO information, or existing pages unless specifically necessary.
+
+The goal is to make Vaeloryn clearly communicate that it is an early-stage onchain business/ecosystem that intends to make Base its primary blockchain home.
+
+FIRST: AUDIT
+
+Before changing anything, inspect the entire current website and codebase.
+
+Specifically identify:
+
+1. Where Vaeloryn currently explains what the company actually builds.
+2. Where VAELO is explained and how it relates to Vaeloryn.
+3. Whether the website clearly explains the real-world problem Vaeloryn is solving.
+4. Whether the website clearly explains how Vaeloryn will create real economic/onchain activity rather than simply being a token.
+5. Whether Base is currently mentioned anywhere.
+6. Whether the website clearly communicates that Base is intended to be Vaeloryn’s primary/default blockchain infrastructure.
+7. Whether the site clearly explains why Base is strategically important to Vaeloryn.
+8. Whether the site distinguishes between what has already been built and what is planned for the next stage.
+9. Whether any statements could misleadingly imply that VAELO or Vaeloryn is already deployed on Base mainnet if that is not currently true.
+10. Whether any claims about funding, partnerships, adoption, token utility, users, transactions, audits, deployments or traction are unsupported.
+
+Do not invent any facts, partnerships, users, transactions, funding, deployments, audits or achievements.
+
+SECOND: POSITIONING
+
+The core positioning should become:
+
+Vaeloryn is building an onchain ecosystem designed to connect capital with scientific, medical and technological innovation.
+
+VAELO is the native economic layer intended to connect the companies, projects, partners and communities participating in the Vaeloryn ecosystem.
+
+Base is intended to be Vaeloryn’s primary blockchain infrastructure because Vaeloryn needs low-cost, scalable and globally accessible onchain financial infrastructure.
+
+The message should NOT make Vaeloryn look like “just another crypto token.”
+
+The hierarchy should be:
+
+VAELORYN = the ecosystem/company/product
+
+VAELO = the native economic/onchain asset and infrastructure layer
+
+BASE = the primary blockchain infrastructure/home
+
+REAL-WORLD INNOVATION = the long-term mission and use case
+
+THIRD: HOMEPAGE
+
+Improve the homepage so a sophisticated investor or Base ecosystem reviewer can understand the project within approximately 10–15 seconds.
+
+The hero should communicate a version of:
+
+“Building the financial ecosystem for funding the technologies that shape the future.”
+
+Then a concise supporting statement along the lines of:
+
+“Vaeloryn is building an onchain ecosystem connecting global capital with scientific, medical and technological innovation — powered by VAELO and built with Base as its primary blockchain infrastructure.”
+
+Do NOT copy this blindly if the existing brand voice can make it stronger, but preserve the meaning.
+
+Add a clear section explaining:
+
+“Why Vaeloryn”
+
+Explain the problem:
+
+* Innovative companies and projects can struggle to access capital, networks and global funding.
+* Traditional funding can be geographically constrained and difficult to access.
+* Blockchain can provide transparent, programmable and globally accessible financial infrastructure.
+* Vaeloryn is designed to connect that infrastructure with real-world innovation.
+
+Add a section:
+
+“How it works”
+
+Clearly show:
+
+Innovation / Projects
+↓
+Vaeloryn ecosystem
+↓
+VAELO economic layer
+↓
+Onchain capital / partnerships / participation
+↓
+Real-world scientific, medical and technological development
+
+FOURTH: BASE
+
+Create a clear but tasteful section called something like:
+
+“Built for Base”
+
+Explain that Base is intended to be Vaeloryn’s primary/default blockchain.
+
+Use accurate language.
+
+DO NOT say:
+“Vaeloryn is built on Base”
+if the canonical contracts are not currently deployed on Base mainnet.
+
+Instead say something accurate such as:
+
+“Vaeloryn is being developed with Base as its primary blockchain ecosystem and intended home.”
+
+Explain why:
+
+* scalable
+* low-cost
+* global
+* suitable for payments and financial applications
+* strong ecosystem
+* Coinbase/Base distribution and infrastructure
+* aligned with Vaeloryn’s long-term onchain financial use cases
+
+Do not make unsupported claims about Coinbase endorsing, partnering with, investing in or supporting Vaeloryn.
+
+Add a CTA such as:
+
+“Building on Base”
+
+which can eventually point to the relevant technical/deployment information.
+
+FIFTH: VAELO
+
+Review the existing VAELO section.
+
+Make sure VAELO is presented as part of the broader Vaeloryn system rather than as the entire product.
+
+Clearly explain its intended role.
+
+Do NOT make unsupported claims that VAELO will appreciate in price.
+
+Do NOT present VAELO as an investment opportunity.
+
+Do NOT promise returns.
+
+Do NOT imply guaranteed liquidity.
+
+Focus on utility, ecosystem participation and the intended economic architecture.
+
+Preserve the existing canonical tokenomics exactly.
+
+Do not change the canonical supply or allocations.
+
+Canonical supply:
+
+1,000,000,000 VAELO
+
+Ecosystem & Community — 30%
+Public Distribution — 20%
+Vaeloryn Treasury — 20%
+Team & Contributors — 15%
+Founder — 10%
+Strategic Partnerships — 5%
+
+Do not alter these figures.
+
+SIXTH: CURRENT VS FUTURE
+
+Create a clear distinction between:
+
+“Built today”
+
+and
+
+“Next phase”
+
+Only put features under “Built today” if they genuinely exist in the current codebase/product.
+
+Potential examples may include:
+
+* Vaeloryn website
+* VAELO smart-contract architecture
+* tokenomics
+* existing technical infrastructure
+* existing testing/evidence
+
+But VERIFY everything against the current repository before publishing it.
+
+Potential “Next phase” items can include:
+
+* Base deployment
+* independent smart-contract audit
+* Base integrations
+* ecosystem partnerships
+* real-world project onboarding
+* onchain financial infrastructure
+* measurable ecosystem activity
+
+Again, only include these as future plans.
+
+SEVENTH: TRUST / INVESTOR CREDIBILITY
+
+Audit every marketing claim on the site.
+
+Remove or rewrite anything that could be interpreted as an unsupported claim.
+
+In particular, do NOT claim:
+
+* a specific number of users unless verified
+* funding raised unless verified
+* partnerships unless signed/verified
+* Base partnership unless actually established
+* Coinbase partnership unless actually established
+* audits unless independently completed
+* mainnet deployment unless actually completed
+* transaction volume unless real and verifiable
+* scientific projects funded unless this has actually happened
+
+Do not use exaggerated language such as “revolutionary”, “guaranteed”, “the next Bitcoin”, etc.
+
+The site should feel ambitious but credible.
+
+EIGHTH: BASE APPLICATION ALIGNMENT
+
+Review the site against the current Base Ecosystem Fund criteria.
+
+The website should make the following immediately clear:
+
+1. What Vaeloryn is.
+2. What problem it solves.
+3. Why blockchain is necessary.
+4. What VAELO does.
+5. Why Base is the preferred chain.
+6. How Vaeloryn can create real economic activity on Base.
+7. What has already been built.
+8. What needs funding.
+9. What the next 12–18 months look like.
+10. Why the founder/team is capable of building it.
+
+Do NOT falsely claim that Vaeloryn already satisfies these things if it does not.
+
+NINTH: SEO
+
+Update metadata where appropriate so the site clearly communicates:
+
+Vaeloryn
+VAELO
+Onchain innovation
+Scientific and technological innovation
+Blockchain
+Base
+Onchain finance
+
+Do not keyword-stuff.
+
+Keep the existing strong branding and visual identity.
+
+TENTH: TECHNICAL SAFETY
+
+Before making changes:
+
+* inspect the repository
+* identify the current production entry point
+* preserve existing functionality
+* preserve responsive design
+* preserve existing navigation
+* preserve tokenomics
+* preserve legal pages
+* preserve existing working components
+
+After changes:
+
+* run the existing test suite
+* run the production build
+* fix any errors introduced by the changes
+* verify all links
+* verify mobile layout
+* verify desktop layout
+
+IMPORTANT:
+
+Do not deploy anything or change smart contracts as part of this task.
+
+Do not modify VAELO smart-contract code unless explicitly instructed separately.
+
+Do not deploy VAELO to Base simply to make the website claim “built on Base.”
+
+The immediate goal is WEBSITE POSITIONING AND CREDIBILITY for the Base Ecosystem Fund application.
+
+At the end, provide me with:
+
+1. A summary of what you changed.
+2. A list of every page changed.
+3. Any claims you removed or rewrote because they were unsupported.
+4. The exact wording used to describe Base.
+5. The exact wording used to describe VAELO.
+6. Any remaining weaknesses that could hurt a Base Ecosystem Fund application.
+7. Test/build results.
