@@ -151,3 +151,17 @@ mtime_ms = 1789479137817
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/dd543032-5f01-4b49-ae84-07cd0a16fbf8/b960fb0a-6fb9-4719-b269-896157cbfbd3"
 storage_version_token = "1789479139054264"
 content_type = "application/pdf"
+
+[[outputs]]
+id = "-R2TKu3t2buq4FECj9RLY"
+uri = "file://.local/outputs/Vaeloryn-Investor-and-Base-Ecosystem-Fund-Pitch-Deck---US100K-US250K.pdf"
+type = "pdf"
+title = "Vaeloryn — Investor & Base Ecosystem Fund Pitch Deck (Updated PDF)"
+description = "Final 12-slide deck updated with the approved US$100K–US$250K pre-seed funding range."
+logical_id = "2769c5fa-eaec-4362-b9a2-9442d2f950d3"
+content_hash = "sha256:d54a833dc62c4c9370c4523d697ef0a780b1462c4edbe9130337df4fb9a9b643"
+size = 1000967
+mtime_ms = 1789479348837
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/2769c5fa-eaec-4362-b9a2-9442d2f950d3/e6e472fe-2bc4-4522-a7ca-e0131c9d77d7"
+storage_version_token = "1789479349841574"
+content_type = "application/pdf"

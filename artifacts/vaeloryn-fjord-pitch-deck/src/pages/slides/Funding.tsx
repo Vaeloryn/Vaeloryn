@@ -12,7 +12,7 @@ export default function Funding() {
         </p>
         <div className="mt-[5vh] border border-primary/40 bg-primary/10 p-[1.5vw] inline-block">
           <p className="font-body text-[1.5vw] font-bold tracking-[0.14em] text-primary">PRE-SEED ROUND</p>
-          <p className="mt-[0.5vh] font-display text-[2.5vw] font-semibold text-accent">[FUNDING REQUEST TO BE FINALIZED]</p>
+          <p className="mt-[0.5vh] font-display text-[3.1vw] font-semibold text-accent">US$100K–US$250K</p>
         </div>
       </div>
       <div className="absolute right-[5.5vw] top-[16vh] w-[40vw]">
