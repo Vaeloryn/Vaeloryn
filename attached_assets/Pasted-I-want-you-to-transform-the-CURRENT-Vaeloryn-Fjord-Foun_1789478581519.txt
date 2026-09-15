@@ -1,0 +1,567 @@
+I want you to transform the CURRENT Vaeloryn Fjord Foundry pitch deck into the definitive Vaeloryn investor and Base Ecosystem Fund pitch deck.
+
+Do NOT create a separate second deck.
+
+The existing deck should be substantially revised and repurposed for Vaeloryn’s Base Ecosystem Fund application.
+
+Preserve the existing premium Vaeloryn visual identity, including the navy/black/gold colour palette, typography, logo treatment, spacing, animations where applicable, and overall high-end aesthetic.
+
+The objective is to change the STORY and POSITIONING, not to destroy the existing design.
+
+IMPORTANT:
+
+Do not modify:
+
+* smart contracts
+* tokenomics
+* deployment state
+* legal disclosures
+* wallet code
+* website functionality
+* canonical contract architecture
+
+Do not invent:
+
+* customers
+* users
+* revenue
+* partnerships
+* pilots
+* investors
+* funding raised
+* Base endorsement
+* Coinbase endorsement
+* audits
+* deployments
+* scientific projects
+* team members
+* traction
+
+The deck must accurately represent Vaeloryn as an early-stage, self-funded, pre-seed project currently in development.
+
+==================================================
+CORE POSITIONING
+
+The deck should communicate:
+
+Vaeloryn is building an onchain ecosystem designed to connect capital with scientific, medical and technological innovation.
+
+VAELO is the intended native economic and onchain infrastructure layer for the wider Vaeloryn ecosystem.
+
+The Vaeloryn Wallet is the first product currently in development and is intended to become the primary entry point into the ecosystem.
+
+Base is being developed as Vaeloryn’s intended primary blockchain ecosystem and production home.
+
+The current project is pre-seed and self-funded.
+
+The objective of funding is to move Vaeloryn from its current prototype/development stage toward a production-ready Base-native ecosystem.
+
+==================================================
+SLIDE 1 — COVER
+
+REMOVE the current:
+
+“Potential Distribution Venue Brief”
+
+and
+
+“VAELO / Proposed Public Sale”
+
+positioning.
+
+Replace with:
+
+VAELORYN
+
+“Building the financial ecosystem for funding the technologies that shape the future.”
+
+Supporting text:
+
+“An onchain ecosystem connecting capital with scientific, medical and technological innovation.”
+
+Include:
+
+PRE-SEED / BASE ECOSYSTEM FUND
+
+Also include:
+
+“Begin in South Africa. Build for humanity.”
+
+Do not imply Base endorsement.
+
+==================================================
+SLIDE 2 — THE VISION
+
+Keep the existing strong concept:
+
+“Connect the resources that meaningful progress requires.”
+
+Retain the focus on:
+
+* Medical science
+* Energy & AI
+* Computing & engineering
+* Aerospace & frontier science
+
+Refine the supporting copy to explain that Vaeloryn aims to connect:
+
+Capital
+Expertise
+People
+Opportunity
+
+around meaningful scientific and technological progress.
+
+Do not make claims that these projects already exist within Vaeloryn.
+
+Use language such as:
+
+“Vaeloryn is building toward…”
+
+==================================================
+SLIDE 3 — THE PROBLEM
+
+Keep the existing “Coordination Gap” concept.
+
+Explain that promising scientific and technological ideas can struggle to access:
+
+* Capital
+* Expertise
+* Infrastructure
+* Networks
+* Coordinated support
+
+Make the problem more concrete.
+
+The final message should be:
+
+“Promising ideas can stall before execution.”
+
+Avoid claiming Vaeloryn has already solved this problem.
+
+==================================================
+SLIDE 4 — THE VAELORYN MODEL
+
+Keep the existing strong visual flow:
+
+CAPITAL
+
+↓
+
+VAELORYN
+
+↓
+
+PROJECTS & SCIENTIFIC INITIATIVES
+
+↓
+
+DEVELOPMENT & MEASURABLE OUTCOMES
+
+Explain that Vaeloryn is intended to coordinate capital, technology, expertise and participation around future innovation projects.
+
+Keep the existing important disclaimer:
+
+“VAELO is intended to support participation, coordination and useful economic activity.”
+
+Also retain the concept that token holders do not automatically own Vaeloryn, its projects or investment returns.
+
+==================================================
+SLIDE 5 — FIRST PRODUCT
+
+THIS IS A NEW/REWORKED SLIDE.
+
+Title:
+
+“THE FIRST PRODUCT”
+
+Subtitle:
+
+“Vaeloryn Wallet”
+
+Explain:
+
+“The Vaeloryn Wallet is currently in development and is intended to become the primary entry point into the Vaeloryn ecosystem.”
+
+Explain its intended future role:
+
+* interact with VAELO
+* interact with Vaeloryn applications
+* participate in supported ecosystem activity
+* interact with future ecosystem projects
+* provide an onchain interface for the wider ecosystem
+
+IMPORTANT:
+
+Clearly label:
+
+“Currently in development.”
+
+Do not claim functionality that is not actually implemented.
+
+If existing wallet UI screenshots/assets exist in the repository, use them.
+
+Do not fabricate screenshots.
+
+==================================================
+SLIDE 6 — WHY BASE
+
+Create a dedicated Base slide.
+
+Title:
+
+“BUILT FOR BASE”
+
+Explain:
+
+“Vaeloryn is being developed with Base as its intended primary blockchain ecosystem and production home.”
+
+Explain why Base is relevant:
+
+* scalable EVM infrastructure
+* low-cost transactions
+* global accessibility
+* payments
+* financial applications
+* onchain economic activity
+* developer ecosystem
+* connection to Coinbase infrastructure and distribution
+
+Use careful language.
+
+Do NOT state or imply:
+
+* Base partnership
+* Coinbase partnership
+* Base investment
+* Coinbase investment
+* endorsement
+
+Include:
+
+“This positioning does not imply endorsement, investment or partnership by Base or Coinbase.”
+
+Deployment status:
+
+“The canonical Vaeloryn protocol is currently implemented and tested locally. Base Mainnet is the intended production environment, pending independent security review, legal preparation and deployment readiness.”
+
+==================================================
+SLIDE 7 — VAELO
+
+Rework the existing VAELO slide.
+
+Title:
+
+“VAELO: THE ECONOMIC LAYER”
+
+Explain:
+
+“VAELO is the intended native economic and onchain infrastructure layer for the wider Vaeloryn ecosystem.”
+
+Keep the strongest technical properties:
+
+* ERC-20
+* fixed supply
+* no additional minting
+* burn
+* EIP-2612 Permit
+* no tax
+* no blacklist
+* no pause
+* no upgradeability
+* no owner/admin
+
+Clearly state:
+
+“Canonical Base Mainnet deployment has not yet occurred.”
+
+Do not present VAELO primarily as a speculative investment.
+
+Do not mention price appreciation.
+
+==================================================
+SLIDE 8 — TOKENOMICS
+
+Keep the canonical tokenomics slide, but make it secondary to the company/product story.
+
+Use the exact canonical figures:
+
+TOTAL SUPPLY
+1,000,000,000 VAELO
+
+Ecosystem & Community
+300M · 30%
+
+Public Distribution
+200M · 20%
+
+Vaeloryn Treasury
+200M · 20%
+
+Team & Contributors
+150M · 15%
+
+Founder
+100M · 10%
+
+Strategic Partnerships
+50M · 5%
+
+Do not alter these numbers.
+
+Do not describe allocations as already distributed unless verified.
+
+==================================================
+SLIDE 9 — TECHNICAL FOUNDATION
+
+Keep the existing technical foundation concept.
+
+Explain:
+
+* canonical VAELO implementation
+* fixed supply
+* founder vesting
+* deployment architecture
+* testing
+* verification infrastructure
+
+Independent security review:
+
+“Not yet completed.”
+
+IMPORTANT:
+
+The existing deck says:
+
+27 passed
+0 failed
+0 skipped
+
+The latest repository report states a fresh run produced:
+
+33 passed
+0 failed
+0 skipped
+
+BEFORE PUTTING A NUMBER ON THIS SLIDE:
+
+Inspect the repository and determine exactly what the latest verified test evidence represents.
+
+Do NOT blindly replace 27 with 33.
+
+The final deck should contain the most accurate, reproducible and clearly scoped figure.
+
+If necessary, phrase it as:
+
+“Latest targeted test run: X passed, 0 failed, 0 skipped.”
+
+Do not call the system audited or secure.
+
+==================================================
+SLIDE 10 — CURRENT STATUS & NEXT PHASE
+
+Create a clear two-column structure.
+
+BUILT TODAY
+
+Only include things verified to exist:
+
+* Vaeloryn website
+* ecosystem/product architecture
+* canonical VAELO implementation
+* tokenomics
+* founder vesting architecture
+* wallet prototype/UI
+* documentation
+* local testing
+* deployment/verification infrastructure
+
+NEXT PHASE
+
+Clearly mark these as planned:
+
+* independent security review
+* legal/regulatory preparation
+* complete wallet infrastructure
+* Base integration
+* canonical Base Mainnet deployment
+* first real ecosystem use case
+* first users
+* measurable Base activity
+
+Do not present future work as completed.
+
+==================================================
+SLIDE 11 — FUNDING
+
+Replace the existing public-sale framing.
+
+Title:
+
+“FROM PROTOTYPE TO PRODUCTION”
+
+Explain:
+
+“Vaeloryn is currently self-funded and in development. Pre-seed funding would allow the project to move from its current prototype and technical foundation toward a production-ready Base-native ecosystem.”
+
+Use of funds:
+
+1. Product & engineering
+2. Wallet development
+3. Base integration
+4. Independent security review
+5. Legal and regulatory preparation
+6. Infrastructure
+7. Ecosystem development
+8. First real-world use case
+
+Do NOT include a fundraising amount unless one has been explicitly approved by Gregory.
+
+If necessary write:
+
+“[FUNDING REQUEST TO BE FINALIZED]”
+
+Do NOT include the previous $5M FDV or $50,000 public-sale figures.
+
+Do NOT include tiered VAELO sale prices.
+
+==================================================
+SLIDE 12 — FOUNDER / WHY VAELORYN
+
+Create a founder slide.
+
+Gregory
+Founder & CEO
+
+Use only verified information.
+
+Current verified positioning:
+
+“Former aeronautical engineer and current commercial pilot.”
+
+Explain briefly:
+
+“My background in engineering and aviation has shaped my interest in complex systems, technology and long-term problem solving.”
+
+Then explain the motivation behind Vaeloryn:
+
+“I started Vaeloryn because I want to build something that contributes to scientific and technological progress and creates a way for people, capital and expertise to support meaningful innovation.”
+
+Do not exaggerate qualifications.
+
+Finish with:
+
+“Begin in South Africa. Build for humanity.”
+
+==================================================
+REMOVE COMPLETELY
+
+Remove the current:
+
+“INITIAL PUBLIC SALE”
+
+slide.
+
+Specifically remove:
+
+* proposed public sale
+* 1% initial minted supply sale
+* 10M VAELO maximum
+* $5M reference FDV
+* tiered $0.003–$0.006 pricing
+* $50,000 theoretical gross
+* distribution venue language
+
+These were relevant to the Fjord/public distribution deck but are NOT appropriate for the primary Base Ecosystem Fund investor deck.
+
+Do not delete this information from the repository if it is needed elsewhere. Only remove it from this investor deck.
+
+==================================================
+DESIGN
+
+Preserve the existing Vaeloryn visual identity.
+
+The deck should feel:
+
+* premium
+* serious
+* ambitious
+* technically credible
+* early-stage
+* founder-led
+
+It should NOT feel like:
+
+* a meme coin pitch
+* a token sale brochure
+* a guaranteed-return investment
+* an established company pretending to have traction
+
+The first three slides should allow a Base reviewer to understand:
+
+1. What Vaeloryn is.
+2. What problem it is solving.
+3. What it is building.
+
+By slide 6 they should understand:
+
+4. Why Base.
+5. How VAELO fits into the system.
+
+==================================================
+FINAL VERIFICATION
+
+Before completing the deck:
+
+Verify every factual claim against the current repository.
+
+Verify:
+
+* tokenomics
+* founder vesting
+* contract status
+* deployment status
+* Base status
+* wallet status
+* test evidence
+* legal/security wording
+
+Do not invent information.
+
+Do not modify smart contracts.
+
+Do not deploy anything.
+
+Do not change tokenomics.
+
+Do not change legal disclosures.
+
+Do not imply Base/Coinbase endorsement or partnership.
+
+Do not claim independent audit completion.
+
+Do not claim customer traction.
+
+Do not claim revenue.
+
+Do not claim significant user numbers.
+
+After completing the deck:
+
+1. Run the relevant build/render process.
+2. Verify every slide visually.
+3. Verify there are no text overflow issues.
+4. Verify all links.
+5. Verify the existing website/deck functionality has not been broken.
+6. Confirm the previous Fjord-specific public-sale material has been removed from this investor deck.
+7. Confirm the canonical tokenomics remain unchanged.
+
+At the end, provide:
+
+* Updated deck location
+* Number of slides
+* List of slides changed
+* Exact test evidence used
+* Any founder inputs still required
+* Any claims deliberately excluded because they could not be verified
+* Confirmation that no smart contracts, deployments or tokenomics were modified
