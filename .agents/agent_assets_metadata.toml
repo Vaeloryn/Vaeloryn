@@ -137,3 +137,17 @@ mtime_ms = 1789478361609
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/01f07c28-adfc-4268-9c35-70555793ef9b/9ca212c4-58b0-4e21-9428-e4657ab72aa0"
 storage_version_token = "1789478362652261"
 content_type = "application/pdf"
+
+[[outputs]]
+id = "AezZV2whIkOLmr_g643Od"
+uri = "file://.local/outputs/Vaeloryn-Investor-and-Base-Ecosystem-Fund-Pitch-Deck.pdf"
+type = "pdf"
+title = "Vaeloryn — Investor & Base Ecosystem Fund Pitch Deck (PDF)"
+description = "Final verified 12-slide pre-seed investor and Base Ecosystem Fund presentation."
+logical_id = "dd543032-5f01-4b49-ae84-07cd0a16fbf8"
+content_hash = "sha256:1802a60c4123653e3eca61bd648f9f1e95c55113b92d71533e390e85855aa51a"
+size = 1008911
+mtime_ms = 1789479137817
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/dd543032-5f01-4b49-ae84-07cd0a16fbf8/b960fb0a-6fb9-4719-b269-896157cbfbd3"
+storage_version_token = "1789479139054264"
+content_type = "application/pdf"

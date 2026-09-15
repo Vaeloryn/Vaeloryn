@@ -11,7 +11,7 @@ export default function Vision() {
           Connect the resources that meaningful progress requires.
         </h1>
         <p className="mt-[3vh] w-[51vw] font-body text-[2vw] leading-[1.42] text-muted">
-          Build a long-term innovation ecosystem connecting capital, expertise, people and opportunity to support meaningful advances in science and technology.
+          Vaeloryn is building toward an ecosystem that connects capital, expertise, people and opportunity around meaningful scientific and technological progress.
         </p>
       </div>
       <div className="absolute bottom-[8vh] left-[5.5vw] right-[5.5vw] grid grid-cols-4 gap-[1.2vw]">

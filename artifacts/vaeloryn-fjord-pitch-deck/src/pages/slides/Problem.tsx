@@ -9,7 +9,7 @@ export default function Problem() {
       <div className="absolute left-[5.5vw] top-[17vh] w-[39vw]">
         <h1 className="font-display text-[5vw] font-semibold leading-[0.95] tracking-[-0.045em] text-accent">Promising ideas can stall before execution.</h1>
         <p className="mt-[3.5vh] font-body text-[2vw] leading-[1.45] text-muted">
-          Important scientific and technological ideas can struggle to access capital, expertise, infrastructure and coordinated support.
+          Important scientific and technological ideas can struggle to access capital, expertise, infrastructure, networks, and coordinated support.
         </p>
       </div>
       <div className="absolute right-[5.5vw] top-[17vh] w-[44vw]">
@@ -19,9 +19,6 @@ export default function Problem() {
           <div className="h-[20vh] border border-accent/15 bg-accent/[0.035] p-[1.7vw]"><p className="font-display text-[3.4vw] font-semibold text-primary">03</p><p className="mt-[1vh] font-body text-[1.9vw] font-bold">Infrastructure</p><p className="mt-[0.5vh] font-body text-[1.5vw] text-muted">Tools and operating support remain uneven.</p></div>
           <div className="h-[20vh] border border-accent/15 bg-accent/[0.035] p-[1.7vw]"><p className="font-display text-[3.4vw] font-semibold text-primary">04</p><p className="mt-[1vh] font-body text-[1.9vw] font-bold">Coordination</p><p className="mt-[0.5vh] font-body text-[1.5vw] text-muted">Resources rarely arrive as one system.</p></div>
         </div>
-        <p className="mt-[2.5vh] border-l-[0.25vw] border-primary pl-[1.5vw] font-body text-[1.75vw] leading-[1.35] text-accent">
-          Vaeloryn’s ambition is to connect these resources and help promising projects move toward real-world execution.
-        </p>
       </div>
     </div>
   );

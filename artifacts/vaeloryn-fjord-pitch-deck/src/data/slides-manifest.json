@@ -3,8 +3,8 @@
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10001",
     "position": 1,
     "filepath": "src/pages/slides/Cover.tsx",
-    "title": "Vaeloryn / VAELO",
-    "description": "Vaeloryn investor and launch-partner presentation.",
+    "title": "Cover",
+    "description": "Pre-seed and Base Ecosystem Fund introduction.",
     "speakerNotes": ""
   },
   {
@@ -12,87 +12,87 @@
     "position": 2,
     "filepath": "src/pages/slides/Vision.tsx",
     "title": "The Vision",
-    "description": "A long-term innovation ecosystem connecting capital, expertise, people and opportunity.",
+    "description": "Connecting the resources that meaningful progress requires.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10003",
     "position": 3,
     "filepath": "src/pages/slides/Problem.tsx",
-    "title": "The Problem",
-    "description": "Promising science and technology can struggle to access coordinated support.",
+    "title": "Coordination Gap",
+    "description": "Promising ideas can stall before execution.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10004",
     "position": 4,
     "filepath": "src/pages/slides/Model.tsx",
-    "title": "The Vaeloryn Model",
-    "description": "The intended flow from capital and coordination to measurable outcomes.",
+    "title": "Vaeloryn Model",
+    "description": "Coordinating capital, technology, expertise and participation.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10005",
     "position": 5,
-    "filepath": "src/pages/slides/Vaelo.tsx",
-    "title": "VAELO",
-    "description": "The intended native digital asset and its immutable technical properties.",
+    "filepath": "src/pages/slides/Product.tsx",
+    "title": "First Product",
+    "description": "The Vaeloryn Wallet as the primary entry point.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10006",
     "position": 6,
-    "filepath": "src/pages/slides/Tokenomics.tsx",
-    "title": "Tokenomics",
-    "description": "The finalized canonical one-billion-token allocation.",
+    "filepath": "src/pages/slides/Base.tsx",
+    "title": "Built for Base",
+    "description": "Base as the intended primary blockchain ecosystem.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10007",
     "position": 7,
-    "filepath": "src/pages/slides/Vesting.tsx",
-    "title": "Founder Vesting & Supply Discipline",
-    "description": "The immutable founder vesting schedule and fixed allocation cap.",
+    "filepath": "src/pages/slides/Vaelo.tsx",
+    "title": "VAELO Economic Layer",
+    "description": "The intended native economic layer for the ecosystem.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10008",
     "position": 8,
-    "filepath": "src/pages/slides/Foundation.tsx",
-    "title": "Technical Foundation & Security",
-    "description": "Canonical architecture, testing evidence and independent-audit status.",
+    "filepath": "src/pages/slides/Tokenomics.tsx",
+    "title": "Tokenomics",
+    "description": "Finalized canonical allocation.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10009",
     "position": 9,
-    "filepath": "src/pages/slides/Sale.tsx",
-    "title": "Initial Public Sale",
-    "description": "External planning parameters for a potential VAELO distribution venue.",
+    "filepath": "src/pages/slides/Foundation.tsx",
+    "title": "Technical Foundation",
+    "description": "Canonical implementation and testing evidence.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10010",
     "position": 10,
-    "filepath": "src/pages/slides/Capital.tsx",
-    "title": "Use of Initial Capital",
-    "description": "Potential foundation-stage uses of initial funding.",
+    "filepath": "src/pages/slides/Status.tsx",
+    "title": "Current Status & Next Phase",
+    "description": "What is built today and what comes next.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10011",
     "position": 11,
-    "filepath": "src/pages/slides/Roadmap.tsx",
-    "title": "Roadmap",
-    "description": "Four planned stages from foundation to a global ecosystem.",
+    "filepath": "src/pages/slides/Funding.tsx",
+    "title": "From Prototype to Production",
+    "description": "Use of pre-seed funding to reach production.",
     "speakerNotes": ""
   },
   {
     "id": "b1a7f1c0-47bc-4ea2-a7e2-0ad0c1a10012",
     "position": 12,
-    "filepath": "src/pages/slides/Closing.tsx",
-    "title": "Why Vaeloryn",
-    "description": "A long-term ecosystem where capital, expertise and technology reinforce one another.",
+    "filepath": "src/pages/slides/Founder.tsx",
+    "title": "Founder / Why Vaeloryn",
+    "description": "Founder background and motivation.",
     "speakerNotes": ""
   }
 ]
