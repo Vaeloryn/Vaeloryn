@@ -76,8 +76,15 @@ logical_id = "584525f8-0a29-417c-8113-20fff1b10f4d"
 id = "TKGtMqjbIpBIPtICfL_PL"
 uri = "file://.local/outputs/Vaeloryn---Fjord-Foundry-Pitch-Deck.pdf"
 type = "pdf"
-title = "Vaeloryn — Fjord Foundry Pitch Deck.pdf"
+title = "Vaeloryn — Fjord Foundry Pitch Deck (PDF)"
+description = "Downloadable PDF export of the Vaeloryn pitch deck."
 logical_id = "2d39b51f-bfaf-4c50-b164-2e324d759929"
+content_hash = "sha256:913a4db98d201960ade906b92927e5920dc135058efdca68725e917fd0e3e011"
+size = 919310
+mtime_ms = 1789478297704
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/2d39b51f-bfaf-4c50-b164-2e324d759929/0d2b21e9-2fe8-48be-984e-b1519a726210"
+storage_version_token = "1789478298697791"
+content_type = "application/pdf"
 
 [[outputs]]
 id = "TQr1tZaIf8QdpJgJbHaM-"
