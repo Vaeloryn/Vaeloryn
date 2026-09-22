@@ -17,6 +17,13 @@ import {
   Layers, Droplet, Globe, Sparkles,
   CheckCircle2, Clock, Minus,
 } from 'lucide-react';
+import { TextReveal } from '@/components/animation/TextReveal';
+import { FundingProblemVisual } from '@/components/animation/FundingProblemVisual';
+import { VaeloEcosystemVisual } from '@/components/animation/VaeloEcosystemVisual';
+import { BaseInfrastructureVisual } from '@/components/animation/BaseInfrastructureVisual';
+import { AnimatedTimelineLine } from '@/components/animation/AnimatedTimelineLine';
+
+const ScientificHeroVisual = React.lazy(() => import('@/components/animation/ScientificHeroVisual').then(m => ({ default: m.ScientificHeroVisual })));
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -131,14 +138,15 @@ function PipelineStep({
   const numberColor = useTransform(
     activation,
     [0, 1],
-    ['rgba(248,250,252,0.8)', 'hsl(38, 92%, 50%)'],
+    ['rgba(248,250,252,0.4)', 'hsl(38, 92%, 50%)'],
   );
   const labelColor = useTransform(
     activation,
     [0, 1],
-    ['hsl(215, 20%, 65%)', 'hsl(210, 40%, 98%)'],
+    ['hsl(215, 20%, 50%)', 'hsl(210, 40%, 98%)'],
   );
-  const glowOpacity = useTransform(activation, [0, 1], [0, 0.08]);
+  const glowOpacity = useTransform(activation, [0, 1], [0, 0.15]);
+  const nodeScale = useTransform(activation, [0, 1], [0.95, 1.05]);
 
   return (
     <motion.div
@@ -150,7 +158,7 @@ function PipelineStep({
     >
       <motion.div
         className="w-16 h-16 rounded-full bg-background border flex items-center justify-center relative overflow-hidden group-hover:border-primary/50 transition-colors"
-        style={{ borderColor }}
+        style={{ borderColor, scale: nodeScale }}
       >
         <motion.div
           className="absolute inset-0 bg-primary"
@@ -321,6 +329,9 @@ export function Home() {
               background: 'radial-gradient(circle, rgba(201,168,76,0.13) 0%, transparent 70%)',
             }}
           />
+          <React.Suspense fallback={null}>
+            <ScientificHeroVisual />
+          </React.Suspense>
         </div>
 
         {/* Hero content */}
@@ -338,13 +349,11 @@ export function Home() {
             </motion.div>
 
             {/* Wordmark */}
-            <motion.h1
-              variants={heroFadeInUp}
-              style={{ y: heroWordmarkY }}
-              className="font-display text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.15em] uppercase text-foreground"
-            >
-              Vaeloryn
-            </motion.h1>
+            <motion.div style={{ y: heroWordmarkY }}>
+              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.15em] uppercase text-foreground">
+                <TextReveal text="Vaeloryn" delay={0.2} />
+              </h1>
+            </motion.div>
 
             {/* Divider */}
             <motion.div
@@ -357,7 +366,7 @@ export function Home() {
               variants={heroFadeInUp}
               className="text-xl md:text-3xl font-display font-light text-foreground/90 tracking-wide"
             >
-              Building the financial ecosystem for technologies that shape the future.
+              <TextReveal text="Building the financial ecosystem for technologies that shape the future." delay={0.6} />
             </motion.h2>
 
             {/* Supporting copy - Rapid Comprehension */}
@@ -367,26 +376,6 @@ export function Home() {
                   South African-founded. Globally focused.
                 </p>
               </div>
-
-              <div className="grid md:grid-cols-2 gap-10 text-left pt-6 border-t border-white/10">
-                <div className="space-y-3">
-                  <h3 className="text-primary font-medium tracking-widest uppercase text-xs">Why Vaeloryn</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Innovative companies and projects can struggle to access capital, specialist networks and
-                    globally accessible funding through traditional systems.
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  <h3 className="text-primary font-medium tracking-widest uppercase text-xs">The Ecosystem</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Vaeloryn is building an onchain ecosystem connecting global capital with scientific, medical
-                    and technological innovation — powered by VAELO as its intended economic layer and developed
-                    with Base as its intended primary blockchain home.
-                  </p>
-                </div>
-              </div>
-
             </motion.div>
 
             {/* CTAs */}
@@ -421,7 +410,7 @@ export function Home() {
               rel="noopener noreferrer"
               aria-label="Follow Vaeloryn on X"
               title="Follow Vaeloryn on X"
-              className="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 text-primary transition-all hover:border-primary/80 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 text-primary transition-all hover:border-primary/80 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background mt-6"
             >
               <svg
                 aria-hidden="true"
@@ -433,6 +422,56 @@ export function Home() {
             </motion.a>
 
           </motion.div>
+        </div>
+      </section>
+
+      {/* 1.5 Why Vaeloryn & The Ecosystem */}
+      <section className="py-20 md:py-32 border-t border-white/5 border-b border-primary/10 bg-background relative overflow-hidden">
+        <div className="container px-6 max-w-5xl mx-auto">
+          <div className="flex flex-col gap-24">
+
+            {/* Why Vaeloryn */}
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+              variants={staggerContainer}
+              className="flex flex-col gap-8"
+            >
+              <div className="space-y-4 max-w-3xl">
+                <motion.h3 variants={fadeInUp} className="text-primary font-medium tracking-widest uppercase text-sm">
+                  Why Vaeloryn
+                </motion.h3>
+                <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-foreground font-light leading-relaxed">
+                  Innovative companies and projects can struggle to access capital, specialist networks and
+                  globally accessible funding through traditional systems.
+                </motion.p>
+              </div>
+              <motion.div variants={fadeInUp}>
+                <FundingProblemVisual />
+              </motion.div>
+            </motion.div>
+
+            {/* The Ecosystem */}
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+              variants={staggerContainer}
+              className="flex flex-col gap-8"
+            >
+              <div className="space-y-4 max-w-3xl">
+                <motion.h3 variants={fadeInUp} className="text-primary font-medium tracking-widest uppercase text-sm">
+                  The Ecosystem
+                </motion.h3>
+                <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-foreground font-light leading-relaxed">
+                  Vaeloryn is building an onchain ecosystem connecting global capital with scientific, medical
+                  and technological innovation — powered by VAELO as its intended economic layer and developed
+                  with Base as its intended primary blockchain home.
+                </motion.p>
+              </div>
+              <motion.div variants={fadeInUp}>
+                <VaeloEcosystemVisual />
+              </motion.div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
@@ -522,19 +561,7 @@ export function Home() {
               </div>
             </motion.div>
             <motion.div variants={fadeInUp} className="md:w-[400px] flex-shrink-0 flex justify-center">
-               <div className="relative w-64 h-64 border border-white/10 rounded-full flex items-center justify-center bg-white/[0.02]">
-                  <motion.div
-                    className="absolute inset-0 rounded-full border border-primary/20"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  />
-                  <motion.div
-                    className="absolute inset-6 rounded-full border border-primary/10 border-dashed"
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                  />
-                  <Cpu size={48} className="text-primary/60" strokeWidth={1} />
-               </div>
+               <BaseInfrastructureVisual />
             </motion.div>
           </motion.div>
         </div>
@@ -564,50 +591,60 @@ export function Home() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Built Today */}
-              <motion.div variants={staggerContainer} className="space-y-6">
-                <h4 className="font-display text-xl tracking-wide text-foreground/90 border-b border-white/10 pb-3">Built Today</h4>
-                <div className="grid grid-cols-1 gap-3">
-                  {builtTodayItems.map((item, i) => (
-                    <motion.div key={i} variants={fadeInUp}>
-                      <Card className="bg-white/[0.025] border-white/5 hover:border-white/10 transition-colors duration-300">
-                        <CardContent className="px-5 py-4 flex items-start gap-3">
-                          <StatusIcon kind={item.kind} />
-                          <div className="flex flex-col gap-0.5 min-w-0">
-                            <span className="text-xs text-muted-foreground tracking-wide uppercase">{item.label}</span>
-                            <span className="text-sm font-medium leading-snug text-foreground">
-                              {item.value}
-                            </span>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+            <div className="relative pt-8 pb-12">
+              {/* Central animated timeline line */}
+              <div className="absolute top-0 bottom-0 left-[15px] md:left-1/2 w-px bg-white/5 -translate-x-1/2 hidden sm:block" />
+              <div className="hidden sm:block">
+                <AnimatedTimelineLine />
+              </div>
 
-              {/* Next Phase */}
-              <motion.div variants={staggerContainer} className="space-y-6">
-                <h4 className="font-display text-xl tracking-wide text-foreground/90 border-b border-white/10 pb-3">Next Phase Requirements</h4>
-                <div className="grid grid-cols-1 gap-3">
-                  {nextPhaseItems.map((item, i) => (
-                    <motion.div key={i} variants={fadeInUp}>
-                      <Card className="bg-white/[0.025] border-white/5 hover:border-white/10 transition-colors duration-300">
-                        <CardContent className="px-5 py-4 flex items-start gap-3">
-                          <StatusIcon kind={item.kind} />
-                          <div className="flex flex-col gap-0.5 min-w-0">
-                            <span className="text-xs text-muted-foreground tracking-wide uppercase">{item.label}</span>
-                            <span className="text-sm font-medium leading-snug text-muted-foreground">
-                              {item.value}
-                            </span>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+              <div className="flex flex-col gap-12 relative z-10">
+                {/* Built Today */}
+                <motion.div variants={staggerContainer} className="relative w-full md:w-1/2 md:pr-12 md:mr-auto">
+                  <div className="absolute top-6 -right-[27px] w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(201,162,39,0.8)] hidden sm:block md:translate-x-1/2" />
+                  <h4 className="font-display text-xl tracking-wide text-foreground/90 border-b border-white/10 pb-3 mb-6">Built Today</h4>
+                  <div className="grid grid-cols-1 gap-3">
+                    {builtTodayItems.map((item, i) => (
+                      <motion.div key={i} variants={fadeInUp}>
+                        <Card className="bg-white/[0.025] border-white/5 hover:border-primary/20 transition-all duration-300">
+                          <CardContent className="px-5 py-4 flex items-start gap-3">
+                            <StatusIcon kind={item.kind} />
+                            <div className="flex flex-col gap-0.5 min-w-0">
+                              <span className="text-xs text-muted-foreground tracking-wide uppercase">{item.label}</span>
+                              <span className="text-sm font-medium leading-snug text-foreground">
+                                {item.value}
+                              </span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Next Phase */}
+                <motion.div variants={staggerContainer} className="relative w-full md:w-1/2 md:pl-12 md:ml-auto">
+                  <div className="absolute top-6 -left-[27px] w-3 h-3 rounded-full border-2 border-primary bg-background shadow-[0_0_10px_rgba(201,162,39,0.2)] hidden sm:block md:-translate-x-1/2" />
+                  <h4 className="font-display text-xl tracking-wide text-foreground/90 border-b border-white/10 pb-3 mb-6">Next Phase Requirements</h4>
+                  <div className="grid grid-cols-1 gap-3">
+                    {nextPhaseItems.map((item, i) => (
+                      <motion.div key={i} variants={fadeInUp}>
+                        <Card className="bg-white/[0.025] border-white/5 hover:border-white/20 transition-all duration-300">
+                          <CardContent className="px-5 py-4 flex items-start gap-3">
+                            <StatusIcon kind={item.kind} />
+                            <div className="flex flex-col gap-0.5 min-w-0">
+                              <span className="text-xs text-muted-foreground tracking-wide uppercase">{item.label}</span>
+                              <span className="text-sm font-medium leading-snug text-muted-foreground">
+                                {item.value}
+                              </span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
             </div>
 
             {/* Disclaimer note */}
@@ -631,7 +668,9 @@ export function Home() {
             className="flex flex-col gap-16"
           >
             <motion.div variants={fadeInUp} className="text-center space-y-6 max-w-3xl mx-auto">
-              <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground">How It Works</h3>
+              <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground">
+                <TextReveal text="How It Works" />
+              </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Vaeloryn intends to connect innovation projects with expertise, resources and onchain
                 participation. VAELO is designed to serve as the native economic layer connecting the companies,
@@ -681,7 +720,9 @@ export function Home() {
             className="space-y-16"
           >
             <motion.div variants={fadeInUp} className="text-center">
-              <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground mb-6">Areas of Progress</h3>
+              <h3 className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-foreground mb-6">
+                <TextReveal text="Areas of Progress" />
+              </h3>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Vaeloryn seeks to accelerate development across disciplines that define the future.
               </p>
@@ -759,9 +800,9 @@ export function Home() {
       </section>
 
       {/* 8. Help Build Vaeloryn */}
-      <section className="py-24 md:py-40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] opacity-30 pointer-events-none" />
+      <section className="py-24 md:py-40 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="container px-6 max-w-4xl mx-auto relative z-10 text-center">
           <motion.div
@@ -770,7 +811,7 @@ export function Home() {
             className="space-y-10"
           >
             <motion.h3 variants={fadeInUp} className="font-display text-3xl md:text-5xl font-light tracking-wider uppercase text-foreground">
-              Help Build Vaeloryn
+              <TextReveal text="Help Build Vaeloryn" delay={0.1} />
             </motion.h3>
 
             <motion.div variants={fadeInUp} className="space-y-6 text-lg text-muted-foreground text-left md:text-center leading-relaxed">
@@ -813,7 +854,7 @@ export function Home() {
             className="flex flex-col gap-16"
           >
             <motion.h3 variants={fadeInUp} className="font-display text-3xl md:text-4xl font-light tracking-wider uppercase text-center text-foreground">
-              Our Principles
+              <TextReveal text="Our Principles" />
             </motion.h3>
 
             <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">

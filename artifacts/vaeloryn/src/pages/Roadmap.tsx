@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, type Variants } from 'framer-motion';
+import { motion, type Variants, useReducedMotion } from 'framer-motion';
 import { Link } from 'wouter';
 import { SEO } from '@/components/SEO';
 import { CheckCircle2, Circle } from 'lucide-react';
@@ -64,6 +64,8 @@ const STAGES = [
 ];
 
 export function Roadmap() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <div className="w-full">
       <SEO
@@ -98,7 +100,7 @@ export function Roadmap() {
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex items-center gap-3 pt-2">
-              <div className="w-2 h-2 rounded-full bg-primary/70 animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-primary/70 motion-safe:animate-pulse" />
               <span className="text-sm text-muted-foreground tracking-wide">
                 Currently in <span className="text-primary/90">Stage A — Foundation</span>
               </span>
@@ -130,57 +132,82 @@ export function Roadmap() {
       </section>
 
       {/* ── Stage Progress Bar ── */}
-      <section className="py-14 border-b border-white/5">
+      <section className="py-14 border-b border-white/5 overflow-hidden">
         <div className="container px-6 max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-stretch gap-0"
-          >
-            {STAGES.map(({ label, sublabel, done, active }, i) => (
-              <React.Fragment key={label}>
-                <div className={`flex-1 flex flex-col gap-2 p-5 rounded-none border ${
-                  done
-                    ? 'border-primary/30 bg-primary/6'
-                    : active
-                    ? 'border-primary/40 bg-primary/8'
-                    : 'border-white/8 bg-white/[0.015]'
-                } ${i === 0 ? 'rounded-l-lg' : ''} ${i === STAGES.length - 1 ? 'rounded-r-lg' : ''}`}>
-                  <div className="flex items-center gap-2">
-                    {done  && <CheckCircle2 size={12} strokeWidth={1.75} className="text-primary/80 flex-shrink-0" />}
-                    {active && <div className="w-1.5 h-1.5 rounded-full bg-primary/80 animate-pulse flex-shrink-0" />}
-                    <span className={`text-xs font-medium tracking-[0.15em] uppercase ${done || active ? 'text-primary/90' : 'text-muted-foreground/50'}`}>
-                      {label}
-                    </span>
-                  </div>
-                  <span className={`text-sm font-light tracking-wide ${done || active ? 'text-foreground/90' : 'text-muted-foreground/40'}`}>
-                    {sublabel}
-                  </span>
-                  {done && (
-                    <span className="text-xs text-primary/70 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full w-fit mt-1">
-                      Complete
-                    </span>
-                  )}
-                  {active && (
-                    <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full w-fit mt-1">
-                      Current
-                    </span>
-                  )}
-                  {!done && !active && (
-                    <span className="text-xs text-muted-foreground/30 italic mt-1">Future</span>
-                  )}
+          {/* Scrollable container for mobile */}
+          <div className="overflow-x-auto pb-6 -mb-6 hide-scrollbar">
+            <div className="min-w-[800px]">
+              <div className="relative mb-6 h-px bg-white/10" aria-hidden="true">
+                <div
+                  className="absolute inset-0 origin-left bg-primary/80 shadow-[0_0_10px_rgba(201,162,39,0.35)]"
+                  style={{ width: '25%' }}
+                />
+                <div className="absolute inset-0 flex items-center justify-between">
+                  {STAGES.map(({ label, done, active }) => (
+                    <span
+                      key={label}
+                      className={`h-2.5 w-2.5 rounded-full border ${
+                        done
+                          ? 'border-primary bg-primary'
+                          : active
+                            ? 'border-primary bg-background shadow-[0_0_10px_rgba(201,162,39,0.55)]'
+                            : 'border-white/20 bg-background'
+                      }`}
+                    />
+                  ))}
                 </div>
-                {i < STAGES.length - 1 && (
-                  <div className="hidden sm:flex items-center justify-center w-6 flex-shrink-0 bg-transparent z-10 -mx-0">
-                    <div className="w-full h-px bg-white/10" />
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
-          </motion.div>
-          <p className="text-xs text-muted-foreground/40 italic mt-4">
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-stretch gap-0"
+              >
+                {STAGES.map(({ label, sublabel, done, active }, i) => (
+                  <React.Fragment key={label}>
+                    <div className={`flex-1 flex flex-col gap-2 p-5 rounded-none border ${
+                      done
+                        ? 'border-primary/30 bg-primary/6'
+                        : active
+                        ? 'border-primary/40 bg-primary/8'
+                        : 'border-white/8 bg-white/[0.015]'
+                    } ${i === 0 ? 'rounded-l-lg' : ''} ${i === STAGES.length - 1 ? 'rounded-r-lg' : ''}`}>
+                      <div className="flex items-center gap-2">
+                        {done  && <CheckCircle2 size={12} strokeWidth={1.75} className="text-primary/80 flex-shrink-0" />}
+                        {active && <div className="w-1.5 h-1.5 rounded-full bg-primary/80 motion-safe:animate-pulse flex-shrink-0" />}
+                        <span className={`text-xs font-medium tracking-[0.15em] uppercase ${done || active ? 'text-primary/90' : 'text-muted-foreground/50'}`}>
+                          {label}
+                        </span>
+                      </div>
+                      <span className={`text-sm font-light tracking-wide ${done || active ? 'text-foreground/90' : 'text-muted-foreground/40'}`}>
+                        {sublabel}
+                      </span>
+                      {done && (
+                        <span className="text-xs text-primary/70 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full w-fit mt-1">
+                          Complete
+                        </span>
+                      )}
+                      {active && (
+                        <span className="text-xs text-primary/60 border border-primary/20 bg-primary/5 px-2 py-0.5 rounded-full w-fit mt-1">
+                          Current
+                        </span>
+                      )}
+                      {!done && !active && (
+                        <span className="text-xs text-muted-foreground/30 italic mt-1">Future</span>
+                      )}
+                    </div>
+                    {i < STAGES.length - 1 && (
+                      <div className="flex items-center justify-center w-6 flex-shrink-0 bg-transparent z-10 -mx-0">
+                        <div className="w-full h-px bg-white/10" />
+                      </div>
+                    )}
+                  </React.Fragment>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+          <p className="text-xs text-muted-foreground/40 italic mt-6">
             Future stages are proposed objectives only — not commitments to specific timelines or outcomes.
           </p>
         </div>

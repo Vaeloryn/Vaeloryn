@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'wouter';
-import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 export function Navbar() {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const smoothScrollProgress = useSpring(scrollYProgress, {
@@ -21,9 +23,75 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeMenu = () => setMobileMenuOpen(false);
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+        buttonRef.current?.focus();
+        return;
+      }
+      if (e.key === 'Tab' && mobileMenuOpen) {
+        const menuEls = Array.from(menuRef.current?.querySelectorAll<HTMLElement>('a[href], button, textarea, input, select') || []);
+        const focusable = [buttonRef.current, ...menuEls].filter((el): el is HTMLElement => el != null);
 
-  const linkClass = "text-sm font-medium text-muted-foreground hover:text-primary transition-colors";
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+      document.querySelectorAll<HTMLElement>('[data-mobile-menu-background], footer').forEach((element) => {
+        element.inert = true;
+        element.setAttribute('aria-hidden', 'true');
+      });
+      // Focus first link on open
+      setTimeout(() => {
+        const menuEls = menuRef.current?.querySelectorAll<HTMLElement>('a[href]');
+        if (menuEls && menuEls.length > 0) {
+          menuEls[0].focus();
+        }
+      }, 50);
+    } else {
+      document.body.style.overflow = '';
+      document.querySelectorAll<HTMLElement>('[data-mobile-menu-background], footer').forEach((element) => {
+        element.inert = false;
+        element.removeAttribute('aria-hidden');
+      });
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+      document.querySelectorAll<HTMLElement>('[data-mobile-menu-background], footer').forEach((element) => {
+        element.inert = false;
+        element.removeAttribute('aria-hidden');
+      });
+    };
+  }, [mobileMenuOpen]);
+
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+    setTimeout(() => {
+      buttonRef.current?.focus();
+    }, 10);
+  };
+
+  const linkClass = "text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md px-2 py-1";
 
   const NavLinks = () => (
     <>
@@ -39,7 +107,7 @@ export function Navbar() {
       <Link href="/roadmap" onClick={closeMenu} className={linkClass}>
         Roadmap
       </Link>
-      <Link href="/private-sales" onClick={closeMenu} className="text-sm font-medium text-primary/80 hover:text-primary transition-colors border border-primary/25 hover:border-primary/50 px-3 py-1 rounded-md hover:bg-primary/5">
+      <Link href="/private-sales" onClick={closeMenu} className="text-sm font-medium text-primary/80 hover:text-primary transition-colors border border-primary/25 hover:border-primary/50 px-3 py-1 rounded-md hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
         Private Sales
       </Link>
       <Link href="/help-build" onClick={closeMenu} className={linkClass}>
@@ -53,12 +121,12 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        isScrolled ? 'bg-background/70 backdrop-blur-xl border-b border-white/5 py-4 shadow-sm' : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 z-50">
+        <Link href="/" className="flex items-center gap-2 z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm">
           <span className="font-display font-bold tracking-[0.2em] text-lg text-foreground uppercase">
             Vaeloryn
           </span>
@@ -71,21 +139,38 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden z-50 text-foreground"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          ref={buttonRef}
+          className="md:hidden z-50 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+          onClick={() => {
+            if (mobileMenuOpen) closeMenu();
+            else setMobileMenuOpen(true);
+          }}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
           aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/* Mobile Nav */}
-        <div
-          className={`fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-300 ${
-            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          } md:hidden`}
-        >
-          <NavLinks />
-        </div>
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              id="mobile-menu"
+              ref={menuRef}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: prefersReducedMotion ? 0 : 0.3, ease: 'easeInOut' }}
+              className="fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Primary navigation"
+            >
+              <NavLinks />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       {location === '/' && (
         <motion.div

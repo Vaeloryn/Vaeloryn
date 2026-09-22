@@ -1,0 +1,641 @@
+You are upgrading the existing VAELORYN website into a premium, cinematic deep-technology experience.
+
+IMPORTANT: This is an animation and interaction upgrade, NOT a redesign.
+
+Before making changes:
+
+1. Inspect the entire existing frontend.
+2. Identify the framework, routing, component architecture, styling system and existing animation libraries.
+3. Understand every current homepage section.
+4. Preserve all existing copy, routes, functionality, tokenomics, technical claims and links.
+5. Do not invent new VAELO functionality.
+6. Do not remove existing content simply to make animations easier.
+7. Do not replace the existing visual identity with a generic template.
+
+The finished website should feel like a highly funded scientific technology company with an exceptional product-design team.
+
+VISUAL REFERENCE / FEEL
+
+Aim for the level of polish associated with:
+
+* Apple product launches
+* premium aerospace websites
+* advanced scientific visualization
+* high-end WebGL experiences
+* sophisticated fintech infrastructure products
+
+Do NOT copy any company’s website or branding.
+
+The emotional progression should be:
+
+CURIOUS → IMPRESSED → UNDERSTANDING → TRUST → INTERESTED
+
+The website should communicate:
+
+“Vaeloryn is building infrastructure for funding scientific and technological progress.”
+
+It should NOT communicate:
+
+“another speculative crypto token.”
+
+==================================================
+
+1. ANIMATION TECHNOLOGY
+    ==================================================
+
+Use the most appropriate technologies already compatible with the project.
+
+Preferred stack:
+
+GSAP
+GSAP ScrollTrigger
+Motion / Framer Motion where appropriate
+Three.js / React Three Fiber for the main scientific visualization
+CSS transitions for lightweight interactions
+
+Do not install unnecessary libraries if equivalent functionality already exists.
+
+Use reusable animation utilities rather than scattering animation code throughout components.
+
+Create an animation architecture such as:
+
+/src/lib/animations/
+/src/components/animations/
+
+or an equivalent structure appropriate for the existing project.
+
+==================================================
+2. GLOBAL MOTION LANGUAGE
+
+Every animation should feel intentional.
+
+Use:
+
+* slow movement
+* smooth easing
+* subtle scale changes
+* controlled opacity transitions
+* depth
+* parallax
+* staggered reveals
+* directional movement
+* elegant transitions
+
+Avoid:
+
+* bouncing
+* excessive spinning
+* cartoon effects
+* aggressive zooming
+* constant particle explosions
+* excessive glowing
+* generic “crypto” animations
+* animation on every element
+* anything that feels like a template
+
+Animation should support hierarchy.
+
+The most important element on screen should receive the most attention.
+
+==================================================
+3. PAGE LOAD — CINEMATIC OPENING
+
+Create a sophisticated initial page sequence.
+
+Do NOT use a long loading screen.
+
+The experience should begin almost immediately.
+
+Sequence:
+
+1. Background environment subtly establishes itself.
+2. A restrained scientific visual begins moving.
+3. VAELORYN branding appears.
+4. Main headline reveals using a refined text animation.
+5. Supporting text follows.
+6. CTA buttons appear.
+7. Background visual reaches its natural resting state.
+
+Use carefully controlled staggered timing.
+
+The result should feel like entering a technological environment rather than loading a webpage.
+
+==================================================
+4. HERO — SCIENTIFIC VISUALIZATION
+
+Create the primary visual centerpiece.
+
+Use Three.js / React Three Fiber only if it integrates cleanly with the current project.
+
+Concept:
+
+A sophisticated abstract representation of scientific progress.
+
+Imagine:
+
+* a dark spatial environment
+* extremely subtle particles
+* interconnected nodes
+* thin orbital trajectories
+* points of light representing research or technological ideas
+* connections forming and dissolving
+* slow movement through depth
+* occasional pulses travelling through connections
+
+The visual should NOT look like:
+
+* cryptocurrency coins
+* blockchain chains
+* generic AI particles
+* a galaxy background
+* a gaming interface
+
+It should feel like a visualization of a global scientific network.
+
+Keep it elegant and sparse.
+
+The visual should respond subtly to mouse movement.
+
+Desktop:
+
+* subtle cursor parallax
+* depth movement
+* slight camera response
+
+Mobile:
+
+* substantially reduce particle count
+* reduce movement
+* disable expensive effects where appropriate
+
+==================================================
+5. HERO TYPOGRAPHY
+
+Animate the main headline with a premium reveal.
+
+Possible technique:
+
+Split text into words or lines and animate them using:
+
+opacity
+translateY
+slight blur → sharp
+
+Avoid excessive character-by-character animations.
+
+The headline should feel extremely crisp.
+
+Supporting text should appear after the headline with a smaller movement.
+
+CTA buttons should have a subtle entrance.
+
+==================================================
+6. NAVIGATION
+
+Transform the navigation subtly as the user scrolls.
+
+At the top:
+
+transparent / integrated with hero.
+
+After scrolling:
+
+slightly translucent
+backdrop blur
+subtle border
+slightly reduced height
+
+Do not make the transition obvious.
+
+It should feel like the navigation naturally changes state.
+
+Mobile navigation should have a polished open/close animation.
+
+==================================================
+7. WHY VAELORYN
+
+When the section enters the viewport:
+
+The section should not simply fade in.
+
+Create a sequence:
+
+1. Heading enters.
+2. Supporting statement follows.
+3. Key visual element activates.
+4. Supporting cards/elements reveal sequentially.
+
+Use ScrollTrigger.
+
+Create a subtle sense of progression.
+
+==================================================
+8. THE FUNDING PROBLEM
+
+Make this section visually communicate friction.
+
+Use motion to represent:
+
+Ideas
+↓
+Research
+↓
+Funding gap
+↓
+Delayed progress
+
+Then transition toward:
+
+Vaeloryn
+↓
+Funding infrastructure
+↓
+Scientific progress
+
+Keep this conceptual and elegant.
+
+Do not invent claims or statistics.
+
+==================================================
+9. HOW IT WORKS
+
+Turn the existing “How It Works” content into an interactive scroll narrative.
+
+As the user scrolls:
+
+STEP 01 becomes active.
+
+Then:
+
+STEP 02
+
+Then:
+
+STEP 03
+
+Then:
+
+STEP 04
+
+Use a progress indicator.
+
+Possible visual treatment:
+
+A thin line gradually fills as the user progresses.
+
+Nodes activate sequentially.
+
+The active stage becomes brighter and more prominent.
+
+Previous stages remain visible but subdued.
+
+This should feel like a scientific process diagram coming alive.
+
+==================================================
+10. VAELO SECTION
+
+Make the VAELO relationship visually understandable.
+
+Use a central VAELO visual element surrounded by subtle ecosystem connections.
+
+Animate the connections as the user scrolls.
+
+IMPORTANT:
+
+Do not imply that VAELO performs functions that the existing website/documentation does not actually claim.
+
+Do not invent utility.
+
+The animation should explain the existing positioning rather than create new claims.
+
+==================================================
+11. BUILT FOR BASE
+
+Create a sophisticated transition into the Base section.
+
+Do not use a giant spinning Base logo.
+
+Instead use subtle infrastructure/network motion.
+
+Visual concept:
+
+distributed nodes
+→ network connection
+→ infrastructure layer
+→ Vaeloryn ecosystem
+
+Keep it restrained.
+
+==================================================
+12. ROADMAP / NEXT PHASE
+
+Turn the roadmap into an animated timeline.
+
+As the user scrolls:
+
+Past
+↓
+Current
+↓
+Next
+↓
+Future
+
+The timeline should progressively activate.
+
+Use:
+
+* line drawing
+* node activation
+* subtle glow
+* content reveal
+
+Do not make future items look like completed achievements.
+
+Clearly preserve the distinction between:
+
+BUILT
+
+IN PROGRESS
+
+PLANNED
+
+==================================================
+13. CARDS
+
+Upgrade cards throughout the website.
+
+On hover:
+
+* 2–4px upward movement
+* subtle scale
+* slight border illumination
+* background transition
+* subtle depth
+
+Avoid dramatic transformations.
+
+Cards should feel physical.
+
+Optional:
+
+Add a very subtle cursor-following highlight inside cards.
+
+Keep it extremely restrained.
+
+==================================================
+14. SCROLL EXPERIENCE
+
+Use ScrollTrigger intelligently.
+
+Do NOT hijack scrolling.
+
+Do NOT create a slow website.
+
+Scrolling should remain native and responsive.
+
+Use:
+
+* reveal animations
+* pinned storytelling only where genuinely useful
+* parallax
+* progressive diagrams
+* section transitions
+
+Every animation should have a clear purpose.
+
+==================================================
+15. SECTION TRANSITIONS
+
+Create subtle visual continuity between sections.
+
+Possible techniques:
+
+* background atmosphere changing gradually
+* particle density changing
+* subtle gradient movement
+* visual elements transitioning from one section into another
+* connecting lines
+
+Avoid hard visual resets between every section.
+
+The entire page should feel like ONE continuous experience.
+
+==================================================
+16. FINAL CTA
+
+The final CTA should feel like the conclusion of the journey.
+
+As the user reaches it:
+
+Background motion becomes calmer.
+
+The visual environment simplifies.
+
+The final message becomes the focus.
+
+CTA buttons appear with a controlled reveal.
+
+The ending should feel confident and quiet rather than flashy.
+
+==================================================
+17. MICRO-INTERACTIONS
+
+Add premium micro-interactions to:
+
+buttons
+links
+navigation
+cards
+icons
+
+Buttons:
+
+Normal:
+subtle background
+
+Hover:
+small movement
+subtle highlight
+slight depth
+
+Click:
+very subtle compression
+
+Links:
+
+Animated underline or directional movement.
+
+Icons:
+
+Small controlled movement where appropriate.
+
+==================================================
+18. PERFORMANCE
+
+This is extremely important.
+
+The animation system must NOT destroy performance.
+
+Requirements:
+
+* lazy-load Three.js components
+* reduce particle counts on mobile
+* use requestAnimationFrame appropriately
+* avoid unnecessary React re-renders
+* use GPU-friendly transforms
+* avoid animating layout properties where possible
+* clean up GSAP timelines and ScrollTriggers
+* avoid memory leaks
+* respect prefers-reduced-motion
+* do not block page rendering
+* maintain responsive behaviour
+* avoid layout shift
+
+Target:
+
+Excellent Lighthouse performance.
+
+==================================================
+19. ACCESSIBILITY
+
+Respect:
+
+prefers-reduced-motion
+
+When reduced motion is enabled:
+
+* disable major parallax
+* disable unnecessary looping animation
+* replace animated reveals with simple opacity transitions
+* ensure all content remains immediately accessible
+
+Animations must never prevent users from reading the website.
+
+==================================================
+20. MOBILE EXPERIENCE
+
+Do NOT simply shrink the desktop animation.
+
+Create a mobile-specific animation strategy.
+
+Reduce:
+
+particle count
+parallax
+3D complexity
+continuous movement
+
+Keep:
+
+section reveals
+micro-interactions
+important transitions
+visual hierarchy
+
+The mobile website should still feel premium.
+
+==================================================
+21. TECHNICAL SAFETY
+
+Before modifying anything, create a clear understanding of the existing architecture.
+
+Do not break:
+
+routing
+forms
+buttons
+links
+SEO
+metadata
+analytics
+existing APIs
+wallet functionality
+existing calculations
+existing components
+
+Do not rewrite working business logic just to implement animations.
+
+Keep animation code isolated.
+
+==================================================
+22. SEO
+
+Animations must not negatively affect SEO.
+
+Content must remain present in the DOM.
+
+Do not render important copy exclusively inside Canvas/WebGL.
+
+Do not sacrifice semantic HTML.
+
+==================================================
+23. QUALITY CONTROL
+
+After implementation:
+
+1. Run existing tests.
+2. Run TypeScript checks.
+3. Run production build.
+4. Check every route.
+5. Check desktop.
+6. Check mobile.
+7. Check reduced-motion mode.
+8. Check for console errors.
+9. Check for animation memory leaks.
+10. Check page loading performance.
+
+Fix all issues before finishing.
+
+==================================================
+24. FINAL REVIEW
+
+After completing the work, review the website as if you were a senior product designer.
+
+Ask:
+
+Does this feel premium?
+
+Does the motion guide attention?
+
+Does the website feel like a serious scientific technology company?
+
+Does anything feel like a generic crypto website?
+
+Are there too many animations?
+
+Are any animations distracting?
+
+Does the website still communicate clearly without animation?
+
+If anything feels excessive, simplify it.
+
+The final result should demonstrate:
+
+DESIGN DISCIPLINE > ANIMATION QUANTITY
+
+POLISH > FLASHINESS
+
+CLARITY > EFFECTS
+
+TECHNOLOGY > CRYPTO AESTHETICS
+
+==================================================
+
+FINAL DELIVERABLE
+
+Do not merely describe what could be done.
+
+Implement the animation system directly in the existing project.
+
+At the end, report:
+
+* files changed
+* dependencies added
+* animations implemented
+* performance considerations
+* tests executed
+* build result
+* any remaining issues
+
+Do not claim something was implemented unless it actually exists in the codebase.
