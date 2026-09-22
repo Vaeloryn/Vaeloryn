@@ -346,30 +346,6 @@ export function Home() {
               Vaeloryn
             </motion.h1>
 
-            <motion.div
-              variants={heroFadeInUp}
-              className="mt-2 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-full"
-            >
-              <a href="https://tools.launchllama.co?utm_source=badge&utm_medium=referral" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="https://tools.launchllama.co/featured-badge.png?v=2"
-                  alt="As seen on Launch Llama Newsletter"
-                  width="200"
-                  height="50"
-                  className="block max-w-full"
-                />
-              </a>
-              <a href="https://www.producthunt.com/products/vaeloryn?embed=true&utm_source=badge&utm_medium=badge&utm_campaign=badge-vaeloryn" target="_blank" rel="noopener noreferrer">
-                <img
-                  alt="Vaeloryn - Vaeloryn Future | Product Hunt"
-                  width="200"
-                  height="43"
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1247879&theme=light&t=1789165694702"
-                  className="block max-w-full"
-                />
-              </a>
-            </motion.div>
-
             {/* Divider */}
             <motion.div
               variants={heroFadeInUp}
