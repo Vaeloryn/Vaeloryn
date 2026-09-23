@@ -165,3 +165,17 @@ mtime_ms = 1789479348837
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/2769c5fa-eaec-4362-b9a2-9442d2f950d3/e6e472fe-2bc4-4522-a7ca-e0131c9d77d7"
 storage_version_token = "1789479349841574"
 content_type = "application/pdf"
+
+[[outputs]]
+id = "3BT5xEX_7C-1aI6C3lMnZ"
+uri = "file://artifacts/vaeloryn/public/social-preview.png"
+type = "image"
+title = "Vaeloryn social preview image"
+description = "1200×630 Open Graph/Twitter image for Vaeloryn.com."
+logical_id = "074f7ce2-97a7-44a0-842f-44840bb14fe0"
+content_hash = "sha256:f00a007ac8478f38bc2dedd0ae4fe8df5a6c3b619a06b4e54a51f8a0fe65a44c"
+size = 124223
+mtime_ms = 1790175689198
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:280fb5d1-175f-42a5-a47d-7d0bfce706c9/074f7ce2-97a7-44a0-842f-44840bb14fe0/49e208f3-9c45-4cea-bf3e-452dd2efea11"
+storage_version_token = "1790175833911534"
+content_type = "image/png"
