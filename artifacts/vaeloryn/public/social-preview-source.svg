@@ -1,0 +1,87 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="54" y1="24" x2="1180" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050810"/>
+      <stop offset="0.54" stop-color="#070B16"/>
+      <stop offset="1" stop-color="#03050A"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 312) rotate(90) scale(330 390)">
+      <stop stop-color="#C9A227" stop-opacity="0.13"/>
+      <stop offset="0.44" stop-color="#C9A227" stop-opacity="0.035"/>
+      <stop offset="1" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="92" y1="0" x2="1100" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7C45B"/>
+      <stop offset="0.5" stop-color="#C9A227"/>
+      <stop offset="1" stop-color="#806312"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="tinyGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2.5"/>
+    </filter>
+    <clipPath id="orbitalClip">
+      <rect x="620" y="60" width="500" height="510" rx="250"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#halo)"/>
+
+  <g opacity="0.18" stroke="#91A0B9" stroke-width="1">
+    <path d="M0 126H1200"/>
+    <path d="M0 504H1200"/>
+    <path d="M600 0V630"/>
+  </g>
+
+  <g opacity="0.1" stroke="#C9A227" stroke-width="1">
+    <path d="M72 72H1128"/>
+    <path d="M72 558H1128"/>
+  </g>
+
+  <rect x="72" y="72" width="4" height="486" fill="url(#gold)" opacity="0.9"/>
+
+  <image href="favicon.svg" x="104" y="92" width="64" height="64" preserveAspectRatio="xMidYMid meet"/>
+
+  <text x="196" y="132" fill="#E5E7EB" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="8">VAELORYN</text>
+  <path d="M196 154H350" stroke="url(#gold)" stroke-width="2"/>
+
+  <text x="104" y="330" fill="#F4F5F7" font-family="Inter, Arial, sans-serif" font-size="70" font-weight="400" letter-spacing="9">VAELORYN</text>
+  <text x="108" y="383" fill="#D5B445" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="400" letter-spacing="0.4">Born in South Africa. Built for a global future.</text>
+
+  <g clip-path="url(#orbitalClip)" transform="rotate(-18 870 315)">
+    <ellipse cx="870" cy="315" rx="216" ry="102" stroke="#C9A227" stroke-opacity="0.22" stroke-width="1.5"/>
+    <ellipse cx="870" cy="315" rx="216" ry="102" transform="rotate(62 870 315)" stroke="#C9A227" stroke-opacity="0.16" stroke-width="1"/>
+    <ellipse cx="870" cy="315" rx="216" ry="102" transform="rotate(-62 870 315)" stroke="#C9A227" stroke-opacity="0.12" stroke-width="1"/>
+    <ellipse cx="870" cy="315" rx="270" ry="142" stroke="#9BA9C0" stroke-opacity="0.13" stroke-width="1"/>
+    <path d="M604 315H1136" stroke="#C9A227" stroke-opacity="0.12"/>
+    <path d="M870 44V586" stroke="#9BA9C0" stroke-opacity="0.1"/>
+  </g>
+
+  <circle cx="870" cy="315" r="82" fill="#C9A227" opacity="0.04" filter="url(#softGlow)"/>
+  <circle cx="870" cy="315" r="46" fill="#070B16" stroke="#C9A227" stroke-opacity="0.42" stroke-width="1.5"/>
+  <circle cx="870" cy="315" r="34" fill="#C9A227" fill-opacity="0.045" stroke="#E7C45B" stroke-opacity="0.25"/>
+  <path d="M851 325L870 291L889 325L870 348L851 325Z" stroke="#E7C45B" stroke-opacity="0.75" stroke-width="1.5"/>
+
+  <g fill="#D5B445">
+    <circle cx="690" cy="238" r="3"/>
+    <circle cx="1030" cy="229" r="2.5"/>
+    <circle cx="1077" cy="390" r="3"/>
+    <circle cx="717" cy="423" r="2.5"/>
+  </g>
+  <g fill="#D5B445" opacity="0.45" filter="url(#tinyGlow)">
+    <circle cx="690" cy="238" r="5"/>
+    <circle cx="1030" cy="229" r="4"/>
+    <circle cx="1077" cy="390" r="5"/>
+    <circle cx="717" cy="423" r="4"/>
+  </g>
+
+  <g fill="#93A2BB" opacity="0.55">
+    <circle cx="772" cy="132" r="1.5"/>
+    <circle cx="1008" cy="124" r="1.5"/>
+    <circle cx="1126" cy="306" r="1.5"/>
+    <circle cx="992" cy="505" r="1.5"/>
+    <circle cx="742" cy="510" r="1.5"/>
+  </g>
+</svg>
